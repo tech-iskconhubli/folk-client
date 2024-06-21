@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <>
         <Box>
-
+            Navbar
         </Box>
     </>
   )
