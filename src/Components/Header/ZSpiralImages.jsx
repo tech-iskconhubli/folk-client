@@ -80,7 +80,7 @@ const ZSpiralImages = () => {
         </Heading>
       </Box>
 
-      <Box width="100%">
+      <Box width="100%" mt={'3rem'}>
 
 
         {/* Spiral Container */}
@@ -95,12 +95,12 @@ const ZSpiralImages = () => {
             justifyContent="center"
             alignItems="center"
             flexDirection={["column", "column", "column", "row"]}
-            py={["2rem", "3rem", "4rem", "6rem"]}
-            px={["1rem", "2rem", "3rem", "2rem", "3rem"]}
+            py={["1rem", "2rem", "3rem", "2.5rem"]}
+            px={["1rem", "2rem", "3rem", "2rem", "2.5rem"]}
             gap={['0','5px','5px','30px']}
           >
 
-            {/* Spiral Container 1 Text Box */}
+            {/* Spiral Container 1 Image Box */}
             <Box
             ref={box1}
               w={["100%", "100%", "100%", "50%", "40%"]}
@@ -119,23 +119,21 @@ const ZSpiralImages = () => {
               />
             </Box>
 
-            {/* Spiral Container 1 Image Box */}
+            {/* Spiral Container 1 Text Box */}
             <Box
             ref={box2}
               w={["100%", "100%", "100%", "50%", "60%"]} 
             >
               <Heading
-                fontSize={["1.8rem", "2rem", "2.5rem", "2.3rem", "3rem"]} 
+                fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
                 fontWeight="bold"
-                lineHeight={["2.2rem", "2.5rem", "3rem", "3rem", "3.5rem"]} 
-                mb="1.3rem" 
+                mb={['1rem','1rem','1rem','1rem']} 
                 textAlign={["center", "center", "left", "left"]} 
               >
                 Connect with a Global Community
               </Heading>
               <Text
                 fontSize={["1rem", "1.1rem", "1.2rem", "1.1rem", "1.4rem"]} 
-                lineHeight={["1.6", "1.8", "2", "2", "2.1"]} 
                 textAlign={["center", "center", "left", "left"]} 
               >
                 Join a worldwide family dedicated to spiritual growth and
@@ -157,9 +155,10 @@ const ZSpiralImages = () => {
               "column-reverse",
               "row",
             ]}
-            py={["2rem", "3rem", "4rem", "6rem"]}
+            py={["1rem", "2rem", "3rem", "2.5rem"]}
             px={["1rem", "2rem", "3rem", "2rem", "3rem"]}
             gap={['0','5px','5px','30px']}
+            // border={'2px solid red'}
           >
 
             {/* Spiral Container 2 Text Box */}
@@ -168,17 +167,15 @@ const ZSpiralImages = () => {
               w={["100%", "100%", "100%", "50%", "60%"]} 
             >
               <Heading
-                fontSize={["1.8rem", "2rem", "2.5rem", "2.3rem", "3rem"]} 
+                fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
                 fontWeight="bold"
-                lineHeight={["2.2rem", "2.5rem", "3rem", "3rem", "3.5rem"]}
-                mb="1.3rem" 
+                mb={['1rem','1rem','1rem','1rem']} 
                 textAlign={["center", "center", "left", "left"]}
               >
                 Find Purpose Through Service
               </Heading>
               <Text
                 fontSize={["1rem", "1.1rem", "1.2rem", "1.1rem", "1.4rem"]} 
-                lineHeight={["1.6", "1.8", "2", "2", "2.1"]} 
                 textAlign={["center", "center", "left", "left"]} 
               >
                 Discover profound fulfillment through selfless acts of kindness
@@ -216,9 +213,10 @@ const ZSpiralImages = () => {
             justifyContent="center"
             alignItems="center"
             flexDirection={["column", "column", "column", "row"]}
-            py={["2rem", "3rem", "4rem", "6rem"]}
+            py={["1rem", "2rem", "3rem", "2.5rem"]}
             px={["1rem", "2rem", "3rem", "2rem", "3rem"]}
             gap={['0','5px','5px','30px']}
+            // border={'2px solid red'}
           >
 
             {/* Spiral Continer 3 Image Box */}
@@ -246,17 +244,15 @@ const ZSpiralImages = () => {
               w={["100%", "100%", "100%", "50%", "60%"]} 
             >
               <Heading
-                fontSize={["1.8rem", "2rem", "2.5rem", "2.3rem", "3rem"]} 
-                fontWeight="bold"
-                lineHeight={["2.2rem", "2.5rem", "3rem", "3rem", "3.5rem"]} 
-                mb="1.3rem" 
+                 fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
+                 fontWeight="bold"
+                 mb={['1rem','1rem','1rem','1rem']} 
                 textAlign={["center", "center", "left", "left"]} 
               >
                 Unlock the Power of Meditation
               </Heading>
               <Text
                 fontSize={["1rem", "1.1rem", "1.2rem", "1.1rem", "1.4rem"]} 
-                lineHeight={["1.6", "1.8", "2", "2", "2.1"]} 
                 textAlign={["center", "center", "left", "left"]} 
               >
                 Harness the power of mantra meditation to focus your mind,
