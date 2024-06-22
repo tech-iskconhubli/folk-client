@@ -68,13 +68,17 @@ const ZSpiralImages = () => {
   }, []);
 
   return (
-    <Box my="2.5rem" overflowX={"hidden"}>
+    <Box my="2.5rem" overflowX={"hidden"} >
       {/* Heading */}
-      <Box textAlign={"center"}>
+      <Box textAlign={"center"}
+      border={"2px solid transparent"}
+      m={["0px","0px","40px","40px"]}
+      >
         <Heading
           className="title"
-          fontWeight="bold"
-          fontSize={["1.5rem", "2rem", "2rem", "6rem"]}
+          fontWeight="500"
+          fontSize={["2rem", "2rem", "2rem", "7rem"]}
+          
         >
           WE HELP YOU
         </Heading>
@@ -84,7 +88,7 @@ const ZSpiralImages = () => {
 
 
         {/* Spiral Container */}
-        <Container w="90%" maxW="1500px" marginX="auto">
+        <Container w={["100%","100%","90%","90%"]} maxW="1500px" marginX="auto">
 
 
 
@@ -97,25 +101,26 @@ const ZSpiralImages = () => {
             flexDirection={["column", "column", "column", "row"]}
             py={["1rem", "2rem", "3rem", "2.5rem"]}
             px={["1rem", "2rem", "3rem", "2rem", "2.5rem"]}
-            gap={['0','5px','5px','30px']}
-            py={["2rem", "3rem", "4rem", "6rem"]}
-            px={["1rem", "2rem", "3rem", "2rem", "3rem"]}
-            gap={['0','5px','5px','10px']}
+            gap={['0','5px','5px','0px']}
+            pY={["2rem", "3rem", "4rem", "6rem"]}
+            pX={["1rem", "2rem", "3rem", "2rem", "3rem"]}
           >
 
             {/* Spiral Container 1 Image Box */}
             <Box
             ref={box1}
-              w={["100%", "100%", "100%", "50%", "40%"]}
+             boxSizing="border-box"
+            padding={["0px","0px","20px","20px"]}
+              w={["100%", "100%", "100%", "50%", "53%"]}
               mb={["1rem", "2rem", "2rem", "0"]}
               mr={["0", "0", "0", "2rem"]}
-              borderRadius="md"
+              borderRadius="10px"
               overflow="hidden"
             >
               <Image
                 src="https://t4.ftcdn.net/jpg/06/30/90/99/240_F_630909929_xHWmhNMPob3F5JDJE9Cfdjg6d80WBv6S.jpg"
                 alt="Connecting Community Image"
-                borderRadius="md"
+                borderRadius="10px"
                 objectFit="cover" 
                 w="100%"
                 h="100%"
@@ -123,21 +128,30 @@ const ZSpiralImages = () => {
             </Box>
 
             {/* Spiral Container 1 Text Box */}
-            <Box
+            <Box 
+           
             ref={box2}
+             boxSizing="border-box"
+            padding={["0px","0px","20px","20px"]}
               w={["100%", "100%", "100%", "50%", "60%"]} 
             >
               <Heading
-                fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
-                fontWeight="bold"
-                mb={['1rem','1rem','1rem','1rem']} 
-                textAlign={["center", "center", "left", "left"]} 
+              sx={{
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+              }}
+                fontSize={["1.5rem", "2rem", "2.2rem","3.3rem","3.3rem"]} 
+                fontWeight={["600","600","500","500"]}
+                mb={['1rem','1rem','1rem','1.5rem']} 
+                textAlign={["left", "left", "left", "left"]} 
               >
                 Connect with a Global Community
               </Heading>
               <Text
-                fontSize={["1rem", "1.1rem", "1.2rem", "1.1rem", "1.4rem"]} 
-                textAlign={["center", "center", "left", "left"]} 
+               sx={{
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+              }}
+                fontSize={["0.9rem", "1rem", "1.2rem", "1.1rem", "1.1rem"]} 
+                textAlign={["left", "left", "left", "left"]} 
               >
                 Join a worldwide family dedicated to spiritual growth and
                 community service. Find support, friendship, and inspiration by
@@ -167,19 +181,28 @@ const ZSpiralImages = () => {
             {/* Spiral Container 2 Text Box */}
             <Box
             ref={box3}
+             boxSizing="border-box"
+            padding={["0px","0px","20px","20px"]}
               w={["100%", "100%", "100%", "50%", "60%"]} 
             >
               <Heading
-                fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
-                fontWeight="bold"
-                mb={['1rem','1rem','1rem','1rem']} 
-                textAlign={["center", "center", "left", "left"]}
+               sx={{
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+              }}
+                fontSize={["1.5rem", "2rem", "2.2rem","3.3rem","3.3rem"]} 
+                fontWeight={["600","600","500","500"]}
+                mb={['1rem','1rem','1rem','1.5rem']} 
+                textAlign={["left", "left", "left", "left"]}
               >
                 Find Purpose Through Service
               </Heading>
               <Text
-                fontSize={["1rem", "1.1rem", "1.2rem", "1.1rem", "1.4rem"]} 
-                textAlign={["center", "center", "left", "left"]} 
+               sx={{
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+              }}
+              
+                fontSize={["0.9rem", "1rem", "1.2rem", "1.1rem", "1.1rem"]} 
+                textAlign={["left", "left", "left", "left"]} 
               >
                 Discover profound fulfillment through selfless acts of kindness
                 and community service. Engage in volunteering, food
@@ -191,16 +214,18 @@ const ZSpiralImages = () => {
             {/* Spiral Container 2 Image Box */}
             <Box
             ref={box4}
-              w={["100%", "100%", "100%", "50%", "40%"]}
+             boxSizing="border-box"
+            padding={["0px","0px","20px","20px"]}
+              w={["100%", "100%", "100%", "50%", "53%"]}
               mb={["1rem", "2rem", "2rem", "0"]}
               mr={["0", "0", "0", "2rem"]}
-              borderRadius="md"
+              borderRadius="10px"
               overflow="hidden"
             >
               <Image
                 src="https://t4.ftcdn.net/jpg/06/30/90/99/240_F_630909929_xHWmhNMPob3F5JDJE9Cfdjg6d80WBv6S.jpg"
                 alt="Connecting Community Image"
-                borderRadius="md"
+                borderRadius="10px"
                 objectFit="cover" 
                 w="100%"
                 h="100%"
@@ -225,16 +250,18 @@ const ZSpiralImages = () => {
             {/* Spiral Continer 3 Image Box */}
             <Box
             ref={box5}
-              w={["100%", "100%", "100%", "50%", "40%"]}
+             boxSizing="border-box"
+            padding={["0px","0px","20px","20px"]}
+              w={["100%", "100%", "100%", "50%", "53%"]}
               mb={["1rem", "2rem", "2rem", "0"]}
               mr={["0", "0", "0", "2rem"]}
-              borderRadius="md"
+              borderRadius="10px"
               overflow="hidden"
             >
               <Image
                 src="https://t4.ftcdn.net/jpg/06/30/90/99/240_F_630909929_xHWmhNMPob3F5JDJE9Cfdjg6d80WBv6S.jpg"
                 alt="Connecting Community Image"
-                borderRadius="md"
+                borderRadius="10px"
                 objectFit="cover" 
                 w="100%"
                 h="100%"
@@ -244,19 +271,28 @@ const ZSpiralImages = () => {
             {/* Spiral Container 3 Text Box */}
             <Box
             ref={box6}
+             boxSizing="border-box"
+            padding={["0px","0px","20px","20px"]}
               w={["100%", "100%", "100%", "50%", "60%"]} 
             >
               <Heading
-                 fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
-                 fontWeight="bold"
-                 mb={['1rem','1rem','1rem','1rem']} 
-                textAlign={["center", "center", "left", "left"]} 
+               sx={{
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+              }}
+                 fontSize={["1.5rem", "2rem", "2.2rem","3.3rem","3.3rem"]} 
+                 fontWeight={["600","600","500","500"]}
+                 mb={['1rem','1rem','1rem','1.5rem']} 
+                textAlign={["left", "left", "left", "left"]} 
               >
                 Unlock the Power of Meditation
               </Heading>
               <Text
-                fontSize={["1rem", "1.1rem", "1.2rem", "1.1rem", "1.4rem"]} 
-                textAlign={["center", "center", "left", "left"]} 
+               sx={{
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+              }}
+              
+                fontSize={["0.9rem", "1rem", "1.2rem", "1.1rem", "1.1rem"]} 
+                textAlign={["left", "left", "left", "left"]} 
               >
                 Harness the power of mantra meditation to focus your mind,
                 purify your heart, and connect with the divine. Regular practice
