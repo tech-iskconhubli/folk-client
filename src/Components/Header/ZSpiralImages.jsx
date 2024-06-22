@@ -133,7 +133,7 @@ const ZSpiralImages = () => {
                 sx={{
                   textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
                 }}
-                fontSize={["1.5rem", "2rem", "2.2rem", "2.5rem", "3.3rem"]}
+                fontSize={["1.5rem", "2rem", "2.2rem", "2.5rem", "3.2rem"]}
                 fontWeight={["600", "600", "500", "500"]}
                 mb={["1rem", "1rem", "1rem", "1.5rem"]}
                 textAlign={["left", "left", "left", "left"]}
@@ -183,7 +183,7 @@ const ZSpiralImages = () => {
                 sx={{
                   textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
                 }}
-                fontSize={["1.5rem", "2rem", "2.2rem", "2.5rem", "3.3rem"]}
+                fontSize={["1.5rem", "2rem", "2.2rem", "2.5rem", "3.2rem"]}
                 fontWeight={["600", "600", "500", "500"]}
                 mb={["1rem", "1rem", "1rem", "1.5rem"]}
                 textAlign={["left", "left", "left", "left"]}
@@ -272,7 +272,7 @@ const ZSpiralImages = () => {
                 sx={{
                   textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
                 }}
-                fontSize={["1.5rem", "2rem", "2.2rem", "2.5rem", "3.3rem"]}
+                fontSize={["1.5rem", "2rem", "2.2rem", "2.5rem", "3.2rem"]}
                 fontWeight={["600", "600", "500", "500"]}
                 mb={["1rem", "1rem", "1rem", "1.5rem"]}
                 textAlign={["left", "left", "left", "left"]}
