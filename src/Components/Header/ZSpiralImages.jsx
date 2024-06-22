@@ -74,13 +74,13 @@ const ZSpiralImages = () => {
         <Heading
           className="title"
           fontWeight="bold"
-          fontSize={["1.5rem", "2rem", "2rem", "6rem"]}
+          fontSize={["1.5rem", "2rem", "3.5rem",'5rem', "6rem"]}
         >
           WE HELP YOU
         </Heading>
       </Box>
 
-      <Box width="100%" mt={'3rem'}>
+      <Box width="100%" mt={['1rem','1rem','1rem','3rem']}>
 
 
         {/* Spiral Container */}
@@ -127,7 +127,7 @@ const ZSpiralImages = () => {
               <Heading
                 fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
                 fontWeight="bold"
-                mb={['1rem','1rem','1rem','1rem']} 
+                mb={['1rem','1rem','1rem','1rem','3rem']} 
                 textAlign={["center", "center", "left", "left"]} 
               >
                 Connect with a Global Community
@@ -169,7 +169,7 @@ const ZSpiralImages = () => {
               <Heading
                 fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
                 fontWeight="bold"
-                mb={['1rem','1rem','1rem','1rem']} 
+                mb={['1rem','1rem','1rem','1rem','3rem']} 
                 textAlign={["center", "center", "left", "left"]}
               >
                 Find Purpose Through Service
@@ -246,7 +246,7 @@ const ZSpiralImages = () => {
               <Heading
                  fontSize={["1.8rem", "2rem", "2.2rem","3.2rem","3.5rem"]} 
                  fontWeight="bold"
-                 mb={['1rem','1rem','1rem','1rem']} 
+                 mb={['1rem','1rem','1rem','1rem','3rem']} 
                 textAlign={["center", "center", "left", "left"]} 
               >
                 Unlock the Power of Meditation
