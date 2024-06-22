@@ -16,7 +16,7 @@ const colors = {
 };
 const fonts = {
   heading: "'Abel', sans-serif",
-  body: "'Actor', sans-serif",
+  body: "'Poppins', sans-serif",
 };
 
 const theme = extendTheme({ colors, fonts });

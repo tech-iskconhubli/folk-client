@@ -97,7 +97,7 @@ const ZSpiralImages = () => {
             flexDirection={["column", "column", "column", "row"]}
             py={["2rem", "3rem", "4rem", "6rem"]}
             px={["1rem", "2rem", "3rem", "2rem", "3rem"]}
-            gap={['0','5px','5px','30px']}
+            gap={['0','5px','5px','10px']}
           >
 
             {/* Spiral Container 1 Text Box */}
