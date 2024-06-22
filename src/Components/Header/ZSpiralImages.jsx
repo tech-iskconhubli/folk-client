@@ -98,6 +98,9 @@ const ZSpiralImages = () => {
             py={["1rem", "2rem", "3rem", "2.5rem"]}
             px={["1rem", "2rem", "3rem", "2rem", "2.5rem"]}
             gap={['0','5px','5px','30px']}
+            py={["2rem", "3rem", "4rem", "6rem"]}
+            px={["1rem", "2rem", "3rem", "2rem", "3rem"]}
+            gap={['0','5px','5px','10px']}
           >
 
             {/* Spiral Container 1 Image Box */}
