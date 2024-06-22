@@ -10,8 +10,8 @@ import { store } from './Redux/store';
 import theme from "./theme"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ChakraBaseProvider>
-    <BrowserRouter theme={theme}>
+  <ChakraBaseProvider theme={theme}>
+    <BrowserRouter >
         <Provider store={store}>
             <App />
         </Provider>
