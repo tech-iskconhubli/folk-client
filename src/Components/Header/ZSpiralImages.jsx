@@ -296,7 +296,7 @@ const ZSpiralImages = () => {
               >
                 Harness the power of mantra meditation to focus your mind,
                 purify your heart, and connect with the divine. Regular practice
-                leads to a calm and centered state of being.
+                leads to a calm and centered state of being.
               </Text>
             </Box>
 
@@ -309,4 +309,3 @@ const ZSpiralImages = () => {
 };
 
 export default ZSpiralImages;
-
