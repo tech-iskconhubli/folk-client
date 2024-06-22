@@ -80,7 +80,7 @@ const ZSpiralImages = () => {
           fontSize={["2rem", "2rem", "2rem", "7rem"]}
           
         >
-          WE HELP YOU
+           WE HELP YOU
         </Heading>
       </Box>
 
@@ -92,7 +92,7 @@ const ZSpiralImages = () => {
 
 
 
-          {/*  Spiral Section One  */}
+        
           <Flex
           ref={container1}
             width="100%"
@@ -106,7 +106,7 @@ const ZSpiralImages = () => {
             pX={["1rem", "2rem", "3rem", "2rem", "3rem"]}
           >
 
-            {/* Spiral Container 1 Image Box */}
+          
             <Box
             ref={box1}
              boxSizing="border-box"
@@ -154,7 +154,7 @@ const ZSpiralImages = () => {
                 textAlign={["left", "left", "left", "left"]} 
               >
                 Join a worldwide family dedicated to spiritual growth and
-                community service. Find support, friendship, and inspiration by
+                community service. Find suppot, friendship, and inspiration by
                 participating in local temple activities or connecting online.
               </Text>
             </Box>
