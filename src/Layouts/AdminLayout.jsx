@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 const AdminLayout = () => {
   return (
     <>
-      <Box>admin dashboard</Box>
+      <Box color={40}>admin dashboard</Box>
       <Outlet/>
     </>
   )
