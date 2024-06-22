@@ -1,9 +1,17 @@
-import React from 'react'
+
+import "../../Styles/Header.css"
+import Carousel from './Carousel'
+import ZSpiralImages from "./ZSpiralImages"
 
 const Header = () => {
-  return (
-    <div>Header</div>
-  )
+ 
+
+     return(
+      <>
+      <Carousel />
+      <ZSpiralImages />
+      </>
+     )
 }
 
 export default Header
