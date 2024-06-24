@@ -1,8 +1,6 @@
-
 import './App.css';
 
 import AllRouts from './Routs/AllRouts';
-
 
 function App() {
   return (
