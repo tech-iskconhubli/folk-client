@@ -91,6 +91,8 @@ const ZSpiralImages = () => {
           maxW="1500px"
           marginX="auto"
         >
+
+          {/* Spiral Container One */}
           <Flex
             ref={container1}
             width="100%"
@@ -226,7 +228,7 @@ const ZSpiralImages = () => {
             </Box>
           </Flex>
 
-          {/* Spiral Container 3 */}
+          {/* Spiral Container Three */}
 
           <Flex
             ref={container3}
@@ -292,6 +294,7 @@ const ZSpiralImages = () => {
               </Text>
             </Box>
           </Flex>
+
         </Container>
       </Box>
     </Box>
