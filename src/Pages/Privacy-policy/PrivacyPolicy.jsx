@@ -28,8 +28,8 @@ useEffect(() => {
     <>
       <Box
         pt="50px"
-        pl={{ base: "50px", md: "100px", lg: "300px", xl: "400px" }}
-        pr={{ base: "50px", md: "100px", lg: "300px", xl: "400px" }}
+        pl={{ base: "50px", md: "80px", lg: "200px", xl: "300px" }}
+        pr={{ base: "50px", md: "80px", lg: "200px", xl: "300px" }}
         style={{
           textAlign: "justify",
           textJustify: "inter-word",
