@@ -2,7 +2,7 @@ import { Box ,Button,Heading,Image,Input,Stack,Text} from '@chakra-ui/react'
 import React from 'react'
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
-import {  useLocation } from 'react-router-dom';
+import image from "./download.png"
 const AllForms = () => {
    
   return (
@@ -116,7 +116,7 @@ const AllForms = () => {
                     </Box>
                 </Box>
                 <Box width={["","","","40%"]}>
-                <Image display={["none","none","none","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src="https://github-production-user-asset-6210df.s3.amazonaws.com/70562454/342299066-48e199fb-cdff-4032-9c2c-ce77a2354060.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240624%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240624T101643Z&X-Amz-Expires=300&X-Amz-Signature=73195aae0b3eed4c868431f2c777abf90300d51156c79209d27512957b456b55&X-Amz-SignedHeaders=host&actor_id=70562454&key_id=0&repo_id=676630386"/>
+                <Image display={["none","none","none","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src={image}/>
                 </Box>
             </Box>
         </Box>
