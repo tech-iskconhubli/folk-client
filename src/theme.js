@@ -17,6 +17,7 @@ const colors = {
 const fonts = {
   heading: "'Abel', sans-serif",
   body: "'Poppins', sans-serif",
+  forms:"muli"
 };
 
 const theme = extendTheme({ colors, fonts });
