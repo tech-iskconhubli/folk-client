@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
+import { FaChevronDown } from "react-icons/fa6";
 import {
   Box,
   Menu,
@@ -187,6 +187,14 @@ const Navbar = () => {
       </Box>
     </Box>
   );
-};
+
+  return (
+    <>
+        <Box >
+            Navbar
+        </Box>
+    </>
+  )
+}
 
 export default Navbar;
