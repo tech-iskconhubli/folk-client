@@ -187,14 +187,6 @@ const Navbar = () => {
       </Box>
     </Box>
   );
-
-  return (
-    <>
-        <Box >
-            Navbar
-        </Box>
-    </>
-  )
 }
 
 export default Navbar;
