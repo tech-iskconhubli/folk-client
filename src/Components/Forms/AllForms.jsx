@@ -2,7 +2,9 @@ import { Box ,Button,Heading,Image,Input,Stack,Text} from '@chakra-ui/react'
 import React from 'react'
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
+import {  useLocation } from 'react-router-dom';
 const AllForms = () => {
+   
   return (
     <>
         <Box border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 17%"]} fontFamily={"form"}>
@@ -16,7 +18,8 @@ const AllForms = () => {
                     <Box boxSizing='border-box' p={["","","",""]}>
                         <Heading fontFamily={"form"} fontWeight={"500"} m={"30px 0px 15px 0px"}>Yoga For Happiness</Heading>
                         <hr  style={{width:'50px', backgroundColor:"blue",padding:'2px'}}/>
-                        <Image mt={["","","","40px"]}  width={"460px"} src='https://s3.ap-south-1.amazonaws.com/rzp-prod-merchant-assets/payment-link/description/whatsapp%20image%202023-07-14%20at%2013.50.05_mdc55alb71v3qv.jpeg'/>
+                        <Image mt={["","","","40px"]}  width={"460px"} src={"https://s3.ap-south-1.amazonaws.com/rzp-prod-merchant-assets/payment-link/description/whatsapp%20image%202023-07-14%20at%2013.50.05_mdc55alb71v3qv.jpeg"}/>
+                        
                         <Box width={["","","","500px"]}>
                             <Text m={"30px 0px 15px 0px"} fontSize={"22px"} fontWeight={"600"}>Yoga for Happiness</Text>
                         <i>Doesn’t this statement look promising? </i>
@@ -113,7 +116,7 @@ const AllForms = () => {
                     </Box>
                 </Box>
                 <Box width={["","","","40%"]}>
-                <Image display={["none","none","block","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src="https://github-production-user-asset-6210df.s3.amazonaws.com/70562454/342214933-ec965229-cdf3-4c90-88e3-14a2d87c502d.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240624%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240624T054702Z&X-Amz-Expires=300&X-Amz-Signature=99af3bae129a1a1c713d60d88a36f83d45cbaa16eca1355e511e84d1b38e918e&X-Amz-SignedHeaders=host&actor_id=70562454&key_id=0&repo_id=817129660"/>
+                <Image display={["none","none","none","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src="https://github-production-user-asset-6210df.s3.amazonaws.com/70562454/342214933-ec965229-cdf3-4c90-88e3-14a2d87c502d.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240624%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240624T054702Z&X-Amz-Expires=300&X-Amz-Signature=99af3bae129a1a1c713d60d88a36f83d45cbaa16eca1355e511e84d1b38e918e&X-Amz-SignedHeaders=host&actor_id=70562454&key_id=0&repo_id=817129660"/>
                 </Box>
             </Box>
         </Box>
