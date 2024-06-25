@@ -13,8 +13,8 @@ const Home = () => {
    <Carousel />
    <ZSpiralImages />
    <EmpoweredSection />
-   <BigPictureSection />
    <ImageGallery />
+   <BigPictureSection />
    <Testimonials />
    </>
   )
