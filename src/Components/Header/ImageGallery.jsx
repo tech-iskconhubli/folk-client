@@ -50,10 +50,11 @@ const ImageGallery = () => {
         marginX="auto"
         my="1.5rem"
         padding="2rem"
+       
       >
         {/* Heading */}
            <Box ref={heading} py={['10px','20px','30px']} textAlign={'center'}>
-           <Heading fontFamily={"body"} fontSize={['2rem','2.5rem','3rem','4rem']} mb={['2.2rem','2.2rem','3rem']} display={'inline-block'} color={theme.colors.col.secondary} fontWeight="400">
+           <Heading fontFamily={"body"} fontSize={['2rem','2.5rem','3rem','4rem']} mb={['2.2rem','2.2rem','3rem']} display={'inline-block'}  fontWeight="400">
           A GLANCE INTO THE <br /> FOLK WORLD
           </Heading>
         </Box>
@@ -62,6 +63,7 @@ const ImageGallery = () => {
 
 {/* Grid Image Gallery */}
         <Box
+         bgColor={theme.colors.col.secondary} 
           ref={gridContainer}
           display={"grid"}
           gridTemplateColumns={{

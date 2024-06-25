@@ -79,10 +79,11 @@ const ZSpiralImages = () => {
         m={["0px", "0px", "40px", "40px"]}
       >
         <Heading
+        fontFamily={"body"}
         color={theme.colors.col.secondary}
           className="title"
-          fontWeight="700"
-          fontSize={["2rem", "2rem", "3rem", "7rem"]}
+          fontWeight="400"
+          fontSize={["2rem", "2rem", "3rem", "5rem"]}
         >
           WE HELP YOU
         </Heading>
