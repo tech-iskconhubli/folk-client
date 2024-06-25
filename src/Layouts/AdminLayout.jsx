@@ -1,12 +1,16 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import AdminNavbar from '../Components/AdminNavbar/AdminNavbar'
 
 const AdminLayout = () => {
   return (
     <>
-      <Box >admin dashboard</Box>
-      <Outlet/>
+      <Box border={"2px solid transprent"} display={"flex"}>
+        <Box border={"2px solid transprent"} width={"18%"}><AdminNavbar/></Box>
+        <Box border={"2px solid transprent"} width={"82%"}>  <Outlet/>  </Box>
+      </Box>
+    
     </>
   )
 }
