@@ -28,8 +28,8 @@ useEffect(() => {
     <>
       <Box
         pt="50px"
-        pl={{ base: "50px", md: "100px", lg: "300px", xl: "400px" }}
-        pr={{ base: "50px", md: "100px", lg: "300px", xl: "400px" }}
+        pl={{ base: "10px", md: "100px", lg: "200px", xl: "300px" }}
+        pr={{ base: "10px", md: "100px", lg: "200px", xl: "300px" }}
         style={{
           textAlign: "justify",
           textJustify: "inter-word",
@@ -44,7 +44,7 @@ useEffect(() => {
         style={{transition:'all 0.5s ease-out'}} onClick={scrollToTop}><FaChevronUp style={{color:'white',fontSize:'30px',margin:'auto',paddingTop:'15px'}} />
         </Box>
         )}
-        <Text style={{fontSize:'56px',fontFamily:'Abel', fontWeight:'700' ,lineHeight:'3.2rem'}}> Website Terms and Conditions of Use</Text>
+        <Text fontSize={{base:'40px',md:'56px',xl:'56px'}} fontWeight={{base:'800',md:'700',xl:'700'}} style={{fontFamily:'Abel'}}>Terms and Conditions</Text>
         <br/><br/>
         <Box as="terms">
           <span style={{fontSize:'30px',fontFamily:'Abel' ,fontWeight:'700'}}>Terms</span>

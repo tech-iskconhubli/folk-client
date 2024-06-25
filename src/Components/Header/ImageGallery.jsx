@@ -1,14 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import { Box, Container, Image, Grid, GridItem, Heading } from "@chakra-ui/react";
+import React, {  useRef } from "react";
+import { Box, Container, Image,  Heading } from "@chakra-ui/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import theme from "../../theme"
+import { useTheme } from "@emotion/react";
 gsap.registerPlugin(ScrollTrigger);
 const ImageGallery = () => {
+  const theme = useTheme()
   const gridContainer = useRef(null);
   const heading = useRef();
 
 // Animation for heading
+
   useGSAP(()=>{
      gsap.from(heading.current,{
         y:100,
@@ -49,7 +53,7 @@ const ImageGallery = () => {
       >
         {/* Heading */}
            <Box ref={heading} py={['10px','20px','30px']} textAlign={'center'}>
-           <Heading fontSize={['2rem','2.5rem','3rem','4rem']} mb={['2.2rem','2.2rem','4rem']} display={'inline-block'} fontWeight="900">
+           <Heading fontSize={['2rem','2.5rem','3rem','4rem']} mb={['2.2rem','2.2rem','3rem']} display={'inline-block'} color={theme.colors.col.secondary} fontWeight="600">
           A GLANCE INTO THE <br /> FOLK WORLD
           </Heading>
         </Box>

@@ -7,7 +7,7 @@ const AllForms = () => {
    
   return (
     <>
-        <Box border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 17%"]} fontFamily={"form"}>
+        <Box border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0%","0px 0px 0px 17%"]} fontFamily={"form"}>
             <Box border={"2px solid transparent"} display={["","","","flex"]} gap={"20px"} >
                 <Box width={"0.2%"} height={"auto"} bgColor={"lightblue"}></Box>
                 <Box position={"related"} width={["","","","60%"]} boxSizing='border-box' p={["","","","20px 0px 0px 20px"]}>
@@ -52,7 +52,7 @@ const AllForms = () => {
                         <Text fontSize={"15px"} mb={"30px"}>You agree to share information entered on this page with Hare Krishna Movement India (owner of this page) and Razorpay, adhering to applicable laws.</Text>
                         </Box>
                     </Box>
-                    <Box  boxShadow='lg' p='6' rounded='md' bg='white' top={["","","","90px"]} bottom={["-730px","","",""]} right={["","","","330px"]} position={"absolute"} border={"2px solid transprent"} height={"700px"} width={["100%","","","500px"]}>
+                    <Box  boxShadow='lg' p='6' rounded='md' bg='white' top={["","","","90px"]} bottom={["-730px","","","300px",""]} right={["","","","10px","330px"]} position={"absolute"} border={"2px solid transprent"} height={"700px"} width={["100%","","","500px"]}>
 
                         <Box position={"related"}>
                         <Heading fontSize={"19px"} fontFamily={"form"} fontWeight={"600"} m={"0px 0px 10px 0px"}>Payment Details</Heading>
@@ -116,7 +116,7 @@ const AllForms = () => {
                     </Box>
                 </Box>
                 <Box width={["","","","40%"]}>
-                <Image display={["none","none","none","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src={image}/>
+                <Image display={["none","none","none","block","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src={image}/>
                 </Box>
             </Box>
         </Box>

@@ -2,11 +2,14 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import React, { useRef } from 'react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import theme from "../../theme"
 import { Box, Container, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { useTheme } from '@emotion/react';
 gsap.registerPlugin(ScrollTrigger);
 
 const BigPictureSection = () => {
   
+  const theme  = useTheme()
   
   let counterBox1 = useRef(null);
   let counterBox2 = useRef(null);
@@ -83,7 +86,7 @@ const BigPictureSection = () => {
   },[])
 
   return (
-    <Box bg='grey'>
+    <Box bgColor={theme.colors.col.secondary}>
 
     <Container
     w={["100%", "100%", "90%", "90%"]}

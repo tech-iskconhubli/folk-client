@@ -28,8 +28,8 @@ useEffect(() => {
     <>
       <Box
         pt="50px"
-        pl={{ base: "50px", md: "80px", lg: "200px", xl: "300px" }}
-        pr={{ base: "50px", md: "80px", lg: "200px", xl: "300px" }}
+        pl={{ base: "10px", md: "100px", lg: "200px", xl: "300px" }}
+        pr={{ base: "10px", md: "100px", lg: "200px", xl: "300px" }}
         style={{
           textAlign: "justify",
           textJustify: "inter-word",
@@ -45,16 +45,17 @@ useEffect(() => {
         </Box>
         )}
         <Box as="privacy-policy">
-          <span
+          <Text
+          fontSize={{base:'30px',md:'56px',xl:'56px'}}
+          fontWeight={{base:'800',md:'700',xl:'700'}}
             style={{
               fontSize: "56px",
-              color: "#525252",
-              fontWeight: "700",
+              color: "black",
               fontFamily: "Abel",
             }}
           >
             PRIVACY POLICY
-          </span>
+          </Text>
           <br/><br/>
           <Text>
             <span style={{ color: "black", fontWeight: "bold" }}>

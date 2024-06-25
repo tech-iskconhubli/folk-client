@@ -3,6 +3,8 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import theme from "../../theme"
+import { useTheme } from "@emotion/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const ZSpiralImages = () => {
@@ -16,6 +18,7 @@ const ZSpiralImages = () => {
   const box5 = useRef(null);
   const box6 = useRef(null);
 
+  const theme = useTheme()
   //  Animation for Spiral Container 1
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -76,8 +79,9 @@ const ZSpiralImages = () => {
         m={["0px", "0px", "40px", "40px"]}
       >
         <Heading
+        color={theme.colors.col.secondary}
           className="title"
-          fontWeight="500"
+          fontWeight="700"
           fontSize={["2rem", "2rem", "3rem", "7rem"]}
         >
           WE HELP YOU
@@ -114,12 +118,12 @@ const ZSpiralImages = () => {
               overflow="hidden"
             >
               <Image
-                src="https://t4.ftcdn.net/jpg/06/30/90/99/240_F_630909929_xHWmhNMPob3F5JDJE9Cfdjg6d80WBv6S.jpg"
+                src="https://backofficeapi.neuro-flash.com/api/v1/image-generations/e574979ecc19b5b4915ee1c79f8adca2/view"
                 alt="Connecting Community Image"
                 borderRadius="10px"
                 objectFit="cover"
                 w="100%"
-                h="100%"
+                h="300px"
               />
             </Box>
 
@@ -218,12 +222,12 @@ const ZSpiralImages = () => {
               overflow="hidden"
             >
               <Image
-                src="https://t4.ftcdn.net/jpg/06/30/90/99/240_F_630909929_xHWmhNMPob3F5JDJE9Cfdjg6d80WBv6S.jpg"
+                src="https://backofficeapi.neuro-flash.com/api/v1/image-generations/68d91471a062680f289f277df837a866/view"
                 alt="Connecting Community Image"
                 borderRadius="10px"
                 objectFit="cover"
                 w="100%"
-                h="100%"
+                h="300px"
               />
             </Box>
           </Flex>
@@ -253,12 +257,12 @@ const ZSpiralImages = () => {
               overflow="hidden"
             >
               <Image
-                src="https://t4.ftcdn.net/jpg/06/30/90/99/240_F_630909929_xHWmhNMPob3F5JDJE9Cfdjg6d80WBv6S.jpg"
+                src="https://backofficeapi.neuro-flash.com/api/v1/image-generations/b424f29a9ab23f3992c2180733358e74/view"
                 alt="Connecting Community Image"
                 borderRadius="10px"
                 objectFit="cover"
                 w="100%"
-                h="100%"
+                h="300px"
               />
             </Box>
 
