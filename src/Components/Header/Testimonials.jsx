@@ -1,0 +1,335 @@
+import {
+    Avatar,
+  Box,
+  Card,
+  CardBody,
+  CardFooter,
+  Container,
+  Heading,
+  SimpleGrid,
+} from "@chakra-ui/react";
+import { RiDoubleQuotesR } from "react-icons/ri";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
+gsap.registerPlugin(ScrollTrigger);
+
+const Testimonials = () => {
+
+    // Card Container One Ref
+    const cardContainerOne = useRef(null);
+    const cardMatterOne = useRef(null);
+    const cardAvatarOne = useRef(null);
+    const cardQuoteOne = useRef(null);
+
+    // Card Container Two Ref
+    const cardContainerTwo = useRef(null);
+    const cardMatterTwo = useRef(null);
+    const cardAvatarTwo = useRef(null);
+    const cardQuoteTwo = useRef(null);
+
+    // Card Contianer Three Ref
+    const cardContainerThree = useRef(null);
+    const cardMatterThree = useRef(null);
+    const cardAvatarThree = useRef(null);
+    const cardQuoteThree = useRef(null);
+
+//   Card Contianer Four Ref
+    const cardContainerFour = useRef(null);
+    const cardMatterFour = useRef(null);
+    const cardAvatarFour = useRef(null);
+    const cardQuoteFour = useRef(null);
+
+
+    // Card Container One 
+    useGSAP(()=>{
+         const tl = gsap.timeline({
+            scrollTrigger:{
+                trigger:cardContainerOne.current,
+                start:'top center',
+                end:'bottom center',
+            }
+         });
+
+         tl.from(cardContainerOne.current,{
+            scale:0,
+            opacity:0,
+            duration:0.8
+         })
+         tl.from(cardAvatarOne.current,{
+            scale:0,
+            opacity:0,
+            duration:0.5
+         })
+         tl.from(cardMatterOne.current.children,{
+            y:100,
+            opacity:0,
+            stagger:0.2,
+            duration:0.5
+         })
+         tl.from(cardQuoteOne.current,{
+            y:-50,
+            opacity:0,
+            duration:0.5
+         })
+    },[])
+
+    // Card Container Two
+    useGSAP(()=>{
+         const tl = gsap.timeline({
+            scrollTrigger:{
+                trigger:cardContainerTwo.current,
+                start:'top center',
+                end:'bottom center',
+            }
+         });
+
+         tl.from(cardContainerTwo.current,{
+            scale:0,
+            opacity:0,
+            duration:0.8
+         })
+         tl.from(cardAvatarTwo.current,{
+            scale:0,
+            opacity:0,
+            duration:0.5
+         })
+         tl.from(cardMatterTwo.current.children,{
+            y:100,
+            opacity:0,
+            stagger:0.2,
+            duration:0.5
+         })
+         tl.from(cardQuoteTwo.current,{
+            y:-50,
+            opacity:0,
+            duration:0.5
+         })
+    },[])
+
+    // Card Container Three
+    useGSAP(()=>{
+         const tl = gsap.timeline({
+            scrollTrigger:{
+                trigger:cardContainerThree.current,
+                start:'top center',
+                end:'bottom center',
+            }
+         });
+
+         tl.from(cardContainerThree.current,{
+            scale:0,
+            opacity:0,
+            duration:0.8
+         })
+         tl.from(cardAvatarThree.current,{
+            scale:0,
+            opacity:0,
+            duration:0.5
+         })
+         tl.from(cardMatterThree.current.children,{
+            y:100,
+            opacity:0,
+            stagger:0.2,
+            duration:0.5
+         })
+         tl.from(cardQuoteThree.current,{
+            y:-50,
+            opacity:0,
+            duration:0.5
+         })
+    },[])
+
+    // Card Container Four
+    useGSAP(()=>{
+         const tl = gsap.timeline({
+            scrollTrigger:{
+                trigger:cardContainerFour.current,
+                start:'top center',
+                end:'bottom center',
+            }
+         });
+
+         tl.from(cardContainerFour.current,{
+            scale:0,
+            opacity:0,
+            duration:0.8
+         })
+         tl.from(cardAvatarFour.current,{
+            scale:0,
+            opacity:0,
+            duration:0.5
+         })
+         tl.from(cardMatterFour.current.children,{
+            y:100,
+            opacity:0,
+            stagger:0.2,
+            duration:0.5
+         })
+         tl.from(cardQuoteFour.current,{
+            y:-50,
+            opacity:0,
+            duration:0.5
+         })
+    },[])
+
+
+  return (
+    <Box>
+      <Container
+        w={["100%", "100%", "90%", "90%"]}
+        maxW="1500px"
+        marginX="auto"
+        my="1.5rem"
+        padding="2rem"
+      >
+        {/* Heading */}
+        <Box py={["10px", "20px", "30px"]} textAlign={"center"}>
+          <Heading
+            fontSize={["2rem", "2.5rem", "3rem", "4rem"]}
+            mb={["2.2rem", "2.2rem", "4rem"]}
+            display={"inline-block"}
+            fontWeight="900"
+          >
+            FROM OUR PARTICIPANTS
+          </Heading>
+
+          {/* Testimonials */}
+
+          <SimpleGrid columns={{sm:'1',md:'1',lg:'2',xl:'2'}} spacing={{sm:'10',md:'10',lg:'10',xl:'20'}}>
+
+            {/* Testimonials Card One */}
+              <Card ref={cardContainerOne} borderRadius={'30px'}  py={{sm:'0',md:'3rem',lg:'1rem',xl:'2rem'}} px={{sm:'0',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+                <Box ref={cardQuoteOne} fontSize={{sm:'0',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={'-13%'} right={'0'}>
+                <RiDoubleQuotesR />
+                </Box>
+
+                <Box display={{sm:'flex',md:'flex',lg:'flex'}} flexDirection={{sm:'column-reverse',md:'row-reverse'}} alignItems={'flex-start'} justifyContent={'start'} gap={'0.8rem'}>
+                <Box ref={cardMatterOne}>
+                <CardBody textAlign={'left'} px={{lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{lg:'.9rem',xl:'1rem'}}>
+               
+                 I found new ways to do the same things I earlier would mess
+                  up so easily. Now I have become super efficient. I recommend
+                  this to everyone.
+                </CardBody>
+
+                <CardFooter p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{lg:'0.8rem',xl:'0.9rem'}}>Josheph Chandy MBBS</Box>
+                <Box fontSize={{lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>St.John's Medical
+                College</Box>
+                </CardFooter>
+                </Box>
+
+                <Box ref={cardAvatarOne} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
+                 bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                >
+                    <Avatar size={{sm:'sm',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-1.png" />
+                </Box>
+                </Box>
+              </Card>
+             
+               {/* Testimonials Card Two */}
+              <Card ref={cardContainerTwo}  borderRadius={'30px'}  py={{sm:'0',md:'3rem',lg:'1rem',xl:'2rem'}} px={{sm:'0',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+                <Box ref={cardQuoteTwo} fontSize={{sm:'0',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={'-13%'} right={'0'}>
+                <RiDoubleQuotesR />
+                </Box>
+
+                <Box display={{sm:'flex',md:'flex',lg:'flex'}} flexDirection={'row-reverse'} alignItems={'flex-start'} justifyContent={'start'} gap={'0.8rem'}>
+                <Box ref={cardMatterTwo}>
+                <CardBody textAlign={'left'} px={{lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{lg:'.9rem',xl:'1rem'}}>
+               
+                These programs have changed my thought process all together. Now I can take very effective life transforming decisions which has helped me and my business reach new heights.
+                </CardBody>
+
+                <CardFooter p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{lg:'0.8rem',xl:'0.9rem'}}>Ayush Kumar Singh</Box>
+                <Box fontSize={{lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Civil Enginee</Box>
+                </CardFooter>
+                </Box>
+
+                <Box ref={cardAvatarTwo} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
+                 bg={{sm:'transparent',md:"transparent",lg:'white',xl:'white'}} borderRadius={'50%'} 
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                >
+                    <Avatar size={{sm:'xl',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-2.png" />
+                </Box>
+                </Box>
+              </Card>
+
+             
+               {/* Testimonials Card Three */}
+              <Card ref={cardContainerThree} borderRadius={'30px'}  py={{sm:'0',md:'3rem',lg:'1rem',xl:'2rem'}} px={{sm:'0',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+                <Box ref={cardQuoteThree} fontSize={{sm:'0',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={'-13%'} right={'0'}>
+                <RiDoubleQuotesR />
+                </Box>
+
+                <Box display={{sm:'flex',md:'flex',lg:'flex'}} flexDirection={'row-reverse'} alignItems={'flex-start'} justifyContent={'start'} gap={'0.8rem'}>
+                <Box ref={cardMatterThree}>
+                <CardBody textAlign={'left'} px={{lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{lg:'.9rem',xl:'1rem'}}>
+               
+                I was extremely enchanted by the divine atmosphere and energetic workshop. I will always reminisce the blissful time I’d spent here.
+                </CardBody>
+
+                <CardFooter p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{lg:'0.8rem',xl:'0.9rem'}}>Ajatashatru Shrivastav</Box>
+                <Box fontSize={{lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Decision Scientist , Mu Sigma</Box>
+                </CardFooter>
+                </Box>
+
+                <Box ref={cardAvatarThree} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
+                 bg={{sm:'transparent',md:"transparent",lg:'white',xl:'white'}} borderRadius={'50%'} 
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                >
+                    <Avatar size={{sm:'xl',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-3.png" />
+                </Box>
+                </Box>
+              </Card>
+             
+              
+              {/* Testimonials Card Four */}
+              <Card ref={cardContainerFour} borderRadius={'30px'}  py={{sm:'0',md:'3rem',lg:'1rem',xl:'2rem'}} px={{sm:'0',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+                <Box ref={cardQuoteFour} fontSize={{sm:'0',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={'-13%'} right={'0'}>
+                <RiDoubleQuotesR />
+                </Box>
+
+                <Box display={{sm:'flex',md:'flex',lg:'flex'}} flexDirection={'row-reverse'} alignItems={'flex-start'} justifyContent={'start'} gap={'0.8rem'}>
+                <Box ref={cardMatterFour}>
+                <CardBody textAlign={'left'} px={{lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{lg:'.9rem',xl:'1rem'}}>
+               
+                This program has helped me overcome many inhibitions I’ve been facing. I am so happy that I can stretch beyond my limits at ease.
+                </CardBody>
+
+                <CardFooter p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{lg:'0.8rem',xl:'0.9rem'}}>Sagar Patil</Box>
+                <Box fontSize={{lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}> Mechanical Engineer, RVCEe</Box>
+                </CardFooter>
+                </Box>
+
+                <Box ref={cardAvatarFour} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
+                 bg={{sm:'transparent',md:"transparent",lg:'white',xl:'white'}} borderRadius={'50%'} 
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                >
+                    <Avatar size={{sm:'xl',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-4.png" />
+                </Box>
+                </Box>
+              </Card>
+
+            
+          </SimpleGrid>
+        </Box>
+      </Container>
+      <Box h={'100vh'}></Box>
+    </Box>
+  );
+};
+
+export default Testimonials;
+
+
+
+
+          
+            
+  
