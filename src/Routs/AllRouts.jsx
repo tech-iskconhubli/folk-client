@@ -15,6 +15,7 @@ import Trips from "../Pages/Trips/Trips";
 import AdminLayout from "../Layouts/AdminLayout"
 import Admin from '../Admin/Admin';
 import NotFound from '../Pages/NotFound/NotFound';
+import AllForms from '../Components/Forms/AllForms';
 const AllRouts = () => {
   return (
     <>
@@ -31,6 +32,7 @@ const AllRouts = () => {
                   <Route path='/recidency' element={<Recidency/>}/>
                   <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
                   <Route path='/trips' element={<Trips/>}/>
+                  <Route path='/allforms' element={<AllForms/>}/>
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 

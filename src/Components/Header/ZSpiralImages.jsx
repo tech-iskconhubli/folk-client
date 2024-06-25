@@ -26,8 +26,8 @@ const ZSpiralImages = () => {
       },
     });
 
-    tl.from(box1.current, { opacity: 0, x: -200, duration: 1 });
-    tl.from(box2.current, { opacity: 0, x: 200, duration: 1 }, "-=0 .5");
+    tl.from(box1.current, { opacity: 0, x: -200, duration: 0.5 });
+    tl.from(box2.current, { opacity: 0, x: 200, duration: 0.5 }, "-=0 .5");
     return () => {
       tl.kill();
     };
@@ -43,8 +43,8 @@ const ZSpiralImages = () => {
       },
     });
 
-    tl.from(box3.current, { opacity: 0, x: -200, duration: 1 });
-    tl.from(box4.current, { opacity: 0, x: 200, duration: 1 }, "-=0.5");
+    tl.from(box3.current, { opacity: 0, x: -200, duration: 0.5});
+    tl.from(box4.current, { opacity: 0, x: 200, duration: 0.5 }, "-=0.2");
     return () => {
       tl.kill();
     };
@@ -60,8 +60,8 @@ const ZSpiralImages = () => {
       },
     });
 
-    tl.from(box5.current, { opacity: 0, x: -200, duration: 1 });
-    tl.from(box6.current, { opacity: 0, x: 200, duration: 1 }, "-=0.5");
+    tl.from(box5.current, { opacity: 0, x: -200, duration: 0.5 });
+    tl.from(box6.current, { opacity: 0, x: 200, duration: 0.5}, "-=0.2");
     return () => {
       tl.kill();
     };
@@ -78,7 +78,7 @@ const ZSpiralImages = () => {
         <Heading
           className="title"
           fontWeight="500"
-          fontSize={["2rem", "2rem", "2rem", "7rem"]}
+          fontSize={["2rem", "2rem", "3rem", "7rem"]}
         >
           WE HELP YOU
         </Heading>

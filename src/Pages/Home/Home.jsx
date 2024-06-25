@@ -4,6 +4,7 @@ import ZSpiralImages from '../../Components/Header/ZSpiralImages'
 import "../../Styles/Header.css"
 import EmpoweredSection from '../../Components/Header/EmpoweredSection'
 import BigPictureSection from '../../Components/Header/BigPictureSection'
+import ImageGallery from '../../Components/Header/ImageGallery'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
    <ZSpiralImages />
    <EmpoweredSection />
    <BigPictureSection />
+   <ImageGallery />
    </>
   )
 }
