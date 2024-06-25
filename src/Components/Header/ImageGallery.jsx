@@ -53,7 +53,7 @@ const ImageGallery = () => {
       >
         {/* Heading */}
            <Box ref={heading} py={['10px','20px','30px']} textAlign={'center'}>
-           <Heading fontSize={['2rem','2.5rem','3rem','4rem']} mb={['2.2rem','2.2rem','3rem']} display={'inline-block'} color={theme.colors.col.secondary} fontWeight="600">
+           <Heading fontFamily={"body"} fontSize={['2rem','2.5rem','3rem','4rem']} mb={['2.2rem','2.2rem','3rem']} display={'inline-block'} color={theme.colors.col.secondary} fontWeight="400">
           A GLANCE INTO THE <br /> FOLK WORLD
           </Heading>
         </Box>
