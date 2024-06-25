@@ -62,7 +62,7 @@ const EmpowerdSection = () => {
       <Box textAlign={"center"}>
         {/* Heading */}
         <Box py={'20px'}>
-          <Heading ref={heading} fontSize={['2.2rem','2.5rem','2.5rem','4rem']} fontWeight="900">
+          <Heading ref={heading} fontSize={['2.2rem','2.5rem','3rem','4rem']} fontWeight="900">
             GET EMPOWERED
           </Heading>
         </Box>

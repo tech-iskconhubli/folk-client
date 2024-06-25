@@ -96,10 +96,11 @@ const BigPictureSection = () => {
     justifyContent={'center'}
     alignItems={'center'}
     gap={'4rem'}
+    color={'white'}
   >
      <Box textAlign={'center'}>
       <Box py={'20px'}>
-        <Heading fontSize={['2.2rem','2.5rem','2.5rem','4rem']} fontWeight="900">THE BIG PICTURE</Heading>
+        <Heading fontSize={['2.2rem','2.5rem','3em','4rem']} fontWeight="900">THE BIG PICTURE</Heading>
       </Box>
         <Box>
           <Text maxW="700px" m="auto" mt={['.5rem','.5rem','1rem']} mb={['0','0','0','1rem','2rem']}>
@@ -119,7 +120,7 @@ const BigPictureSection = () => {
          </Box>
          <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
          <Box ref={counterBox3} fontSize={'3.5rem'} fontWeight={'bold'}>0</Box>
-         <Box fontSize={'2rem'} textAlign={'center'} pt={'2rem'} pb={'1rem'} lineHeight={'2rem'}>ONGOING <br /> EVENTS</Box>
+         <Box fontSize={'2rem'} py={'1rem'}>EVENTS</Box>
          </Box>
          <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
          <Box ref={counterBox4} fontSize={'3.5rem'} fontWeight={'bold'}>0</Box>
@@ -128,8 +129,6 @@ const BigPictureSection = () => {
      </SimpleGrid>
 
     </Container>
-
-  
     </Box>
   );
 }
