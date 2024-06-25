@@ -7,6 +7,7 @@ import BigPictureSection from '../../Components/Header/BigPictureSection'
 import ImageGallery from '../../Components/Header/ImageGallery'
 import Testimonials from '../../Components/Header/Testimonials'
 
+
 const Home = () => {
   return (
    <>
