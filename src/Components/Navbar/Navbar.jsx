@@ -8,6 +8,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import logo from "./folk.png"
 import {
   Box,
   Menu,
@@ -92,7 +93,7 @@ const Navbar = () => {
       fontWeight='400'
       >
         <Box>
-         <Image src='./folknet.in'></Image>
+         <Image src={logo}></Image>
          </Box>
          <Box
           display={{ base: "none", md: "flex" }}

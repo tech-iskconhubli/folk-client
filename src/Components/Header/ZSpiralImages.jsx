@@ -3,6 +3,8 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import theme from "../../theme"
+import { useTheme } from "@emotion/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const ZSpiralImages = () => {
@@ -16,6 +18,7 @@ const ZSpiralImages = () => {
   const box5 = useRef(null);
   const box6 = useRef(null);
 
+  const theme = useTheme()
   //  Animation for Spiral Container 1
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -76,8 +79,9 @@ const ZSpiralImages = () => {
         m={["0px", "0px", "40px", "40px"]}
       >
         <Heading
+        color={theme.colors.col.secondary}
           className="title"
-          fontWeight="500"
+          fontWeight="700"
           fontSize={["2rem", "2rem", "3rem", "7rem"]}
         >
           WE HELP YOU
