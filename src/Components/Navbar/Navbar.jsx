@@ -8,6 +8,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import logo from "./folk.png";
 import {
   Box,
   Menu,
@@ -17,42 +18,70 @@ import {
   UnorderedList,
   ListItem,
   Image,
+  DrawerCloseButton,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerOverlay,
+  DrawerHeader,
 } from "@chakra-ui/react";
 
 const Navbar = () => {
-  const logo="./folk.png"
-  const [isOpen, setIsOpen] = useState(false);
-  const [isHovered,setIsHovered]=useState(false);
-  function handleMouseEnter(){
-    setIsHovered(!isHovered);
-  };
-  function handleMouseLeave(){
-    setIsHovered(!isHovered);
-  };
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [isOpenAboutUs, setIsOpenAboutUs] = useState(false);
+  const [isOpenProgrammes, setIsOpenProgrammes] = useState(false);
+  function handleMouseEnter() {
+    setIsMenuVisible(true);
+    console.log(isMenuVisible);
+  }
+  function handleMouseLeave() {
+    setIsMenuVisible(false);
+  }
+  function handleToggleMenu() {
+    setToggleMenu(!toggleMenu);
+  }
+  function handleIsOpenAboutUs() {
+    setIsOpenAboutUs(!isOpenAboutUs);
+  }
+  function handleIsOpenProgrammes() {
+    setIsOpenProgrammes(!isOpenProgrammes);
+  }
 
   return (
-    <Box as="navbar">
+    <Box>
+      {/*Desktop navbar*/}
       <Box
-        as="topnav"
         w="100%"
         bg="#DE8D38"
-        display="flex"
-        justifyContent="space-evenly"
+        display={{ base: "none", md: "none", lg:'flex' }}
+        justifyContent="space-around"
         alignItems="center"
         color="white"
         height="50px"
+        position="relative"
       >
         <Box
           display="flex"
-          justifyContent="space-between"
+          justifyContent="space-around"
           alignItems="center"
-          gap="100px"
+          gap="50px"
         >
-          <Box as="phonecall" display="flex" gap="5px">
+          <Box
+            display="flex"
+            gap="5px"
+            justifyContent="center"
+            alignItems="center"
+          >
             <MdOutlinePhoneCallback />
             <a href="tel:123-456-7890">123-456-7890</a>
           </Box>
-          <Box as="timings" display="flex" gap="5px">
+          <Box
+            display="flex"
+            gap="5px"
+            justifyContent="center"
+            alignItems="center"
+          >
             {" "}
             <FaRegClock />
             Mon-Sat:<time>9:00-18:00</time>
@@ -63,7 +92,7 @@ const Navbar = () => {
           justifyContent="space-between"
           alignItems="center"
           gap="15px"
-          fontSize='20px'
+          fontSize="20px"
         >
           <Box>
             <FaTwitter />
@@ -83,54 +112,182 @@ const Navbar = () => {
         </Box>
       </Box>
       <Box
-      display='flex'
-      justifyContent='space-around'
-      alignItems='center'
-      bg='white'
-      w='100%'
-      h='100px'
-      fontWeight='400'
+        display="flex"
+        justifyContent={{base:'space-between',md:'space-between', lg:'center', xl:'center'}}
+        alignItems="center"
+        bg="white"
+        w="100%"
+        h="100px"
+        fontWeight="400"
+        position="sticky"
       >
         <Box>
-         <Image src='./folknet.in'></Image>
-         </Box>
-         <Box
-          display={{ base: "none", md: "flex" }}
+          <Image
+            src={logo}
+            alt="FOLK"
+            height="60px"
+            width={{base:'250px',md:'300px',lg:'300px', xl:'300px'}}
+            ml={{base:'15px',md:'50px'}}
+            bg='black'
+          />
+        </Box>
+        <Box
+          display={{ base: "flex", md: "flex", lg:'none',xl:'none' }}
+          alignItems="center"
+          fontSize="2rem"
+          transition="all 0.5s"
+          zIndex="2"
+        >
+          <Box onClick={handleToggleMenu} marginRight={{base:'15px',md:'50px'}}>
+            {" "}
+             <IoMenu style={{ color: "#DE8D38"}} />
+            <Drawer
+              isOpen={toggleMenu}
+              placement="right"
+              onClose={handleToggleMenu}
+            >
+              <DrawerOverlay>
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader>FOLK</DrawerHeader>
+                  <DrawerBody>
+                    <Box spacing={8}>
+                      <UnorderedList
+                        style={{ listStyleType: "none", lineHeight: "3rem" }}
+                      >
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>
+                          <Box
+                            display="flex"
+                            justifyContent="space-between"
+                            alignItems="center"
+                            onClick={handleIsOpenAboutUs}
+                          >
+                            <Box>AboutUs</Box>
+                            <Box>
+                              <FaChevronDown fontSize="10px" />
+                            </Box>
+                          </Box>
+                        </ListItem>
+                        {isOpenAboutUs && (
+                          <Box>
+                            <hr/>
+                            <ListItem _hover={{color:'#DE8D38'}}>AboutUs</ListItem>
+                            <hr />
+                            <ListItem _hover={{color:'#DE8D38'}}>Privacy and Policy</ListItem>
+                            <hr />
+                            <ListItem _hover={{color:'#DE8D38'}}>Terms and conditions</ListItem>
+                          </Box>
+                        )}
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>Blogs</ListItem>
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>
+                          Donation
+                        </ListItem>
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>
+                          {" "}
+                          Festivals
+                        </ListItem>
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>
+                          Gallery
+                        </ListItem>
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>Home</ListItem>
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>
+                          <Box
+                            display="flex"
+                            justifyContent="space-between"
+                            alignItems="center"
+                            onClick={handleIsOpenProgrammes}
+                          >
+                            <Box>Programmes</Box>
+                            <Box>
+                              <FaChevronDown fontSize="10px" />
+                            </Box>
+                          </Box>
+                        </ListItem>
+                        {isOpenProgrammes && (
+                          <Box>
+                            <ListItem _hover={{color:'#DE8D38'}}>Yoga for Happiness</ListItem>
+                            <hr />
+                            <ListItem _hover={{color:'#DE8D38'}}>Art of Control</ListItem>
+                            <hr />
+                            <ListItem _hover={{color:'#DE8D38'}}>Secret of Success</ListItem>
+                          </Box>
+                        )}
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>
+                          Residency
+                        </ListItem>
+                        <hr />
+                        <ListItem _hover={{ color: "#DE8D38" }}>Trips</ListItem>
+                      </UnorderedList>
+                    </Box>
+                  </DrawerBody>
+                </DrawerContent>
+              </DrawerOverlay>
+            </Drawer>
+          </Box>
+        </Box>
+
+        <Box
+          display={{ base: "none", md: "none", lg:'flex', xl:'flex'}}
           padding="15px"
-          ml={{ md: "-5px", lg: "2%", xl: "5%" }}
-          fontSize={{ md: "0.6rem", lg: "0.8rem", xl: "1.3rem" }}
-          >
-             <UnorderedList
+          fontSize={{ lg: "0.6rem", xl: "1rem" }}
+        >
+          <UnorderedList
             style={{
               listStyleType: "none",
               display: "flex",
               padding: "0",
               textAlign: "center",
+              overflow: "hidden",
+              cursor: "pointer",
+              marginLeft:'35px',
             }}
-            gap={{ md: "0.4rem", lg: "0.9rem", xl: "1.7rem" }}
+            gap={{ md: "0.4rem", lg: "0.5rem", xl: "1.5rem" }}
           >
-             <ListItem onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <Menu>
-                <MenuButton transition="all 0.5s" _hover={{ color: "#DE8D38"}} fontWeight='400' >
-                 About Us
-                </MenuButton>
-                <MenuList
-                  bg="white"
-                  padding="15px"
-                  mt="28px"
-                  borderTop="2px solid #D69E2E"
-                  fontSize="1rem"
-                  lineHeight="2rem"
+            <ListItem
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              transition="all 0.5s"
+              _hover={{ color: "#DE8D38" }}
+              fontWeight="400"
+              position="relative"
+              display="inline-block"
+            >
+              AboutUs
+              {isMenuVisible && (
+                <Box
+                  position="absolute"
+                  display="block"
+                  zIndex="2"
+                  top="100%"
+                  left="0"
+                  boxShadow="0 8px 16px rgba(0, 0, 0, 0.2)"
                 >
-                  <MenuItem _hover={{ color: "#DE8D38" }}>About Us</MenuItem>
-                  <MenuItem _hover={{ color: "#DE8D38" }}>
-                    Privacy Policy
-                  </MenuItem>
-                  <MenuItem _hover={{ color: "#DE8D38" }}>
-                    Terms and Conditions
-                  </MenuItem>
-                </MenuList>
-              </Menu>
+                  <UnorderedList
+                    bg="white"
+                    padding="15px"
+                    borderTop="2px solid #D69E2E"
+                    fontSize="1rem"
+                    lineHeight="2rem"
+                    listStyleType="none"
+                  >
+                    <ListItem _hover={{ color: "#DE8D38" }}>About us</ListItem>
+                    <ListItem _hover={{ color: "#DE8D38" }}>
+                      Privacy and Policy
+                    </ListItem>
+                    <ListItem _hover={{ color: "#DE8D38" }}>
+                      Terms and Conditions
+                    </ListItem>
+                  </UnorderedList>
+                </Box>
+              )}
             </ListItem>
             <ListItem _hover={{ color: "#DE8D38" }}>Blogs</ListItem>
             <ListItem _hover={{ color: "#DE8D38" }}>Donation</ListItem>
@@ -139,7 +296,11 @@ const Navbar = () => {
             <ListItem _hover={{ color: "#DE8D38" }}>Home</ListItem>
             <ListItem>
               <Menu>
-                <MenuButton transition="all 0.5s" _hover={{ color: "#DE8D38" }} fontWeight='400'>
+                <MenuButton
+                  transition="all 0.5s"
+                  _hover={{ color: "#DE8D38" }}
+                  fontWeight="400"
+                >
                   Programmes
                 </MenuButton>
                 <MenuList
@@ -166,9 +327,7 @@ const Navbar = () => {
             <ListItem _hover={{ color: "#DE8D38" }}>Residency</ListItem>
             <ListItem _hover={{ color: "#DE8D38" }}>Trips</ListItem>
           </UnorderedList>
-
-         </Box>
-
+        </Box>
       </Box>
     </Box>
   );
