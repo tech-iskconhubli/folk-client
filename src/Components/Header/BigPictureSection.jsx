@@ -28,7 +28,7 @@ const BigPictureSection = () => {
         },
         scrollTrigger:{
           trigger:counterBox1.current,
-          start:'top center',
+          start:'top 80%',
         }
       });
   }, []);
@@ -44,7 +44,7 @@ const BigPictureSection = () => {
       },
       scrollTrigger:{
         trigger:counterBox2.current,
-        start:'top center',
+        start:'top 80%',
       }
     })
   },[])
@@ -61,7 +61,7 @@ const BigPictureSection = () => {
        },
        scrollTrigger:{
         trigger:counterBox3.current,
-        start:'top center',
+        start:'top 80%',
       }
 
      })
@@ -79,7 +79,7 @@ const BigPictureSection = () => {
        },
        scrollTrigger:{
         trigger:counterBox4.current,
-        start:'top center',
+        start:'top 80%',
 
       }
     })

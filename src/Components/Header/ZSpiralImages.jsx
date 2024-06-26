@@ -24,7 +24,7 @@ const ZSpiralImages = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container1.current,
-        start: "top center",
+        start: "top 80%",
         end: "bottom center",
       },
     });
@@ -41,7 +41,7 @@ const ZSpiralImages = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container2.current,
-        start: "top center",
+        start: "top 80%",
         end: "bottom center",
       },
     });
@@ -58,7 +58,7 @@ const ZSpiralImages = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container3.current,
-        start: "top center",
+        start: "top 80%",
         end: "bottom center",
       },
     });

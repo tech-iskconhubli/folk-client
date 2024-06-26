@@ -16,7 +16,6 @@ gsap.registerPlugin(ScrollTrigger);
 const EmpowerdSection = () => {
 
   const theme = useTheme();
-  console.log(theme.colors.col.text)
 
  const container = useRef(null);
  const heading = useRef(null)
@@ -34,7 +33,7 @@ const EmpowerdSection = () => {
      const tl = gsap.timeline({
       scrollTrigger:{
         trigger: container.current,
-        start:'top center',
+        start:'top 80%',
         end:'bottom center',
       }
      });
