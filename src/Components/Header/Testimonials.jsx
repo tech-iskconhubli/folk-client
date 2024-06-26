@@ -207,7 +207,7 @@ const Testimonials = () => {
             
 
             {/* Testimonials Card One */}
-              <Card ref={cardContainerOne} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+              <Card ref={cardContainerOne} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)">
                 
                 {/* Card Quote */}
                 <Box ref={cardQuoteOne} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-12%',lg:'-9%'}} right={{base:'4%',sm:'2%',md:'2%'}}>
@@ -237,7 +237,7 @@ const Testimonials = () => {
                 {/* Card Avatar */}
                 <Box ref={cardAvatarOne} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
-                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)"
                 >
                     <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-1.png" />
                 </Box>
@@ -245,7 +245,7 @@ const Testimonials = () => {
               </Card>
              
                {/* Testimonials Card Two */}
-               <Card ref={cardContainerTwo} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+               <Card ref={cardContainerTwo} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)">
                 
                 {/* Card Quote */}
                <Box ref={cardQuoteTwo} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-10%', lg:'-9%'}} right={{base:'4%',sm:'2%',md:'1%'}}>
@@ -271,7 +271,7 @@ const Testimonials = () => {
                 {/* Card Avatar */}
                 <Box ref={cardAvatarTwo} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
-                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)"
                 >
                     <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-2.png" />
                 </Box>
@@ -281,7 +281,7 @@ const Testimonials = () => {
 
              
                {/* Testimonials Card Three */}
-               <Card ref={cardContainerThree} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+               <Card ref={cardContainerThree} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)">
                 
                  {/* Card Quote */}
                <Box ref={cardQuoteThree} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-10%', lg:'-10%'}} right={{base:'4%',sm:'2%',md:'1%'}}>
@@ -309,7 +309,7 @@ const Testimonials = () => {
                 {/* Card Avatar */}
                 <Box ref={cardAvatarThree} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
-                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)"
                 >
                     <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-3.png" />
                 </Box>
@@ -317,7 +317,7 @@ const Testimonials = () => {
               </Card>
               
               {/* Testimonials Card Four */}
-              <Card ref={cardContainerFour} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+              <Card ref={cardContainerFour} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)">
                 
                 {/* Card Quote */}
               <Box ref={cardQuoteFour} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-12%', lg:'-9%'}} right={{base:'4%',sm:'2%',md:'1%'}}>
@@ -345,7 +345,7 @@ const Testimonials = () => {
                 {/* Card Avatar */}
                 <Box ref={cardAvatarFour} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
-                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
+                 boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.10)"
                 >
                     <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-4.png" />
                 </Box>
