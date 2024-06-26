@@ -1,21 +1,25 @@
 import {
-    Avatar,
-  Box,
-  Card,
-  CardBody,
-  CardFooter,
-  Container,
-  Heading,
-  SimpleGrid,
+   Avatar,
+ Box,
+ Card,
+ CardBody,
+ CardFooter,
+ Container,
+ Heading,
+ SimpleGrid,
 } from "@chakra-ui/react";
 import { RiDoubleQuotesR } from "react-icons/ri";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import theme from "../../theme"
+import { useTheme } from "@emotion/react";
 gsap.registerPlugin(ScrollTrigger);
 
+
 const Testimonials = () => {
+   const theme = useTheme()
 
     // Card Container One Ref
     const cardContainerOne = useRef(null);
@@ -47,7 +51,7 @@ const Testimonials = () => {
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerOne.current,
-                start:'top center',
+                start:'top 80%',
                 end:'bottom center',
             }
          });
@@ -80,7 +84,7 @@ const Testimonials = () => {
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerTwo.current,
-                start:'top center',
+                start:'top 80%',
                 end:'bottom center',
             }
          });
@@ -113,7 +117,7 @@ const Testimonials = () => {
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerThree.current,
-                start:'top center',
+                start:'top 80%',
                 end:'bottom center',
             }
          });
@@ -146,7 +150,7 @@ const Testimonials = () => {
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerFour.current,
-                start:'top center',
+                start:'top 80%',
                 end:'bottom center',
             }
          });
@@ -191,6 +195,7 @@ const Testimonials = () => {
             mb={["2.2rem", "2.2rem", "4rem"]}
             display={"inline-block"}
             fontWeight="900"
+            color={theme.colors.col.secondary}
           >
             FROM OUR PARTICIPANTS
           </Heading>
@@ -202,62 +207,73 @@ const Testimonials = () => {
             
 
             {/* Testimonials Card One */}
-              <Card ref={cardContainerOne} borderRadius={'30px'}  py={{base:'2rem', sm:'1rem',md:'3rem',lg:'1rem',xl:'2rem'}} px={{base:'1rem', sm:'1rem',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+              <Card ref={cardContainerOne} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
                 
-                <Box ref={cardQuoteOne} fontSize={{base:'2.5rem', sm:'2.5rem',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-13%'}} right={{base:'4%',sm:'2%',md:'0'}}>
+                {/* Card Quote */}
+                <Box ref={cardQuoteOne} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-12%',lg:'-9%'}} right={{base:'4%',sm:'2%',md:'2%'}}>
                 <RiDoubleQuotesR />
                 </Box>
-
+               
+                {/* Box Container */}
                 <Box display={{base:'flex', sm:'flex',md:'flex',lg:'flex'}} flexDirection={{base:'column-reverse', sm:'column-reverse',md:'row-reverse'}} alignItems={{base:'center', sm:'center',md:'flex-start'}} justifyContent={{base:'center', sm:'center',md:'flex-start'}} gap={'0.8rem'}>
+
+                {/* Card Matter */}
                 <Box ref={cardMatterOne}>
-                <CardBody textAlign={{base:'left',sm:'left'}} px={{base:'0.5rem', sm:'2.5rem', lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{base:'0.9rem', sm:'1rem',lg:'.9rem',xl:'1rem'}}>
+                <CardBody textAlign={'left'} px={{base:'0', sm:'2.5rem', lg:'3.9rem',xl:'5rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'400'} fontSize={{base:'0.85rem', sm:'1rem',lg:'0.9rem',xl:'1rem'}}>
                
                  I found new ways to do the same things I earlier would mess
                   up so easily. Now I have become super efficient. I recommend
                   this to everyone.
                 </CardBody>
-
-                <CardFooter mt={{base:'1rem',sm:'0'}} p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
-                <Box fontWeight={'bold'} fontSize={{base:'0.9rem', sm:'0.9rem',md:'1rem',  lg:'0.8rem',xl:'0.9rem'}}>Josheph Chandy MBBS</Box>
-                <Box fontSize={{base:'0.9rem', sm:'0.9rem', md:'1rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>St.John's Medical
+                 
+                 {/* Card Footer */}
+                <CardFooter mt={{base:'0.5rem',sm:'0'}} p={{ lg:'0',xl:'1rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{base:'0.7rem', sm:'0.9rem',md:'0.9rem',  lg:'0.8rem',xl:'0.9rem'}} color={theme.colors.col.secondary}>Josheph Chandy MBBS</Box>
+                <Box fontSize={{base:'0.7rem', sm:'0.9rem', md:'0.9rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>St.John's Medical
                 College</Box>
                 </CardFooter>
                 </Box>
-
+                
+                {/* Card Avatar */}
                 <Box ref={cardAvatarOne} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
                  boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
                 >
-                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-1.png" />
+                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-1.png" />
                 </Box>
                 </Box>
               </Card>
              
                {/* Testimonials Card Two */}
-               <Card ref={cardContainerTwo} borderRadius={'30px'}  py={{base:'2rem', sm:'1rem',md:'3rem',lg:'1rem',xl:'2rem'}} px={{base:'1rem', sm:'1rem',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+               <Card ref={cardContainerTwo} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
                 
-               
-               <Box ref={cardQuoteTwo} fontSize={{base:'2.5rem', sm:'2.5rem',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-13%'}} right={{base:'4%',sm:'2%',md:'0'}}>
+                {/* Card Quote */}
+               <Box ref={cardQuoteTwo} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-10%', lg:'-9%'}} right={{base:'4%',sm:'2%',md:'1%'}}>
                 <RiDoubleQuotesR />
                 </Box>
-
+                
+                 {/* Box Container */}
                 <Box display={{base:'flex', sm:'flex',md:'flex',lg:'flex'}} flexDirection={{base:'column-reverse', sm:'column-reverse',md:'row-reverse'}} alignItems={{base:'center', sm:'center',md:'flex-start'}} justifyContent={{base:'center', sm:'center',md:'flex-start'}} gap={'0.8rem'}>
+
+                   {/* Card Matter */}
                 <Box ref={cardMatterTwo}>
-                <CardBody textAlign={{base:'left',sm:'left'}} px={{base:'0.5rem', sm:'2.5rem', lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{base:'0.9rem', sm:'1rem',lg:'.9rem',xl:'1rem'}}>
+                <CardBody textAlign={{base:'left',sm:'left'}} px={{base:'0', sm:'2.5rem', lg:'4rem',xl:'5rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'400'} fontSize={{base:'0.8rem', sm:'1rem',lg:'.9rem',xl:'1rem'}}>
                 These programs have changed my thought process all together. Now I can take very effective life transforming decisions which has helped me and my business reach new heights.
                 </CardBody>
 
-                <CardFooter mt={{base:'1rem',sm:'0'}} p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
-                <Box fontWeight={'bold'} fontSize={{base:'0.9rem', sm:'0.9rem',md:'1rem',  lg:'0.8rem',xl:'0.9rem'}}>Ayush Kumar Singh</Box>
-                <Box fontSize={{base:'0.9rem', sm:'0.9rem', md:'1rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Civil Engineer</Box>
+                 {/* Card Footer */}
+                <CardFooter mt={{base:'0.5rem',sm:'0'}} p={{lg:'0',xl:'1rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{base:'0.7rem', sm:'0.9rem',md:'0.9rem',  lg:'0.8rem',xl:'0.9rem'}} color={theme.colors.col.secondary}>Ayush Kumar Singh</Box>
+                <Box fontSize={{base:'0.7rem', sm:'0.9rem', md:'0.9rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Civil Engineer</Box>
                 </CardFooter>
                 </Box>
-
+                
+                {/* Card Avatar */}
                 <Box ref={cardAvatarTwo} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
                  boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
                 >
-                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-2.png" />
+                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-2.png" />
                 </Box>
                 </Box>
               </Card>
@@ -265,60 +281,73 @@ const Testimonials = () => {
 
              
                {/* Testimonials Card Three */}
-               <Card ref={cardContainerThree} borderRadius={'30px'}  py={{base:'2rem', sm:'1rem',md:'3rem',lg:'1rem',xl:'2rem'}} px={{base:'1rem', sm:'1rem',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+               <Card ref={cardContainerThree} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
                 
-                
-               <Box ref={cardQuoteThree} fontSize={{base:'2.5rem', sm:'2.5rem',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-13%'}} right={{base:'4%',sm:'2%',md:'0'}}>
+                 {/* Card Quote */}
+               <Box ref={cardQuoteThree} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-10%', lg:'-10%'}} right={{base:'4%',sm:'2%',md:'1%'}}>
                 <RiDoubleQuotesR />
                 </Box>
 
+                 {/* Box Container */}
                 <Box display={{base:'flex', sm:'flex',md:'flex',lg:'flex'}} flexDirection={{base:'column-reverse', sm:'column-reverse',md:'row-reverse'}} alignItems={{base:'center', sm:'center',md:'flex-start'}} justifyContent={{base:'center', sm:'center',md:'flex-start'}} gap={'0.8rem'}>
+
+                 {/* Card Matter */}
                 <Box ref={cardMatterThree}>
-                <CardBody textAlign={{base:'left',sm:'left'}} px={{base:'0.5rem', sm:'2.5rem', lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{base:'0.9rem', sm:'1rem',lg:'.9rem',xl:'1rem'}}>
+                <CardBody textAlign={{base:'left',sm:'left'}} px={{base:'0.5rem', sm:'2.5rem', lg:'4rem',xl:'5rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'400'} fontSize={{base:'0.8rem', sm:'1rem',lg:'.9rem',xl:'1rem'}}>
                 I was extremely enchanted by the divine atmosphere and energetic workshop. I will always reminisce the blissful time I’d spent here.
                 </CardBody>
 
-                <CardFooter mt={{base:'1rem',sm:'0'}} p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
-                <Box fontWeight={'bold'} fontSize={{base:'0.9rem', sm:'0.9rem',md:'1rem',  lg:'0.8rem',xl:'0.9rem'}}>Ajatashatru Shrivastav</Box>
-                <Box fontSize={{base:'0.9rem', sm:'0.9rem', md:'1rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Decision Scientist , Mu Sigma</Box>
+
+                 {/* Card Footer */}
+                <CardFooter mt={{base:'0.5rem',sm:'0'}}p={{lg:'0',xl:'1rem'}}   display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{base:'0.7rem', sm:'0.9rem',md:'0.9rem',  lg:'0.8rem',xl:'0.9rem'}} color={theme.colors.col.secondary}>Ajatashatru Shrivastav</Box>
+                <Box fontSize={{base:'0.7rem', sm:'0.9rem', md:'0.9rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Decision Scientist , Mu Sigma</Box>
                 </CardFooter>
                 </Box>
+                
 
+                {/* Card Avatar */}
                 <Box ref={cardAvatarThree} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
                  boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
                 >
-                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-3.png" />
+                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-3.png" />
                 </Box>
                 </Box>
               </Card>
               
               {/* Testimonials Card Four */}
-              <Card ref={cardContainerFour} borderRadius={'30px'}  py={{base:'2rem', sm:'1rem',md:'3rem',lg:'1rem',xl:'2rem'}} px={{base:'1rem', sm:'1rem',md:'2rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
+              <Card ref={cardContainerFour} borderRadius={'30px'}  py={{base:'1.5rem', sm:'1rem',md:'1.5rem',lg:'1rem',xl:'1rem'}} px={{base:'1.5rem', sm:'1rem',md:'1.8rem',lg:'1rem'}} position={'relative'} boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.75)">
                 
-              
-              <Box ref={cardQuoteFour} fontSize={{base:'2.5rem', sm:'2.5rem',md:'4.5rem',  lg:'4rem',xl:'5rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-13%'}} right={{base:'4%',sm:'2%',md:'0'}}>
+                {/* Card Quote */}
+              <Box ref={cardQuoteFour} fontSize={{base:'2rem', sm:'2.5rem',md:'3rem'}} position={'absolute'} top={{base:'-5%',sm:'-6%',md:'-12%', lg:'-9%'}} right={{base:'4%',sm:'2%',md:'1%'}}>
                 <RiDoubleQuotesR />
                 </Box>
+                 
 
+                  {/* Box Container */}
                 <Box display={{base:'flex', sm:'flex',md:'flex',lg:'flex'}} flexDirection={{base:'column-reverse', sm:'column-reverse',md:'row-reverse'}} alignItems={{base:'center', sm:'center',md:'flex-start'}} justifyContent={{base:'center', sm:'center',md:'flex-start'}} gap={'0.8rem'}>
+
+                 {/* Card Matter */}
                 <Box ref={cardMatterFour}>
-                <CardBody textAlign={{base:'left',sm:'left'}} px={{base:'0.5rem', sm:'2.5rem', lg:'4rem',xl:'7rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'semibold'} fontSize={{base:'0.9rem', sm:'1rem',lg:'.9rem',xl:'1rem'}}>
+                <CardBody textAlign={{base:'left',sm:'left'}} px={{base:'0.5rem', sm:'2.5rem', lg:'4rem',xl:'5rem'}} mt={{sm:'0',md:'0',lg:'0.9rem',xl:'1rem'}} fontWeight={'400'} fontSize={{base:'0.8rem', sm:'1rem',lg:'.9rem',xl:'1rem'}}>
               
  This program has helped me overcome many inhibitions I’ve been facing. I am so happy that I can stretch beyond my limits at ease.
                 </CardBody>
-
-                <CardFooter mt={{base:'1rem',sm:'0'}} p={{lg:'0',xl:'1.5rem'}}  display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
-                <Box fontWeight={'bold'} fontSize={{base:'0.9rem', sm:'0.9rem',md:'1rem',  lg:'0.8rem',xl:'0.9rem'}}>Sagar Patil</Box>
-                <Box fontSize={{base:'0.9rem', sm:'0.9rem', md:'1rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Mechanical Engineer, RVCEe</Box>
+                
+                 {/* Card Footer */}
+                <CardFooter mt={{base:'0.5rem',sm:'0'}}p={{lg:'0',xl:'1rem'}}   display={'flex'} alignItems={'flex-end'} flexDirection={'column'} gap={'.3rem'}>
+                <Box fontWeight={'bold'} fontSize={{base:'0.7rem', sm:'0.9rem',md:'0.9rem',  lg:'0.8rem',xl:'0.9rem'}} color={theme.colors.col.secondary}>Sagar Patil</Box>
+                <Box fontSize={{base:'0.7rem', sm:'0.9rem', md:'0.9rem',  lg:'0.7rem',xl:'0.8rem'}} fontWeight={450}>Mechanical Engineer, RVCEe</Box>
                 </CardFooter>
                 </Box>
-
+                
+                {/* Card Avatar */}
                 <Box ref={cardAvatarFour} mt={{sm:'0.8rem',md:'0.8rem',lg:'0'}} position={{base:'none', sm:'none',md:'none',lg:'absolute'}} left={{lg:'-8%', xl:'-10%'}} top={{lg:'30%', xl:'25%'}}
                  bg={{sm:'white',md:"white",lg:'white',xl:'white'}} borderRadius={'50%'} 
                  boxShadow = "3px 3px 10px 1px rgba(0,0,0,0.50)"
                 >
-                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'3xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-4.png" />
+                    <Avatar size={{base:'xl', sm:'xl',md:'xl',lg:'xl',xl:'2xl'}} src="https://folknet.in/wp-content/uploads/2018/04/Test-4.png" />
                 </Box>
                 </Box>
               </Card>
@@ -327,7 +356,6 @@ const Testimonials = () => {
           </SimpleGrid>
         </Box>
       </Container>
-      <Box h={'100vh'}></Box>
     </Box>
   );
 };

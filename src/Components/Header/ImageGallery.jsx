@@ -20,7 +20,7 @@ const ImageGallery = () => {
         opacity:0,
         scrollTrigger:{
             trigger:heading.current,
-            start:'top center',
+            start:'top 80%',
             end:'bottom center'
         }
      })
@@ -31,12 +31,12 @@ const ImageGallery = () => {
   useGSAP(() => {
     gsap.from(gridContainer.current.children, {
       y: 100,
-      duration: 0.4,
+      duration: 0.7,
       opacity: 0,
-      stagger: 0.2,
+      stagger: 0.3,
       scrollTrigger: {
         trigger: gridContainer.current,
-        start: "top center",
+        start: "top 80%",
         end: "bottom center",
       },
     });
