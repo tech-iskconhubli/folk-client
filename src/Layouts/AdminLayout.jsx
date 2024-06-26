@@ -7,8 +7,8 @@ const AdminLayout = () => {
   return (
     <>
       <Box border={"2px solid transprent"} display={"flex"}>
-        <Box border={"2px solid transprent"} width={"18%"}><AdminNavbar/></Box>
-        <Box border={"2px solid transprent"} width={"82%"} bgColor={"#1F1F2E"}>  <Outlet/>  </Box>
+        <Box height={"100vh"} overflow={"scroll"} border={"2px solid transprent"} width={"18%"}><AdminNavbar/></Box>
+        <Box height={"100vh"} overflow={"scroll"} border={"2px solid transprent"} width={"82%"} bgColor={"#1F1F2E"}>  <Outlet/>  </Box>
       </Box>
     
     </>

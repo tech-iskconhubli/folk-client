@@ -17,6 +17,7 @@ import Admin from '../Admin/Admin';
 import NotFound from '../Pages/NotFound/NotFound';
 import AllForms from '../Components/Forms/AllForms';
 import AdminYogaForm from '../Admin/AdminYoga/AdminYogaForm';
+import YogaForHappiness from '../Pages/YogaForHappiness/YogaForHappiness';
 const AllRouts = () => {
   return (
     <>
@@ -34,6 +35,7 @@ const AllRouts = () => {
                   <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
                   <Route path='/trips' element={<Trips/>}/>
                   <Route path='/allforms' element={<AllForms/>}/>
+                  <Route path='/yogaForHappiness' element={<YogaForHappiness/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 
