@@ -33,7 +33,7 @@ const EmpowerdSection = () => {
      const tl = gsap.timeline({
       scrollTrigger:{
         trigger: container.current,
-        start:'top 80%',
+        start:'top 90%',
         end:'bottom center',
       }
      });

@@ -20,7 +20,7 @@ const ImageGallery = () => {
         opacity:0,
         scrollTrigger:{
             trigger:heading.current,
-            start:'top 80%',
+            start:'top 90%',
             end:'bottom center'
         }
      })

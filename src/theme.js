@@ -15,7 +15,6 @@ const fonts = {
   forms:"muli"
 };
 
-console.log(colors.col.text)
 
 const theme = extendTheme({ colors, fonts });
 
