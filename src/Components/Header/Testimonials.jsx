@@ -45,13 +45,31 @@ const Testimonials = () => {
     const cardAvatarFour = useRef(null);
     const cardQuoteFour = useRef(null);
 
+  // Heading Animation
+    const heading = useRef();
+
+    // Animation for heading
+    
+      useGSAP(()=>{
+         gsap.from(heading.current,{
+            y:100,
+            duration:0.8,
+            opacity:0,
+            scrollTrigger:{
+                trigger:heading.current,
+                start:'top 90%',
+                end:'bottom center'
+            }
+         })
+      })
+    
 
     // Card Container One 
     useGSAP(()=>{
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerOne.current,
-                start:'top 80%',
+                start:'top 90%',
                 end:'bottom center',
             }
          });
@@ -84,7 +102,7 @@ const Testimonials = () => {
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerTwo.current,
-                start:'top 80%',
+                start:'top 90%',
                 end:'bottom center',
             }
          });
@@ -117,7 +135,7 @@ const Testimonials = () => {
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerThree.current,
-                start:'top 80%',
+                start:'top 90%',
                 end:'bottom center',
             }
          });
@@ -150,7 +168,7 @@ const Testimonials = () => {
          const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:cardContainerFour.current,
-                start:'top 80%',
+                start:'top 90%',
                 end:'bottom center',
             }
          });
@@ -191,6 +209,7 @@ const Testimonials = () => {
         {/* Heading */}
         <Box py={["10px", "20px", "30px"]} textAlign={"center"}>
           <Heading
+          ref={heading}
             fontSize={["2rem", "2.5rem", "3rem", "4rem"]}
             mb={["2.2rem", "2.2rem", "4rem"]}
             display={"inline-block"}
@@ -354,6 +373,7 @@ const Testimonials = () => {
 
             
           </SimpleGrid>
+          
         </Box>
       </Container>
     </Box>
