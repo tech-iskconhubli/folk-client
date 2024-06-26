@@ -16,6 +16,7 @@ import AdminLayout from "../Layouts/AdminLayout"
 import Admin from '../Admin/Admin';
 import NotFound from '../Pages/NotFound/NotFound';
 import AllForms from '../Components/Forms/AllForms';
+import AdminYogaForm from '../Admin/AdminYoga/AdminYogaForm';
 const AllRouts = () => {
   return (
     <>
@@ -38,6 +39,7 @@ const AllRouts = () => {
 
             <Route element={<AdminLayout/>}>
                   <Route path='/admin' element={<Admin/>}/>
+                  <Route path='/admin/yoga/createForm' element={<AdminYogaForm/>} />
             </Route>
         </Routes>
     </>

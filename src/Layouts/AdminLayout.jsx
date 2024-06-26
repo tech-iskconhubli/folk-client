@@ -8,7 +8,7 @@ const AdminLayout = () => {
     <>
       <Box border={"2px solid transprent"} display={"flex"}>
         <Box border={"2px solid transprent"} width={"18%"}><AdminNavbar/></Box>
-        <Box border={"2px solid transprent"} width={"82%"}>  <Outlet/>  </Box>
+        <Box border={"2px solid transprent"} width={"82%"} bgColor={"#1F1F2E"}>  <Outlet/>  </Box>
       </Box>
     
     </>
