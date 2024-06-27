@@ -2,7 +2,9 @@ import React from 'react'
 
 const YogaForHappiness = () => {
   return (
-    <div>YogaForHappiness</div>
+    <div>
+      YogaForHappiness
+    </div>
   )
 }
 
