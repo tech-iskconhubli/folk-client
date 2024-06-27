@@ -12,6 +12,7 @@ const AdminYogaDataTable = () => {
 
     useEffect(()=>{
         dispatch(getAdminYogaFormData())
+        console.log(store);
     },[dispatch])
   return (
     <>
