@@ -3,7 +3,11 @@ import YogaHeroSection from '../../Components/YogaForHappinessRelated/YogaHeroSe
 
 const YogaForHappiness = () => {
   return (
+
     <YogaHeroSection />
+    <div>
+      YogaForHappiness
+    </div>
   )
 }
 

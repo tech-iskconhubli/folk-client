@@ -6,6 +6,7 @@ const YogaHeroSection = () => {
    
 
   return (
+
      <Box style={{backgroundImage:`url(${YogaBgImage})`}} w={'100%'} h={['25vh','40vh','50vh','75vh','98vh']} bgRepeat={'no-repeat'} bgSize={'cover'} bgPosition={'center bottom'}>
          <Box  bgColor={'rgb(0,0,0,0.25)'} w={'100%'} h={'100%'} px={'9rem'} color={'white'}>
 
@@ -23,6 +24,11 @@ const YogaHeroSection = () => {
           </Box>
          </Box>
      </Box>
+
+    <div>
+      YogaHeroSection
+    </div>
+
   )
 }
 
