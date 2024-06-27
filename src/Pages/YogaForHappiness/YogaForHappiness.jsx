@@ -4,6 +4,7 @@ import YogaSectionTwo from '../../Components/YogaForHappinessRelated/YogaSection
 
 const YogaForHappiness = () => {
   return (
+
     <>
     <YogaHeroSection />
     <YogaSectionTwo />

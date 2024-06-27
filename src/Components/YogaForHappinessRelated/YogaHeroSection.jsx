@@ -7,11 +7,12 @@ const YogaHeroSection = () => {
    
 
   return (
+
      <Box style={{backgroundImage:`url(${YogaBgImage})`}} w={'100%'} h={['25vh','40vh','50vh','75vh','98vh']} bgRepeat={'no-repeat'} bgSize={'cover'} bgPosition={'center bottom'}>
          <Box  bgColor={'rgb(0,0,0,0.25)'} w={'100%'} h={'100%'} px={'9rem'} color={'white'}>
 
 
-          {/* <Box className='yoga-heading' pt={'15rem'} fontWeight={500} fontSize={'5rem'}  display={'inline-block'}>
+          <Box className='yoga-heading' pt={'15rem'} fontWeight={500} fontSize={'5rem'}  display={'inline-block'}>
             BODY <span>&</span> MIND
           </Box>
 
@@ -21,9 +22,11 @@ const YogaHeroSection = () => {
            </Box>
           <Box my={'2rem'}>
           <Button colorScheme='orange' display={'flex'} alignItems={'center'} gap={'0.8rem'} borderRadius={'30px'}> <span><GoNorthStar /></span> Join Our Classes</Button>
-          </Box> */}
+          </Box>
          </Box>
      </Box>
+
+
   )
 }
 
