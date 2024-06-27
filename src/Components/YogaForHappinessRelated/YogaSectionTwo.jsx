@@ -32,12 +32,12 @@ const YogaSectionTwo = () => {
           </Box>
           {/*Big  Heading */}
           <Box
-            fontSize={['1.6rem','2.5rem']}
+            fontSize={['1.6rem','2.5rem','2.5rem' , '3rem']}
             fontWeight={"600"}
-            maxW={"500px"}
+            maxW={"700px"}
             minW={'300px'}
             textAlign={"center"}
-            lineHeight={['','3rem']}
+            lineHeight={['','3.5rem']}
           >
             WE ARE A HINDU THAT BELIEVE IN RAM
           </Box>
@@ -128,12 +128,11 @@ const YogaSectionTwo = () => {
           </Box>
           {/*Big  Heading */}
           <Box
-            fontSize={['1.6rem','2.5rem']}
+          fontSize={['1.6rem','2.5rem','2.5rem' , '3rem']}
             fontWeight={"600"}
             maxW={"500px"}
             minW={'300px'}
             textAlign={"center"}
-            lineHeight={['','3rem']}
           >
           CELEBRATE WITH US
           </Box>
