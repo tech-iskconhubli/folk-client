@@ -36,9 +36,13 @@ const Navbar = () => {
   const [isOpenProgrammes, setIsOpenProgrammes] = useState(false);
   const { contextSafe } = useGSAP({ scope: hoverableUnderline });
   const  handleMouseEnter=contextSafe(()=>{
-    gsap.to(hoverableUnderline.current,{x:'100%',backgroundColor:'#DE8D38'})
+    gsap.to(hoverableUnderline.current,{x:'0',backgroundColor:'#DE8D38',duration:'1',width:'100%'})
   });
-  const 
+  const  handleMouseLeave=contextSafe(()=>{
+    gsap.to(hoverableUnderline.current,{duration:'1',width:'0'})
+  });
+
+ 
   function handleToggleMenu() {
     setToggleMenu(!toggleMenu);
   }
@@ -277,11 +281,9 @@ const Navbar = () => {
             }}
             gap={{ md: "0.4rem", lg: "0.5rem", xl: "1.5rem" }}
           >
-            <ListItem onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="hovertext">
+            <ListItem onMouseEnter={handleMouseEnter} _hover={{color:'#DE8D38'}} onMouseLeave={handleMouseLeave}>
               AboutUs
-              <Box ref={hoverableUnderline}  height='2px' bg='white'></Box>
+              <Box ref={hoverableUnderline} height='2px' width='0px'></Box>
             </ListItem>
             <ListItem _hover={{ color: "#DE8D38" }}>Blogs</ListItem>
             <ListItem _hover={{ color: "#DE8D38" }}>Donation</ListItem>
