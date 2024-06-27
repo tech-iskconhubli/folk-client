@@ -9,19 +9,21 @@ const YogaHeroSection = () => {
   return (
 
      <Box style={{backgroundImage:`url(${YogaBgImage})`}} w={'100%'} h={['25vh','40vh','50vh','75vh','98vh']} bgRepeat={'no-repeat'} bgSize={'cover'} bgPosition={'center bottom'}>
-         <Box  bgColor={'rgb(0,0,0,0.25)'} w={'100%'} h={'100%'} px={'9rem'} color={'white'}>
 
 
-          <Box className='yoga-heading' pt={'15rem'} fontWeight={500} fontSize={'5rem'}  display={'inline-block'}>
+         <Box display={'flex'} justifyContent={'center'} alignItems={'start'} flexDirection={'column'}  bgColor={'rgb(0,0,0,0.25)'} w={'100%'} h={'100%'} color={'white'} overflowX={'hidden'} px={['0.5rem']}>
+
+
+          <Box className='yoga-heading' fontSize={'0.9rem'} display={'inline-block'}>
             BODY <span>&</span> MIND
           </Box>
 
 
-           <Box py={'1rem'}>
-             <Text display={'inline-block'} fontSize={'1.2rem'}>Connect to your inner flow.</Text>
+           <Box>
+             <Text fontSize={['0.7rem']} display={'inline-block'}>Connect to your inner flow.</Text>
            </Box>
-          <Box my={'2rem'}>
-          <Button colorScheme='orange' display={'flex'} alignItems={'center'} gap={'0.8rem'} borderRadius={'30px'}> <span><GoNorthStar /></span> Join Our Classes</Button>
+          <Box>
+          <Button fontSize={['0.5rem']} p={['0.5rem']} colorScheme='orange' display={'flex'} alignItems={'center'} gap={['0.3rem']} borderRadius={'10px'}> <span><GoNorthStar /></span> Join Our Classes</Button>
           </Box>
          </Box>
      </Box>
