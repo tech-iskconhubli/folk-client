@@ -9,9 +9,9 @@ import { FaPinterest } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import logo from "./folk.png";
-import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import {
   Box,
   Menu,
@@ -30,19 +30,37 @@ import {
 } from "@chakra-ui/react";
 gsap.registerPlugin(useGSAP);
 const Navbar = () => {
-  const hoverableUnderline=useRef();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isOpenAboutUs, setIsOpenAboutUs] = useState(false);
   const [isOpenProgrammes, setIsOpenProgrammes] = useState(false);
-  const { contextSafe } = useGSAP({ scope: hoverableUnderline });
-  const  handleMouseEnter=contextSafe(()=>{
-    gsap.to(hoverableUnderline.current,{x:'0',backgroundColor:'#DE8D38',duration:'1',width:'100%'})
-  });
-  const  handleMouseLeave=contextSafe(()=>{
-    gsap.to(hoverableUnderline.current,{duration:'1',width:'0'})
-  });
+  const HoverableListitem = ({ children }) => {
+    const hoverableUnderline = useRef();
+    const { contextSafe } = useGSAP({ scope: hoverableUnderline });
+    const handleMouseEnter = contextSafe(() => {
+      gsap.to(hoverableUnderline.current, {
+        x: "0",
+        backgroundColor: "#DE8D38",
+        duration: "1",
+        width: "100%",
+      });
+    });
+    const handleMouseLeave = contextSafe(() => {
+      gsap.to(hoverableUnderline.current, { duration: "1", width: "0" });
+    });
+    return (
+      <Box>
+        <Box
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          _hover={{ color: "#DE8D38" }}
+        >
+          {children}
+        </Box>
+        <Box ref={hoverableUnderline} height="2px" width="0px"></Box>
+      </Box>
+    );
+  };
 
- 
   function handleToggleMenu() {
     setToggleMenu(!toggleMenu);
   }
@@ -54,7 +72,7 @@ const Navbar = () => {
   }
 
   return (
-   <Box position="fixed" top="0" zIndex="1" width="100%"> 
+    <Box position="fixed" top="0" zIndex="1" width="100%">
       {/*  */}
       {/*Desktop navbar*/}
       <Box
@@ -281,15 +299,14 @@ const Navbar = () => {
             }}
             gap={{ md: "0.4rem", lg: "0.5rem", xl: "1.5rem" }}
           >
-            <ListItem onMouseEnter={handleMouseEnter} _hover={{color:'#DE8D38'}} onMouseLeave={handleMouseLeave}>
-              AboutUs
-              <Box ref={hoverableUnderline} height='2px' width='0px'></Box>
+            <ListItem>
+              <HoverableListitem children='AboutUs'/>
             </ListItem>
-            <ListItem _hover={{ color: "#DE8D38" }}>Blogs</ListItem>
-            <ListItem _hover={{ color: "#DE8D38" }}>Donation</ListItem>
-            <ListItem _hover={{ color: "#DE8D38" }}>Festivals</ListItem>
-            <ListItem _hover={{ color: "#DE8D38" }}>Gallery</ListItem>
-            <ListItem _hover={{ color: "#DE8D38" }}>Home</ListItem>
+            <ListItem></ListItem>
+            <ListItem>Donation</ListItem>
+            <ListItem>Festivals</ListItem>
+            <ListItem>Gallery</ListItem>
+            <ListItem>Home</ListItem>
             <ListItem>
               <Menu>
                 <MenuButton
