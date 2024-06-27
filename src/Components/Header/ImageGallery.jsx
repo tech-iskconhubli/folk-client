@@ -39,7 +39,6 @@ const ImageGallery = () => {
         trigger:gridContainer.current,
         start:'top 160%',
         end:'bottom center',
-        markers:true
       }
     })
     tl.from(gridContainer.current,{
