@@ -27,18 +27,31 @@ const ImageGallery = () => {
   })
 
 
+
+
+ 
+
 // Animation for Grid Image Gallery
   useGSAP(() => {
-    gsap.from(gridContainer.current.children, {
+
+    const tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:gridContainer.current,
+        start:'top 160%',
+        end:'bottom center',
+        markers:true
+      }
+    })
+    tl.from(gridContainer.current,{
+      scale:0,
+      opacity:0,
+      duration:0.5
+    });
+    tl.from(gridContainer.current.children, {
       y: 100,
       duration: 0.7,
       opacity: 0,
       stagger: 0.3,
-      scrollTrigger: {
-        trigger: gridContainer.current,
-        start: "top 80%",
-        end: "bottom center",
-      },
     });
   });
 
