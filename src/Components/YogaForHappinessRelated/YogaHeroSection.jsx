@@ -3,7 +3,20 @@ import { Box, Button, Text } from "@chakra-ui/react";
 import YogaBgImage from "../../../src/Assets/Monk.jpg";
 import { GoNorthStar } from "react-icons/go";
 import "../../Styles/YogaStyles.css";
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+
+
+
 const YogaHeroSection = () => {
+
+  useGSAP(()=>{
+    
+  })
+
+
+
+
   return (
     <Box
       style={{ backgroundImage: `url(${YogaBgImage})` }}
