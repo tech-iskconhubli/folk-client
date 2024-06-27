@@ -33,7 +33,7 @@ const AdminSecretForm = () => {
             e.preventDefault();
           dispatch(postAdminSecretFormData(formData))
           .then(res=>{
-            console.log(res)
+            console.log(res,"res")
           })
     }
 

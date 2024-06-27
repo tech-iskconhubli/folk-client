@@ -34,7 +34,7 @@ const AdminYogaForm = () => {
             e.preventDefault();
           dispatch(postAdminYogaFormData(formData))
           .then(res=>{
-            console.log(res)
+            console.log(res,"res")
           })
     }
 

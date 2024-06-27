@@ -5,6 +5,7 @@ const AdminMindControlData = () => {
   return (
     <>
         <AdminTopNavbar/>
+        min
     </>
   )
 }

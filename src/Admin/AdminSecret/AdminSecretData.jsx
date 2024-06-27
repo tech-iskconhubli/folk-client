@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdminSecretData = () => {
   return (
-    <div>AdminSecretData</div>
+    <div>AdminSecretData s</div>
   )
 }
 

@@ -8,7 +8,7 @@ const AdminYogaDataTable = () => {
     const loading = false;
     const store = useSelector((state)=>state.AppReducer.adminYogaData);
     const dispatch = useDispatch()
-    console.log(store);
+    console.log(store,"store");
 
     useEffect(()=>{
         dispatch(getAdminYogaFormData())
