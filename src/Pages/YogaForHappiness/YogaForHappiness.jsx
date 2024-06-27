@@ -1,8 +1,9 @@
 import React from 'react'
+import YogaHeroSection from '../../Components/YogaForHappinessRelated/YogaHeroSection'
 
 const YogaForHappiness = () => {
   return (
-    <div>YogaForHappiness</div>
+    <YogaHeroSection />
   )
 }
 
