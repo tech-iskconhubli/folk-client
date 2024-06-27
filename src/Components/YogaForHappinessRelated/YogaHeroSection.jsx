@@ -1,7 +1,8 @@
 import React from 'react'
-import {Box, Button, Text, position} from '@chakra-ui/react'
+import {Box, Button, Text} from '@chakra-ui/react'
 import YogaBgImage from '../../../src/Assets/Monk.jpg'
 import { GoNorthStar } from "react-icons/go";
+import '../../Styles/YogaStyles.css'
 const YogaHeroSection = () => {
    
 
@@ -10,7 +11,7 @@ const YogaHeroSection = () => {
          <Box  bgColor={'rgb(0,0,0,0.25)'} w={'100%'} h={'100%'} px={'9rem'} color={'white'}>
 
 
-          <Box className='yoga-heading' pt={'15rem'} fontWeight={500} fontSize={'5rem'}  display={'inline-block'}>
+          {/* <Box className='yoga-heading' pt={'15rem'} fontWeight={500} fontSize={'5rem'}  display={'inline-block'}>
             BODY <span>&</span> MIND
           </Box>
 
@@ -20,7 +21,7 @@ const YogaHeroSection = () => {
            </Box>
           <Box my={'2rem'}>
           <Button colorScheme='orange' display={'flex'} alignItems={'center'} gap={'0.8rem'} borderRadius={'30px'}> <span><GoNorthStar /></span> Join Our Classes</Button>
-          </Box>
+          </Box> */}
          </Box>
      </Box>
   )
