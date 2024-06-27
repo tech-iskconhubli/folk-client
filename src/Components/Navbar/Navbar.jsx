@@ -9,6 +9,9 @@ import { FaPinterest } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import logo from "./folk.png";
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import {
   Box,
   Menu,
@@ -25,19 +28,17 @@ import {
   DrawerOverlay,
   DrawerHeader,
 } from "@chakra-ui/react";
-
+gsap.registerPlugin(useGSAP);
 const Navbar = () => {
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const hoverableUnderline=useRef();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isOpenAboutUs, setIsOpenAboutUs] = useState(false);
   const [isOpenProgrammes, setIsOpenProgrammes] = useState(false);
-  function handleMouseEnter() {
-    setIsMenuVisible(true);
-    console.log(isMenuVisible);
-  }
-  function handleMouseLeave() {
-    setIsMenuVisible(false);
-  }
+  const { contextSafe } = useGSAP({ scope: hoverableUnderline });
+  const  handleMouseEnter=contextSafe(()=>{
+    gsap.to(hoverableUnderline.current,{x:'100%',backgroundColor:'#DE8D38'})
+  });
+  const 
   function handleToggleMenu() {
     setToggleMenu(!toggleMenu);
   }
@@ -49,17 +50,17 @@ const Navbar = () => {
   }
 
   return (
-    <Box>
+   <Box position="fixed" top="0" zIndex="1" width="100%"> 
+      {/*  */}
       {/*Desktop navbar*/}
       <Box
         w="100%"
         bg="#DE8D38"
-        display={{ base: "none", md: "none", lg:'flex' }}
+        display={{ base: "none", md: "none", lg: "flex" }}
         justifyContent="space-around"
         alignItems="center"
         color="white"
         height="50px"
-        position="relative"
       >
         <Box
           display="flex"
@@ -113,7 +114,12 @@ const Navbar = () => {
       </Box>
       <Box
         display="flex"
-        justifyContent={{base:'space-between',md:'space-between', lg:'center', xl:'center'}}
+        justifyContent={{
+          base: "space-between",
+          md: "space-between",
+          lg: "center",
+          xl: "center",
+        }}
         alignItems="center"
         bg="white"
         w="100%"
@@ -126,25 +132,29 @@ const Navbar = () => {
             src={logo}
             alt="FOLK"
             height="60px"
-            width={{base:'250px',md:'300px',lg:'300px', xl:'300px'}}
-            ml={{base:'15px',md:'50px'}}
-            bg='black'
+            width={{ base: "250px", md: "300px", lg: "300px", xl: "300px" }}
+            ml={{ base: "15px", md: "50px" }}
+            bg="black"
           />
         </Box>
         <Box
-          display={{ base: "flex", md: "flex", lg:'none',xl:'none' }}
+          display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
           alignItems="center"
           fontSize="2rem"
           transition="all 0.5s"
           zIndex="2"
         >
-          <Box onClick={handleToggleMenu} marginRight={{base:'15px',md:'50px'}}>
+          <Box
+            onClick={handleToggleMenu}
+            marginRight={{ base: "15px", md: "50px" }}
+          >
             {" "}
-             <IoMenu style={{ color: "#DE8D38"}} />
+            <IoMenu style={{ color: "#DE8D38" }} />
             <Drawer
               isOpen={toggleMenu}
               placement="right"
               onClose={handleToggleMenu}
+              cursor="pointer"
             >
               <DrawerOverlay>
                 <DrawerContent>
@@ -153,7 +163,11 @@ const Navbar = () => {
                   <DrawerBody>
                     <Box spacing={8}>
                       <UnorderedList
-                        style={{ listStyleType: "none", lineHeight: "3rem" }}
+                        style={{
+                          listStyleType: "none",
+                          lineHeight: "3rem",
+                          cursor: "pointer",
+                        }}
                       >
                         <hr />
                         <ListItem _hover={{ color: "#DE8D38" }}>
@@ -171,12 +185,18 @@ const Navbar = () => {
                         </ListItem>
                         {isOpenAboutUs && (
                           <Box>
-                            <hr/>
-                            <ListItem _hover={{color:'#DE8D38'}}>AboutUs</ListItem>
                             <hr />
-                            <ListItem _hover={{color:'#DE8D38'}}>Privacy and Policy</ListItem>
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              AboutUs
+                            </ListItem>
                             <hr />
-                            <ListItem _hover={{color:'#DE8D38'}}>Terms and conditions</ListItem>
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Privacy and Policy
+                            </ListItem>
+                            <hr />
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Terms and conditions
+                            </ListItem>
                           </Box>
                         )}
                         <hr />
@@ -212,11 +232,17 @@ const Navbar = () => {
                         </ListItem>
                         {isOpenProgrammes && (
                           <Box>
-                            <ListItem _hover={{color:'#DE8D38'}}>Yoga for Happiness</ListItem>
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Yoga for Happiness
+                            </ListItem>
                             <hr />
-                            <ListItem _hover={{color:'#DE8D38'}}>Art of Control</ListItem>
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Art of Control
+                            </ListItem>
                             <hr />
-                            <ListItem _hover={{color:'#DE8D38'}}>Secret of Success</ListItem>
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Secret of Success
+                            </ListItem>
                           </Box>
                         )}
                         <hr />
@@ -235,7 +261,7 @@ const Navbar = () => {
         </Box>
 
         <Box
-          display={{ base: "none", md: "none", lg:'flex', xl:'flex'}}
+          display={{ base: "none", md: "none", lg: "flex", xl: "flex" }}
           padding="15px"
           fontSize={{ lg: "0.6rem", xl: "1rem" }}
         >
@@ -247,47 +273,15 @@ const Navbar = () => {
               textAlign: "center",
               overflow: "hidden",
               cursor: "pointer",
-              marginLeft:'35px',
+              marginLeft: "35px",
             }}
             gap={{ md: "0.4rem", lg: "0.5rem", xl: "1.5rem" }}
           >
-            <ListItem
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              transition="all 0.5s"
-              _hover={{ color: "#DE8D38" }}
-              fontWeight="400"
-              position="relative"
-              display="inline-block"
-            >
+            <ListItem onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="hovertext">
               AboutUs
-              {isMenuVisible && (
-                <Box
-                  position="absolute"
-                  display="block"
-                  zIndex="2"
-                  top="100%"
-                  left="0"
-                  boxShadow="0 8px 16px rgba(0, 0, 0, 0.2)"
-                >
-                  <UnorderedList
-                    bg="white"
-                    padding="15px"
-                    borderTop="2px solid #D69E2E"
-                    fontSize="1rem"
-                    lineHeight="2rem"
-                    listStyleType="none"
-                  >
-                    <ListItem _hover={{ color: "#DE8D38" }}>About us</ListItem>
-                    <ListItem _hover={{ color: "#DE8D38" }}>
-                      Privacy and Policy
-                    </ListItem>
-                    <ListItem _hover={{ color: "#DE8D38" }}>
-                      Terms and Conditions
-                    </ListItem>
-                  </UnorderedList>
-                </Box>
-              )}
+              <Box ref={hoverableUnderline}  height='2px' bg='white'></Box>
             </ListItem>
             <ListItem _hover={{ color: "#DE8D38" }}>Blogs</ListItem>
             <ListItem _hover={{ color: "#DE8D38" }}>Donation</ListItem>
