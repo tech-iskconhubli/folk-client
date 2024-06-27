@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
-import { Box, Card, FormLabel, Input, Stack } from '@chakra-ui/react'
+import {Box, Input,FormLabel,Card,Stack,} from "@chakra-ui/react"
 import { useDispatch } from 'react-redux'
-import { postAdminYogaFormData } from '../../Redux/app/action'
-
-const AdminYogaForm = () => {
+import { postAdminMindControlFormData } from '../../Redux/app/action'
+import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
+const AdminMindControlForm = () => {
     const init ={
         date:"",
         time:"",
@@ -32,7 +31,7 @@ const AdminYogaForm = () => {
 
     const handleSubmit =(e)=>{
             e.preventDefault();
-          dispatch(postAdminYogaFormData(formData))
+          dispatch(postAdminMindControlFormData(formData))
           .then(res=>{
             console.log(res,"res")
           })
@@ -93,6 +92,7 @@ const AdminYogaForm = () => {
         </Box>
     </>
   )
+
 }
 
-export default AdminYogaForm
+export default AdminMindControlForm

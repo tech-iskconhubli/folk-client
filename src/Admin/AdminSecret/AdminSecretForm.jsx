@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
-import { Box, Card, FormLabel, Input, Stack } from '@chakra-ui/react'
+import {Box, Input,FormLabel,Card,Stack,} from "@chakra-ui/react"
 import { useDispatch } from 'react-redux'
-import { postAdminYogaFormData } from '../../Redux/app/action'
-
-const AdminYogaForm = () => {
-    const init ={
+import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
+import { postAdminSecretFormData } from '../../Redux/app/action'
+const AdminSecretForm = () => {
+         const init ={
         date:"",
         time:"",
         duration:"",
@@ -32,7 +31,7 @@ const AdminYogaForm = () => {
 
     const handleSubmit =(e)=>{
             e.preventDefault();
-          dispatch(postAdminYogaFormData(formData))
+          dispatch(postAdminSecretFormData(formData))
           .then(res=>{
             console.log(res,"res")
           })
@@ -95,4 +94,5 @@ const AdminYogaForm = () => {
   )
 }
 
-export default AdminYogaForm
+
+export default AdminSecretForm

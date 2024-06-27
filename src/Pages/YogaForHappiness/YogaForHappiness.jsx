@@ -1,6 +1,6 @@
 import React from 'react'
-import YogaHeroSection from '../../Components/YogaForHappinessRelated/YogaHeroSection'
-import YogaSectionTwo from '../../Components/YogaForHappinessRelated/YogaSectionTwo'
+import YogaHeroSection from './YogaHeroSection'
+import YogaSectionTwo from './YogaSectionTwo'
 
 const YogaForHappiness = () => {
   return (

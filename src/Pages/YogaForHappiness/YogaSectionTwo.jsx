@@ -4,6 +4,8 @@ import theme from "../../theme";
 import React from "react";
 
 const YogaSectionTwo = () => {
+
+  console.log('yoga section two')
   return (
     <Box width={"100%"} my={['1rem']} overflowX={'hidden'}>
       <Flex

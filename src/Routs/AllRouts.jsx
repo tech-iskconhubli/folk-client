@@ -18,6 +18,11 @@ import NotFound from '../Pages/NotFound/NotFound';
 import AllForms from '../Components/Forms/AllForms';
 import AdminYogaForm from '../Admin/AdminYoga/AdminYogaForm';
 import YogaForHappiness from '../Pages/YogaForHappiness/YogaForHappiness';
+import AdminYogadata from '../Admin/AdminYoga/AdminYogadata';
+import AdminSecretForm from '../Admin/AdminSecret/AdminSecretForm';
+import AdminSecretData from '../Admin/AdminSecret/AdminSecretData';
+import AdminMindControlForm from '../Admin/AdminMindControl/AdminMindControlForm';
+import AdminMindControlData from '../Admin/AdminMindControl/AdminMindControlData';
 const AllRouts = () => {
   return (
     <>
@@ -42,6 +47,11 @@ const AllRouts = () => {
             <Route element={<AdminLayout/>}>
                   <Route path='/admin' element={<Admin/>}/>
                   <Route path='/admin/yoga/createForm' element={<AdminYogaForm/>} />
+                  <Route path='/admin/yoga/data' element={<AdminYogadata/>} />
+                  <Route path='/admin/secret/createForm' element={<AdminSecretForm/>} />
+                  <Route path='/admin/secret/data' element={<AdminSecretData/>} />
+                  <Route path='/admin/mindControl/createForm' element={<AdminMindControlForm/>} />
+                  <Route path='/admin/MindControl/data' element={<AdminMindControlData/>} />
             </Route>
         </Routes>
     </>

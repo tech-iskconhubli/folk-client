@@ -9,6 +9,8 @@ import gsap from 'gsap'
 
 
 const YogaHeroSection = () => {
+  
+  console.log('yoga hero section')
 
   useGSAP(()=>{
     
