@@ -32,6 +32,7 @@ import AdminMindControlEdit from '../Admin/AdminMindControl/AdminMindControlEdit
 import SecretOfSuccess from '../Pages/SecretOfSuccess/SecretOfSuccess';
 import ArtOfMindControl from '../Pages/ArtOfMindControl/ArtOfMindControl';
 const AllRouts = () => {
+  // console.log("")
   return (
     <>
         <Routes>
