@@ -11,6 +11,7 @@ import { GrGallery } from "react-icons/gr";
 import { IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
 import { IoMdLogOut } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 
 const CustomBox = ({ children, ...props }) => (
   <Box
@@ -37,23 +38,23 @@ const AdminNavbar = () => {
   }
 
   return (
-    <Box  h="100vh" bg="gray.900" color="white">
-      <Card p={4} bg="#070A27" borderRadius="md">
-        <Box><Heading fontSize={"34px"} m={"10px 0px"} textAlign={"center"} fontFamily={"body"} color="white">Folk Vizag</Heading></Box>
+    <Box  h="100vh" bg="white" color="black"> 
+      <Card p={4} bg="white" borderRadius="md">
+        <Box><Heading fontSize={"34px"} m={"10px 0px"} textAlign={"center"} fontFamily={"body"} color="black"> Folk Vizag</Heading></Box>
         <Grid templateColumns="repeat(2, 1fr)" gap={5}>
           <GridItem colSpan={2}>
             <Button
               p={"28px"}
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              bgColor="#eeeeee"
+              color="black"
+               _hover={{bgClip: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setProgrammesShow)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <GrYoga />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Yoga  Happiness</span>
@@ -62,8 +63,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={programmesShow} animateOpacity>
               <CustomBox mt={2} ml={"80px"} >
-                <Button width="80%">Add Event</Button>
-                <Button width="80%" mt={2}>Show Data</Button>
+                <Link to={'/admin/yoga/createForm'}><Button width="80%">Add Event</Button></Link>
+                <Link to={"/admin/yoga/data"}><Button width="80%" mt={2}>Show Data</Button></Link>
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -72,15 +73,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setArtOfMind)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <GiOvermind />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}> Mind Control</span>
@@ -89,8 +90,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={artOfMind} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+                <Link to={'/admin/mindControl/createForm'}><Button width="100%">Add Event</Button></Link>
+                <Link to={'/admin/MindControl/data'}><Button width="100%" mt={2}>Show Data</Button></Link>
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -99,15 +100,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setSecretsOfSucces)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <GiSecretBook />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Secrets Success</span>
@@ -116,8 +117,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={secretsOfSucces} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+              <Link to={'/admin/secret/createForm'}><Button width="100%">Add Event</Button></Link>
+                <Link to={'/admin/secret/data'}><Button width="100%" mt={2}>Show Data</Button></Link>
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -126,15 +127,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setResidency)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <IoIosHome />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Residency</span>
@@ -153,15 +154,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setDonation)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <BiSolidDonateBlood />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Donation</span>
@@ -180,15 +181,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setTrips)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <GiWindyStripes />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Trips</span>
@@ -207,15 +208,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setFestivals)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <MdFestival />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Festivals</span>
@@ -234,15 +235,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setBlogs)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <TbLogs />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Blogs</span>
@@ -261,15 +262,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
               onClick={() => handleToggle(setGallery)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <GrGallery />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Gallery</span>
@@ -289,15 +290,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
             
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <CgProfile />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Profile</span>
@@ -318,15 +319,15 @@ const AdminNavbar = () => {
             <Button
               width="100%"
               justifyContent="space-between"
-              bgColor="#060A29"
+              bgColor="#eeeeee"
               p={"27px"}
-              color="white"
-              _hover={{ bgColor: 'blue.200', bgColor: '#1A1E36', paddingY: '10px', p:"27px" }}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
             //   onClick={() => handleToggle(setGallery)}
               cursor="pointer"
             >
               <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'#582CFF'} rounded='md' p={"9px"}>
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
                   <IoMdLogOut />
                 </Box>
                 <span style={{ textAlign: "center", flex: 1 }}>Log Out</span>

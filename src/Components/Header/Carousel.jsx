@@ -18,7 +18,7 @@ const Carousel = () => {
        setTimeout(() => {
         slide()
        }, 3000);
-    })
+    },[])
    
     const slide = () =>{
       setCurrent(current === HeaderImages.length -1 ? 0 : current+1)

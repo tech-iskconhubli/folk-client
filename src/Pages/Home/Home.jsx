@@ -5,6 +5,8 @@ import "../../Styles/Header.css"
 import EmpoweredSection from '../../Components/Header/EmpoweredSection'
 import BigPictureSection from '../../Components/Header/BigPictureSection'
 import ImageGallery from '../../Components/Header/ImageGallery'
+import Testimonials from '../../Components/Header/Testimonials'
+
 
 const Home = () => {
   return (
@@ -12,8 +14,9 @@ const Home = () => {
    <Carousel />
    <ZSpiralImages />
    <EmpoweredSection />
-   <BigPictureSection />
    <ImageGallery />
+   <BigPictureSection />
+   <Testimonials />
    </>
   )
 }

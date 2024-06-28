@@ -8,11 +8,11 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-import logo from './folk.png';
+import logo from "./folk.png";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   Box,
   UnorderedList,
@@ -81,11 +81,9 @@ const Navbar = () => {
   function handleUnsetProgrammes() {
     setIsHoveredProgrammes(false);
   }
-  console.log("")
 
   return (
     <Box position="fixed" top="0" zIndex="1" width="100%">
-      {/*  */}
       {/*Desktop navbar*/}
       <Box
         w="100%"
@@ -159,7 +157,6 @@ const Navbar = () => {
         w="100%"
         h="100px"
         fontWeight="400"
-        position="sticky"
       >
         <Box>
           <Image
@@ -184,129 +181,143 @@ const Navbar = () => {
           >
             {" "}
             <IoMenu style={{ color: "#DE8D38" }} />
-            <Drawer
-              isOpen={toggleMenu}
-              placement="right"
-              onClose={handleToggleMenu}
-              cursor="pointer"
-            >
-              <DrawerOverlay>
-                <DrawerContent>
-                  <DrawerCloseButton />
-                  <DrawerHeader>FOLK</DrawerHeader>
-                  <DrawerBody>
-                    <Box spacing={8}>
-                      <UnorderedList
-                        style={{
-                          listStyleType: "none",
-                          lineHeight: "3rem",
-                          cursor: "pointer",
-                        }}
-                      >
-                        <hr />
-                        <ListItem _hover={{ color: "#DE8D38" }}>
+          </Box>
+
+          <Drawer
+            isOpen={toggleMenu}
+            placement="right"
+            onClose={handleToggleMenu}
+            cursor="pointer"
+          >
+            <DrawerOverlay>
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>FOLK</DrawerHeader>
+                <DrawerBody>
+                  <Box spacing={8}>
+                    <UnorderedList
+                      style={{
+                        listStyleType: "none",
+                        lineHeight: "3rem",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <hr />
+                      <ListItem _hover={{ color: "#DE8D38" }}>
+                        <Box
+                          display="flex"
+                          justifyContent="space-between"
+                          alignItems="center"
+                        >
+                          <Box>AboutUs</Box>
                           <Box
-                            display="flex"
-                            justifyContent="space-between"
-                            alignItems="center"
                             onClick={handleIsOpenAboutUs}
+                            borderLeft="0.5px solid gray"
+                            paddingLeft="5px"
                           >
-                            <Box>AboutUs</Box>
-                            <Box>
-                              <FaChevronDown fontSize="10px" />
-                            </Box>
+                            <FaChevronDown fontSize="15px" />
                           </Box>
-                        </ListItem>
-                        {isOpenAboutUs && (
-                          <Box>
-                            <hr />
-                            <Link to='/about'>
+                        </Box>
+                      </ListItem>
+                      {isOpenAboutUs && (
+                        <Box>
+                          <hr />
+                          <Link to="/about">
                             <ListItem _hover={{ color: "#DE8D38" }}>
                               AboutUs
                             </ListItem>
-                            </Link>
-                            <hr />
-                            <Link to='/privacy-policy'>
+                          </Link>
+                          <hr />
+                          <Link to="/privacy-policy">
                             <ListItem _hover={{ color: "#DE8D38" }}>
                               Privacy and Policy
                             </ListItem>
-                            </Link>
-                            <hr />
-                            <Link to='/terms-and-conditions'>
+                          </Link>
+                          <hr />
+                          <Link to="/terms-and-conditions">
                             <ListItem _hover={{ color: "#DE8D38" }}>
                               Terms and conditions
                             </ListItem>
-                            </Link>
-                          </Box>
-                        )}
-                        <hr />
-                        <Link to='/blogs'>
+                          </Link>
+                        </Box>
+                      )}
+                      <hr />
+                      <Link to="/blogs">
                         <ListItem _hover={{ color: "#DE8D38" }}>Blogs</ListItem>
-                        </Link>
-                        <hr />
-                        <Link to='/donation'>
+                      </Link>
+                      <hr />
+                      <Link to="/donation">
                         <ListItem _hover={{ color: "#DE8D38" }}>
                           Donation
                         </ListItem>
-                        </Link>
-                        <hr />
-                        <Link to='/festivals'>
+                      </Link>
+                      <hr />
+                      <Link to="/festivals">
                         <ListItem _hover={{ color: "#DE8D38" }}>
                           {" "}
                           Festivals
                         </ListItem>
-                        </Link>
-                        <hr />
-                        <Link to='/gallery'>
+                      </Link>
+                      <hr />
+                      <Link to="/gallery">
                         <ListItem _hover={{ color: "#DE8D38" }}>
                           Gallery
                         </ListItem>
-                        </Link>
-                        <hr />
-                        <Link to='/'>
+                      </Link>
+                      <hr />
+                      <Link to="/">
                         <ListItem _hover={{ color: "#DE8D38" }}>Home</ListItem>
-                        </Link>
-                        <hr />
-                        <ListItem _hover={{ color: "#DE8D38" }}>
+                      </Link>
+                      <hr />
+                      <ListItem _hover={{ color: "#DE8D38" }}>
+                        <Box
+                          display="flex"
+                          justifyContent="space-between"
+                          alignItems="center"
+                        >
+                          <Link to="/programmes">
+                            <Box>Programmes</Box>
+                          </Link>
                           <Box
-                            display="flex"
-                            justifyContent="space-between"
-                            alignItems="center"
+                            onClick={handleIsOpenProgrammes}
+                            borderLeft="0.5px solid gray"
+                            paddingLeft="5px"
                           >
-                            <Link to='/programmes'><Box>Programmes</Box></Link>
-                            <Box>
-                              <FaChevronDown fontSize="10px" onClick={handleIsOpenProgrammes}/>
-                            </Box>
+                            <FaChevronDown fontSize="15px" />
                           </Box>
-                        </ListItem>
-                        {isOpenProgrammes && (
-                          <Box>
-                            <ListItem _hover={{ color: "#DE8D38" }}>
-                              Yoga for Happiness
-                            </ListItem>
-                            <hr />
-                            <ListItem _hover={{ color: "#DE8D38" }}>
-                              Art of Control
-                            </ListItem>
-                            <hr />
-                            <ListItem _hover={{ color: "#DE8D38" }}>
-                              Secret of Success
-                            </ListItem>
-                          </Box>
-                        )}
-                        <hr />
-                        <ListItem _hover={{ color: "#DE8D38" }}>
-                          Residency
-                        </ListItem>
-                        <hr />
-                        <ListItem _hover={{ color: "#DE8D38" }}>Trips</ListItem>
-                      </UnorderedList>
-                    </Box>
-                  </DrawerBody>
-                </DrawerContent>
-              </DrawerOverlay>
-            </Drawer>
-          </Box>
+                        </Box>
+                      </ListItem>
+                      {isOpenProgrammes && (
+                        <Box>
+                          <Link to='/yogaForHappiness'>
+                          <ListItem _hover={{ color: "#DE8D38" }}>
+                            Yoga for Happiness
+                          </ListItem>
+                          </Link>
+                          <hr />
+                          <Link to=''>
+                          <ListItem _hover={{ color: "#DE8D38" }}>
+                            Art of Control
+                          </ListItem>
+                          </Link>
+                          <hr />
+                          <ListItem _hover={{ color: "#DE8D38" }}>
+                            Secret of Success
+                          </ListItem>
+                        </Box>
+                      )}
+                      <hr />
+                      <ListItem _hover={{ color: "#DE8D38" }}>
+                        Residency
+                      </ListItem>
+                      <hr />
+                      <ListItem _hover={{ color: "#DE8D38" }}>Trips</ListItem>
+                    </UnorderedList>
+                  </Box>
+                </DrawerBody>
+              </DrawerContent>
+            </DrawerOverlay>
+          </Drawer>
         </Box>
 
         <Box
@@ -336,8 +347,8 @@ const Navbar = () => {
                 <HoverableListitem children="AboutUs" />
                 <UnorderedList
                   className="submenu"
-                  padding={{lg:'10px',xl:'20px'}}
-                  fontSize={{lg:'0.8rem',xl:'1rem'}}
+                  padding={{ lg: "10px", xl: "20px" }}
+                  fontSize={{ lg: "0.8rem", xl: "1rem" }}
                   style={{
                     display: "block",
                     position: "absolute",
@@ -385,8 +396,8 @@ const Navbar = () => {
                 <HoverableListitem children="Programmes" />
                 <UnorderedList
                   className="submenu"
-                  padding={{lg:'10px',xl:'20px'}}
-                  fontSize={{lg:'0.8rem',xl:'1rem'}}
+                  padding={{ lg: "10px", xl: "20px" }}
+                  fontSize={{ lg: "0.8rem", xl: "1rem" }}
                   style={{
                     display: "block",
                     position: "absolute",

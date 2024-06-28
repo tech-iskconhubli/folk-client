@@ -6,12 +6,16 @@ import { FaHeart } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaMountainSun } from "react-icons/fa6";
 import React, { useRef } from "react";
+import theme from "../../theme"
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTheme } from "@emotion/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const EmpowerdSection = () => {
+
+  const theme = useTheme();
 
  const container = useRef(null);
  const heading = useRef(null)
@@ -29,7 +33,7 @@ const EmpowerdSection = () => {
      const tl = gsap.timeline({
       scrollTrigger:{
         trigger: container.current,
-        start:'top center',
+        start:'top 90%',
         end:'bottom center',
       }
      });
@@ -97,10 +101,10 @@ const EmpowerdSection = () => {
           gap={"1.5rem"}
         >
           <Box fontSize={"5rem"}>
-            <PiFlowerLotusBold />
+            <PiFlowerLotusBold color={theme.colors.col.secondary} />
           </Box>
           <Box>
-             <Box fontSize={'1.5rem'} fontWeight={'bold'}>Spiritual Retreats</Box>
+             <Box fontSize={'1.5rem'} color={theme.colors.col.secondary}   fontWeight={'bold'}>Spiritual Retreats</Box>
             <Text mt={'1rem'}>
               Enter the Spiritual Domain. Discover the Mysteries of the Self.
             </Text>
@@ -119,10 +123,10 @@ const EmpowerdSection = () => {
           gap={"1.5rem"}
         >
           <Box fontSize={"5rem"}>
-            <AiOutlineGlobal />
+            <AiOutlineGlobal color={theme.colors.col.secondary}/>
           </Box>
           <Box>
-          <Box fontSize={'1.5rem'} fontWeight={'bold'}>Web Events</Box>
+          <Box fontSize={'1.5rem'} color={theme.colors.col.secondary} fontWeight={'bold'}>Web Events</Box>
             <Text mt={'1rem'}>Sit in your place and access Priceless wisdom.</Text>
           </Box>
         </Box>
@@ -139,10 +143,10 @@ const EmpowerdSection = () => {
           gap={"1.5rem"}
         >
           <Box fontSize={"5rem"}>
-            <TbBulbFilled />
+            <TbBulbFilled color={theme.colors.col.secondary}/>
           </Box>
           <Box>
-          <Box fontSize={'1.5rem'} fontWeight={'bold'}>Clubs</Box>
+          <Box fontSize={'1.5rem'} color={theme.colors.col.secondary} fontWeight={'bold'}>Clubs</Box>
             <Text mt={'1rem'}>Explore your hidden Skills. Unleash your Talents</Text>
           </Box>
         </Box>
@@ -159,10 +163,10 @@ const EmpowerdSection = () => {
           gap={"1.5rem"}
         >
           <Box fontSize={"5rem"}>
-            <FaHeart />
+            <FaHeart color={theme.colors.col.secondary} />
           </Box>
           <Box>
-          <Box fontSize={'1.5rem'} fontWeight={'bold'}>Re-Life Workshops</Box>
+          <Box fontSize={'1.5rem'} color={theme.colors.col.secondary} fontWeight={'bold'}>Re-Life Workshops</Box>
             <Text mt={'1rem'}>Discover a new way of living. Enrich your Lifestyle.</Text>
           </Box>
         </Box>
@@ -179,10 +183,10 @@ const EmpowerdSection = () => {
           gap={"1.5rem"}
         >
           <Box fontSize={"5rem"}>
-            <FaPeopleGroup />
+            <FaPeopleGroup color={theme.colors.col.secondary} />
           </Box>
           <Box>
-          <Box fontSize={'1.5rem'} fontWeight={'bold'}>Residency</Box>
+          <Box fontSize={'1.5rem'} color={theme.colors.col.secondary} fontWeight={'bold'}>Residency</Box>
             <Text mt={'1rem'}>Reside with Like Minded and Progressive companions.</Text>
           </Box>
         </Box>
@@ -199,10 +203,10 @@ const EmpowerdSection = () => {
           gap={"1.5rem"}
         >
           <Box fontSize={"5rem"}>
-            <FaMountainSun />
+            <FaMountainSun color={theme.colors.col.secondary} />
           </Box>
           <Box>
-          <Box fontSize={'1.5rem'} fontWeight={'bold'}>Expeditions</Box>
+          <Box fontSize={'1.5rem'} color={theme.colors.col.secondary} fontWeight={'bold'}>Expeditions</Box>
             <Text mt={'1rem'}>Enter the Divine Realms. Experience the Transcendence.</Text>
           </Box>
         </Box>
