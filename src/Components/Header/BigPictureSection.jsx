@@ -33,7 +33,7 @@ const BigPictureSection = () => {
         end:'bottom center'
        }
     })
-  })
+  },[])
 
 
 

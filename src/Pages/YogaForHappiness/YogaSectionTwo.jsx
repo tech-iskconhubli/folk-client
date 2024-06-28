@@ -1,11 +1,120 @@
 import { Box, Button, Flex, Image, Text, border } from "@chakra-ui/react";
 import { useTheme } from "@emotion/react";
 import theme from "../../theme";
-import React from "react";
+import React, { useRef } from "react";
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from 'gsap'
+gsap.registerPlugin(ScrollTrigger);
 
 const YogaSectionTwo = () => {
+ 
+  // Box One
+  const boxOneContainer = useRef(null);
+  const boxOneSmallHeading = useRef(null);
+  const boxOneBigHeading = useRef(null);
+  const boxOneMatter = useRef(null);
+  const boxOneButton = useRef(null);
+ 
+  // Box Two
+  const boxTwoContainer = useRef(null);
 
-  console.log('yoga section two')
+  // Box Three
+  const boxThreeContainer = useRef(null);
+  const boxThreeSmallHeading = useRef(null);
+  const boxThreeBigHeading = useRef(null);
+  const boxThreeMatter = useRef(null);
+  const boxThreeButton = useRef(null);
+
+// Box One Animation
+  // BoxOneSmallHeading Animation
+
+  useGSAP(()=>{
+  
+    const tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:boxOneContainer.current,
+        start:'top 80%',
+        end:'bottom Center'
+      }
+    });
+     tl.from(boxOneSmallHeading.current,{
+      y:100,
+      opacity:0,
+      duration:0.5,
+     });
+
+     tl.from(boxOneBigHeading.current,{
+      y:100,
+      opacity:0,
+      duration:0.5,
+     });
+     tl.from(boxOneMatter.current,{
+      y:100,
+      opacity:0,
+      duration:0.5,
+     });
+     tl.from(boxOneButton.current,{
+      scale:0,
+      opacity:0,
+      duration:0.5,
+     });
+  },[])
+
+
+  //  Box Two Animation
+  useGSAP(()=>{
+     gsap.from(boxTwoContainer.current.children,{
+        y:100,
+        opacity:0,
+        duration:0.5,
+        stagger:0.3,
+        scrollTrigger:{
+          trigger:boxTwoContainer.current,
+          start:'top 80%',
+          end:'bottom center'
+        }
+     })
+  },[]);
+
+
+  // Box Three
+  useGSAP(()=>{
+     const tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:boxThreeContainer.current,
+        start:'top 80%',
+        end:'bottom center'
+      }
+     });
+
+
+     tl.from(boxThreeSmallHeading.current,{
+      y:100,
+      opacity:0,
+      duration:0.5,
+     })
+     tl.from(boxThreeBigHeading.current,{
+      y:100,
+      opacity:0,
+      duration:0.5,
+     })
+     tl.from(boxThreeMatter.current,{
+      y:100,
+      opacity:0,
+      duration:0.5,
+     })
+     tl.from(boxThreeButton.current,{
+     scale:0,
+      opacity:0,
+      duration:0.5,
+     })
+
+  },[])
+
+
+
+
   return (
     <Box width={"100%"} my={['1rem']} overflowX={'hidden'}>
       <Flex
@@ -21,6 +130,7 @@ const YogaSectionTwo = () => {
       >
         {/* Box 1 */}
         <Box
+         ref={boxOneContainer}
        w={['100%','100%','auto']}
           display={"flex"}
           flexDirection={"column"}
@@ -29,11 +139,12 @@ const YogaSectionTwo = () => {
           px={['0','2rem']}
         >
           {/* small heading */}
-          <Box fontSize={['.7rem','1rem']} color={theme.colors.col.secondary} fontWeight={"bold"}>
+          <Box ref={boxOneSmallHeading} fontSize={['.7rem','1rem']} color={theme.colors.col.secondary} fontWeight={"bold"}>
             WE ARE A PRAYER
           </Box>
           {/*Big  Heading */}
           <Box
+           ref={boxOneBigHeading}
             fontSize={['1.6rem','2.5rem','2.5rem' , '3rem']}
             fontWeight={"600"}
             maxW={"700px"}
@@ -46,6 +157,7 @@ const YogaSectionTwo = () => {
 
           {/* Matter */}
           <Text
+          ref={boxOneMatter}
             fontSize={['.7rem','0.8rem','0.9rem']}
             display={"inline-block"}
             maxW={"700px"}
@@ -55,9 +167,9 @@ const YogaSectionTwo = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam repudiandae delectus recusandae eum eos, maxime ipsa amet reiciendis sequi cum voluptatibus eligendi hic numquam ad ab optio deleniti adipisci explicabo et, soluta cumque fuga saepe fugit! Aliquid, quos doloremque.
           </Text>
           {/* Button */}
-          <Box>
+          <Box  ref={boxOneButton}>
             <Button
-              bg={theme.colors.col.secondary}
+              colorScheme="orange"
               textColor={"white"}
               fontWeight={"450"}
               fontSize={['.7rem','0.8rem','0.9rem']}
@@ -70,7 +182,7 @@ const YogaSectionTwo = () => {
         {/* Box 2 */}
 
         <Box  w={['100%','100%','auto']}>
-          <Box display={'flex'} flexDirection={['column','column','row','row']} alignItems={['center','center','start']} gap={'20px'} p={'1rem'}>
+          <Box ref={boxTwoContainer} display={'flex'} flexDirection={['column','column','row','row']} alignItems={['center','center','start']} gap={'20px'} p={'1rem'}>
             {/* Image One */}
             <Box w={['100%','70%','200px']} h={['auto','400px','290px']} borderRadius={'10px'} overflow={'hidden'}>
               <Image
@@ -117,6 +229,8 @@ const YogaSectionTwo = () => {
        {/* Box 3 */}
 
        <Box
+       ref={boxThreeContainer}
+       overflow={'hidden'}
        w={['100%','100%','auto']}
           display={"flex"}
           flexDirection={"column"}
@@ -125,11 +239,12 @@ const YogaSectionTwo = () => {
           px={['0','2rem']}
         >
           {/* small heading */}
-          <Box fontSize={['.7rem','1rem']} color={theme.colors.col.secondary} fontWeight={"bold"}>
+          <Box ref={boxThreeSmallHeading} fontSize={['.7rem','1rem']} color={theme.colors.col.secondary} fontWeight={"bold"}>
            OUR MISSION & MISSION
           </Box>
           {/*Big  Heading */}
           <Box
+          ref={boxThreeBigHeading}
           fontSize={['1.6rem','2.5rem','2.5rem' , '3rem']}
             fontWeight={"600"}
             maxW={"500px"}
@@ -141,6 +256,7 @@ const YogaSectionTwo = () => {
 
           {/* Matter */}
           <Text
+          ref={boxThreeMatter}
             fontSize={['.7rem','0.8rem','0.9rem']}
             display={"inline-block"}
             maxW={"700px"}
@@ -151,9 +267,9 @@ const YogaSectionTwo = () => {
            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima in ea eaque unde, facere voluptatem soluta cumque illum cupiditate vel?
           </Text>
           {/* Button */}
-          <Box>
+          <Box ref={boxThreeButton}>
             <Button
-              bg={theme.colors.col.secondary}
+             colorScheme="orange"
               textColor={"white"}
               fontWeight={"450"}
               fontSize={['.7rem','0.8rem','0.9rem']}

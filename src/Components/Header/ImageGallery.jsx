@@ -24,7 +24,7 @@ const ImageGallery = () => {
             end:'bottom center'
         }
      })
-  })
+  },[])
 
 
 
@@ -37,7 +37,7 @@ const ImageGallery = () => {
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger:gridContainer.current,
-        start:'top 160%',
+        start:'top 150%',
         end:'bottom center',
       }
     })
@@ -52,7 +52,7 @@ const ImageGallery = () => {
       opacity: 0,
       stagger: 0.3,
     });
-  });
+  },[]);
 
   return (
     <Box>

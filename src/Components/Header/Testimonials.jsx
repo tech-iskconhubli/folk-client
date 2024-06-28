@@ -61,7 +61,7 @@ const Testimonials = () => {
                 end:'bottom center'
             }
          })
-      })
+      },[])
     
 
     // Card Container One 
