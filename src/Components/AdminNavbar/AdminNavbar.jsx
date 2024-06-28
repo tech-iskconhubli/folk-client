@@ -11,6 +11,7 @@ import { GrGallery } from "react-icons/gr";
 import { IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
 import { IoMdLogOut } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 
 const CustomBox = ({ children, ...props }) => (
   <Box
@@ -62,8 +63,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={programmesShow} animateOpacity>
               <CustomBox mt={2} ml={"80px"} >
-                <Button width="80%">Add Event</Button>
-                <Button width="80%" mt={2}>Show Data</Button>
+                <Link to={'/admin/yoga/createForm'}><Button width="80%">Add Event</Button></Link>
+                <Link to={"/admin/yoga/data"}><Button width="80%" mt={2}>Show Data</Button></Link>
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -89,8 +90,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={artOfMind} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+                <Link to={'/admin/mindControl/createForm'}><Button width="100%">Add Event</Button></Link>
+                <Link to={'/admin/MindControl/data'}><Button width="100%" mt={2}>Show Data</Button></Link>
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -116,8 +117,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={secretsOfSucces} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+              <Link to={'/admin/secret/createForm'}><Button width="100%">Add Event</Button></Link>
+                <Link to={'/admin/secret/data'}><Button width="100%" mt={2}>Show Data</Button></Link>
               </CustomBox>
             </Collapse>
           </GridItem>

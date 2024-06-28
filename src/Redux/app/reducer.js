@@ -66,7 +66,7 @@ export const reducer = (oldState = init,action)=>{
                     ...oldState,
                     isLoading:false,
                     isError:false,
-                    adminSecretData:payload
+                    adminSecretData:[]
                 }
             case types.POST_ADMIN_SECRET_FORM_FAILURE:
                 return{
@@ -75,6 +75,27 @@ export const reducer = (oldState = init,action)=>{
                     isError:true,
                     adminSecretData:[]
                 }
+                case types.GET_ADMIN_SECRET_FORM_REQUEST:
+                    return{
+                        ...oldState,
+                        isLoading:true,
+                        isError:false,
+                        adminSecretData:[]
+                    }
+                case types.GET_ADMIN_SECRET_FORM_SUCCESS:
+                    return{
+                        ...oldState,
+                        isLoading:false,
+                        isError:false,
+                        adminSecretData:payload
+                    }
+                case types.GET_ADMIN_SECRET_FORM_FAILURE:
+                    return{
+                        ...oldState,
+                        isLoading:false,
+                        isError:true,
+                        adminSecretData:[]
+                    }
                 case types.POST_ADMIN_MIND_CONTROL_FORM_REQUEST:
                     return{
                         ...oldState,
@@ -87,7 +108,7 @@ export const reducer = (oldState = init,action)=>{
                         ...oldState,
                         isLoading:false,
                         isError:false,
-                        adminMindControlData:payload
+                        adminMindControlData:[]
                     }
                 case types.POST_ADMIN_MIND_CONTROL_FORM_FAILURE:
                     return{
@@ -96,6 +117,27 @@ export const reducer = (oldState = init,action)=>{
                         isError:true,
                         adminMindControlData:[]
                     }
+                    case types.GET_ADMIN_MIND_CONTROL_FORM_REQUEST:
+                        return{
+                            ...oldState,
+                            isLoading:true,
+                            isError:false,
+                            adminMindControlData:[]
+                        }
+                    case types.GET_ADMIN_MIND_CONTROL_FORM_SUCCESS:
+                        return{
+                            ...oldState,
+                            isLoading:false,
+                            isError:false,
+                            adminMindControlData:payload
+                        }
+                    case types.GET_ADMIN_MIND_CONTROL_FORM_FAILURE:
+                        return{
+                            ...oldState,
+                            isLoading:false,
+                            isError:true,
+                            adminMindControlData:[]
+                        }
         default :
             return oldState
     }

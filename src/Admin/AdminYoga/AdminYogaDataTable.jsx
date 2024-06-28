@@ -1,72 +1,123 @@
-import React, { useEffect } from 'react'
-import { Table, TableContainer, Thead, Tbody, Tr, Th, Td, Button,Box} from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAdminYogaFormData } from '../../Redux/app/action';
+import { deleteAdminYogaFormData, getAdminYogaFormData } from '../../Redux/app/action';
 
 const AdminYogaDataTable = () => {
     const loading = false;
-    const store = useSelector((state)=>state.AppReducer.adminYogaData);
-    const dispatch = useDispatch()
-    console.log(store,"store");
+    const store = useSelector((state) => state.AppReducer.adminYogaData);
+    const dispatch = useDispatch();
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [refresh ,setRefresh] = useState(false)
+    useEffect(() => {
+        dispatch(getAdminYogaFormData());
+    }, [dispatch,refresh]);
 
-    useEffect(()=>{
-        dispatch(getAdminYogaFormData())
-        console.log(store);
-    },[dispatch])
-  return (
-    <>
-    
-    {loading && (
-        <Box
-          position="fixed"
-          top="50%"
-          left="50%"
-          transform="translate(-50%, -50%)"
-          zIndex={9999}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          {/* <SyncLoader height={4} width={4} color="black" /> */}
-        </Box>
-      )}
-    <TableContainer>
-      <Table size="sm"> 
-        <Thead>
-          <Tr>
-            <Th>S.no</Th>
-            <Th>Date</Th>
-            <Th>Time</Th>
-            <Th>Duration</Th>
-            <Th>Location</Th>
-            <Th>Description</Th>
-            <Th>Price</Th>
-            {/* <Td  pl={"30px"}>View</Td> */}
-            <Td pl={"30px"}></Td>
-          </Tr>
-        </Thead>
-       
-        <Tbody fontSize={"14px"} fontWeight={"400"}>
-          {store?.map((item,index) => (
-            <Tr key={item.id}>
-              <Td>{index + 1}</Td>
-              <Td>{item.date}</Td>
-              <Td>{item.time}</Td>
-              <Td>{item.duration}</Td>
-              <Td>{item.location}</Td>
-              <Td>{item.description}</Td>
-              <Td>{item.price}</Td>
-            <Link><Td><Button fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button></Td></Link>
-            <Td><Button fontSize={"14px"} fontWeight={"400"}  color={"blue"}>Edit</Button></Td>
-            <Td><Button fontSize={"14px"} fontWeight={"400"}  color={"red"}>Delete</Button></Td>
-            </Tr>  
-          ))}
-        </Tbody>
-      </Table> 
-    </TableContainer>
-    </>
-  )
-}
+    const truncateDescription = (description) => {
+        const words = description.split(' ');
+        return words.length > 1 ? `${words[0]}...` : description;
+    };
 
-export default AdminYogaDataTable
+    const truncateLocation = (location) => {
+        const words = location.split(' ');
+        return words.length > 1 ? `${words[0]}...` : location;
+    };
+
+    const handleViewClick = (item) => {
+        setSelectedItem(item);
+        onOpen();
+    };
+
+    const deleteHandler = (id) => {
+      // console.log(id)
+       dispatch(deleteAdminYogaFormData(id))
+       .then(res=>{
+           console.log(res)
+           if(res?.payload?.message === "delete success"){
+               setRefresh(prev=>!prev)
+           }
+       })
+     }
+
+    return (
+        <>
+            {loading && (
+                <Box
+                    position="fixed"
+                    top="50%"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    zIndex={9999}
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    {/* <SyncLoader height={4} width={4} color="black" /> */}
+                </Box>
+            )}
+            <TableContainer>
+                <Table size="sm">
+                    <Thead>
+                        <Tr>
+                            <Th>S.no</Th>
+                            <Th>Date</Th>
+                            <Th>Time</Th>
+                            <Th>Duration</Th>
+                            <Th>Location</Th>
+                            <Th>Description</Th>
+                            <Th>Price</Th>
+                            <Td pl={"30px"}></Td>
+                        </Tr>
+                    </Thead>
+                    <Tbody fontSize={"14px"} fontWeight={"400"}>
+                        {store?.map((item, index) => (
+                            <Tr key={item.id}>
+                                <Td>{index + 1}</Td>
+                                <Td>{item.date}</Td>
+                                <Td>{item.time}</Td>
+                                <Td>{item.duration}</Td>
+                                <Td>{truncateLocation(item.location)}</Td>
+                                <Td>{truncateDescription(item.description)}</Td>
+                                <Td>{item.price}</Td>
+                                <Td>
+                                    <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
+                                </Td>
+                                <Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td>
+                                <Td><Button onClick={()=>deleteHandler(item._id)} fontSize={"14px"} fontWeight={"400"} color={"red"}>Delete</Button></Td>
+                            </Tr>
+                        ))}
+                    </Tbody>
+                </Table>
+            </TableContainer>
+
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Yoga Session Details</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        {selectedItem && (
+                            <>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Date:</strong> {selectedItem.date}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Time:</strong> {selectedItem.time}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Duration:</strong> {selectedItem.duration}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Location:</strong> {selectedItem.location}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Description:</strong> {selectedItem.description}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Price:</strong> {selectedItem.price}</Text>
+                            </>
+                        )}
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme="blue" mr={3} onClick={onClose}>
+                            Close
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
+    );
+};
+
+export default AdminYogaDataTable;
