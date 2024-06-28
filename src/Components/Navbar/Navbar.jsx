@@ -81,6 +81,7 @@ const Navbar = () => {
   function handleUnsetProgrammes() {
     setIsHoveredProgrammes(false);
   }
+  console.log("")
 
   return (
     <Box position="fixed" top="0" zIndex="1" width="100%">
