@@ -8,7 +8,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-import logo from "./folk.png";
+import logo from './folk.png';
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -262,7 +262,7 @@ const Navbar = () => {
                         </ListItem>
                         </Link>
                         <hr />
-                        <Link >
+                        <Link to='/'>
                         <ListItem _hover={{ color: "#DE8D38" }}>Home</ListItem>
                         </Link>
                         <hr />
@@ -271,11 +271,10 @@ const Navbar = () => {
                             display="flex"
                             justifyContent="space-between"
                             alignItems="center"
-                            onClick={handleIsOpenProgrammes}
                           >
-                            <Box>Programmes</Box>
+                            <Link to='/programmes'><Box>Programmes</Box></Link>
                             <Box>
-                              <FaChevronDown fontSize="10px" />
+                              <FaChevronDown fontSize="10px" onClick={handleIsOpenProgrammes}/>
                             </Box>
                           </Box>
                         </ListItem>
