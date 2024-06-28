@@ -14,10 +14,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import {
   Box,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   UnorderedList,
   ListItem,
   Image,
@@ -33,6 +29,8 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isOpenAboutUs, setIsOpenAboutUs] = useState(false);
   const [isOpenProgrammes, setIsOpenProgrammes] = useState(false);
+  const [isHoveredAboutus, setIsHoveredAboutus] = useState(false);
+  const [isHoveredProgrammes, setIsHoveredProgrammes] = useState(false);
   const HoverableListitem = ({ children }) => {
     const hoverableUnderline = useRef();
     const { contextSafe } = useGSAP({ scope: hoverableUnderline });
@@ -69,6 +67,18 @@ const Navbar = () => {
   }
   function handleIsOpenProgrammes() {
     setIsOpenProgrammes(!isOpenProgrammes);
+  }
+  function handleSetAboutUs() {
+    setIsHoveredAboutus(true);
+  }
+  function handleUnsetAboutUs() {
+    setIsHoveredAboutus(false);
+  }
+  function handleSetProgrammes() {
+    setIsHoveredProgrammes(true);
+  }
+  function handleUnsetProgrammes() {
+    setIsHoveredProgrammes(false);
   }
 
   return (
@@ -286,6 +296,7 @@ const Navbar = () => {
           display={{ base: "none", md: "none", lg: "flex", xl: "flex" }}
           padding="15px"
           fontSize={{ lg: "0.6rem", xl: "1rem" }}
+          overflow="hidden"
         >
           <UnorderedList
             style={{
@@ -299,46 +310,97 @@ const Navbar = () => {
             }}
             gap={{ md: "0.4rem", lg: "0.5rem", xl: "1.5rem" }}
           >
+            <Box
+              onMouseLeave={handleUnsetAboutUs}
+              onMouseEnter={handleSetAboutUs}
+              display="inline-block"
+            >
+              <ListItem>
+                <HoverableListitem children="AboutUs" />
+                <UnorderedList
+                  className="submenu"
+                  padding={{lg:'10px',xl:'20px'}}
+                  fontSize={{lg:'0.8rem',xl:'1rem'}}
+                  style={{
+                    display: "block",
+                    position: "absolute",
+                    zIndex: "1",
+                    backgroundColor: "white",
+                    lineHeight: "2.5rem",
+                    listStyleType: "none",
+                    textAlign: "left",
+                    boxShadow: "0px 8px 16px 0px rgba(0,0,0,0.2)",
+                    opacity: isHoveredAboutus ? "1" : "0",
+                    visibility: isHoveredAboutus ? "visible" : "hidden",
+                  }}
+                >
+                  <ListItem _hover={{ color: "#DE8D38" }}>AboutUs</ListItem>
+                  <ListItem _hover={{ color: "#DE8D38" }}>
+                    Privacy and Policy
+                  </ListItem>
+                  <ListItem _hover={{ color: "#DE8D38" }}>
+                    Terms and Conditions
+                  </ListItem>
+                </UnorderedList>
+              </ListItem>
+            </Box>
             <ListItem>
-              <HoverableListitem children='AboutUs'/>
+              <HoverableListitem children="Blogs" />
             </ListItem>
-            <ListItem></ListItem>
-            <ListItem>Donation</ListItem>
-            <ListItem>Festivals</ListItem>
-            <ListItem>Gallery</ListItem>
-            <ListItem>Home</ListItem>
             <ListItem>
-              <Menu>
-                <MenuButton
-                  transition="all 0.5s"
-                  _hover={{ color: "#DE8D38" }}
-                  fontWeight="400"
+              <HoverableListitem children="Donation" />
+            </ListItem>
+            <ListItem>
+              <HoverableListitem children="Festivals" />
+            </ListItem>
+            <ListItem>
+              <HoverableListitem children="Gallery" />
+            </ListItem>
+            <ListItem>
+              <HoverableListitem children="Home" />
+            </ListItem>
+            <Box
+              onMouseLeave={handleUnsetProgrammes}
+              onMouseEnter={handleSetProgrammes}
+              display="inline-block"
+            >
+              <ListItem>
+                <HoverableListitem children="Programmes" />
+                <UnorderedList
+                  className="submenu"
+                  padding={{lg:'10px',xl:'20px'}}
+                  fontSize={{lg:'0.8rem',xl:'1rem'}}
+                  style={{
+                    display: "block",
+                    position: "absolute",
+                    zIndex: "1",
+                    backgroundColor: "white",
+                    lineHeight: "2.5rem",
+                    listStyleType: "none",
+                    textAlign: "left",
+                    boxShadow: "0px 8px 16px 0px rgba(0,0,0,0.2)",
+                    opacity: isHoveredProgrammes ? "1" : "0",
+                    visibility: isHoveredProgrammes ? "visible" : "hidden",
+                  }}
                 >
-                  Programmes
-                </MenuButton>
-                <MenuList
-                  borderTopColor="#DE8D38"
-                  bg="white"
-                  padding="15px"
-                  mt="28px"
-                  borderTop="2px solid #DE8D38"
-                  fontSize="1rem"
-                  lineHeight="2rem"
-                >
-                  <MenuItem _hover={{ color: "#DE8D38" }}>
+                  <ListItem _hover={{ color: "#DE8D38" }}>
                     Yoga for Happiness
-                  </MenuItem>
-                  <MenuItem _hover={{ color: "#DE8D38" }}>
+                  </ListItem>
+                  <ListItem _hover={{ color: "#DE8D38" }}>
                     Art of Control
-                  </MenuItem>
-                  <MenuItem _hover={{ color: "#DE8D38" }}>
+                  </ListItem>
+                  <ListItem _hover={{ color: "#DE8D38" }}>
                     Secret of Success
-                  </MenuItem>
-                </MenuList>
-              </Menu>
+                  </ListItem>
+                </UnorderedList>
+              </ListItem>
+            </Box>
+            <ListItem>
+              <HoverableListitem children="Residency" />
             </ListItem>
-            <ListItem _hover={{ color: "#DE8D38" }}>Residency</ListItem>
-            <ListItem _hover={{ color: "#DE8D38" }}>Trips</ListItem>
+            <ListItem>
+              <HoverableListitem children="Trips" />
+            </ListItem>
           </UnorderedList>
         </Box>
       </Box>
