@@ -33,7 +33,7 @@ const AdminMindControlForm = () => {
             e.preventDefault();
           dispatch(postAdminMindControlFormData(formData))
           .then(res=>{
-            console.log(res,"res")
+            // console.log(res,"res")
           })
     }
 

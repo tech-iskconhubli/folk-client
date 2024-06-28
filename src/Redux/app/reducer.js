@@ -3,8 +3,11 @@ const init ={
     isLoading : false,
     isError:false,
     adminYogaData:[],
+    adminYogaSingleData:{},
     adminSecretData:[],
-    adminMindControlData:[]
+    adminSecretSingleData:{},
+    adminMindControlData:[],
+    adminMindControlSingleData:{},
 }
 
 export const reducer = (oldState = init,action)=>{
@@ -138,6 +141,27 @@ export const reducer = (oldState = init,action)=>{
                             isError:true,
                             adminMindControlData:[]
                         }
+                        case types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_REQUEST:
+                            return{
+                                ...oldState,
+                                isLoading:true,
+                                isError:false,
+                                adminMindControlSingleData:[]
+                            }
+                        case types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_SUCCESS:
+                            return{
+                                ...oldState,
+                                isLoading:false,
+                                isError:false,
+                                adminMindControlSingleData:payload
+                            }
+                        case types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_FAILURE:
+                            return{
+                                ...oldState,
+                                isLoading:false,
+                                isError:true,
+                                adminMindControlSingleData:[]
+                            }
         default :
             return oldState
     }

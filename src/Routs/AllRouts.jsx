@@ -26,6 +26,11 @@ import AdminMindControlData from '../Admin/AdminMindControl/AdminMindControlData
 import AdminYogaDataSingle from '../Admin/AdminYoga/AdminYogaDataSingle';
 import AdminSecretDataSingle from '../Admin/AdminSecret/AdminSecretDataSingle';
 import AdminMindControlSingle from '../Admin/AdminMindControl/AdminMindControlSingle';
+import AdminYogaDataEdit from '../Admin/AdminYoga/AdminYogaDataEdit';
+import AdminSecretDataEdit from '../Admin/AdminSecret/AdminSecretDataEdit';
+import AdminMindControlEdit from '../Admin/AdminMindControl/AdminMindControlEdit';
+import SecretOfSuccess from '../Pages/SecretOfSuccess/SecretOfSuccess';
+import ArtOfMindControl from '../Pages/ArtOfMindControl/ArtOfMindControl';
 const AllRouts = () => {
   return (
     <>
@@ -44,6 +49,8 @@ const AllRouts = () => {
                   <Route path='/trips' element={<Trips/>}/>
                   <Route path='/allforms' element={<AllForms/>}/>
                   <Route path='/yogaForHappiness' element={<YogaForHappiness/>} />
+                  <Route path='/secretOfSuccess' element={<SecretOfSuccess/>} />
+                  <Route path='/artOfMindControl' element={<ArtOfMindControl/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 
@@ -52,12 +59,16 @@ const AllRouts = () => {
                   <Route path='/admin/yoga/createForm' element={<AdminYogaForm/>} />
                   <Route path='/admin/yoga/data' element={<AdminYogadata/>} />
                   <Route path='/admin/yoga/data/:id' element={<AdminYogaDataSingle/>}/>
+                  <Route path='/admin/yoda/data/edit/:id' element={<AdminYogaDataEdit/>} />
                   <Route path='/admin/secret/createForm' element={<AdminSecretForm/>} />
                   <Route path='/admin/secret/data' element={<AdminSecretData/>} />
                   <Route path='/admin/secret/data/:id' element={<AdminSecretDataSingle/>}/>
+                  <Route path='/admin/secret/data/edit/:id' element={<AdminSecretDataEdit/>}/>
                   <Route path='/admin/mindControl/createForm' element={<AdminMindControlForm/>} />
                   <Route path='/admin/mindControl/data' element={<AdminMindControlData/>} />
                   <Route path='/admin/mindControl/data/:id' element={<AdminMindControlSingle/>}/>
+                  <Route path='/admin/mindControl/data/edit/:id' element={<AdminMindControlEdit/>}/>
+                  <Route path='/admin' />
             </Route>
         </Routes>
     </>

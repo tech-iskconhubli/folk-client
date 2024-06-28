@@ -84,7 +84,7 @@ const AdminYogaDataTable = () => {
                                 <Td>
                                     <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
                                 </Td>
-                                <Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td>
+                                <Link to={`/admin/yoda/data/edit/${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
                                 <Td><Button onClick={()=>deleteHandler(item._id)} fontSize={"14px"} fontWeight={"400"} color={"red"}>Delete</Button></Td>
                             </Tr>
                         ))}

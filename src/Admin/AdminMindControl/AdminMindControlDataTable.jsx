@@ -38,7 +38,7 @@ const AdminMindControlDataTable = () => {
    // console.log(id)
     dispatch(deleteAdminMindControlFormData(id))
     .then(res=>{
-        console.log(res)
+        // console.log(res)
         if(res?.payload?.message === "delete success"){
             setRefresh(prev=>!prev)
         }
@@ -89,7 +89,7 @@ const AdminMindControlDataTable = () => {
                               <Td>
                                   <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
                               </Td>
-                              <Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td>
+                              <Link to={`/admin/mindControl/data/edit/${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
                               <Td><Button onClick={()=>deleteHandler(item._id)} fontSize={"14px"} fontWeight={"400"} color={"red"}>Delete</Button></Td>
                           </Tr>
                       ))}
