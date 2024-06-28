@@ -7,8 +7,8 @@ const AllForms = () => {
    
   return (
     <>
-        <Box border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0%","0px 0px 0px 17%"]} fontFamily={"form"}>
-            <Box border={"2px solid transparent"} display={["","","","flex"]} gap={"20px"} >
+        <Box border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0px","0px 0px 0px 17%"]} fontFamily={"form"}>
+            <Box width={["95%","","90%","80%","100%"]} m={"auto"}   display={["","","","flex"]} gap={"20px"} >
                 <Box width={"0.2%"} height={"auto"} bgColor={"lightblue"}></Box>
                 <Box position={"related"} width={["","","","60%"]} boxSizing='border-box' p={["","","","20px 0px 0px 20px"]}>
                     <Box display={"flex"} alignItems={"center"} gap={'10px'}> 
@@ -18,7 +18,7 @@ const AllForms = () => {
                     <Box boxSizing='border-box' p={["","","",""]}>
                         <Heading fontFamily={"form"} fontWeight={"500"} m={"30px 0px 15px 0px"}>Yoga For Happiness</Heading>
                         <hr  style={{width:'50px', backgroundColor:"blue",padding:'2px'}}/>
-                        <Image mt={["","","","40px"]}  width={"460px"} src={"https://s3.ap-south-1.amazonaws.com/rzp-prod-merchant-assets/payment-link/description/whatsapp%20image%202023-07-14%20at%2013.50.05_mdc55alb71v3qv.jpeg"}/>
+                        <Image ml={["","","15%","25%","0px"]} mt={["","","30px","","40px"]}  width={"460px"} src={"https://s3.ap-south-1.amazonaws.com/rzp-prod-merchant-assets/payment-link/description/whatsapp%20image%202023-07-14%20at%2013.50.05_mdc55alb71v3qv.jpeg"}/>
                         
                         <Box width={["","","","500px"]}>
                             <Text m={"30px 0px 15px 0px"} fontSize={"22px"} fontWeight={"600"}>Yoga for Happiness</Text>
@@ -52,7 +52,7 @@ const AllForms = () => {
                         <Text fontSize={"15px"} mb={"30px"}>You agree to share information entered on this page with Hare Krishna Movement India (owner of this page) and Razorpay, adhering to applicable laws.</Text>
                         </Box>
                     </Box>
-                    <Box  boxShadow='lg' p='6' rounded='md' bg='white' top={["","","","90px"]} bottom={["-730px","","","300px",""]} right={["","","","10px","330px"]} position={"absolute"} border={"2px solid transprent"} height={"700px"} width={["100%","","","500px"]}>
+                    <Box  boxShadow='lg' p='6' rounded='md' bg='white' top={["","","","",""]} bottom={["-730px","","","","900px"]} m={"auto"} left={["","","","100px","850px"]} right={["","","","","330px"]} position={"absolute"}  height={"700px"} width={["98%","","90%","80%","500px"]}>
 
                         <Box position={"related"}>
                         <Heading fontSize={"19px"} fontFamily={"form"} fontWeight={"600"} m={"0px 0px 10px 0px"}>Payment Details</Heading>
@@ -90,9 +90,9 @@ const AllForms = () => {
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
-                                <Text width={["70%","","","50%"]}>Branch and year</Text>
+                                <Text width={["70%","","","","50%"]}>Branch and year</Text>
                                <Box position={"relative"}>
-                                <Input width={["200px","","","290px"]}/>
+                                <Input width={["200px","","370px","500px","290px"]}/>
                                 <br /><br />
                                 <i  style={{position:"absolute", bottom:"0px", left:"10px"}}>(If you are a student)</i>
                                </Box>
@@ -104,7 +104,7 @@ const AllForms = () => {
                             </Box> 
                            
                            <Box position={"absolute"} border={"2px solid transparent"} bottom={"-2px"} left={"-2px"} width={"100%"} display={"flex"}>
-                            <Box width={["","","","58%"]} bgColor={"lightgray"} boxSizing='border-box' p={"20px"}>
+                            <Box width={["","","","80%","58%"]} bgColor={"lightgray"} boxSizing='border-box' p={"20px"}>
                                 <Image width={"200px"} src='https://cdn.razorpay.com/static/assets/pay_methods_branding.png'/>
                             </Box>
                             <Box  width={["","","","30%"]}><Button p={"28px 74px"} border={"none"} borderRadius={"0px"} bgColor={"blue"} color={"white"} textAlign={"center"}>pay &#x20b9; 100</Button></Box>
@@ -116,10 +116,14 @@ const AllForms = () => {
                     </Box>
                 </Box>
                 <Box width={["","","","40%"]}>
-                <Image display={["none","none","none","block","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src={image}/>
+                <Image display={["none","none","none","none","block"]}   mt={["40px","","","0px"]}  height={["100%","","","100%"]} objectFit={"cover"} src={image}/>
                 </Box>
             </Box>
         </Box>
+        
+        {/* border={["2px solid orange","2px solid blue","2px solid green","2px solid red","2px solid black"]} */}
+
+
     </>
   )
 }

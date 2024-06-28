@@ -13,6 +13,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import {Link} from 'react-router-dom';
+import logo from "./folk.png"
 import {
   Box,
   UnorderedList,
@@ -180,6 +181,13 @@ const Navbar = () => {
           <Box
             onClick={handleToggleMenu}
             marginRight={{ base: "15px", md: "50px" }}
+         <Image src={logo}></Image>
+         </Box>
+         <Box
+          display={{ base: "none", md: "flex" }}
+          padding="15px"
+          ml={{ md: "-5px", lg: "2%", xl: "5%" }}
+          fontSize={{ md: "0.6rem", lg: "0.8rem", xl: "1.3rem" }}
           >
             {" "}
             <IoMenu style={{ color: "#DE8D38" }} />

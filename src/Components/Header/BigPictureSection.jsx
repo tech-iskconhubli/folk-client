@@ -2,16 +2,39 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import React, { useRef } from 'react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import theme from "../../theme"
 import { Box, Container, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { useTheme } from '@emotion/react';
 gsap.registerPlugin(ScrollTrigger);
 
 const BigPictureSection = () => {
   
+  const theme  = useTheme()
   
-  let counterBox1 = useRef(null);
-  let counterBox2 = useRef(null);
-  let counterBox3 = useRef(null);
-  let counterBox4 = useRef(null);
+  const headingMatter = useRef(null);
+  const counterBox1 = useRef(null);
+  const counterBox2 = useRef(null);
+  const counterBox3 = useRef(null);
+  const counterBox4 = useRef(null);
+
+
+
+  // HeadingMatter Animnation
+
+  useGSAP(()=>{
+    gsap.from(headingMatter.current.children,{
+      scale:0,
+      opacity:0,
+       duration:0.8,
+       stagger:0.4,
+       scrollTrigger:{
+        trigger:headingMatter.current,
+        start:'top 90%',
+        end:'bottom center'
+       }
+    })
+  },[])
+
 
 
   // CounterBox1 Number Animation
@@ -25,7 +48,7 @@ const BigPictureSection = () => {
         },
         scrollTrigger:{
           trigger:counterBox1.current,
-          start:'top center',
+          start:'top 90%',
         }
       });
   }, []);
@@ -41,7 +64,7 @@ const BigPictureSection = () => {
       },
       scrollTrigger:{
         trigger:counterBox2.current,
-        start:'top center',
+        start:'top 90%',
       }
     })
   },[])
@@ -58,7 +81,7 @@ const BigPictureSection = () => {
        },
        scrollTrigger:{
         trigger:counterBox3.current,
-        start:'top center',
+        start:'top 90%',
       }
 
      })
@@ -76,14 +99,14 @@ const BigPictureSection = () => {
        },
        scrollTrigger:{
         trigger:counterBox4.current,
-        start:'top center',
+        start:'top 90%',
 
       }
     })
   },[])
 
   return (
-    <Box bg='grey'>
+    <Box bgColor={theme.colors.col.secondary}>
 
     <Container
     w={["100%", "100%", "90%", "90%"]}
@@ -98,7 +121,7 @@ const BigPictureSection = () => {
     gap={'4rem'}
     color={'white'}
   >
-     <Box textAlign={'center'}>
+     <Box ref={headingMatter} textAlign={'center'}>
       <Box py={'20px'}>
         <Heading fontSize={['2.2rem','2.5rem','3em','4rem']} fontWeight="900">THE BIG PICTURE</Heading>
       </Box>
