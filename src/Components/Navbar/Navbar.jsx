@@ -12,6 +12,7 @@ import logo from "./folk.png";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import {Link} from 'react-router-dom';
 import {
   Box,
   UnorderedList,
@@ -218,36 +219,52 @@ const Navbar = () => {
                         {isOpenAboutUs && (
                           <Box>
                             <hr />
+                            <Link to='/about'>
                             <ListItem _hover={{ color: "#DE8D38" }}>
                               AboutUs
                             </ListItem>
+                            </Link>
                             <hr />
+                            <Link to='/privacy-policy'>
                             <ListItem _hover={{ color: "#DE8D38" }}>
                               Privacy and Policy
                             </ListItem>
+                            </Link>
                             <hr />
+                            <Link to='/terms-and-conditions'>
                             <ListItem _hover={{ color: "#DE8D38" }}>
                               Terms and conditions
                             </ListItem>
+                            </Link>
                           </Box>
                         )}
                         <hr />
+                        <Link to='/blogs'>
                         <ListItem _hover={{ color: "#DE8D38" }}>Blogs</ListItem>
+                        </Link>
                         <hr />
+                        <Link to='/donation'>
                         <ListItem _hover={{ color: "#DE8D38" }}>
                           Donation
                         </ListItem>
+                        </Link>
                         <hr />
+                        <Link to='/festivals'>
                         <ListItem _hover={{ color: "#DE8D38" }}>
                           {" "}
                           Festivals
                         </ListItem>
+                        </Link>
                         <hr />
+                        <Link to='/gallery'>
                         <ListItem _hover={{ color: "#DE8D38" }}>
                           Gallery
                         </ListItem>
+                        </Link>
                         <hr />
+                        <Link >
                         <ListItem _hover={{ color: "#DE8D38" }}>Home</ListItem>
+                        </Link>
                         <hr />
                         <ListItem _hover={{ color: "#DE8D38" }}>
                           <Box
