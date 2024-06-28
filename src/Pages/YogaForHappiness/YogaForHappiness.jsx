@@ -1,6 +1,8 @@
 import React from 'react'
 import YogaHeroSection from './YogaHeroSection'
 import YogaSectionTwo from './YogaSectionTwo'
+import YogaSectionThree from './YogaSectionThree'
+import YogaSectionFour from './YogaSectionFour'
 
 
 const YogaForHappiness = () => {
@@ -9,6 +11,8 @@ const YogaForHappiness = () => {
     <>
     <YogaHeroSection />
     <YogaSectionTwo />
+    <YogaSectionThree />
+    <YogaSectionFour />
     </>
   )
 }

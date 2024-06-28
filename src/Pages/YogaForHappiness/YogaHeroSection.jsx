@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Box, Button, Text } from "@chakra-ui/react";
 import YogaBgImage from "../../../src/Assets/Monk.jpg";
 import { GoNorthStar } from "react-icons/go";
@@ -10,11 +10,32 @@ import gsap from 'gsap'
 
 const YogaHeroSection = () => {
   
-  console.log('yoga hero section')
+  const mainHeading = useRef(null);
+  const matter = useRef(null);
+  const button = useRef(null);
+  
 
+  // Hero Section Animation
   useGSAP(()=>{
+     const tl = gsap.timeline();
     
-  })
+     tl.from(mainHeading.current,{
+       y:-100,
+       opacity:0,
+       duration:0.5
+     })
+     tl.from(matter.current,{
+      y:-100,
+       opacity:0,
+       duration:0.5
+     })
+     tl.from(button.current,{
+       scale:0,
+       opacity:0,
+       duration:0.5
+     })
+
+  },[])
 
 
 
@@ -47,18 +68,20 @@ const YogaHeroSection = () => {
             fontSize={['1.2rem','2rem','3rem','3.5rem','5rem']}
             fontWeight={"600"}
             display={"inline-block"}
+            ref={mainHeading}
           >
             BODY <span>&</span> MIND
           </Box>
-          <Box>
+          <Box ref={matter}>
             <Text fontSize={["0.5rem","0.8rem",'1rem','1.2rem','1.5rem']} fontWeight={'400'} display={"inline-block"}>
               Connect to your inner flow.
             </Text>
           </Box>
         </Box>
 
-        <Box>
+        <Box  ref={button}> 
           <Button
+           
             fontSize={["0.5rem",'0.7rem','0.8rem','0.9rem','1rem']}
             px={["0.4rem",'0.5rem','0.8rem','0.9rem','1rem']}
             py={['0.3rem','0.5rem','1rem','1.5rem','2rem']}
@@ -68,10 +91,10 @@ const YogaHeroSection = () => {
             gap={["0.3rem"]}
             borderRadius={"10px"}
           >
-            {" "}
+           
             <span>
               <GoNorthStar />
-            </span>{" "}
+            </span>
             Join Our Classes
           </Button>
         </Box>
