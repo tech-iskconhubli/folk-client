@@ -23,7 +23,8 @@ const YogaSectionThree = () => {
       gsap.from(smallHeading.current,{
          y:100,
          opacity:0,
-         duration:0.5,
+         duration:0.4,
+         ease: 'power1.inOut',
          scrollTrigger:{
           trigger:smallHeading.current,
           start:'top 100%',
@@ -34,6 +35,7 @@ const YogaSectionThree = () => {
          y:100,
          opacity:0,
          duration:0.5,
+         ease: 'power1.inOut',
          scrollTrigger:{
           trigger:smallHeading.current,
           start:'top 90%',
@@ -51,24 +53,30 @@ useGSAP(()=>{
     }
    });
 
-   tl.from(boxTwo.current,{
+   tl.from(boxTwo.current.children,{
      scale:0,
      opacity:0,
-     duration:0.8
+     duration:1,
+     ease: 'power1.in',
    });
 
    tl.from(boxOne.current,{
     scale:0,
     opacity:0,
-    duration:1
+    duration:0.8,
+    ease: 'power1.inOut',
    });
 
    tl.from(boxOne.current.children,{
       y:100,
       opacity:0,
       stagger:0.3,
-      duration:0.5
-   })
+      duration:0.5,
+      ease: 'power1.inOut',
+   });
+   return () => {
+    tl.kill();
+  };
 },[])
 
   return (

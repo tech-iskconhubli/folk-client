@@ -35,7 +35,8 @@ const YogaSectionTwo = () => {
       scrollTrigger:{
         trigger:boxOneContainer.current,
         start:'top 80%',
-        end:'bottom Center'
+        end:'bottom Center',
+        ease: 'power1.inOut',
       }
     });
      tl.from(boxOneSmallHeading.current,{
@@ -59,6 +60,9 @@ const YogaSectionTwo = () => {
       opacity:0,
       duration:0.5,
      });
+     return () => {
+      tl.kill();
+    };
   },[])
 
 
@@ -93,22 +97,29 @@ const YogaSectionTwo = () => {
       y:100,
       opacity:0,
       duration:0.5,
+      ease: 'power1.inOut',
      })
      tl.from(boxThreeBigHeading.current,{
       y:100,
       opacity:0,
       duration:0.5,
+      ease: 'power1.inOut',
      })
      tl.from(boxThreeMatter.current,{
       y:100,
       opacity:0,
       duration:0.5,
+      ease: 'power1.inOut',
      })
      tl.from(boxThreeButton.current,{
      scale:0,
       opacity:0,
       duration:0.5,
-     })
+      ease: 'power1.inOut',
+     });
+     return () => {
+      tl.kill();
+    };
 
   },[])
 
@@ -184,7 +195,7 @@ const YogaSectionTwo = () => {
         <Box  w={['100%','100%','auto']}>
           <Box ref={boxTwoContainer} display={'flex'} flexDirection={['column','column','row','row']} alignItems={['center','center','start']} gap={'20px'} p={'1rem'}>
             {/* Image One */}
-            <Box w={['100%','70%','200px']} h={['auto','400px','290px']} borderRadius={'10px'} overflow={'hidden'}>
+            <Box w={['100%','70%','200px']} h={['300px','400px','290px']} borderRadius={'10px'} overflow={'hidden'}>
               <Image
               objectFit={'cover'}
               objectPosition={'bottom center'}
@@ -197,7 +208,7 @@ const YogaSectionTwo = () => {
             </Box>
 
             {/* Image Two */}
-               <Box  w={['100%','70%','200px']} h={['auto','400px','290px']} mt={['0','0','5rem']} borderRadius={'10px'} overflow={'hidden'}>
+               <Box  w={['100%','70%','200px']} h={['300px','400px','290px']} mt={['0','0','5rem']} borderRadius={'10px'} overflow={'hidden'}>
               <Image
               objectFit={'cover'}
               objectPosition={'center'}
@@ -210,7 +221,7 @@ const YogaSectionTwo = () => {
             </Box>
 
             {/* Image Three */}
-               <Box w={['100%','70%','200px']} h={['auto','400px','290px']} borderRadius={'10px'} overflow={'hidden'}>
+               <Box w={['100%','70%','200px']} h={['300px','400px','290px']} borderRadius={'10px'} overflow={'hidden'}>
               <Image
               objectFit={'cover'}
               objectPosition={'top center'}

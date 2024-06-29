@@ -3,6 +3,8 @@ import YogaHeroSection from './YogaHeroSection'
 import YogaSectionTwo from './YogaSectionTwo'
 import YogaSectionThree from './YogaSectionThree'
 import YogaSectionFour from './YogaSectionFour'
+import WelcomSection from './WelcomSection'
+import TimeLIneSection from './TimeLIneSection'
 
 
 const YogaForHappiness = () => {
@@ -13,6 +15,8 @@ const YogaForHappiness = () => {
     <YogaSectionTwo />
     <YogaSectionThree />
     <YogaSectionFour />
+    <WelcomSection />
+    <TimeLIneSection />
     </>
   )
 }

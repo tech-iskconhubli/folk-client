@@ -39,19 +39,26 @@ const ImageGallery = () => {
         trigger:gridContainer.current,
         start:'top 150%',
         end:'bottom center',
+        ease: 'power1.inOut',
       }
     })
     tl.from(gridContainer.current,{
       scale:0,
       opacity:0,
-      duration:0.5
+      duration:1,
+      ease: 'power1.inOut',
     });
     tl.from(gridContainer.current.children, {
       y: 100,
-      duration: 0.7,
+      duration: 1,
       opacity: 0,
       stagger: 0.3,
+      ease: 'power1.inOut',
     });
+
+    return () => {
+      tl.kill();
+    };
   },[]);
 
   return (
