@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { Box, Button, Text } from "@chakra-ui/react";
 import YogaBgImage from "../../../src/Assets/Monk.jpg";
 import { GoNorthStar } from "react-icons/go";
-import "../../Styles/YogaStyles.css";
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
@@ -22,18 +21,24 @@ const YogaHeroSection = () => {
      tl.from(mainHeading.current,{
        y:-100,
        opacity:0,
-       duration:0.5
+       duration:0.5,
+       ease: 'power1.inOut',
      })
      tl.from(matter.current,{
       y:-100,
        opacity:0,
-       duration:0.5
+       duration:0.5,
+       ease: 'power1.inOut',
      })
      tl.from(button.current,{
        scale:0,
        opacity:0,
-       duration:0.5
-     })
+       duration:0.5,
+       ease: 'power1.inOut',
+     });
+     return () => {
+      tl.kill();
+    };
 
   },[])
 

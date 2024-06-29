@@ -94,7 +94,10 @@ const Testimonials = () => {
             y:-50,
             opacity:0,
             duration:0.5
-         })
+         });
+         return () => {
+            tl.kill();
+          };
     },[])
 
     // Card Container Two
@@ -127,7 +130,11 @@ const Testimonials = () => {
             y:-50,
             opacity:0,
             duration:0.5
-         })
+         });
+
+         return () => {
+            tl.kill();
+          };
     },[])
 
     // Card Container Three
@@ -160,7 +167,10 @@ const Testimonials = () => {
             y:-50,
             opacity:0,
             duration:0.5
-         })
+         });
+         return () => {
+            tl.kill();
+          };
     },[])
 
     // Card Container Four
@@ -193,7 +203,10 @@ const Testimonials = () => {
             y:-50,
             opacity:0,
             duration:0.5
-         })
+         });
+         return () => {
+            tl.kill();
+          };
     },[])
 
 
