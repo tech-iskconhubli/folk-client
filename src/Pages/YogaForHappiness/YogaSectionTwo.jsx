@@ -169,11 +169,12 @@ const YogaSectionTwo = () => {
           {/* Matter */}
           <Text
           ref={boxOneMatter}
-            fontSize={['.7rem','0.8rem','0.9rem']}
-            display={"inline-block"}
-            maxW={"700px"}
-            textAlign={"center"}
-            lineHeight={[ '1.2rem', "1.5rem"]}
+          fontSize={['.7rem','0.8rem','0.9rem']}
+          display={"inline-block"}
+          maxW={"700px"}
+          textAlign={['left','left','center']}
+          lineHeight={[ '1.2rem', "1.5rem"]}
+          px={['0.5rem','auto']}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam repudiandae delectus recusandae eum eos, maxime ipsa amet reiciendis sequi cum voluptatibus eligendi hic numquam ad ab optio deleniti adipisci explicabo et, soluta cumque fuga saepe fugit! Aliquid, quos doloremque.
           </Text>
@@ -260,7 +261,7 @@ const YogaSectionTwo = () => {
             fontWeight={"600"}
             maxW={"500px"}
             minW={'300px'}
-            textAlign={"center"}
+            textAlign={'center'}
           >
           CELEBRATE WITH US
           </Box>
@@ -271,7 +272,7 @@ const YogaSectionTwo = () => {
             fontSize={['.7rem','0.8rem','0.9rem']}
             display={"inline-block"}
             maxW={"700px"}
-            textAlign={"center"}
+            textAlign={['left','left','center']}
             lineHeight={[ '1.2rem', "1.5rem"]}
             px={['0.5rem','auto']}
           >

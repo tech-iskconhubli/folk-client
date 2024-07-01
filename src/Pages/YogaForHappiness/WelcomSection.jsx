@@ -38,15 +38,15 @@ const WelcomSection = () => {
       tl.from(flexBoxOne.current.children,{
          x:-100,
          opacity:0,
-         duration:0.9,
-         stagger:0.6,
+         duration:0.5,
+         stagger:0.3,
          ease:'power1.inOut'
       });
       tl.from(flexBoxTwo.current.children,{
          x:100,
          opacity:0,
-         duration:0.9,
-         stagger:0.6,
+         duration:0.5,
+         stagger:0.3,
           ease:'power1.inOut'
       });
 
