@@ -206,7 +206,7 @@ const TimeLIneSection = () => {
           <VStack mt={['1rem','1rem','0']} ref={matterContainerTwo} gap={['0.8rem','0.8rem','0.7rem','0.7rem','1rem']} alignItems={['start','start','end']} w={['100%','100%','48%']} >
 
           <Box color={theme.colors.col.secondary} fontWeight={'bold'} w={['auto','auto','auto','auto','450px']} fontSize={['1.4rem','1.8rem','1.5rem','2rem','2.5rem']} textAlign={['left','left','right']}>Sahaj Samadhi Meditation</Box>
-          <Text ffontSize={['0.8rem','1rem']} lineHeight={['1.5rem','1.8rem','1.8rem','1.9rem','2rem']} textAlign={['left','left','right']}>
+          <Text fontSize={['0.8rem','1rem']} lineHeight={['1.5rem','1.8rem','1.8rem','1.9rem','2rem']}>
                 The state of samadhi will help you experience deep inner peace
                 as well as increase self-awareness. It's really easy to become
                 fully poticient.

@@ -37,7 +37,7 @@ const ImageGallery = () => {
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger:gridContainer.current,
-        start:'top 150%',
+        start:'top 190%',
         end:'bottom center',
         ease: 'power1.inOut',
       }
@@ -67,8 +67,7 @@ const ImageGallery = () => {
         w={["100%", "100%", "90%", "90%"]}
         maxW="1500px"
         marginX="auto"
-        my="1.5rem"
-        padding="2rem"
+        my="1rem"
        
       >
         {/* Heading */}

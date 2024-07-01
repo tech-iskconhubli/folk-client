@@ -5,6 +5,7 @@ import YogaSectionThree from './YogaSectionThree'
 import YogaSectionFour from './YogaSectionFour'
 import WelcomSection from './WelcomSection'
 import TimeLIneSection from './TimeLIneSection'
+import HelpingYouAchieveHarmony from './HelpingYouAchieveHarmony'
 
 
 const YogaForHappiness = () => {
@@ -15,6 +16,7 @@ const YogaForHappiness = () => {
     <YogaSectionTwo />
     <YogaSectionThree />
     <YogaSectionFour />
+    <HelpingYouAchieveHarmony />
     <WelcomSection />
     <TimeLIneSection />
     </>
