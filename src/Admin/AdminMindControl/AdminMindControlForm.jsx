@@ -41,12 +41,12 @@ const AdminMindControlForm = () => {
     <>
         <AdminTopNavbar/>
         <Box  display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-            <Box borderRadius={"12px"} bgColor={"#eeeeee"} height={"300px"} width={"50%"}><Card></Card></Box>
-            <Box borderRadius={"12px"} bgColor={"#eeeeee"} height={"300px"} width={"50%"}><Card></Card></Box>
+            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
+            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
         </Box>
-        <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"#eeeeee"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
+        <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
             < >
-               <Box  bgColor={"#eeeeee"}  color={"black"}>
+               <Box  bgColor={"white"}  color={"black"}>
                   <form onSubmit={handleSubmit} >
                    <Stack gap={"20px"} >
                         <Box   display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>

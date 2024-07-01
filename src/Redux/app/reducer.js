@@ -8,6 +8,10 @@ const init ={
     adminSecretSingleData:{},
     adminMindControlData:[],
     adminMindControlSingleData:{},
+    adminTripsData:[],
+    adminTripsSingle:{},
+    adminResidencyData:[],
+    adminResidencySingle:{}
 }
 
 export const reducer = (oldState = init,action)=>{
@@ -162,6 +166,90 @@ export const reducer = (oldState = init,action)=>{
                                 isError:true,
                                 adminMindControlSingleData:[]
                             }
+                            case types.GET_ADMIN_TRIPS_FORM_REQUEST:
+                                return{
+                                    ...oldState,
+                                    isLoading:true,
+                                    isError:false,
+                                    adminTripsData:[]
+                                }
+                            case types.GET_ADMIN_TRIPS_FORM_SUCCESS:
+                                return{
+                                    ...oldState,
+                                    isLoading:false,
+                                    isError:false,
+                                    adminTripsData:payload
+                                }
+                            case types.GET_ADMIN_TRIPS_FORM_FAILURE:
+                                return{
+                                    ...oldState,
+                                    isLoading:false,
+                                    isError:true,
+                                    adminTripsData:[]
+                                }
+                                case types.GET_SINGLE_ADMIN_TRIPS_FORM_REQUEST:
+                                    return{
+                                        ...oldState,
+                                        isLoading:true,
+                                        isError:false,
+                                        adminTripsSingle:[]
+                                    }
+                                case types.GET_SINGLE_ADMIN_TRIPS_FORM_SUCCESS:
+                                    return{
+                                        ...oldState,
+                                        isLoading:false,
+                                        isError:false,
+                                        adminTripsSingle:payload
+                                    }
+                                case types.GET_SINGLE_ADMIN_TRIPS_FORM_FAILURE:
+                                    return{
+                                        ...oldState,
+                                        isLoading:false,
+                                        isError:true,
+                                        adminTripsSingle:[]
+                                    }
+                                    case types.GET_ADMIN_RESIDENCY_FORM_REQUEST:
+                                        return{
+                                            ...oldState,
+                                            isLoading:true,
+                                            isError:false,
+                                            adminResidencyData:[]
+                                        }
+                                    case types.GET_ADMIN_RESIDENCY_FORM_SUCCESS:
+                                        return{
+                                            ...oldState,
+                                            isLoading:false,
+                                            isError:false,
+                                            adminResidencyData:payload
+                                        }
+                                    case types.GET_ADMIN_RESIDENCY_FORM_FAILURE:
+                                        return{
+                                            ...oldState,
+                                            isLoading:false,
+                                            isError:true,
+                                            adminResidencyData:[]
+                                        }
+                                        case types.GET_SINGLE_ADMIN_RESIDENCY_FORM_REQUEST:
+                                            return{
+                                                ...oldState,
+                                                isLoading:true,
+                                                isError:false,
+                                                adminResidencySingle:[]
+                                            }
+                                        case types.GET_SINGLE_ADMIN_RESIDENCY_FORM_SUCCESS:
+                                            return{
+                                                ...oldState,
+                                                isLoading:false,
+                                                isError:false,
+                                                adminResidencySingle:payload
+                                            }
+                                        case types.GET_SINGLE_ADMIN_RESIDENCY_FORM_FAILURE:
+                                            return{
+                                                ...oldState,
+                                                isLoading:false,
+                                                isError:true,
+                                                adminResidencySingle:[]
+                                            }
         default :
             return oldState
     }

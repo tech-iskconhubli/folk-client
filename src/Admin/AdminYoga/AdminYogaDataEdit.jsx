@@ -44,13 +44,13 @@ const AdminYogaDataEdit = () => {
   return (
     <>
       <AdminTopNavbar/>
-      <Box border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
+      <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>
              
-        <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"#eeeeee"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
+        <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
             < >
-               <Box  bgColor={"#eeeeee"}  color={"black"}>
+               <Box  bgColor={"white"}  color={"black"}>
                   <form onSubmit={handleSubmit} >
                    <Stack gap={"20px"} >
                         <Box   display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>

@@ -71,6 +71,9 @@ return  axios.delete(`http://localhost:2346/api/adminyoga/${id}`)
 
 
 
+
+
+
 export const postAdminSecretFormData = (payload)=>(dispatch)=>{
     dispatch({type:types.POST_ADMIN_SECRET_FORM_REQUEST});
 
@@ -139,6 +142,9 @@ return  axios.delete(`http://localhost:2346/api/adminsecretsuccess/${id}`)
 
 
 
+
+
+
 export const postAdminMindControlFormData = (payload)=>(dispatch)=>{
     dispatch({type:types.POST_ADMIN_MIND_CONTROL_FORM_REQUEST});
 
@@ -201,5 +207,150 @@ return  axios.patch(`http://localhost:2346/api/adminartcontrol/${id}`, payload)
   })
 }
 
+
+
+
+
+
+
+
+
+
+export const postAdminTripsFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_ADMIN_TRIPS_FORM_REQUEST});
+  console.log("action form", payload)
+return  axios.post("http://localhost:2346/api/adminTrips/addAdminTrips",payload,{
+  headers: {
+    'Content-Type': 'multipart/form-data',
+},
+})
+  .then(res=>{
+    return  dispatch({type:types.POST_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_ADMIN_TRIPS_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getAdminTripsFormData = ()=>(dispatch)=>{
+dispatch({type:types.GET_ADMIN_TRIPS_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/adminTrips")
+.then(res=>{
+  return  dispatch({type:types.GET_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_ADMIN_TRIPS_FORM_FAILURE, payload:err.message})
+})
+}
+
+export const singleAdminTripsFormData = (id)=>(dispatch)=>{
+dispatch({type:types.GET_SINGLE_ADMIN_TRIPS_FORM_REQUEST});
+// console.log("action id: " + id)
+return  axios.get(`http://localhost:2346/api/adminTrips/${id}`)
+.then(res=>{
+  return  dispatch({type:types.GET_SINGLE_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_SINGLE_ADMIN_TRIPS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const deleteAdminTripsFormData = (id)=>(dispatch)=>{
+dispatch({type:types.DELETE_ADMIN_TRIPS_FORM_REQUEST});
+
+return  axios.delete(`http://localhost:2346/api/adminTrips/${id}`)
+.then(res=>{
+  return  dispatch({type:types.DELETE_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.DELETE_ADMIN_TRIPS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const updateAdminTripsFormData = (id,payload)=>(dispatch)=>{
+dispatch({type:types.UPDATE_ADMIN_TRIPS_FORM_REQUEST});
+
+return  axios.patch(`http://localhost:2346/api/adminTrips/${id}`, payload)
+.then(res=>{
+  return  dispatch({type:types.UPDATE_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.UPDATE_ADMIN_TRIPS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+
+
+
+
+export const postAdminResidencyFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_ADMIN_RESIDENCY_FORM_REQUEST});
+  console.log("action form", payload)
+return  axios.post("http://localhost:2346/api/adminResidency/addAdminResidency",payload,{
+  headers: {
+    'Content-Type': 'multipart/form-data',
+},
+})
+  .then(res=>{
+    return  dispatch({type:types.POST_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_ADMIN_RESIDENCY_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getAdminResidencyFormData = ()=>(dispatch)=>{
+dispatch({type:types.GET_ADMIN_RESIDENCY_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/adminResidency")
+.then(res=>{
+  return  dispatch({type:types.GET_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_ADMIN_RESIDENCY_FORM_FAILURE, payload:err.message})
+})
+}
+
+export const singleAdminResidencyFormData = (id)=>(dispatch)=>{
+dispatch({type:types.GET_SINGLE_ADMIN_RESIDENCY_FORM_REQUEST});
+// console.log("action id: " + id)
+return  axios.get(`http://localhost:2346/api/adminResidency/${id}`)
+.then(res=>{
+  return  dispatch({type:types.GET_SINGLE_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_SINGLE_ADMIN_RESIDENCY_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const deleteAdminResidencyFormData = (id)=>(dispatch)=>{
+dispatch({type:types.DELETE_ADMIN_RESIDENCY_FORM_REQUEST});
+
+return  axios.delete(`http://localhost:2346/api/adminResidency/${id}`)
+.then(res=>{
+  return  dispatch({type:types.DELETE_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.DELETE_ADMIN_RESIDENCY_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const updateAdminResidencyFormData = (id,payload)=>(dispatch)=>{
+dispatch({type:types.UPDATE_ADMIN_RESIDENCY_FORM_REQUEST});
+
+return  axios.patch(`http://localhost:2346/api/adminResidency/${id}`, payload)
+.then(res=>{
+  return  dispatch({type:types.UPDATE_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.UPDATE_ADMIN_RESIDENCY_FORM_FAILURE, payload:err.message})
+})
+}
 
 

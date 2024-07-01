@@ -61,7 +61,7 @@ const AdminSecretDataTable = () => {
                   {/* <SyncLoader height={4} width={4} color="black" /> */}
               </Box>
           )}
-          <TableContainer>
+          <TableContainer bgColor={"white"}>
               <Table size="sm">
                   <Thead>
                       <Tr>

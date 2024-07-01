@@ -11,7 +11,7 @@ import { GrGallery } from "react-icons/gr";
 import { IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
 import { IoMdLogOut } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const CustomBox = ({ children, ...props }) => (
   <Box
@@ -38,8 +38,8 @@ const AdminNavbar = () => {
   }
 
   return (
-    <Box  h="100vh" bg="white" color="black"> 
-      <Card p={4} bg="white" borderRadius="md">
+    <Box  h="100vh" bg="#F5F7F8" color="black"> 
+      <Box p={4} bg="" borderRadius="md">
         <Box><Heading fontSize={"34px"} m={"10px 0px"} textAlign={"center"} fontFamily={"body"} color="black"> Folk Vizag</Heading></Box>
         <Grid templateColumns="repeat(2, 1fr)" gap={5}>
           <GridItem colSpan={2}>
@@ -63,8 +63,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={programmesShow} animateOpacity>
               <CustomBox mt={2} ml={"80px"} >
-                <Link to={'/admin/yoga/createForm'}><Button width="80%">Add Event</Button></Link>
-                <Link to={"/admin/yoga/data"}><Button width="80%" mt={2}>Show Data</Button></Link>
+                <NavLink className={({isActive})=>isActive?"activeLink":""} to={'/admin/yoga/createForm'}><Button width="80%">Add Event</Button></NavLink>
+                <NavLink className={({isActive})=>isActive?"activeLink":""} to={"/admin/yoga/data"}><Button width="80%" mt={2}>Show Data</Button></NavLink>
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -144,8 +144,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={residency} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+               <Link to={'/admin/residency/createForm'}><Button width="100%">Add Event</Button></Link> 
+               <Link to={'/admin/residency/data'}><Button width="100%" mt={2}>Show Data</Button></Link> 
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -198,8 +198,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={trips} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+              <Link to={'/admin/trips/createForm'}> <Button width="100%">Add Event</Button></Link> 
+               <Link to={"/admin/trips/data"}><Button width="100%" mt={2}>Show Data</Button></Link> 
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -344,7 +344,7 @@ const AdminNavbar = () => {
 
 
         </Grid>
-      </Card>
+      </Box>
       <Text ml={"80px"} mt={"30px"}><q> <i>Hare Krishna</i></q></Text>
     </Box>
   )

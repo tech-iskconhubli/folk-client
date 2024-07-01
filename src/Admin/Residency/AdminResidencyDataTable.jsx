@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteAdminYogaFormData, getAdminYogaFormData } from '../../Redux/app/action';
+import { deleteAdminResidencyFormData, getAdminResidencyFormData } from '../../Redux/app/action';
+import { Link } from 'react-router-dom';
 
-const AdminYogaDataTable = () => {
+const AdminResidencyDataTable = () => {
     const loading = false;
-    const store = useSelector((state) => state.AppReducer.adminYogaData);
+    const store = useSelector((state) => state.AppReducer.adminResidencyData);
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedItem, setSelectedItem] = useState(null);
     const [refresh ,setRefresh] = useState(false)
     useEffect(() => {
-        dispatch(getAdminYogaFormData());
+        dispatch(getAdminResidencyFormData());
     }, [dispatch,refresh]);
 
     const truncateDescription = (description) => {
@@ -32,7 +32,7 @@ const AdminYogaDataTable = () => {
 
     const deleteHandler = (id) => {
       // console.log(id)
-       dispatch(deleteAdminYogaFormData(id))
+       dispatch(deleteAdminResidencyFormData(id))
        .then(res=>{
            console.log(res)
            if(res?.payload?.message === "delete success"){
@@ -40,6 +40,13 @@ const AdminYogaDataTable = () => {
            }
        })
      }
+
+     // residencyName:{type:String, required:true},
+      // location:{type:String, required:true},
+      // feeAmount:{type:Number, required:true},
+      // description:{type:String, required:true},
+      // img:{type:String, required:true},
+      // availabilityStatus:[{type:String, required:false}],
 
     return (
         <>
@@ -75,16 +82,16 @@ const AdminYogaDataTable = () => {
                         {store?.map((item, index) => (
                             <Tr key={item.id}>
                                 <Td>{index + 1}</Td>
-                                <Td>{item.date}</Td>
-                                <Td>{item.time}</Td>
-                                <Td>{item.duration}</Td>
-                                <Td>{truncateLocation(item.location)}</Td>
+                                <Td>{item.residencyName}</Td>
+                                <Td>{item.location}</Td>
+                                <Td>{item.feeAmount}</Td>
+                                {/* <Td>{truncateLocation(item.availabilityStatus)}</Td> */}
                                 <Td>{truncateDescription(item.description)}</Td>
                                 <Td>{item.price}</Td>
                                 <Td>
                                     <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
                                 </Td>
-                                <Link to={`/admin/yoda/data/edit/${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
+                                <Link to={`/admin/residency/data/edit/${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
                                 <Td><Button onClick={()=>deleteHandler(item._id)} fontSize={"14px"} fontWeight={"400"} color={"red"}>Delete</Button></Td>
                             </Tr>
                         ))}
@@ -120,4 +127,4 @@ const AdminYogaDataTable = () => {
     );
 };
 
-export default AdminYogaDataTable;
+export default AdminResidencyDataTable
