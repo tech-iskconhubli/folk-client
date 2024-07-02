@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
-import { Box, Card, FormLabel, Input, Stack } from '@chakra-ui/react'
+import { Alert, AlertIcon, Box, Card, FormLabel, Input, Stack } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
 import { postAdminYogaFormData } from '../../Redux/app/action'
+import { useNavigate } from 'react-router-dom'
 
 const AdminYogaForm = () => {
     const init ={
@@ -17,7 +18,9 @@ const AdminYogaForm = () => {
     const dispatch = useDispatch()
 
     const [formData,setFormData] = useState(init);
-
+    const [successAlert,setSuccessAlert] = useState(false);
+    const [refresh ,setRefresh] = useState(false);
+    const navigate = useNavigate()
     const handleChange =(e)=>{
             const {name,value} = e.target;
 
@@ -28,6 +31,9 @@ const AdminYogaForm = () => {
 
             setFormData(payload);
     }
+    useEffect(()=>{
+
+    },[refresh])
     
 
     const handleSubmit =(e)=>{
@@ -35,12 +41,33 @@ const AdminYogaForm = () => {
           dispatch(postAdminYogaFormData(formData))
           .then(res=>{
             console.log(res,"res")
+            if(res?.payload?.message === 'post success'){
+                  setSuccessAlert(!successAlert)
+                  setRefresh(prev=>!prev);
+                  setSuccessAlert(!successAlert)
+               setTimeout(() => {
+                setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
+               }, 500);
+               
+               setTimeout(() => {
+                  navigate('/admin/yoga/data')
+               }, 1000);
+            }
+           
           })
     }
+
+
+   
 
   return (
     <>
         <AdminTopNavbar/>
+
+        {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
+
         <Box  display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
             <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
             <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>

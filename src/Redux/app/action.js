@@ -45,7 +45,7 @@ export const updateAdminYogaFormData = (id,payload)=>(dispatch)=>{
 return  axios.patch(`http://localhost:2346/api/adminyoga/${id}`, payload)
   .then(res=>{
       console.log(res.data , 'action')
-    return  dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data.data})
+    return  dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
   })
   .catch(err=>{
    return   dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_FAILURE, payload:err.message})
@@ -116,7 +116,7 @@ export const updateAdminSecretFormData = (id,payload)=>(dispatch)=>{
 
 return  axios.patch(`http://localhost:2346/api/adminsecretsuccess/${id}`,payload)
   .then(res=>{
-    return  dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data.data})
+    return  dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
   })
   .catch(err=>{
    return   dispatch({type:types.UPDATE_ADMIN_SECRET_FORM_FAILURE, payload:err.message})
@@ -353,4 +353,75 @@ return  axios.patch(`http://localhost:2346/api/adminResidency/${id}`, payload)
 })
 }
 
+
+
+
+
+
+
+export const postAdminFestivalsFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_ADMIN_FESTIVALS_FORM_REQUEST});
+ // console.log("action form", payload)
+return  axios.post("http://localhost:2346/api/adminFestival/addAdminFestival",payload,{
+  headers: {
+    'Content-Type': 'multipart/form-data',
+},
+})
+  .then(res=>{
+    return  dispatch({type:types.POST_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_ADMIN_FESTIVALS_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getAdminFestivalsFormData = ()=>(dispatch)=>{
+dispatch({type:types.GET_ADMIN_FESTIVALS_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/adminFestival")
+.then(res=>{
+  return  dispatch({type:types.GET_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_ADMIN_FESTIVALS_FORM_FAILURE, payload:err.message})
+})
+}
+
+export const singleAdminFestivalsFormData = (id)=>(dispatch)=>{
+dispatch({type:types.GET_SINGLE_ADMIN_FESTIVALS_FORM_REQUEST});
+// console.log("action id: " + id)
+return  axios.get(`http://localhost:2346/api/adminFestival/${id}`)
+.then(res=>{
+  return  dispatch({type:types.GET_SINGLE_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_SINGLE_ADMIN_FESTIVALS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const deleteAdminFestivalsFormData = (id)=>(dispatch)=>{
+dispatch({type:types.DELETE_ADMIN_FESTIVALS_FORM_REQUEST});
+
+return  axios.delete(`http://localhost:2346/api/adminFestival/${id}`)
+.then(res=>{
+  return  dispatch({type:types.DELETE_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.DELETE_ADMIN_FESTIVALS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const updateAdminFestivalsFormData = (id,payload)=>(dispatch)=>{
+dispatch({type:types.UPDATE_ADMIN_FESTIVALS_FORM_REQUEST});
+
+return  axios.patch(`http://localhost:2346/api/adminFestival/${id}`, payload)
+.then(res=>{
+  return  dispatch({type:types.UPDATE_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.UPDATE_ADMIN_FESTIVALS_FORM_FAILURE, payload:err.message})
+})
+}
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Box, Input, FormLabel, Card, Stack } from "@chakra-ui/react";
+import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon } from "@chakra-ui/react";
 import { useDispatch } from 'react-redux';
 import { postAdminResidencyFormData } from '../../Redux/app/action';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
+import { useNavigate } from 'react-router-dom';
 
 const AdminResidencyForm = () => {
     const init = {
@@ -10,13 +11,16 @@ const AdminResidencyForm = () => {
         location: "",
         feeAmount:"",
         description: "",
+        img:"",
         availabilityStatus: []
     };
 
     const dispatch = useDispatch();
     const [formData, setFormData] = useState(init);
     const [placeInput, setPlaceInput] = useState("");
-
+    const [successAlert,setSuccessAlert] = useState(false);
+    const [refresh ,setRefresh] = useState(false);
+    const navigate = useNavigate()
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
         console.log(name, value, type, files)
@@ -51,22 +55,36 @@ const AdminResidencyForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(postAdminResidencyFormData(formData))
-            .then(res => {
-                console.log(res, "res");
-            });
-        console.log("formData", formData);
-    };
+        .then(res=>{
+            if(res?.payload?.message === 'post success'){
+                setSuccessAlert(!successAlert)
+                setRefresh(prev=>!prev);
+             setTimeout(() => {
+              setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
+             }, 500);
+             
+             setTimeout(() => {
+                navigate('/admin/residency/data')
+             }, 1000);
+          }
+        console.log(res)
+        })
+      };
+    
 
     return (
         <>
             <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
+            {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
 
             <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-                <Box borderRadius={"12px"} bgColor={"#eeeeee"} height={"300px"} width={"50%"}><Card></Card></Box>
-                <Box borderRadius={"12px"} bgColor={"#eeeeee"} height={"300px"} width={"50%"}><Card></Card></Box>
+                <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
+                <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
             </Box>
-            <Box width={"97%"} margin={"auto"} mt={"10px"} bgColor={"#eeeeee"} border={"2px solid transparent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
-                <Box bgColor={"#eeeeee"} color={"black"}>
+            <Box width={"97%"} margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transparent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
+                <Box bgColor={"white"} color={"black"}>
                     <form onSubmit={handleSubmit} action="/stats" enctype="multipart/form-data">
                         <Stack gap={"20px"}>
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>

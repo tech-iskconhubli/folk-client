@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
-import { Box, Card ,Input,FormLabel,Stack} from '@chakra-ui/react'
-import { useParams } from 'react-router-dom';
+import { Box, Card ,Input,FormLabel,Stack, Alert, AlertIcon} from '@chakra-ui/react'
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { singleAdminMindControlFormData, updateAdminMindControlFormData } from '../../Redux/app/action';
 
@@ -15,6 +15,8 @@ const AdminMindControlEdit = () => {
     price:""
 }
   const [formData ,setFormData] = useState(init);
+  const [updatedSuccess,setUpdatedSuccess] = useState(false);
+  const navigate = useNavigate()
   const {id } = useParams();
   const dispatch = useDispatch()
   useEffect(()=>{
@@ -37,6 +39,14 @@ const AdminMindControlEdit = () => {
   e.preventDefault();
   console.log("formdata", formData);
   dispatch(updateAdminMindControlFormData(id,formData))
+  .then(res=>{
+    if(res?.payload?.message === "updated success"){
+      setUpdatedSuccess(!updatedSuccess);
+     setTimeout(() => {
+      navigate("/admin/mindControl/data")
+     }, 1000);
+    }
+  })
   }
 
  // console.log("formData", formData)
@@ -44,6 +54,9 @@ const AdminMindControlEdit = () => {
   return (
     <>
       <AdminTopNavbar/>
+      {
+      updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
+      }
       <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>

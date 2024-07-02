@@ -41,6 +41,10 @@ import AdminResidencyForm from '../Admin/Residency/AdminResidencyForm';
 import AdminResidencyData from '../Admin/Residency/AdminResidencyData';
 import AdminResidencyDataSingle from '../Admin/Residency/AdminResidencyDataSingle';
 import AdminResidencyDataEdit from '../Admin/Residency/AdminResidencyDataEdit';
+import AdminFestivalsForm from '../Admin/Festivals/AdminFestivalsForm';
+import AdminFestivalsDate from '../Admin/Festivals/AdminFestivalsDate';
+import AdminFestivalsDateSingle from '../Admin/Festivals/AdminFestivalsDateSingle';
+import AdminFestivalsDateEdit from '../Admin/Festivals/AdminFestivalsDateEdit';
 const AllRouts = () => {
   // console.log("")
   return (
@@ -87,10 +91,10 @@ const AllRouts = () => {
                   <Route path='/admin/residency/data' element={<AdminResidencyData/>}/>
                   <Route path='/admin/residency/data/:id' element={<AdminResidencyDataSingle/>}/>
                   <Route path='/admin/residency/data/edit/:id' element={<AdminResidencyDataEdit/>}/>
-                  <Route path='/admin/festivals/createForm' element={<AdminResidencyForm/>}/>
-                  <Route path='/admin/festivals/data' element={<AdminResidencyData/>}/>
-                  <Route path='/admin/festivals/data/:id' element={<AdminResidencyDataSingle/>}/>
-                  <Route path='/admin/festivals/data/edit/:id' element={<AdminResidencyDataEdit/>}/>
+                  <Route path='/admin/festivals/createForm' element={<AdminFestivalsForm/>}/>
+                  <Route path='/admin/festivals/data' element={<AdminFestivalsDate/>}/>
+                  <Route path='/admin/festivals/data/:id' element={<AdminFestivalsDateSingle/>}/>
+                  <Route path='/admin/festivals/data/edit/:id' element={<AdminFestivalsDateEdit/>}/>
                   <Route path='/admin' />
                   <Route path='/skill' element={<SkillInput/>}/>
             </Route>

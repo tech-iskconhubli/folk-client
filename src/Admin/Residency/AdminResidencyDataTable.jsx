@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
+import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteAdminResidencyFormData, getAdminResidencyFormData } from '../../Redux/app/action';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,9 @@ const AdminResidencyDataTable = () => {
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedItem, setSelectedItem] = useState(null);
-    const [refresh ,setRefresh] = useState(false)
+    const [refresh ,setRefresh] = useState(false);
+    const [deleteSuccess,setDeleteSuccess] = useState(false)
+
     useEffect(() => {
         dispatch(getAdminResidencyFormData());
     }, [dispatch,refresh]);
@@ -36,8 +38,12 @@ const AdminResidencyDataTable = () => {
        .then(res=>{
            console.log(res)
            if(res?.payload?.message === "delete success"){
-               setRefresh(prev=>!prev)
-           }
+            setRefresh(prev=>!prev);
+            setDeleteSuccess(!deleteSuccess)
+            setTimeout(() => {
+             setRefresh ? setDeleteSuccess(false):setDeleteSuccess(true)
+            }, 1000);
+        }
        })
      }
 
@@ -64,6 +70,10 @@ const AdminResidencyDataTable = () => {
                     {/* <SyncLoader height={4} width={4} color="black" /> */}
                 </Box>
             )}
+
+{
+    deleteSuccess && <Alert status='error'><AlertIcon />Deleted Success</Alert>
+}
             <TableContainer bgColor={"white"}>
                 <Table size="sm">
                     <Thead>

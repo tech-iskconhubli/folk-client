@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Card ,Input,FormLabel,Stack} from '@chakra-ui/react'
-import { useParams } from 'react-router-dom';
+import { Box, Card ,Input,FormLabel,Stack, Alert, AlertIcon} from '@chakra-ui/react'
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
 import { getSingleAdminSecretFormData, updateAdminSecretFormData } from '../../Redux/app/action';
@@ -15,7 +15,9 @@ const AdminSecretDataEdit = () => {
     price:""
 }
   const [formData ,setFormData] = useState(init);
+  const [updatedSuccess,setUpdatedSuccess] = useState(false);
   const {id } = useParams();
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(getSingleAdminSecretFormData(id))
@@ -39,6 +41,14 @@ const AdminSecretDataEdit = () => {
   e.preventDefault();
   console.log("formdata", formData);
   dispatch(updateAdminSecretFormData(id,formData))
+  .then(res=>{
+    if(res?.payload?.message === "updated success"){
+      setUpdatedSuccess(!updatedSuccess);
+     setTimeout(() => {
+      navigate("/admin/secret/data")
+     }, 1000);
+    }
+  })
   }
 
  // console.log("formData", formData)
@@ -46,6 +56,9 @@ const AdminSecretDataEdit = () => {
   return (
     <>
       <AdminTopNavbar/>
+      {
+      updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
+      }
       <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>

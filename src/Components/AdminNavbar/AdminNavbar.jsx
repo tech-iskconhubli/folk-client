@@ -150,32 +150,7 @@ const AdminNavbar = () => {
             </Collapse>
           </GridItem>
 
-          <GridItem colSpan={2}>
-            <Button
-              width="100%"
-              justifyContent="space-between"
-              bgColor="#eeeeee"
-              p={"27px"}
-              color="black"
-               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
-              onClick={() => handleToggle(setDonation)}
-              cursor="pointer"
-            >
-              <HStack justifyContent="center" width="100%">
-                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
-                  <BiSolidDonateBlood />
-                </Box>
-                <span style={{ textAlign: "center", flex: 1 }}>Donation</span>
-                {donation ? <IoIosArrowUp /> : <IoIosArrowForward size={"23px"} />}
-              </HStack>
-            </Button>
-            <Collapse in={donation} animateOpacity>
-              <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
-              </CustomBox>
-            </Collapse>
-          </GridItem>
+        
 
           <GridItem colSpan={2}>
             <Button
@@ -225,8 +200,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={festivals} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+                <Link to={'/admin/festivals/createForm'}><Button width="100%">Add Event</Button></Link>
+               <Link to={'/admin/festivals/data'}> <Button width="100%" mt={2}>Show Data</Button></Link> 
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -251,6 +226,33 @@ const AdminNavbar = () => {
               </HStack>
             </Button>
             <Collapse in={blogs} animateOpacity>
+              <CustomBox mt={2} ml={"80px"}>
+                <Button width="100%">Add Event</Button>
+                <Button width="100%" mt={2}>Show Data</Button>
+              </CustomBox>
+            </Collapse>
+          </GridItem>
+
+          <GridItem colSpan={2}>
+            <Button
+              width="100%"
+              justifyContent="space-between"
+              bgColor="#eeeeee"
+              p={"27px"}
+              color="black"
+               _hover={{ bgColor: 'blue.200', bgColor: 'lightgray', paddingY: '10px', p:"27px" }}
+              onClick={() => handleToggle(setDonation)}
+              cursor="pointer"
+            >
+              <HStack justifyContent="center" width="100%">
+                <Box border={"2px solid transparent"} boxShadow='md' bgColor={'white'} color={"black"}   rounded='md' p={"9px"}>
+                  <BiSolidDonateBlood />
+                </Box>
+                <span style={{ textAlign: "center", flex: 1 }}>Donation</span>
+                {donation ? <IoIosArrowUp /> : <IoIosArrowForward size={"23px"} />}
+              </HStack>
+            </Button>
+            <Collapse in={donation} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
                 <Button width="100%">Add Event</Button>
                 <Button width="100%" mt={2}>Show Data</Button>

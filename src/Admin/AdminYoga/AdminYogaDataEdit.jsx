@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Card ,Input,FormLabel,Stack} from '@chakra-ui/react'
+import { Box, Card ,Input,FormLabel,Stack, Alert, AlertIcon} from '@chakra-ui/react'
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getSingleAdminYogaFormData, updateAdminYogaFormData } from '../../Redux/app/action';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
 
@@ -15,6 +15,8 @@ const AdminYogaDataEdit = () => {
     price:""
 }
   const [formData ,setFormData] = useState(init);
+  const [updatedSuccess,setUpdatedSuccess] = useState(false);
+  const navigate = useNavigate()
   const {id } = useParams();
   const dispatch = useDispatch()
   useEffect(()=>{
@@ -37,6 +39,15 @@ const AdminYogaDataEdit = () => {
   e.preventDefault();
   console.log("formdata", formData);
   dispatch(updateAdminYogaFormData(id,formData))
+  .then(res=>{
+      console.log("res", res);
+      if(res?.payload?.message === "updated success"){
+        setUpdatedSuccess(!updatedSuccess);
+       setTimeout(() => {
+        navigate("/admin/yoga/data")
+       }, 1000);
+      }
+  })
   }
 
  // console.log("formData", formData)
@@ -44,6 +55,9 @@ const AdminYogaDataEdit = () => {
   return (
     <>
       <AdminTopNavbar/>
+      {
+      updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
+      }
       <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>

@@ -11,7 +11,9 @@ const init ={
     adminTripsData:[],
     adminTripsSingle:{},
     adminResidencyData:[],
-    adminResidencySingle:{}
+    adminResidencySingle:{},
+    adminFestivals:[],
+    adminFestivalsSingle:{},
 }
 
 export const reducer = (oldState = init,action)=>{
@@ -250,6 +252,48 @@ export const reducer = (oldState = init,action)=>{
                                                 isError:true,
                                                 adminResidencySingle:[]
                                             }
+                                            case types.GET_ADMIN_FESTIVALS_FORM_REQUEST:
+                                                return{
+                                                    ...oldState,
+                                                    isLoading:true,
+                                                    isError:false,
+                                                    adminFestivals:[]
+                                                }
+                                            case types.GET_ADMIN_FESTIVALS_FORM_SUCCESS:
+                                                return{
+                                                    ...oldState,
+                                                    isLoading:false,
+                                                    isError:false,
+                                                    adminFestivals:payload
+                                                }
+                                            case types.GET_ADMIN_FESTIVALS_FORM_FAILURE:
+                                                return{
+                                                    ...oldState,
+                                                    isLoading:false,
+                                                    isError:true,
+                                                    adminFestivals:[]
+                                                }
+                                                case types.GET_SINGLE_ADMIN_FESTIVALS_FORM_REQUEST:
+                                                    return{
+                                                        ...oldState,
+                                                        isLoading:true,
+                                                        isError:false,
+                                                        adminFestivalsSingle:[]
+                                                    }
+                                                case types.GET_SINGLE_ADMIN_FESTIVALS_FORM_SUCCESS:
+                                                    return{
+                                                        ...oldState,
+                                                        isLoading:false,
+                                                        isError:false,
+                                                        adminFestivalsSingle:payload
+                                                    }
+                                                case types.GET_SINGLE_ADMIN_FESTIVALS_FORM_FAILURE:
+                                                    return{
+                                                        ...oldState,
+                                                        isLoading:false,
+                                                        isError:true,
+                                                        adminFestivalsSingle:[]
+                                                    }
         default :
             return oldState
     }
