@@ -3,8 +3,17 @@ const init ={
     isLoading : false,
     isError:false,
     adminYogaData:[],
+    adminYogaSingleData:{},
     adminSecretData:[],
-    adminMindControlData:[]
+    adminSecretSingleData:{},
+    adminMindControlData:[],
+    adminMindControlSingleData:{},
+    adminTripsData:[],
+    adminTripsSingle:{},
+    adminResidencyData:[],
+    adminResidencySingle:{},
+    adminFestivals:[],
+    adminFestivalsSingle:{},
 }
 
 export const reducer = (oldState = init,action)=>{
@@ -66,7 +75,7 @@ export const reducer = (oldState = init,action)=>{
                     ...oldState,
                     isLoading:false,
                     isError:false,
-                    adminSecretData:payload
+                    adminSecretData:[]
                 }
             case types.POST_ADMIN_SECRET_FORM_FAILURE:
                 return{
@@ -75,6 +84,27 @@ export const reducer = (oldState = init,action)=>{
                     isError:true,
                     adminSecretData:[]
                 }
+                case types.GET_ADMIN_SECRET_FORM_REQUEST:
+                    return{
+                        ...oldState,
+                        isLoading:true,
+                        isError:false,
+                        adminSecretData:[]
+                    }
+                case types.GET_ADMIN_SECRET_FORM_SUCCESS:
+                    return{
+                        ...oldState,
+                        isLoading:false,
+                        isError:false,
+                        adminSecretData:payload
+                    }
+                case types.GET_ADMIN_SECRET_FORM_FAILURE:
+                    return{
+                        ...oldState,
+                        isLoading:false,
+                        isError:true,
+                        adminSecretData:[]
+                    }
                 case types.POST_ADMIN_MIND_CONTROL_FORM_REQUEST:
                     return{
                         ...oldState,
@@ -87,7 +117,7 @@ export const reducer = (oldState = init,action)=>{
                         ...oldState,
                         isLoading:false,
                         isError:false,
-                        adminMindControlData:payload
+                        adminMindControlData:[]
                     }
                 case types.POST_ADMIN_MIND_CONTROL_FORM_FAILURE:
                     return{
@@ -96,6 +126,174 @@ export const reducer = (oldState = init,action)=>{
                         isError:true,
                         adminMindControlData:[]
                     }
+                    case types.GET_ADMIN_MIND_CONTROL_FORM_REQUEST:
+                        return{
+                            ...oldState,
+                            isLoading:true,
+                            isError:false,
+                            adminMindControlData:[]
+                        }
+                    case types.GET_ADMIN_MIND_CONTROL_FORM_SUCCESS:
+                        return{
+                            ...oldState,
+                            isLoading:false,
+                            isError:false,
+                            adminMindControlData:payload
+                        }
+                    case types.GET_ADMIN_MIND_CONTROL_FORM_FAILURE:
+                        return{
+                            ...oldState,
+                            isLoading:false,
+                            isError:true,
+                            adminMindControlData:[]
+                        }
+                        case types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_REQUEST:
+                            return{
+                                ...oldState,
+                                isLoading:true,
+                                isError:false,
+                                adminMindControlSingleData:[]
+                            }
+                        case types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_SUCCESS:
+                            return{
+                                ...oldState,
+                                isLoading:false,
+                                isError:false,
+                                adminMindControlSingleData:payload
+                            }
+                        case types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_FAILURE:
+                            return{
+                                ...oldState,
+                                isLoading:false,
+                                isError:true,
+                                adminMindControlSingleData:[]
+                            }
+                            case types.GET_ADMIN_TRIPS_FORM_REQUEST:
+                                return{
+                                    ...oldState,
+                                    isLoading:true,
+                                    isError:false,
+                                    adminTripsData:[]
+                                }
+                            case types.GET_ADMIN_TRIPS_FORM_SUCCESS:
+                                return{
+                                    ...oldState,
+                                    isLoading:false,
+                                    isError:false,
+                                    adminTripsData:payload
+                                }
+                            case types.GET_ADMIN_TRIPS_FORM_FAILURE:
+                                return{
+                                    ...oldState,
+                                    isLoading:false,
+                                    isError:true,
+                                    adminTripsData:[]
+                                }
+                                case types.GET_SINGLE_ADMIN_TRIPS_FORM_REQUEST:
+                                    return{
+                                        ...oldState,
+                                        isLoading:true,
+                                        isError:false,
+                                        adminTripsSingle:[]
+                                    }
+                                case types.GET_SINGLE_ADMIN_TRIPS_FORM_SUCCESS:
+                                    return{
+                                        ...oldState,
+                                        isLoading:false,
+                                        isError:false,
+                                        adminTripsSingle:payload
+                                    }
+                                case types.GET_SINGLE_ADMIN_TRIPS_FORM_FAILURE:
+                                    return{
+                                        ...oldState,
+                                        isLoading:false,
+                                        isError:true,
+                                        adminTripsSingle:[]
+                                    }
+                                    case types.GET_ADMIN_RESIDENCY_FORM_REQUEST:
+                                        return{
+                                            ...oldState,
+                                            isLoading:true,
+                                            isError:false,
+                                            adminResidencyData:[]
+                                        }
+                                    case types.GET_ADMIN_RESIDENCY_FORM_SUCCESS:
+                                        return{
+                                            ...oldState,
+                                            isLoading:false,
+                                            isError:false,
+                                            adminResidencyData:payload
+                                        }
+                                    case types.GET_ADMIN_RESIDENCY_FORM_FAILURE:
+                                        return{
+                                            ...oldState,
+                                            isLoading:false,
+                                            isError:true,
+                                            adminResidencyData:[]
+                                        }
+                                        case types.GET_SINGLE_ADMIN_RESIDENCY_FORM_REQUEST:
+                                            return{
+                                                ...oldState,
+                                                isLoading:true,
+                                                isError:false,
+                                                adminResidencySingle:[]
+                                            }
+                                        case types.GET_SINGLE_ADMIN_RESIDENCY_FORM_SUCCESS:
+                                            return{
+                                                ...oldState,
+                                                isLoading:false,
+                                                isError:false,
+                                                adminResidencySingle:payload
+                                            }
+                                        case types.GET_SINGLE_ADMIN_RESIDENCY_FORM_FAILURE:
+                                            return{
+                                                ...oldState,
+                                                isLoading:false,
+                                                isError:true,
+                                                adminResidencySingle:[]
+                                            }
+                                            case types.GET_ADMIN_FESTIVALS_FORM_REQUEST:
+                                                return{
+                                                    ...oldState,
+                                                    isLoading:true,
+                                                    isError:false,
+                                                    adminFestivals:[]
+                                                }
+                                            case types.GET_ADMIN_FESTIVALS_FORM_SUCCESS:
+                                                return{
+                                                    ...oldState,
+                                                    isLoading:false,
+                                                    isError:false,
+                                                    adminFestivals:payload
+                                                }
+                                            case types.GET_ADMIN_FESTIVALS_FORM_FAILURE:
+                                                return{
+                                                    ...oldState,
+                                                    isLoading:false,
+                                                    isError:true,
+                                                    adminFestivals:[]
+                                                }
+                                                case types.GET_SINGLE_ADMIN_FESTIVALS_FORM_REQUEST:
+                                                    return{
+                                                        ...oldState,
+                                                        isLoading:true,
+                                                        isError:false,
+                                                        adminFestivalsSingle:[]
+                                                    }
+                                                case types.GET_SINGLE_ADMIN_FESTIVALS_FORM_SUCCESS:
+                                                    return{
+                                                        ...oldState,
+                                                        isLoading:false,
+                                                        isError:false,
+                                                        adminFestivalsSingle:payload
+                                                    }
+                                                case types.GET_SINGLE_ADMIN_FESTIVALS_FORM_FAILURE:
+                                                    return{
+                                                        ...oldState,
+                                                        isLoading:false,
+                                                        isError:true,
+                                                        adminFestivalsSingle:[]
+                                                    }
         default :
             return oldState
     }

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import {Box, Input,FormLabel,Card,Stack,} from "@chakra-ui/react"
+import {Box, Input,FormLabel,Card,Stack, Alert, AlertIcon,} from "@chakra-ui/react"
 import { useDispatch } from 'react-redux'
 import { postAdminMindControlFormData } from '../../Redux/app/action'
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
+import { useNavigate } from 'react-router-dom'
 const AdminMindControlForm = () => {
     const init ={
         date:"",
@@ -16,7 +17,9 @@ const AdminMindControlForm = () => {
     const dispatch = useDispatch()
 
     const [formData,setFormData] = useState(init);
-
+    const [successAlert,setSuccessAlert] = useState(false);
+    const [refresh ,setRefresh] = useState(false);
+    const navigate = useNavigate()
     const handleChange =(e)=>{
             const {name,value} = e.target;
 
@@ -33,20 +36,34 @@ const AdminMindControlForm = () => {
             e.preventDefault();
           dispatch(postAdminMindControlFormData(formData))
           .then(res=>{
-            console.log(res,"res")
+            if(res?.payload?.message === 'post success'){
+                  setSuccessAlert(!successAlert)
+                  setRefresh(prev=>!prev);
+                  setSuccessAlert(!successAlert)
+               setTimeout(() => {
+                setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
+               }, 500);
+               
+            //    setTimeout(() => {
+            //       navigate('/admin/mindControl/data')
+            //    }, 1000);
+            }
           })
     }
 
   return (
     <>
         <AdminTopNavbar/>
+        {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
         <Box  display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-            <Box borderRadius={"12px"} bgColor={"#eeeeee"} height={"300px"} width={"50%"}><Card></Card></Box>
-            <Box borderRadius={"12px"} bgColor={"#eeeeee"} height={"300px"} width={"50%"}><Card></Card></Box>
+            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
+            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
         </Box>
-        <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"#eeeeee"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
+        <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
             < >
-               <Box  bgColor={"#eeeeee"}  color={"black"}>
+               <Box  bgColor={"white"}  color={"black"}>
                   <form onSubmit={handleSubmit} >
                    <Stack gap={"20px"} >
                         <Box   display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
