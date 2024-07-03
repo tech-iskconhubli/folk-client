@@ -27,8 +27,8 @@ const Carousel = () => {
   return (
     <Box w="100%" h={{
         base: '20vh',
-     sm:'22vh',
-     md:'40vh',
+     sm:'29vh',
+     md:'35vh',
      lg:'45vh',
      xl:'70vh'
    }}>

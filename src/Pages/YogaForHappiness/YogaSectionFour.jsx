@@ -48,17 +48,35 @@ const YogaSectionFour = () => {
        scrollTrigger:{
          trigger:gridContainer.current,
          start:'top 90%',
-         end:'bottom center'
+         end:'bottom 90%'
        }
       });
 
-      tl.from(gridContainer.current.children,{
-        scale:0,
-        opacity:0,
-        duration:1,
-        ease: 'power1.inOut',
-        stagger:0.3,
-      });
+      tl.from(imageRefOne.current,{
+         scale:0,
+          opacity:0,
+          duration:0.6,
+          ease: 'power1.inOut',
+      })
+      tl.from(imageRefTwo.current,{
+         scale:0,
+          opacity:0,
+          duration:0.6,
+          ease: 'power1.inOut',
+      })
+      tl.from(imageRefThree.current,{
+         scale:0,
+          opacity:0,
+          duration:0.6,
+          ease: 'power1.inOut',
+      })
+      tl.from(imageRefFour.current,{
+         scale:0,
+          opacity:0,
+          duration:0.6,
+          ease: 'power1.inOut',
+      })
+
       return () => {
         tl.kill();
       };
