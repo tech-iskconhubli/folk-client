@@ -13,4 +13,6 @@ code {
 }
 body,html{
   scroll-behavior: smooth;
+.activeLink button{
+  background-color: aquamarine;
 }

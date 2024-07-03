@@ -23,7 +23,30 @@ import AdminSecretForm from '../Admin/AdminSecret/AdminSecretForm';
 import AdminSecretData from '../Admin/AdminSecret/AdminSecretData';
 import AdminMindControlForm from '../Admin/AdminMindControl/AdminMindControlForm';
 import AdminMindControlData from '../Admin/AdminMindControl/AdminMindControlData';
+import AdminYogaDataSingle from '../Admin/AdminYoga/AdminYogaDataSingle';
+import AdminSecretDataSingle from '../Admin/AdminSecret/AdminSecretDataSingle';
+import AdminMindControlSingle from '../Admin/AdminMindControl/AdminMindControlSingle';
+import AdminYogaDataEdit from '../Admin/AdminYoga/AdminYogaDataEdit';
+import AdminSecretDataEdit from '../Admin/AdminSecret/AdminSecretDataEdit';
+import AdminMindControlEdit from '../Admin/AdminMindControl/AdminMindControlEdit';
+import SecretOfSuccess from '../Pages/SecretOfSuccess/SecretOfSuccess';
+import ArtOfMindControl from '../Pages/ArtOfMindControl/ArtOfMindControl';
+import AdminTripsFrom from '../Admin/Trips/AdminTripsFrom';
+import AdminYogaDataTable from '../Admin/AdminYoga/AdminYogaDataTable';
+import AdminTripsData from '../Admin/Trips/AdminTripsData';
+import AdminTripsDataSingle from '../Admin/Trips/AdminTripsDataSingle';
+import AdminTripsDataEdit from '../Admin/Trips/AdminTripsDataEdit';
+import SkillInput from '../Admin/SkillInput';
+import AdminResidencyForm from '../Admin/Residency/AdminResidencyForm';
+import AdminResidencyData from '../Admin/Residency/AdminResidencyData';
+import AdminResidencyDataSingle from '../Admin/Residency/AdminResidencyDataSingle';
+import AdminResidencyDataEdit from '../Admin/Residency/AdminResidencyDataEdit';
+import AdminFestivalsForm from '../Admin/Festivals/AdminFestivalsForm';
+import AdminFestivalsDate from '../Admin/Festivals/AdminFestivalsDate';
+import AdminFestivalsDateSingle from '../Admin/Festivals/AdminFestivalsDateSingle';
+import AdminFestivalsDateEdit from '../Admin/Festivals/AdminFestivalsDateEdit';
 const AllRouts = () => {
+  // console.log("")
   return (
     <>
         <Routes>
@@ -39,8 +62,10 @@ const AllRouts = () => {
                   <Route path='/recidency' element={<Recidency/>}/>
                   <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
                   <Route path='/trips' element={<Trips/>}/>
-                  <Route path='/allforms' element={<AllForms/>}/>
+                  <Route path='/allForms' element={<AllForms/>}/>
                   <Route path='/yogaForHappiness' element={<YogaForHappiness/>} />
+                  <Route path='/secretOfSuccess' element={<SecretOfSuccess/>} />
+                  <Route path='/artOfMindControl' element={<ArtOfMindControl/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 
@@ -48,10 +73,30 @@ const AllRouts = () => {
                   <Route path='/admin' element={<Admin/>}/>
                   <Route path='/admin/yoga/createForm' element={<AdminYogaForm/>} />
                   <Route path='/admin/yoga/data' element={<AdminYogadata/>} />
+                  <Route path='/admin/yoga/data/:id' element={<AdminYogaDataSingle/>}/>
+                  <Route path='/admin/yoda/data/edit/:id' element={<AdminYogaDataEdit/>} />
                   <Route path='/admin/secret/createForm' element={<AdminSecretForm/>} />
                   <Route path='/admin/secret/data' element={<AdminSecretData/>} />
+                  <Route path='/admin/secret/data/:id' element={<AdminSecretDataSingle/>}/>
+                  <Route path='/admin/secret/data/edit/:id' element={<AdminSecretDataEdit/>}/>
                   <Route path='/admin/mindControl/createForm' element={<AdminMindControlForm/>} />
-                  <Route path='/admin/MindControl/data' element={<AdminMindControlData/>} />
+                  <Route path='/admin/mindControl/data' element={<AdminMindControlData/>} />
+                  <Route path='/admin/mindControl/data/:id' element={<AdminMindControlSingle/>}/>
+                  <Route path='/admin/mindControl/data/edit/:id' element={<AdminMindControlEdit/>}/>
+                  <Route path='/admin/trips/createForm' element={<AdminTripsFrom/>}/>
+                  <Route path='/admin/trips/data' element={<AdminTripsData/>}/>
+                  <Route path='/admin/trips/data/:id' element={<AdminTripsDataSingle/>}/>
+                  <Route path='/admin/trips/data/edit/:id' element={<AdminTripsDataEdit/>}/>
+                  <Route path='/admin/residency/createForm' element={<AdminResidencyForm/>}/>
+                  <Route path='/admin/residency/data' element={<AdminResidencyData/>}/>
+                  <Route path='/admin/residency/data/:id' element={<AdminResidencyDataSingle/>}/>
+                  <Route path='/admin/residency/data/edit/:id' element={<AdminResidencyDataEdit/>}/>
+                  <Route path='/admin/festivals/createForm' element={<AdminFestivalsForm/>}/>
+                  <Route path='/admin/festivals/data' element={<AdminFestivalsDate/>}/>
+                  <Route path='/admin/festivals/data/:id' element={<AdminFestivalsDateSingle/>}/>
+                  <Route path='/admin/festivals/data/edit/:id' element={<AdminFestivalsDateEdit/>}/>
+                  <Route path='/admin' />
+                  <Route path='/skill' element={<SkillInput/>}/>
             </Route>
         </Routes>
     </>

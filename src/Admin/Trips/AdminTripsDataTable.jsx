@@ -1,30 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteAdminYogaFormData, getAdminYogaFormData } from '../../Redux/app/action';
+import { deleteAdminTripsFormData, getAdminTripsFormData } from '../../Redux/app/action';
+import { Link } from 'react-router-dom';
 
-const AdminYogaDataTable = () => {
-    const loading = false;
-    const store = useSelector((state) => state.AppReducer.adminYogaData);
+const AdminTripsDataTable = () => {
+  const loading = false;
+    const store = useSelector((state) => state.AppReducer.adminTripsData);
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedItem, setSelectedItem] = useState(null);
-    const [refresh ,setRefresh] = useState(false);
-    const [deleteSuccess,setDeleteSuccess] = useState(false)
+    const [refresh ,setRefresh] = useState(false)
     useEffect(() => {
-        dispatch(getAdminYogaFormData());
+        dispatch(getAdminTripsFormData());
     }, [dispatch,refresh]);
 
     const truncateDescription = (description) => {
-        const words = description.split(' ');
-        return words.length > 1 ? `${words[0]}...` : description;
+        const words = description?.split(' ');
+        return words?.length > 1 ? `${words[0]}...` : description;
     };
 
-    const truncateLocation = (location) => {
-        const words = location.split(' ');
-        return words.length > 1 ? `${words[0]}...` : location;
-    };
+    // const truncateLocation = (location) => {
+    //     const words = location.split(' ');
+    //     return words.length > 1 ? `${words[0]}...` : location;
+    // };
 
     const handleViewClick = (item) => {
         setSelectedItem(item);
@@ -33,21 +32,24 @@ const AdminYogaDataTable = () => {
 
     const deleteHandler = (id) => {
       // console.log(id)
-       dispatch(deleteAdminYogaFormData(id))
+       dispatch(deleteAdminTripsFormData(id))
        .then(res=>{
            console.log(res)
            if(res?.payload?.message === "delete success"){
-               setRefresh(prev=>!prev);
-               setDeleteSuccess(!deleteSuccess)
-               setTimeout(() => {
-                setRefresh ? setDeleteSuccess(false):setDeleteSuccess(true)
-               }, 1000);
+               setRefresh(prev=>!prev)
            }
        })
      }
-     console.log("refresh",refresh)
-     console.log("delete", deleteSuccess)
 
+    //  tripName:{type:String, required:true},
+    //  from:{type:String, required:true},
+    //  to:{type:String, required:true},
+    //  fromDate:{type:String, required:true},
+    //  toDate:{type:String, required:true},
+    //  img:[{type:String, required:true}],
+    //  description:{type:String, required:true},
+    //  price:{type:Number, required:true},
+    //  placesOfVisit:[{type:String, required:true}]
     return (
         <>
             {loading && (
@@ -64,19 +66,16 @@ const AdminYogaDataTable = () => {
                     {/* <SyncLoader height={4} width={4} color="black" /> */}
                 </Box>
             )}
-
-{
-    deleteSuccess && <Alert status='error'><AlertIcon />Deleted Success</Alert>
-}
             <TableContainer bgColor={"white"}>
                 <Table size="sm">
                     <Thead>
                         <Tr>
                             <Th>S.no</Th>
-                            <Th>Date</Th>
-                            <Th>Time</Th>
-                            <Th>Duration</Th>
-                            <Th>Location</Th>
+                            <Th>tripName</Th>
+                            {/* <Th>From</Th>
+                            <Th>To</Th>
+                            <Th>From Date</Th>
+                            <Th>To Date</Th> */}
                             <Th>Description</Th>
                             <Th>Price</Th>
                             <Td pl={"30px"}></Td>
@@ -86,16 +85,18 @@ const AdminYogaDataTable = () => {
                         {store?.map((item, index) => (
                             <Tr key={item.id}>
                                 <Td>{index + 1}</Td>
-                                <Td>{item.date}</Td>
-                                <Td>{item.time}</Td>
-                                <Td>{item.duration}</Td>
-                                <Td>{truncateLocation(item.location)}</Td>
+                                <Td>{item.tripName}</Td>
+                                {/* <Td>{item.from}</Td>
+                                <Td>{item.to}</Td>
+                                <Td>{item.fromDate}</Td>
+                                <Td>{item.toDate}</Td> */}
+                                {/* <Td>{truncateLocation(item.availabilityStatus)}</Td> */}
                                 <Td>{truncateDescription(item.description)}</Td>
                                 <Td>{item.price}</Td>
                                 <Td>
                                     <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
                                 </Td>
-                                <Link to={`/admin/yoda/data/edit/${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
+                                <Link to={`/admin/trips/data/edit/:id${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
                                 <Td><Button onClick={()=>deleteHandler(item._id)} fontSize={"14px"} fontWeight={"400"} color={"red"}>Delete</Button></Td>
                             </Tr>
                         ))}
@@ -111,11 +112,12 @@ const AdminYogaDataTable = () => {
                     <ModalBody>
                         {selectedItem && (
                             <>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Date:</strong> {selectedItem.date}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Time:</strong> {selectedItem.time}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Duration:</strong> {selectedItem.duration}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Location:</strong> {selectedItem.location}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Description:</strong> {selectedItem.description}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Trip Name:</strong> {selectedItem.tripName}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>From:</strong> {selectedItem.from}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>To:</strong> {selectedItem.to}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>From Date:</strong> {selectedItem.fromDate}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>To Date:</strong> {selectedItem.toDate}</Text>
+                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>To Description:</strong> {selectedItem.description}</Text>
                                 <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Price:</strong> {selectedItem.price}</Text>
                             </>
                         )}
@@ -131,4 +133,5 @@ const AdminYogaDataTable = () => {
     );
 };
 
-export default AdminYogaDataTable;
+
+export default AdminTripsDataTable
