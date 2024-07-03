@@ -31,20 +31,20 @@ import AdminSecretDataEdit from '../Admin/AdminSecret/AdminSecretDataEdit';
 import AdminMindControlEdit from '../Admin/AdminMindControl/AdminMindControlEdit';
 import SecretOfSuccess from '../Pages/SecretOfSuccess/SecretOfSuccess';
 import ArtOfMindControl from '../Pages/ArtOfMindControl/ArtOfMindControl';
-import AdminTripsFrom from '../Admin/Trips/AdminTripsFrom';
+import AdminTripsFrom from '../Admin/AdminTrips/AdminTripsFrom';
 import AdminYogaDataTable from '../Admin/AdminYoga/AdminYogaDataTable';
-import AdminTripsData from '../Admin/Trips/AdminTripsData';
-import AdminTripsDataSingle from '../Admin/Trips/AdminTripsDataSingle';
-import AdminTripsDataEdit from '../Admin/Trips/AdminTripsDataEdit';
+import AdminTripsData from '../Admin/AdminTrips/AdminTripsData';
+import AdminTripsDataSingle from '../Admin/AdminTrips/AdminTripsDataSingle';
+import AdminTripsDataEdit from '../Admin/AdminTrips/AdminTripsDataEdit';
 import SkillInput from '../Admin/SkillInput';
-import AdminResidencyForm from '../Admin/Residency/AdminResidencyForm';
-import AdminResidencyData from '../Admin/Residency/AdminResidencyData';
-import AdminResidencyDataSingle from '../Admin/Residency/AdminResidencyDataSingle';
-import AdminResidencyDataEdit from '../Admin/Residency/AdminResidencyDataEdit';
-import AdminFestivalsForm from '../Admin/Festivals/AdminFestivalsForm';
-import AdminFestivalsDate from '../Admin/Festivals/AdminFestivalsDate';
-import AdminFestivalsDateSingle from '../Admin/Festivals/AdminFestivalsDateSingle';
-import AdminFestivalsDateEdit from '../Admin/Festivals/AdminFestivalsDateEdit';
+import AdminResidencyForm from '../Admin/AdminResidency/AdminResidencyForm';
+import AdminResidencyData from '../Admin/AdminResidency/AdminResidencyData';
+import AdminResidencyDataSingle from '../Admin/AdminResidency/AdminResidencyDataSingle';
+import AdminResidencyDataEdit from '../Admin/AdminResidency/AdminResidencyDataEdit';
+import AdminFestivalsForm from '../Admin/AdminFestivals/AdminFestivalsForm';
+import AdminFestivalsDate from '../Admin/AdminFestivals/AdminFestivalsDate';
+import AdminFestivalsDateSingle from '../Admin/AdminFestivals/AdminFestivalsDateSingle';
+import AdminFestivalsDateEdit from '../Admin/AdminFestivals/AdminFestivalsDateEdit';
 const AllRouts = () => {
   // console.log("")
   return (

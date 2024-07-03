@@ -4,6 +4,9 @@ import { Alert, AlertIcon, Box, Card, FormLabel, Input, Stack } from '@chakra-ui
 import { useDispatch } from 'react-redux'
 import { postAdminYogaFormData } from '../../Redux/app/action'
 import { useNavigate } from 'react-router-dom'
+import ChartOne from '../AdminCharts/ChartOne'
+import YogaBarCart from '../AdminCharts/YogaCharts/YogaBarChart'
+import YogaLineBar from '../AdminCharts/YogaCharts/YogaLineBar'
 
 const AdminYogaForm = () => {
     const init ={
@@ -69,8 +72,8 @@ const AdminYogaForm = () => {
         }
 
         <Box  display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
-            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
+            <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card> <YogaBarCart/></Card></Box>
+            <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card> <YogaLineBar/></Card></Box>
         </Box>
         <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
             < >

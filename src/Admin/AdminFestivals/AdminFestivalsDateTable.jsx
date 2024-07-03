@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
+import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
 import { deleteAdminFestivalsFormData, getAdminFestivalsFormData } from '../../Redux/app/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const AdminFestivalsDateTable = () => {
   const loading = false;
-    const store = useSelector((state) => state.AppReducer.adminTripsData);
+    const store = useSelector((state) => state.AppReducer.adminFestivals);
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedItem, setSelectedItem] = useState(null);
     const [refresh ,setRefresh] = useState(false)
+    const [deleteSuccess,setDeleteSuccess] = useState(false)
     useEffect(() => {
-        dispatch(getAdminFestivalsFormData());
+        dispatch(getAdminFestivalsFormData())
+        .then(res=>{
+          if(res?.payload?.message === "delete success"){
+            setRefresh(prev=>!prev);
+            setDeleteSuccess(!deleteSuccess)
+            setTimeout(() => {
+             setRefresh ? setDeleteSuccess(false):setDeleteSuccess(true)
+            }, 1000);
+        }
+        })
     }, [dispatch,refresh]);
 
     const truncateDescription = (description) => {
@@ -36,20 +46,17 @@ const AdminFestivalsDateTable = () => {
        .then(res=>{
            console.log(res)
            if(res?.payload?.message === "delete success"){
-               setRefresh(prev=>!prev)
-           }
+            setRefresh(prev=>!prev);
+            setDeleteSuccess(!deleteSuccess)
+            setTimeout(() => {
+             setRefresh ? setDeleteSuccess(false):setDeleteSuccess(true)
+            }, 1000);
+        }
        })
      }
 
-    //  tripName:{type:String, required:true},
-    //  from:{type:String, required:true},
-    //  to:{type:String, required:true},
-    //  fromDate:{type:String, required:true},
-    //  toDate:{type:String, required:true},
-    //  img:[{type:String, required:true}],
-    //  description:{type:String, required:true},
-    //  price:{type:Number, required:true},
-    //  placesOfVisit:[{type:String, required:true}]
+     console.log("store",store)
+
     return (
         <>
             {loading && (
@@ -66,18 +73,22 @@ const AdminFestivalsDateTable = () => {
                     {/* <SyncLoader height={4} width={4} color="black" /> */}
                 </Box>
             )}
-            <TableContainer bgColor={"white"}>
+
+{
+    deleteSuccess && <Alert status='error'><AlertIcon />Deleted Success</Alert>
+}
+            <TableContainer bgColor={"white"} >
                 <Table size="sm">
                     <Thead>
                         <Tr>
                             <Th>S.no</Th>
-                            <Th>tripName</Th>
+                            <Th>title</Th>
                             {/* <Th>From</Th>
-                            <Th>To</Th>
+                            <Th>To</Th> */}
                             <Th>From Date</Th>
-                            <Th>To Date</Th> */}
+                            <Th>To Date</Th>
                             <Th>Description</Th>
-                            <Th>Price</Th>
+                           
                             <Td pl={"30px"}></Td>
                         </Tr>
                     </Thead>
@@ -85,18 +96,18 @@ const AdminFestivalsDateTable = () => {
                         {store?.map((item, index) => (
                             <Tr key={item.id}>
                                 <Td>{index + 1}</Td>
-                                <Td>{item.tripName}</Td>
+                                <Td>{item.title}</Td>
                                 {/* <Td>{item.from}</Td>
-                                <Td>{item.to}</Td>
+                                <Td>{item.to}</Td> */}
                                 <Td>{item.fromDate}</Td>
-                                <Td>{item.toDate}</Td> */}
+                                <Td>{item.toDate}</Td>
                                 {/* <Td>{truncateLocation(item.availabilityStatus)}</Td> */}
                                 <Td>{truncateDescription(item.description)}</Td>
                                 <Td>{item.price}</Td>
                                 <Td>
                                     <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
                                 </Td>
-                                <Link to={`/admin/trips/data/edit/:id${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
+                                <Link to={`/admin/festivals/data/edit/${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link>
                                 <Td><Button onClick={()=>deleteHandler(item._id)} fontSize={"14px"} fontWeight={"400"} color={"red"}>Delete</Button></Td>
                             </Tr>
                         ))}

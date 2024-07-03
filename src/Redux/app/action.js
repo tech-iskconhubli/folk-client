@@ -249,6 +249,7 @@ dispatch({type:types.GET_SINGLE_ADMIN_TRIPS_FORM_REQUEST});
 // console.log("action id: " + id)
 return  axios.get(`http://localhost:2346/api/adminTrips/${id}`)
 .then(res=>{
+  console.log("action single", res)
   return  dispatch({type:types.GET_SINGLE_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
 })
 .catch(err=>{
@@ -342,6 +343,7 @@ return  axios.delete(`http://localhost:2346/api/adminResidency/${id}`)
 
 
 export const updateAdminResidencyFormData = (id,payload)=>(dispatch)=>{
+  console.log("action",payload)
 dispatch({type:types.UPDATE_ADMIN_RESIDENCY_FORM_REQUEST});
 
 return  axios.patch(`http://localhost:2346/api/adminResidency/${id}`, payload)

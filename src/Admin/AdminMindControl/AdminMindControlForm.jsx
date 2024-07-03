@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import { postAdminMindControlFormData } from '../../Redux/app/action'
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
 import { useNavigate } from 'react-router-dom'
+import ArtOfMindBarChart from '../AdminCharts/ArtOfMindCharts/ArtOfMindBarChart'
+import ArtOFMindLineChart from '../AdminCharts/ArtOfMindCharts/ArtOfMindLineBar'
 const AdminMindControlForm = () => {
     const init ={
         date:"",
@@ -58,8 +60,8 @@ const AdminMindControlForm = () => {
             successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
         }
         <Box  display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
-            <Box borderRadius={"12px"} bgColor={"white"} height={"300px"} width={"50%"}><Card></Card></Box>
+            <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><ArtOfMindBarChart/></Card></Box>
+            <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><ArtOFMindLineChart/></Card></Box>
         </Box>
         <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
             < >
