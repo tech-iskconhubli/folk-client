@@ -6,6 +6,7 @@ import gsap from 'gsap'
 gsap.registerPlugin(ScrollTrigger);
 
 
+
 const HelpingYouAchieveHarmony = () => {
    
     const container = useRef(null);
@@ -22,13 +23,13 @@ const HelpingYouAchieveHarmony = () => {
              y:100,
              opacity:0,
              duration:0.5,
-             stagger:0.3
+             stagger:0.3,
         })
     },[])
 
   return (
      <Box my={'2rem'}>
-         <Box ref={container} bg={'url(https://livedemo00.template-help.com/wt_prod-23025/images/parallax-1-1920x900.jpg)'} w={'100%'} h={['30vh','35vh','35vh','40vh','60vh']} backgroundPosition={'center'} backgroundSize={'cover'} color={'white'} display={'flex'} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} gap={['1rem','1.5rem','2rem','3.5rem']} py={['1.5rem','1.5rem']} px={['1rem','1.5rem','5rem','6rem']}>
+         <Box ref={container} backgroundAttachment={'fixed'} bgRepeat={'no-repeat'} bg={'url(https://livedemo00.template-help.com/wt_prod-23025/images/parallax-1-1920x900.jpg)'} w={'100%'} h={['30vh','35vh','35vh','40vh','60vh']} backgroundPosition={'center'} backgroundSize={'cover'} color={'white'} display={'flex'} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} gap={['1rem','1.5rem','2rem','3.5rem']} py={['1.5rem','1.5rem']} px={['1rem','1.5rem','5rem','6rem']}>
              <Box textAlign={'center'}>
                 <Box fontSize={['1.1rem','1.1rem','1.2rem','1.5rem']} fontWeight={['300']}>
                     Take the First Step to Hinduism

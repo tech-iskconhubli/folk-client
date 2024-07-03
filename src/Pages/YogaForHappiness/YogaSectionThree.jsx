@@ -56,7 +56,7 @@ useGSAP(()=>{
    tl.from(boxTwo.current,{
      scale:0,
      opacity:0,
-     duration:1,
+     duration:0.9,
    });
 
    tl.from(boxOne.current,{
@@ -185,7 +185,6 @@ useGSAP(()=>{
             {/* Image Box */}
             <Box   ref={boxTwo}  w={["100%",'100%','100%', '60%','50%']}>
               <Image
-             
                 objectFit={"cover"}
                 w={"100%"}
                 src="https://images.unsplash.com/photo-1544588440-fc7551331160?q=80&w=2122&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

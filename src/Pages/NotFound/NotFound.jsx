@@ -1,6 +1,7 @@
 import { Box, Button, Text } from '@chakra-ui/react'
 import React from 'react'
 import theme from "../../theme"
+import { Link } from 'react-router-dom'
 const NotFound = () => {
   return (
      <Box display={'flex'} flexDirection={'column'} w={'100%'} h={'100vh'} alignItems={'center'} justifyContent={'center'} gap={['4rem']} >
@@ -12,7 +13,9 @@ const NotFound = () => {
                </Box>
           </Box>
           <Box>
+            <Link to={'/'}>
               <Button colorScheme="orange" fontSize={['1rem','1rem']} px={['1rem','1rem','1.5rem','2rem']} py={['1.5rem','1.5rem','2rem']}>BACK TO HOME</Button>
+            </Link>
           </Box>
      </Box>
   )
