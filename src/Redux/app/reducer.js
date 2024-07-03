@@ -14,6 +14,10 @@ const init ={
     adminResidencySingle:{},
     adminFestivals:[],
     adminFestivalsSingle:{},
+    adminBlogsData:[],
+    adminBlogsDataSingle:{},
+    adminGalleryData:[],
+    adminGalleryDataSingle:{},
 }
 
 export const reducer = (oldState = init,action)=>{
@@ -294,6 +298,91 @@ export const reducer = (oldState = init,action)=>{
                                                         isError:true,
                                                         adminFestivalsSingle:[]
                                                     }
+                                                    case types.GET_ADMIN_BLOGS_FORM_REQUEST:
+                                                        return{
+                                                            ...oldState,
+                                                            isLoading:true,
+                                                            isError:false,
+                                                            adminBlogsData:[]
+                                                        }
+                                                    case types.GET_ADMIN_BLOGS_FORM_SUCCESS:
+                                                        return{
+                                                            ...oldState,
+                                                            isLoading:false,
+                                                            isError:false,
+                                                            adminBlogsData:payload
+                                                        }
+                                                    case types.GET_ADMIN_BLOGS_FORM_FAILURE:
+                                                        return{
+                                                            ...oldState,
+                                                            isLoading:false,
+                                                            isError:true,
+                                                            adminBlogsData:[]
+                                                        }
+                                                        case types.GET_SINGLE_ADMIN_BLOGS_FORM_REQUEST:
+                                                            return{
+                                                                ...oldState,
+                                                                isLoading:true,
+                                                                isError:false,
+                                                                adminBlogsDataSingle:[]
+                                                            }
+                                                        case types.GET_SINGLE_ADMIN_BLOGS_FORM_SUCCESS:
+                                                            return{
+                                                                ...oldState,
+                                                                isLoading:false,
+                                                                isError:false,
+                                                                adminBlogsDataSingle:payload
+                                                            }
+                                                        case types.GET_SINGLE_ADMIN_BLOGS_FORM_FAILURE:
+                                                            return{
+                                                                ...oldState,
+                                                                isLoading:false,
+                                                                isError:true,
+                                                                adminBlogsDataSingle:[]
+                                                            }
+
+                                                            case types.GET_ADMIN_GALLERY_FORM_REQUEST:
+                                                                return{
+                                                                    ...oldState,
+                                                                    isLoading:true,
+                                                                    isError:false,
+                                                                    adminGalleryData:[]
+                                                                }
+                                                            case types.GET_ADMIN_GALLERY_FORM_SUCCESS:
+                                                                return{
+                                                                    ...oldState,
+                                                                    isLoading:false,
+                                                                    isError:false,
+                                                                    adminGalleryData:payload
+                                                                }
+                                                            case types.GET_ADMIN_GALLERY_FORM_FAILURE:
+                                                                return{
+                                                                    ...oldState,
+                                                                    isLoading:false,
+                                                                    isError:true,
+                                                                    adminGalleryData:[]
+                                                                }
+                                                                case types.GET_SINGLE_ADMIN_GALLERY_FORM_REQUEST:
+                                                                    return{
+                                                                        ...oldState,
+                                                                        isLoading:true,
+                                                                        isError:false,
+                                                                        adminGalleryDataSingle:[]
+                                                                    }
+                                                                case types.GET_SINGLE_ADMIN_GALLERY_FORM_SUCCESS:
+                                                                    return{
+                                                                        ...oldState,
+                                                                        isLoading:false,
+                                                                        isError:false,
+                                                                        adminGalleryDataSingle:payload
+                                                                    }
+                                                                case types.GET_SINGLE_ADMIN_GALLERY_FORM_FAILURE:
+                                                                    return{
+                                                                        ...oldState,
+                                                                        isLoading:false,
+                                                                        isError:true,
+                                                                        adminGalleryDataSingle:[]
+                                                                    }
         default :
             return oldState
     }

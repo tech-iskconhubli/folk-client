@@ -227,8 +227,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={blogs} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+               <Link to={'/admin/blogs/createForm'}><Button width="100%">Add Event</Button></Link> 
+               <Link to={'/admin/blogs/data'}> <Button width="100%" mt={2}>Show Data</Button></Link> 
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -254,8 +254,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={donation} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+               <Link to={'/admin/donations/createForm'}><Button width="100%">Add Event</Button></Link> 
+              <Link to={'/admin/donations/data'}><Button width="100%" mt={2}>Show Data</Button></Link>  
               </CustomBox>
             </Collapse>
           </GridItem>
@@ -281,8 +281,8 @@ const AdminNavbar = () => {
             </Button>
             <Collapse in={gallery} animateOpacity>
               <CustomBox mt={2} ml={"80px"}>
-                <Button width="100%">Add Event</Button>
-                <Button width="100%" mt={2}>Show Data</Button>
+              <Link to={'/admin/gallery/createForm'}><Button width="100%">Add Event</Button></Link>  
+              <Link to={'/admin/gallery/data'}> <Button width="100%" mt={2}>Show Data</Button></Link> 
               </CustomBox>
             </Collapse>
           </GridItem>

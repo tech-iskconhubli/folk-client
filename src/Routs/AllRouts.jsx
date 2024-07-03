@@ -45,6 +45,18 @@ import AdminFestivalsForm from '../Admin/AdminFestivals/AdminFestivalsForm';
 import AdminFestivalsDate from '../Admin/AdminFestivals/AdminFestivalsDate';
 import AdminFestivalsDateSingle from '../Admin/AdminFestivals/AdminFestivalsDateSingle';
 import AdminFestivalsDateEdit from '../Admin/AdminFestivals/AdminFestivalsDateEdit';
+import AdminBlogsForm from '../Admin/AdminBlogs/AdminBlogsForm';
+import AdminBlogsData from '../Admin/AdminBlogs/AdminBlogsData';
+import AdminBlogsDataSingle from '../Admin/AdminBlogs/AdminBlogsDataSingle';
+import AdminBlogsDataEdit from '../Admin/AdminBlogs/AdminBlogsDataEdit';
+import AdminDonationsForm from '../Admin/AdminDonations/AdminDonationsForm';
+import AdminDonationsData from '../Admin/AdminDonations/AdminDonationsData';
+import AdminDonationsDataSingle from '../Admin/AdminDonations/AdminDonationsDataSingle';
+import AdminDonationsDataEdit from '../Admin/AdminDonations/AdminDonationsDataEdit';
+import AdminGalleryForm from '../Admin/AdminGallery/AdminGalleryForm';
+import AdminGalleryData from '../Admin/AdminGallery/AdminGalleryData';
+import AdminGalleryDateSingle from '../Admin/AdminGallery/AdminGalleryDateSingle';
+import AdminGalleryEdit from '../Admin/AdminGallery/AdminGalleryEdit';
 const AllRouts = () => {
   // console.log("")
   return (
@@ -95,6 +107,18 @@ const AllRouts = () => {
                   <Route path='/admin/festivals/data' element={<AdminFestivalsDate/>}/>
                   <Route path='/admin/festivals/data/:id' element={<AdminFestivalsDateSingle/>}/>
                   <Route path='/admin/festivals/data/edit/:id' element={<AdminFestivalsDateEdit/>}/>
+                  <Route path='/admin/blogs/createForm' element={<AdminBlogsForm/>}/>
+                  <Route path='/admin/blogs/data' element={<AdminBlogsData/>}/>
+                  <Route path='/admin/blogs/data/:id' element={<AdminBlogsDataSingle/>}/>
+                  <Route path='/admin/blogs/data/edit/:id' element={<AdminBlogsDataEdit/>}/>
+                  <Route path='/admin/donations/createForm' element={<AdminDonationsForm/>}/>
+                  <Route path='/admin/donations/data' element={<AdminDonationsData/>}/>
+                  <Route path='/admin/donations/data/:id' element={<AdminDonationsDataSingle/>}/>
+                  <Route path='/admin/donations/data/edit/:id' element={<AdminDonationsDataEdit/>}/>
+                  <Route path='/admin/gallery/createForm' element={<AdminGalleryForm/>}/>
+                  <Route path='/admin/gallery/data' element={<AdminGalleryData/>}/>
+                  <Route path='/admin/gallery/data/:id' element={<AdminGalleryDateSingle/>}/>
+                  <Route path='/admin/gallery/data/edit/:id' element={<AdminGalleryEdit/>}/>
                   <Route path='/admin' />
                   <Route path='/skill' element={<SkillInput/>}/>
             </Route>

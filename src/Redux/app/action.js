@@ -18,7 +18,7 @@ export const getAdminYogaFormData = ()=>(dispatch)=>{
 
   return  axios.get("http://localhost:2346/api/adminyoga")
     .then(res=>{
-        console.log(res.data , 'action')
+        
       return  dispatch({type:types.GET_ADMIN_YOGA_FORM_SUCCESS, payload:res.data.data})
     })
     .catch(err=>{
@@ -31,7 +31,7 @@ export const getSingleAdminYogaFormData = (id)=>(dispatch)=>{
 
 return  axios.get(`http://localhost:2346/api/adminyoga/${id}`)
   .then(res=>{
-      console.log(res.data , 'action')
+      
     return  dispatch({type:types.GET_SINGLE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
   })
   .catch(err=>{
@@ -426,4 +426,149 @@ return  axios.patch(`http://localhost:2346/api/adminFestival/${id}`, payload)
  return   dispatch({type:types.UPDATE_ADMIN_FESTIVALS_FORM_FAILURE, payload:err.message})
 })
 }
+
+ 
+
+
+
+
+
+
+export const postAdminBlogsFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_ADMIN_BLOGS_FORM_REQUEST});
+  console.log("action form", payload)
+return  axios.post("http://localhost:2346/api/adminblogs/addblogsdata",payload,{
+  headers: {
+    'Content-Type': 'multipart/form-data',
+},
+})
+  .then(res=>{
+    return  dispatch({type:types.POST_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_ADMIN_BLOGS_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getAdminBlogsFormData = ()=>(dispatch)=>{
+dispatch({type:types.GET_ADMIN_BLOGS_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/adminblogs")
+.then(res=>{
+  return  dispatch({type:types.GET_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_ADMIN_BLOGS_FORM_FAILURE, payload:err.message})
+})
+}
+
+export const singleAdminBlogsFormData = (id)=>(dispatch)=>{
+dispatch({type:types.GET_SINGLE_ADMIN_BLOGS_FORM_REQUEST});
+// console.log("action id: " + id)
+return  axios.get(`http://localhost:2346/api/adminblogs/${id}`)
+.then(res=>{
+  return  dispatch({type:types.GET_SINGLE_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_SINGLE_ADMIN_BLOGS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const deleteAdminBlogsFormData = (id)=>(dispatch)=>{
+dispatch({type:types.DELETE_ADMIN_BLOGS_FORM_REQUEST});
+
+return  axios.delete(`http://localhost:2346/api/adminblogs/${id}`)
+.then(res=>{
+  return  dispatch({type:types.DELETE_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.DELETE_ADMIN_BLOGS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const updateAdminBlogsFormData = (id,payload)=>(dispatch)=>{
+dispatch({type:types.UPDATE_ADMIN_BLOGS_FORM_REQUEST});
+
+return  axios.patch(`http://localhost:2346/api/adminblogs/${id}`, payload)
+.then(res=>{
+  return  dispatch({type:types.UPDATE_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.UPDATE_ADMIN_BLOGS_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+
+
+
+
+export const postAdminGalleryFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_ADMIN_GALLERY_FORM_REQUEST});
+  console.log("action form", payload)
+return  axios.post("http://localhost:2346/api/adminGallery/addAdminGallery",payload,{
+  headers: {
+    'Content-Type': 'multipart/form-data',
+},
+})
+  .then(res=>{
+    return  dispatch({type:types.POST_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_ADMIN_GALLERY_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getAdminGalleryFormData = ()=>(dispatch)=>{
+dispatch({type:types.GET_ADMIN_GALLERY_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/adminGallery")
+.then(res=>{
+  return  dispatch({type:types.GET_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_ADMIN_GALLERY_FORM_FAILURE, payload:err.message})
+})
+}
+
+export const singleAdminGalleryFormData = (id)=>(dispatch)=>{
+dispatch({type:types.GET_SINGLE_ADMIN_GALLERY_FORM_REQUEST});
+// console.log("action id: " + id)
+return  axios.get(`http://localhost:2346/api/adminGallery/${id}`)
+.then(res=>{
+  return  dispatch({type:types.GET_SINGLE_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.GET_SINGLE_ADMIN_GALLERY_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const deleteAdminGalleryFormData = (id)=>(dispatch)=>{
+dispatch({type:types.DELETE_ADMIN_GALLERY_FORM_REQUEST});
+
+return  axios.delete(`http://localhost:2346/api/adminGallery/${id}`)
+.then(res=>{
+  return  dispatch({type:types.DELETE_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.DELETE_ADMIN_GALLERY_FORM_FAILURE, payload:err.message})
+})
+}
+
+
+export const updateAdminGalleryFormData = (id,payload)=>(dispatch)=>{
+dispatch({type:types.UPDATE_ADMIN_GALLERY_FORM_REQUEST});
+
+return  axios.patch(`http://localhost:2346/api/adminGallery/${id}`, payload)
+.then(res=>{
+  return  dispatch({type:types.UPDATE_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data})
+})
+.catch(err=>{
+ return   dispatch({type:types.POST_ADMIN_GALLERY_FORM_FAILURE, payload:err.message})
+})
+}
+
 

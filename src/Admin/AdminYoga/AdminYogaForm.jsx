@@ -43,7 +43,7 @@ const AdminYogaForm = () => {
             e.preventDefault();
           dispatch(postAdminYogaFormData(formData))
           .then(res=>{
-            console.log(res,"res")
+           
             if(res?.payload?.message === 'post success'){
                   setSuccessAlert(!successAlert)
                   setRefresh(prev=>!prev);
