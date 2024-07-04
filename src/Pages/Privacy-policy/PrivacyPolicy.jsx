@@ -38,9 +38,10 @@ useEffect(() => {
           lineHeight: "1.5rem",
           fontSize:'16px',
         }}
+        mt={{base:'100px',md:'100px',lg:'150px',xl:'150px'}}
       >
         {isVisible && (
-        <Box position="fixed" bottom='120px' right='0px' w='45px' h='45px' bg="#FBD918" borderTopLeftRadius='10px' borderBottomLeftRadius='10px'
+        <Box position="fixed" bottom='120px' right='0px' w='45px' h='45px' bg="#DE8D38" borderTopLeftRadius='10px' borderBottomLeftRadius='10px'
         style={{transition:'all 0.5s ease-out'}}><FaChevronUp style={{color:'white',fontSize:'30px',margin:'auto',paddingTop:'15px'}} onClick={scrollToTop}/>
         </Box>
         )}
@@ -75,7 +76,7 @@ useEffect(() => {
             when you use this{" "}
             <a
               href="https://folknet.in"
-              style={{ color: "#FBD918", textDecoration: "none" }}
+              style={{ color: "#DE8D38", textDecoration: "none" }}
             >
             https://folknet.in {" "}
             </a>{" "}
@@ -120,7 +121,7 @@ useEffect(() => {
           <Text>
             <a
               href="https://folknet.in"
-              style={{ color: "#FBD918", textDecoration: "none" }}
+              style={{ color: "#DE8D38", textDecoration: "none" }}
             >
               https://folknet.in /FOLK APP
             </a>{" "}
@@ -159,7 +160,7 @@ useEffect(() => {
              Platform&rdquo; refers to{" "}
             <a
               href="https://folknet.in"
-              style={{ color: "#FBD918", textDecoration: "none" }}
+              style={{ color: "#DE8D38", textDecoration: "none" }}
             >
               https://folknet.in
             </a>{" "}
@@ -176,7 +177,7 @@ useEffect(() => {
             of the {" "}
             <a
               href="https://folknet.in"
-              style={{ color: "#FBD918", textDecoration: "none" }}
+              style={{ color: "#DE8D38", textDecoration: "none" }}
             >
               https://folknet.in .
             </a>
@@ -207,7 +208,7 @@ useEffect(() => {
             read along with, the Terms of Use {" "}
             <a
               href="https://folknet.in/terms-and-conditions"
-              style={{ color: "#FBD918", textDecoration: "none" }}
+              style={{ color: "#DE8D38", textDecoration: "none" }}
             >
               https://folknet.in/terms-and-conditions.
             </a>
@@ -243,7 +244,7 @@ useEffect(() => {
               our backend at{" "}
               <a
                 href="https://us-central1-folk-bf69e.cloudfunctions.net"
-                style={{ color: "#FBD918", textDecoration: "none" }}
+                style={{ color: "#DE8D38", textDecoration: "none" }}
               >
                 https://us-central1-folk-bf69e.cloudfunctions.net
               </a>
@@ -312,7 +313,7 @@ useEffect(() => {
               partner Instamojo. The privacy policy of Instamojo can be found at
               <a
                 href="https://www.instamojo.com/privacy/"
-                style={{ color: "#FBD918", textDecoration: "none" }}
+                style={{ color: "#DE8D38", textDecoration: "none" }}
               >
                 &#40; https://www.instamojo.com/privacy/ &#41;
               </a>
@@ -343,7 +344,7 @@ useEffect(() => {
               .The privacy policy of landbot can be found at
               <a
                 href="https://help.landbot.io/article/h2ndzk6som-privacy-security"
-                style={{ color: "#FBD918", textDecoration: "none" }}
+                style={{ color: "#DE8D38", textDecoration: "none" }}
               >
                 &#40; https://help.landbot.io/article/h2ndzk6som-privacy-security
                 &#41;
@@ -1455,7 +1456,7 @@ useEffect(() => {
               other privacy concerns, you can email us at{" "}
               <a
                 href="mailto: info@folknet.in"
-                style={{ textDecoration: "none", color: "#fbd918" }}
+                style={{ textDecoration: "none", color: "#DE8D38" }}
               >
                 {" "}
                 info@folknet.in.

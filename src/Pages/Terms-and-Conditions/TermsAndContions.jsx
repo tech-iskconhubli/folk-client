@@ -38,9 +38,10 @@ useEffect(() => {
           lineHeight: "1.5rem",
           fontSize: "16px",
         }}
+        mt={{base:'80px',md:'80px',lg:'120px',xl:'120px'}}
       >
          {isVisible && (
-        <Box position="fixed" bottom='120px' right='0px' w='45px' h='45px' bg="#FBD918" borderTopLeftRadius='10px' borderBottomLeftRadius='10px'
+        <Box position="fixed" bottom='120px' right='0px' w='45px' h='45px' bg="#DE8D38" borderTopLeftRadius='10px' borderBottomLeftRadius='10px'
         style={{transition:'all 0.5s ease-out'}} onClick={scrollToTop}><FaChevronUp style={{color:'white',fontSize:'30px',margin:'auto',paddingTop:'15px'}} />
         </Box>
         )}
@@ -53,7 +54,7 @@ useEffect(() => {
             By accessing this Website, accessible from{" "}
             <a
               href="https://folknet.in"
-              style={{ textDecoration: "none", color: "#FBD918" }}
+              style={{ textDecoration: "none", color: "#DE8D38" }}
             >
               https://folknet.in
             </a>
@@ -181,7 +182,7 @@ useEffect(() => {
             Please read our Privacy Policy at{" "}
             <a
               href="https://folknet.in/privacy-policy/"
-              style={{ textDecoration: "none", color: "#FBD918" }}
+              style={{ textDecoration: "none", color: "#DE8D38" }}
             >
               https://folknet.in/privacy-policy/.
             </a>
