@@ -48,6 +48,7 @@ const ContributionSection = () => {
         w={["100%", "100%", "90%", "90%"]}
         maxW="1500px"
         marginX="auto"
+        overflowX={'hidden'}
       >
         <SimpleGrid
           ref={gridContainerRef}
