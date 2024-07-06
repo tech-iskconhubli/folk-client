@@ -25,7 +25,7 @@ const AdminResidencyForm = () => {
     const navigate = useNavigate()
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
-        console.log(name, value, type, files)
+       
         setFormData(prev=>({
             ...prev,
             [name]: type === "file" ? files[0] : value
@@ -69,7 +69,7 @@ const AdminResidencyForm = () => {
                 navigate('/admin/residency/data')
              }, 1000);
           }
-        console.log(res)
+        console.log("rea", res)
         })
       };
     
@@ -77,9 +77,7 @@ const AdminResidencyForm = () => {
     return (
         <>
             <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
-            {
-            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-        }
+  
 
             <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
                 <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><ResidencyBarCart/></Card></Box>
@@ -105,30 +103,12 @@ const AdminResidencyForm = () => {
                                 <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"description"} value={formData.description} onChange={handleChange} placeholder='please enter Description' /></Box>
                             </Box>
 
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter from Date</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"fromDate"} value={formData.fromDate} onChange={handleChange} placeholder='please enter date' /></Box>
-                            </Box> */}
-
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter to Date</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"toDate"} value={formData.toDate} onChange={handleChange} placeholder='please enter date' /></Box>
-                            </Box> */}
-
+                           
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Upload image</FormLabel></Box>
                                 <Box width={"88%"}><Input borderColor={"#2B3553"} type='file' name={"img"} onChange={handleChange} placeholder='upload image' /></Box>
                             </Box>
 
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Description</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"description"} value={formData.description} onChange={handleChange} placeholder='please enter Description' /></Box>
-                            </Box> */}
-
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Price</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='number' name={"price"} value={formData.price} onChange={handleChange} placeholder='please enter price' /></Box>
-                            </Box> */}
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter room specific</FormLabel></Box>
@@ -148,6 +128,9 @@ const AdminResidencyForm = () => {
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Fee Amount</FormLabel></Box>
                                 <Box width={"88%"}><Input borderColor={"#2B3553"} type='number' name={"feeAmount"} value={formData.feeAmount} onChange={handleChange} placeholder='Amount' /></Box>
                             </Box>
+                            {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
 
                             <Input bgColor={"white"} color={"black"} type='submit' />
                         </Stack>

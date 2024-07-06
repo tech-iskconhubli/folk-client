@@ -78,14 +78,12 @@ const removePlace = (index) => {
   })
   }
 
- // console.log("formData", formData)
+
 
   return (
     <>
       <AdminTopNavbar/>
-      {
-      updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
-      }
+  
       <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>
@@ -94,6 +92,9 @@ const removePlace = (index) => {
             < >
                <Box  bgColor={"white"}  color={"black"}>
                   <form onSubmit={handleSubmit} >
+                  {
+      updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
+      }
                    <Stack gap={"20px"} >
                         <Box   display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                               <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter trip Name</FormLabel></Box>
@@ -158,6 +159,7 @@ const removePlace = (index) => {
                             </Box>
                             </Box>
                         </Box>
+     
 
                         <Input bgColor={"white"} color={"black"} type='submit'/>
 

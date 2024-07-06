@@ -46,9 +46,9 @@ const AdminMindControlForm = () => {
                 setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
                }, 500);
                
-            //    setTimeout(() => {
-            //       navigate('/admin/mindControl/data')
-            //    }, 1000);
+               setTimeout(() => {
+                  navigate('/admin/mindControl/data')
+               }, 1000);
             }
           })
     }
@@ -56,9 +56,7 @@ const AdminMindControlForm = () => {
   return (
     <>
         <AdminTopNavbar/>
-        {
-            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-        }
+       
         <Box  display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
             <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><ArtOfMindBarChart/></Card></Box>
             <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><ArtOFMindLineChart/></Card></Box>
@@ -100,6 +98,9 @@ const AdminMindControlForm = () => {
                               <Box width={"12%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Price</FormLabel></Box>
                               <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='number' name={"price"} value={formData.price} onChange={handleChange}   placeholder='please enter Price'/></Box>
                         </Box>
+                        {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
 
                         <Input bgColor={"white"} color={"black"} type='submit'/>
 

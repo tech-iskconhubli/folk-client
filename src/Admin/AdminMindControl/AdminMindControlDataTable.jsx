@@ -71,10 +71,11 @@ const AdminMindControlDataTable = () => {
               </Box>
           )}
 
-{
+
+          <TableContainer bgColor={"white"}>
+          {
     deleteSuccess && <Alert status='error'><AlertIcon />Deleted Success</Alert>
 }
-          <TableContainer bgColor={"white"}>
               <Table size="sm">
                   <Thead>
                       <Tr>
@@ -110,29 +111,43 @@ const AdminMindControlDataTable = () => {
           </TableContainer>
 
           <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                  <ModalHeader>Yoga Session Details</ModalHeader>
-                  <ModalCloseButton />
-                  <ModalBody>
-                      {selectedItem && (
-                          <>
-                              <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Date:</strong> {selectedItem.date}</Text>
-                              <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Time:</strong> {selectedItem.time}</Text>
-                              <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Duration:</strong> {selectedItem.duration}</Text>
-                              <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Location:</strong> {selectedItem.location}</Text>
-                              <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Description:</strong> {selectedItem.description}</Text>
-                              <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Price:</strong> {selectedItem.price}</Text>
-                          </>
-                      )}
-                  </ModalBody>
-                  <ModalFooter>
-                      <Button colorScheme="blue" mr={3} onClick={onClose}>
-                          Close
-                      </Button>
-                  </ModalFooter>
-              </ModalContent>
-          </Modal>
+      <ModalOverlay />
+      <ModalContent maxW="600px" border="2px solid black" borderRadius="10px">
+        <ModalHeader borderBottom="2px solid #3182CE" fontSize="24px" fontWeight="bold" color="#2B6CB0">
+          Yoga Session Details
+        </ModalHeader>
+        <ModalCloseButton color="#2B6CB0" />
+        <ModalBody>
+          {selectedItem && (
+            <>
+              <Text fontSize="18px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0">
+                <strong>Date:</strong> <span style={{ color: "gray.500" }}>{new Date(selectedItem.date).toLocaleDateString()}</span>
+              </Text>
+              <Text fontSize="18px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0">
+                <strong>Time:</strong> <span style={{ color: "gray.500" }}>{selectedItem.time}</span>
+              </Text>
+              <Text fontSize="18px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0">
+                <strong>Duration:</strong> <span style={{ color: "gray.500" }}>{selectedItem.duration}</span>
+              </Text>
+              <Text fontSize="18px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0">
+                <strong>Location:</strong> <span style={{ color: "gray.500" }}>{selectedItem.location}</span>
+              </Text>
+              <Text fontSize="18px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0">
+                <strong>Description:</strong> <span style={{ color: "gray.500" }}>{selectedItem.description}</span>
+              </Text>
+              <Text fontSize="18px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0">
+                <strong>Price:</strong> <span style={{ color: "gray.500" }}>{selectedItem.price}</span>
+              </Text>
+            </>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button colorScheme="blue" mr={3} onClick={onClose}>
+            Close
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
       </>
   );
 };

@@ -41,9 +41,9 @@ const handleSubmit = (e) => {
           setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
          }, 500);
          
-        //  setTimeout(() => {
-        //     navigate('/admin/blogs/data')
-        //  }, 1000);
+         setTimeout(() => {
+            navigate('/admin/gallery/data')
+         }, 1000);
       }
     console.log(res)
     })
@@ -53,9 +53,7 @@ const handleSubmit = (e) => {
 return (
     <>
         <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
-        {
-        successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-    }
+   
 
         <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
             <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><GalleryBarChart/></Card></Box>
@@ -81,6 +79,9 @@ return (
                             <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Upload image</FormLabel></Box>
                             <Box width={"88%"}><Input borderColor={"#2B3553"} type='file' name={"img"} onChange={handleChange} placeholder='upload image' /></Box>
                         </Box>
+                        {
+        successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+    }
 
                         <Input bgColor={"white"} color={"black"} type='submit' />
                     </Stack>

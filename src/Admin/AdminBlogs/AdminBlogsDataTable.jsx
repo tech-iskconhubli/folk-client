@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
+import { Table,Text,Flex,Image, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
 import { deleteAdminBlogsFormData, getAdminBlogsFormData } from '../../Redux/app/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -68,10 +68,11 @@ const AdminBlogsDataTable = () => {
                 </Box>
             )}
 
-{
+
+            <TableContainer bgColor={"white"}>
+            {
     deleteSuccess && <Alert status='error'><AlertIcon />Deleted Success</Alert>
 }
-            <TableContainer bgColor={"white"}>
                 <Table size="sm">
                     <Thead>
                         <Tr>
@@ -102,29 +103,49 @@ const AdminBlogsDataTable = () => {
             </TableContainer>
 
             <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Yoga Session Details</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        {selectedItem && (
-                            <>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Date:</strong> {selectedItem.date}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Time:</strong> {selectedItem.time}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Duration:</strong> {selectedItem.duration}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Location:</strong> {selectedItem.location}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Description:</strong> {selectedItem.description}</Text>
-                                <Text fontSize={"20px"} fontWeight={"400"} mb={"20px"}><strong>Price:</strong> {selectedItem.price}</Text>
-                            </>
-                        )}
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button colorScheme="blue" mr={3} onClick={onClose}>
-                            Close
-                        </Button>
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
+      <ModalOverlay />
+      <ModalContent maxW="700px" border="2px solid black" borderRadius="10px">
+        <ModalHeader borderBottom="2px solid #3182CE" fontSize="24px" fontWeight="bold" color="#2B6CB0">
+          Yoga Session Details
+        </ModalHeader>
+        <ModalCloseButton color="#2B6CB0" />
+        <ModalBody>
+          {selectedItem && (
+            <>
+              <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
+                <Text flex="0 0 200px"><strong>Blog Date</strong></Text>
+                <Text flex="0 0 20px" textAlign="center">:</Text>
+                <Text flex="1" color="gray">{selectedItem.date}</Text>
+              </Flex>
+              <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
+                <Text flex="0 0 200px"><strong>Blog Title</strong></Text>
+                <Text flex="0 0 20px" textAlign="center">:</Text>
+                <Text flex="1" color="gray">{selectedItem.title}</Text>
+              </Flex>
+              <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
+                <Text flex="0 0 200px"><strong>Blog Description</strong></Text>
+                <Text flex="0 0 20px" textAlign="center">:</Text>
+                <Text flex="1" color="gray">{selectedItem.description}</Text>
+              </Flex>
+              
+              <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
+                <Text flex="0 0 200px"><strong>Image</strong></Text>
+                <Text flex="0 0 20px" textAlign="center">:</Text>
+                <Box flex="1">
+                  <Image width="150px" src={selectedItem.img} alt='image' />
+                </Box>
+              </Flex>
+              
+            </>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button colorScheme="blue" mr={3} onClick={onClose}>
+            Close
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
         </>
     );
 };

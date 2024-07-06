@@ -68,10 +68,11 @@ const AdminGalleryDataTable = () => {
               </Box>
           )}
 
-{
+
+          <TableContainer bgColor={"white"}>
+          {
   deleteSuccess && <Alert status='error'><AlertIcon />Deleted Success</Alert>
 }
-          <TableContainer bgColor={"white"}>
               <Table size="sm">
                   <Thead>
                       <Tr>

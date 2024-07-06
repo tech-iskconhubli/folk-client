@@ -42,9 +42,9 @@ dispatch(updateAdminGalleryFormData(id,formData))
   console.log("res", res);
   if(res?.payload?.message === "updated success"){
     setUpdatedSuccess(!updatedSuccess);
-  //  setTimeout(() => {
-  //   navigate("/admin/yoga/data")
-  //  }, 1000);
+   setTimeout(() => {
+    navigate("/admin/gallery/data")
+   }, 1000);
   }
 })
 }
@@ -54,9 +54,7 @@ dispatch(updateAdminGalleryFormData(id,formData))
 return (
 <>
   <AdminTopNavbar/>
-  {
-  updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
-  }
+
   <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
     <Card>
         <Box>
@@ -65,25 +63,20 @@ return (
         < >
            <Box  bgColor={"white"}  color={"black"}>
               <form onSubmit={handleSubmit} >
+              {
+  updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
+  }
                <Stack gap={"20px"} >
                     <Box   display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                           <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter title</FormLabel></Box>
                           <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"title"} value={formData?.title } onChange={handleChange}   placeholder='please enter Residency name'/></Box>
                     </Box>
 
-
-                    
-
-
                     <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                           <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter description</FormLabel></Box>
                           <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"description"} value={formData?.description } onChange={handleChange}   placeholder='please enter Description'/></Box>
                     </Box>
 
-                    {/* <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                          <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Location</FormLabel></Box>
-                          <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"location"} value={formData.location} onChange={handleChange}   placeholder='please enter Location'/></Box>
-                    </Box> */}
 
 
                     <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
@@ -93,24 +86,8 @@ return (
                           </Box>
                     </Box>
 
-                    {/* <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                          <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Price</FormLabel></Box>
-                          <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='number' name={"price"} value={formData.feeAmount } onChange={handleChange}   placeholder='please enter Price'/></Box>
-                    </Box> */}
-{/* 
-                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                        <Box width={"20%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter festival agenda</FormLabel></Box>
-                        <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' value={placeInput} onChange={handlePlaceInputChange} onKeyPress={handlePlaceKeyPress} placeholder='please enter festival agenda' />
-                        <Box>
-                            {formData.availabilityStatus?.map((place, index) => (
-                                <span key={index} style={{ marginRight: '8px', display: 'inline-block', padding: '4px', border: '1px solid #ccc', borderRadius: '4px' }}>
-                                    {place}
-                                    <button onClick={() => removePlace(index)} style={{ marginLeft: '4px' }}>x</button>
-                                </span>
-                            ))}
-                        </Box>
-                        </Box>
-                    </Box> */}
+                    
+
 
                     <Input bgColor={"white"} color={"black"} type='submit'/>
 

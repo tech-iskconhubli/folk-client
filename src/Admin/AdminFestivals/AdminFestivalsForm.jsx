@@ -80,9 +80,7 @@ const handleSubmit = (e) => {
 return (
     <>
         <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
-        {
-            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-        }
+    
         <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
             <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><FestivalsBarCart/></Card></Box>
             <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><FestivalsLineChart/></Card></Box>
@@ -96,10 +94,6 @@ return (
                             <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"title"} value={formData.title} onChange={handleChange} placeholder='please enter trip Name' /></Box>
                         </Box>
 
-                        {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                            <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter location From</FormLabel></Box>
-                            <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"from"} value={formData.from} onChange={handleChange} placeholder='please enter location from' /></Box>
-                        </Box> */}
 
                         <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                             <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Description</FormLabel></Box>
@@ -144,7 +138,9 @@ return (
                             </Box>
                             </Box>
                         </Box>
-
+                        {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
                         <Input bgColor={"white"} color={"black"} type='submit' />
                     </Stack>
                 </form>

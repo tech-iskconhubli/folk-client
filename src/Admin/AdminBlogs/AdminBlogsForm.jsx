@@ -43,9 +43,9 @@ const AdminBlogsForm = () => {
               setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
              }, 500);
              
-            //  setTimeout(() => {
-            //     navigate('/admin/blogs/data')
-            //  }, 1000);
+             setTimeout(() => {
+                navigate('/admin/blogs/data')
+             }, 1000);
           }
         console.log(res)
         })
@@ -55,9 +55,7 @@ const AdminBlogsForm = () => {
     return (
         <>
             <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
-            {
-            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-        }
+        
 
             <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
                 <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><BlogsBarChart/></Card></Box>
@@ -84,49 +82,16 @@ const AdminBlogsForm = () => {
                                 <Box width={"88%"}><Textarea borderColor={"#2B3553"} type='textarea' name={"description"} value={formData.description} onChange={handleChange} placeholder='please enter Description' /></Box>
                             </Box>
 
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter from Date</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"fromDate"} value={formData.fromDate} onChange={handleChange} placeholder='please enter date' /></Box>
-                            </Box> */}
-
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter to Date</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"toDate"} value={formData.toDate} onChange={handleChange} placeholder='please enter date' /></Box>
-                            </Box> */}
+                          
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Upload image</FormLabel></Box>
                                 <Box width={"88%"}><Input borderColor={"#2B3553"} type='file' name={"img"} onChange={handleChange} placeholder='upload image' /></Box>
                             </Box>
 
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Description</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"description"} value={formData.description} onChange={handleChange} placeholder='please enter Description' /></Box>
-                            </Box> */}
-
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Price</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='number' name={"price"} value={formData.price} onChange={handleChange} placeholder='please enter price' /></Box>
-                            </Box> */}
-
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter room specific</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' value={placeInput} onChange={handlePlaceInputChange} onKeyPress={handlePlaceKeyPress} placeholder='please enter Room Specifc' />
-                                <Box>
-                                    {formData.availabilityStatus?.map((place, index) => (
-                                        <span key={index} style={{ marginRight: '8px', display: 'inline-block', padding: '4px', border: '1px solid #ccc', borderRadius: '4px' }}>
-                                            {place}
-                                            <button onClick={() => removePlace(index)} style={{ marginLeft: '4px' }}>x</button>
-                                        </span>
-                                    ))}
-                                </Box>
-                                </Box>
-                            </Box> */}
-
-                            {/* <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Fee Amount</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='number' name={"feeAmount"} value={formData.feeAmount} onChange={handleChange} placeholder='Amount' /></Box>
-                            </Box> */}
+                           {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
 
                             <Input bgColor={"white"} color={"black"} type='submit' />
                         </Stack>

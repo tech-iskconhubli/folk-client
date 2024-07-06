@@ -88,10 +88,7 @@ const AdminTripsForm = () => {
                 <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><TripsLineChart/></Card></Box>
             </Box>
             <Box width={"97%"} margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transparent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
-            {
-            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-        }
-
+      
                 <Box bgColor={"white"} color={"black"}>
                     <form onSubmit={handleSubmit} action="/stats" enctype="multipart/form-data">
                         <Stack gap={"20px"}>
@@ -148,6 +145,10 @@ const AdminTripsForm = () => {
                                 </Box>
                                 </Box>
                             </Box>
+                            {
+            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
+        }
+
 
                             <Input bgColor={"white"} color={"black"} type='submit' />
                         </Stack>

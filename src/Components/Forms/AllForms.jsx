@@ -7,7 +7,7 @@ const AllForms = () => {
    
   return (
     <>
-        <Box border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0px","0px 0px 0px 17%"]} fontFamily={"form"}>
+        <Box mt={"10px"} border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0px","0px 0px 0px 17%"]} fontFamily={"form"}>
             <Box width={["95%","","90%","80%","100%"]} m={"auto"}   display={["","","","flex"]} gap={"20px"} >
                 <Box width={"0.2%"} height={"auto"} bgColor={"lightblue"}></Box>
                 <Box position={"related"} width={["","","","60%"]} boxSizing='border-box' p={["","","","20px 0px 0px 20px"]}>

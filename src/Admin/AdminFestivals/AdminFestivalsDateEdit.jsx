@@ -81,9 +81,7 @@ const removePlace = (index) => {
   return (
     <>
       <AdminTopNavbar/>
-      {
-      updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
-      }
+   
       <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>
@@ -92,6 +90,10 @@ const removePlace = (index) => {
             < >
                <Box  bgColor={"white"}  color={"black"}>
                   <form onSubmit={handleSubmit} >
+                  {
+      updatedSuccess &&  <Alert status='success'><AlertIcon />Data updated successfully!</Alert>
+      }
+
                    <Stack gap={"20px"} >
                         <Box   display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                               <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Title</FormLabel></Box>
@@ -108,22 +110,12 @@ const removePlace = (index) => {
                               <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"fromDate"} value={formData?.fromDate  } onChange={handleChange}  placeholder='please enter trip to'/></Box>
                         </Box>
 
-                        {/* <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter from Date</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"fromDate"} value={formData?.fromDate  } onChange={handleChange}  placeholder='please enter from Date'/></Box>
-                        </Box> */}
+                      
                         <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                               <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter to Date</FormLabel></Box>
                               <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"toDate"} value={formData?.toDate  } onChange={handleChange}  placeholder='please enter to Date'/></Box>
                         </Box>
 
-
-
-
-                        {/* <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter description</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"description"} value={formData?.description } onChange={handleChange}   placeholder='please enter Description'/></Box>
-                        </Box> */}
 
                         <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                               <Box width={"20%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Location</FormLabel></Box>
