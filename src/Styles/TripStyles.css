@@ -1,0 +1,31 @@
+
+
+.box{
+    cursor: pointer;
+}
+
+.box .icon{
+    transition: transform 0.2s ease-in-out;
+}
+
+.box:hover .icon{
+     transform: translateY(-10px);
+     
+}
+
+
+ .image{
+    transition: transform 0.5s ease-in-out;
+}
+ .image:hover{
+    transform: scale(1.1);
+}
+
+.input{
+    width: 100%;
+    border: 2px solid rgb(0, 0, 0,0.4);
+    text-align: center;
+    font-style: italic;
+    padding: 1rem;
+    font-weight: 500;
+}
