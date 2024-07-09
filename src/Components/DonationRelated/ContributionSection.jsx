@@ -35,7 +35,10 @@ const ContributionSection = () => {
       ease: "power1.inOut",
      })
 
- 
+   
+     return () =>{
+       tl.kill();
+     }
      
 
    },[])
