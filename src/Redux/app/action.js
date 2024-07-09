@@ -572,3 +572,156 @@ return  axios.patch(`http://localhost:2346/api/adminGallery/${id}`, payload)
 }
 
 
+
+
+
+
+
+export const postYogaFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_YOGA_FORM_REQUEST});
+
+return  axios.post("http://localhost:2346/api/yoga/addYogaData",payload)
+  .then(res=>{
+    return  dispatch({type:types.POST_YOGA_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_YOGA_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getYogaFormData = ()=>(dispatch)=>{
+  dispatch({type:types.GET_YOGA_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/yoga")
+  .then(res=>{
+      
+    return  dispatch({type:types.GET_YOGA_FORM_SUCCESS, payload:res.data.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.GET_YOGA_FORM_FAILURE, payload:err.message})
+  })
+}
+
+
+
+
+
+
+
+
+export const postSecretOFSuccessFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST__SECRET_OF_SUCCESS_FORM_REQUEST});
+
+return  axios.post("http://localhost:2346/api/secrets/addsecretsdata",payload)
+  .then(res=>{
+    return  dispatch({type:types.POST__SECRET_OF_SUCCESS_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST__SECRET_OF_SUCCESS_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getSecretOfSuccessFormData = ()=>(dispatch)=>{
+  dispatch({type:types.GET_SECRET_OF_SUCCESS_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/secrets")
+  .then(res=>{
+      
+    return  dispatch({type:types.GET_SECRET_OF_SUCCESS_FORM_SUCCESS, payload:res.data.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.GET_SECRET_OF_SUCCESS_FORM_FAILURE, payload:err.message})
+  })
+}
+
+
+
+
+
+
+
+export const postArtOfMindFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST__ART_OF_MIND_FORM_REQUEST});
+
+return  axios.post("http://localhost:2346/api/arts/addArtsData",payload)
+  .then(res=>{
+    return  dispatch({type:types.POST__ART_OF_MIND_FORM_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_YOGA_FORM_FAILURE, payload:err.message})
+  })
+}
+
+export const getArtOfMindFormData = ()=>(dispatch)=>{
+  dispatch({type:types.GET_ART_OF_MIND_FORM_REQUEST});
+
+return  axios.get("http://localhost:2346/api/arts")
+  .then(res=>{
+      
+    return  dispatch({type:types.GET_ART_OF_MIND_FORM_SUCCESS, payload:res.data.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.GET_ART_OF_MIND_FORM_FAILURE, payload:err.message})
+  })
+}
+
+
+
+
+
+
+
+export const postFestivalsFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_FESTIVALS_REQUEST});
+
+return  axios.post("http://localhost:2346/api/festival/addFestivalData",payload)
+  .then(res=>{
+    return  dispatch({type:types.POST_FESTIVALS_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_FESTIVALS_FAILURE, payload:err.message})
+  })
+}
+
+export const getFestivalsFormData = ()=>(dispatch)=>{
+  dispatch({type:types.GET_FESTIVALS_REQUEST});
+
+return  axios.get("http://localhost:2346/api/festival")
+  .then(res=>{
+      console.log("action", res.data.data)
+    return  dispatch({type:types.GET_FESTIVALS_SUCCESS, payload:res.data.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.GET_FESTIVALS_FAILURE, payload:err.message})
+  })
+}
+
+
+
+
+
+
+export const postTripsFormData = (payload)=>(dispatch)=>{
+  dispatch({type:types.POST_TRIPS_REQUEST});
+
+return  axios.post("http://localhost:2346/api/trips/addTripsData",payload)
+  .then(res=>{
+    return  dispatch({type:types.POST_TRIPS_SUCCESS, payload:res.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.POST_TRIPS_FAILURE, payload:err.message})
+  })
+}
+
+export const getTripsFormData = ()=>(dispatch)=>{
+  dispatch({type:types.GET_TRIPS_REQUEST});
+
+return  axios.get("http://localhost:2346/api/trips")
+  .then(res=>{
+      
+    return  dispatch({type:types.GET_TRIPS_SUCCESS, payload:res.data.data})
+  })
+  .catch(err=>{
+   return   dispatch({type:types.GET_TRIPS_FAILURE, payload:err.message})
+  })
+}

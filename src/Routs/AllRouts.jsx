@@ -57,6 +57,22 @@ import AdminGalleryForm from '../Admin/AdminGallery/AdminGalleryForm';
 import AdminGalleryData from '../Admin/AdminGallery/AdminGalleryData';
 import AdminGalleryDateSingle from '../Admin/AdminGallery/AdminGalleryDateSingle';
 import AdminGalleryEdit from '../Admin/AdminGallery/AdminGalleryEdit';
+import YogaDateChartTwo from '../Admin/AdminCharts/YogaCharts/YogaDateChartTwo';
+import YogaForm from '../Pages/YogaForHappiness/YogaForm';
+import SecretOfSuccessForm from '../Pages/SecretOfSuccess/SecretOfSuccessFrom';
+import ArtOFMindForm from '../Pages/ArtOfMindControl/ArtOFMindForm';
+import TripsForm from '../Pages/Trips/TripsForm';
+import FestivalsForm from '../Pages/Festivals/FestivalsForm';
+import AdminYogaUsersData from '../Admin/AdminYoga/AdminYogaUsersData';
+import AdminMindControlUsersData from '../Admin/AdminMindControl/AdminMindControlUsersData';
+import AdminSecretUsersData from '../Admin/AdminSecret/AdminSecretUsersData';
+import AdminTripsUsersData from '../Admin/AdminTrips/AdminTripsUsersData';
+import AdminFesticalsUsersData from '../Admin/AdminFestivals/AdminFesticalsUsersData';
+import AdminYogaUserFlex from '../Admin/AdminYoga/AdminYogaUserFlex';
+import AdminSecretUsersFlex from '../Admin/AdminSecret/AdminSecretUsersFlex';
+import AdminMindControlUsersFlex from '../Admin/AdminMindControl/AdminMindControlUsersFlex';
+import AdminFestivalsUsersDataFlex from '../Admin/AdminFestivals/AdminFestivalsUsersDataFlex';
+import AdminTripsUsersFlex from '../Admin/AdminTrips/AdminTripsUsersFlex';
 const AllRouts = () => {
   // console.log("")
   return (
@@ -68,16 +84,21 @@ const AllRouts = () => {
                   <Route path='/blogs' element={<Blogs/>}/>
                   <Route path='/donation' element={<Donation/>}/>
                   <Route path='/festivals' element={<Festivals/>}/>
+                  <Route path='/festivals/festivalsForm' element={<FestivalsForm/>}/>
                   <Route path='/gallery' element={<Gallery/>}/>
                   <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
                   <Route path='/programmes' element={<Programmes/>}/>
                   <Route path='/recidency' element={<Recidency/>}/>
                   <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
                   <Route path='/trips' element={<Trips/>}/>
+                  <Route path='/trips/tripsForm' element={<TripsForm/>}/>
                   <Route path='/allForms' element={<AllForms/>}/>
                   <Route path='/yogaForHappiness' element={<YogaForHappiness/>} />
+                  <Route path='/yogaForHappiness/yogaForm' element={<YogaForm/>} />     
                   <Route path='/secretOfSuccess' element={<SecretOfSuccess/>} />
+                  <Route path='/secretOfSuccess/secretForm' element={<SecretOfSuccessForm/>} />
                   <Route path='/artOfMindControl' element={<ArtOfMindControl/>} />
+                  <Route path='/artOfMindControl/artFrom' element={<ArtOFMindForm/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 
@@ -87,17 +108,21 @@ const AllRouts = () => {
                   <Route path='/admin/yoga/data' element={<AdminYogadata/>} />
                   <Route path='/admin/yoga/data/:id' element={<AdminYogaDataSingle/>}/>
                   <Route path='/admin/yoda/data/edit/:id' element={<AdminYogaDataEdit/>} />
+                  <Route path='/admin/yoga/response/data' element={<AdminYogaUserFlex/>} />
                   <Route path='/admin/secret/createForm' element={<AdminSecretForm/>} />
                   <Route path='/admin/secret/data' element={<AdminSecretData/>} />
                   <Route path='/admin/secret/data/:id' element={<AdminSecretDataSingle/>}/>
                   <Route path='/admin/secret/data/edit/:id' element={<AdminSecretDataEdit/>}/>
+                  <Route path='/admin/secret/response/data' element={<AdminSecretUsersFlex/>} />
                   <Route path='/admin/mindControl/createForm' element={<AdminMindControlForm/>} />
                   <Route path='/admin/mindControl/data' element={<AdminMindControlData/>} />
                   <Route path='/admin/mindControl/data/:id' element={<AdminMindControlSingle/>}/>
                   <Route path='/admin/mindControl/data/edit/:id' element={<AdminMindControlEdit/>}/>
+                  <Route path='/admin/mindControl/response/data' element={<AdminMindControlUsersFlex/>} />
                   <Route path='/admin/trips/createForm' element={<AdminTripsFrom/>}/>
                   <Route path='/admin/trips/data' element={<AdminTripsData/>}/>
                   <Route path='/admin/trips/data/:id' element={<AdminTripsDataSingle/>}/>
+                  <Route path='/admin/trips/response/data' element={<AdminTripsUsersFlex/>}/>
                   <Route path='/admin/trips/data/edit/:id' element={<AdminTripsDataEdit/>}/>
                   <Route path='/admin/residency/createForm' element={<AdminResidencyForm/>}/>
                   <Route path='/admin/residency/data' element={<AdminResidencyData/>}/>
@@ -107,6 +132,7 @@ const AllRouts = () => {
                   <Route path='/admin/festivals/data' element={<AdminFestivalsDate/>}/>
                   <Route path='/admin/festivals/data/:id' element={<AdminFestivalsDateSingle/>}/>
                   <Route path='/admin/festivals/data/edit/:id' element={<AdminFestivalsDateEdit/>}/>
+                  <Route path='/admin/festivals/response/data' element={<AdminFestivalsUsersDataFlex/>}/>
                   <Route path='/admin/blogs/createForm' element={<AdminBlogsForm/>}/>
                   <Route path='/admin/blogs/data' element={<AdminBlogsData/>}/>
                   <Route path='/admin/blogs/data/:id' element={<AdminBlogsDataSingle/>}/>

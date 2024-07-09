@@ -10,7 +10,7 @@ import { GrGallery } from "react-icons/gr";
 import { IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
 import { IoMdLogOut } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const CustomBox = ({ children, ...props }) => (
   <Box transition="all 0.8s ease-in-out" {...props}>
@@ -20,6 +20,7 @@ const CustomBox = ({ children, ...props }) => (
 
 const AdminNavbar = () => {
   const [activeItem, setActiveItem] = useState(null);
+  const location = useLocation();
   const [collapseStates, setCollapseStates] = useState({
     programmesShow: false,
     artOfMind: false,
@@ -55,6 +56,14 @@ const AdminNavbar = () => {
       }));
     }
   };
+
+  const pathsWithUserResponse = [
+    '/admin/yoga',
+    '/admin/mindControl',
+    '/admin/secret',
+    '/admin/trips',
+    '/admin/festivals'
+  ];
 
   return (
     <Box h="100vh" bg="#F5F7F8" color="black"> 
@@ -92,6 +101,17 @@ const AdminNavbar = () => {
                     <NavLink className={({ isActive }) => isActive ? "activeLink" : ""} to={`${item.path}/data`}>
                       <Button width="80%" mt={2}>Show Data</Button>
                     </NavLink>
+                    {pathsWithUserResponse.includes(item.path) && (
+                      <NavLink className={({ isActive }) => isActive ? "activeLink" : ""} to={`${item.path}/response/data`}>
+                        <Button
+                          // display={location.pathname === `${item.path}/response/data` || location.pathname.startsWith(`${item.path}/response`) ? 'block' : 'none'}
+                          width="80%"
+                          mt={2}
+                        >
+                          User Response
+                        </Button>
+                      </NavLink>
+                    )}
                   </CustomBox>
                 </Collapse>
               )}

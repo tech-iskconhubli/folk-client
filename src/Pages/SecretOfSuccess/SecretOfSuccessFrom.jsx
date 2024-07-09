@@ -1,13 +1,47 @@
-import { Box ,Button,Heading,Image,Input,Stack,Text} from '@chakra-ui/react'
-import React from 'react'
+import { Box ,Button,Heading,Image,Input,Stack,Text, useStatStyles} from '@chakra-ui/react'
+import React, { useState } from 'react'
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import image from "../../Assets/download.png"
-const AllForms = () => {
+import { useDispatch } from 'react-redux';
+import { postSecretOFSuccessFormData } from '../../Redux/app/action';
+const SecretOfSuccessForm = () => {
+
+    const init ={
+        name:"",
+        watsAppNumber:"",
+        email:"",
+        age:"",
+        collageOrCompany:"",
+        BranchOfYear:"",
+       
+    }
+
+    const [formData,setFormData] = useState(init);
+    const dispatch = useDispatch();
+    const handleChange = (e) => {
+        const {name,value} = e.target;
+        const payload = {
+            ...formData,
+            [name]:value
+        }
+
+        setFormData(payload)
+    }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(postSecretOFSuccessFormData(formData))
+        .then(res=>{
+            console.log("res", res)
+        })
+        console.log(formData)
+    }
    
   return (
     <>
-        <Box mt={"10px"} border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0px","0px 0px 0px 17%"]} fontFamily={"form"}>
+        <Box mt={"150px"}  border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0px","0px 0px 0px 17%"]} fontFamily={"form"}>
             <Box width={["95%","","90%","80%","100%"]} m={"auto"}   display={["","","","flex"]} gap={"20px"} >
                 <Box width={"0.2%"} height={"auto"} bgColor={"lightblue"}></Box>
                 <Box position={"related"} width={["","","","60%"]} boxSizing='border-box' p={["","","","20px 0px 0px 20px"]}>
@@ -16,12 +50,12 @@ const AllForms = () => {
                         <Text fontSize={"20px"} fontWeight={"600"}>Hare Krishna Movement India</Text>
                     </Box>
                     <Box boxSizing='border-box' p={["","","",""]}>
-                        <Heading fontFamily={"form"} fontWeight={"500"} m={"30px 0px 15px 0px"}>Yoga For Happiness</Heading>
+                        <Heading fontFamily={"form"} fontWeight={"500"} m={"30px 0px 15px 0px"}>Secret Of </Heading>
                         <hr  style={{width:'50px', backgroundColor:"blue",padding:'2px'}}/>
                         <Image ml={["","","15%","25%","0px"]} mt={["","","30px","","40px"]}  width={"460px"} src={"https://s3.ap-south-1.amazonaws.com/rzp-prod-merchant-assets/payment-link/description/whatsapp%20image%202023-07-14%20at%2013.50.05_mdc55alb71v3qv.jpeg"}/>
                         
                         <Box width={["","","","500px"]}>
-                            <Text m={"30px 0px 15px 0px"} fontSize={"22px"} fontWeight={"600"}>Yoga for Happiness</Text>
+                            <Text m={"30px 0px 15px 0px"} fontSize={"22px"} fontWeight={"600"}>Secret of Success</Text>
                         <i>Doesn’t this statement look promising? </i>
                        <br /><br />
                        <Text fontSize={"15px"}>We are all by nature filled with joy. Yoga for Happiness will equip you with invincible tools for leading a life of seamless joy. The workshop starts generally on a Saturday evening, includes night stay in the temple and continues till the Sunday afternoon. <br /> <br />To help you achieve the desired end, 6 essential principles have been highlighted in the program Happiness is by choice - Not by chanceMake the choice and be a part of this wonderful workshop
@@ -52,66 +86,82 @@ const AllForms = () => {
                         <Text fontSize={"15px"} mb={"30px"}>You agree to share information entered on this page with Hare Krishna Movement India (owner of this page) and Razorpay, adhering to applicable laws.</Text>
                         </Box>
                     </Box>
-                    <Box  boxShadow='lg' p='6' rounded='md' bg='white' top={["","","","",""]} bottom={["-730px","","","","900px"]} m={"auto"} left={["","","","100px","850px"]} right={["","","","","330px"]} position={"absolute"}  height={"700px"} width={["98%","","90%","80%","500px"]}>
+                    <Box  boxShadow='lg' p='6' rounded='md' bg='white' top={["","","","","100px"]}  m={"auto"} left={["","","","100px","850px"]} right={["","","","","330px"]} position={"absolute"}  height={"600px"} width={["98%","","90%","80%","500px"]}>
 
-                        <Box position={"related"}>
+                        <Box position={"related"} height={"auto"}>
                         <Heading fontSize={"19px"} fontFamily={"form"} fontWeight={"600"} m={"0px 0px 10px 0px"}>Payment Details</Heading>
                         <hr  style={{width:'50px', backgroundColor:"blue",padding:'2px'}}/>
                         </Box>
 
-                        <Stack gap={"30px"} mt={"20px"}>
+                            <form onSubmit={handleSubmit}>
+                        <Stack gap={"30px"} mt={"20px"} >
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Name</Text>
-                                <Input/>
+                                <Input name='name' value={formData.name} onChange={handleChange} />
                             </Box> 
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
-                                <Text width={["70%","","","50%"]}>WatsAppNumber</Text>
-                                <Input/>
+                                <Text width={["70%","","","50%"]}>watsAppNumber</Text>
+                                <Input name='watsAppNumber' value={formData.watsAppNumber} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Email</Text>
-                                <Input/>
+                                <Input name='email' value={formData.email} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Age</Text>
-                                <Input/>
+                                <Input name='age' value={formData.age} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Collage or Company</Text>
-                                <Input/>
+                                <Input name='collageOrCompany' value={formData.collageOrCompany} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","","50%"]}>Branch and year</Text>
                                <Box position={"relative"}>
-                                <Input width={["200px","","370px","500px","290px"]}/>
+                                <Input name='BranchOfYear' value={formData.BranchOfYear} onChange={handleChange} width={["200px","","370px","500px","290px"]}/>
                                 <br /><br />
                                 <i  style={{position:"absolute", bottom:"0px", left:"10px"}}>(If you are a student)</i>
                                </Box>
                             </Box> 
                            
-                            <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
+                            {/* <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Register Amount</Text>
                                 <Input/>
-                            </Box> 
+                            </Box>  */}
                            
                            <Box position={"absolute"} border={"2px solid transparent"} bottom={"-2px"} left={"-2px"} width={"100%"} display={"flex"}>
                             <Box width={["","","","80%","58%"]} bgColor={"lightgray"} boxSizing='border-box' p={"20px"}>
                                 <Image width={"200px"} src='https://cdn.razorpay.com/static/assets/pay_methods_branding.png'/>
                             </Box>
-                            <Box  width={["","","","30%"]}><Button p={"28px 74px"} border={"none"} borderRadius={"0px"} bgColor={"blue"} color={"white"} textAlign={"center"}>pay &#x20b9; 100</Button></Box>
+                            <Box width={["100%", "100%", "100%", "30%"]}>
+    <Button
+        type="submit"
+        p={["28px 106px", "28px 106px", "28px 220px", "28px 106px"]}
+        border="none"
+        borderRadius="0px"
+        bg="blue"
+        color="white"
+        textAlign="center"
+        width="100%"
+    >
+        ₹100
+    </Button>
+</Box>
+
                             
                            </Box>
 
                         </Stack>
+                           </form>
 
                     </Box>
                 </Box>
@@ -128,4 +178,4 @@ const AllForms = () => {
   )
 }
 
-export default AllForms
+export default SecretOfSuccessForm
