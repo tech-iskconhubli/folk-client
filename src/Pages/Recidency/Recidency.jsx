@@ -1,8 +1,17 @@
 import React from 'react'
+import ResidencySectionOne from '../../Components/ResidencyRelated/ResidencySectionOne'
+import ResidencySectionTwo from '../../Components/ResidencyRelated/ResidencySectionTwo'
+import ResidencySectionThree from '../../Components/ResidencyRelated/ResidencySectionThree'
+import ResidencyMatterSection from '../../Components/ResidencyRelated/ResidencyMatterSection'
 
 const Recidency = () => {
   return (
-    <div>Recidency</div>
+    <>
+     <ResidencySectionOne />
+     <ResidencyMatterSection />
+     <ResidencySectionTwo />
+     <ResidencySectionThree />
+    </>
   )
 }
 

@@ -82,21 +82,9 @@ const FestivalSectionThree = () => {
      }
 
   },[])
- 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+  
   return (
     <Box width="100%" my={["5rem", "5rem", "7rem", "5rem", "10rem"]}>
       <Container
