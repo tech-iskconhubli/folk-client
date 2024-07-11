@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Card ,Input,FormLabel,Stack, Alert, AlertIcon,Image} from '@chakra-ui/react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { singleAdminBlogsFormData, updateAdminBlogsFormData } from '../../Redux/app/action';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminBlogsDataEdit = () => {
   const init ={
@@ -15,6 +16,7 @@ const AdminBlogsDataEdit = () => {
   const [formData ,setFormData] = useState(init);
   const [updatedSuccess,setUpdatedSuccess] = useState(false);
   const navigate = useNavigate()
+  const loading = useSelector(state=>state.AppReducer.isLoading)
   const {id } = useParams();
   const dispatch = useDispatch()
   useEffect(()=>{
@@ -56,6 +58,9 @@ const AdminBlogsDataEdit = () => {
     <>
       <AdminTopNavbar/>
 
+{
+  loading && <KrishnaSpinner/>
+}
       <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>

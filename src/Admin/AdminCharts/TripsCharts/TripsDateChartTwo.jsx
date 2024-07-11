@@ -2,7 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Center, Flex, Heading } from '@chakra-ui/react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import { Chart, ArcElement, BarElement, CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { getAdminYogaFormData } from '../../../Redux/app/action'; // Adjust path as per your project structure
+
+// Register necessary components
+Chart.register(ArcElement, BarElement, CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend);
 
 const TripsDateChartTwo = () => {
   const dispatch = useDispatch();
@@ -76,7 +80,7 @@ const TripsDateChartTwo = () => {
   };
 
   return (
-    <Box width={"100%"} mx="auto"  p={4} borderWidth={1}  boxShadow="lg" bg="white">
+    <Box width={"100%"} mx="auto" p={4} borderWidth={1} boxShadow="lg" bg="white">
       <Heading as="h2" size="lg" textAlign="center" mb={6}>
         Trips Analytics
       </Heading>
@@ -91,7 +95,7 @@ const TripsDateChartTwo = () => {
           </Center>
         </Box>
         {/* Doughnut Chart */}
-        <Box mt={10}  flex="1 1 300px">
+        <Box mt={10} flex="1 1 300px">
           <Heading as="h3" size="md" mb={0} textAlign="center">
             Duration Distribution
           </Heading>
@@ -100,7 +104,7 @@ const TripsDateChartTwo = () => {
           </Center>
         </Box>
         {/* Line Chart */}
-        <Box mt={10}  flex="1 1 ">
+        <Box mt={10} flex="1 1 ">
           <Heading as="h3" size="md" mb={0} textAlign="center">
             Price Trends
           </Heading>

@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { Table, Text, Flex, Input, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
 import { getTripsFormData } from '../../Redux/app/action';
 import { useDispatch, useSelector } from 'react-redux';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminTripsUsersData = () => {
-  const loading = false;
+  const loading = useSelector(state=>state.AppReducer.isLoading)
     const store = useSelector((state) => state.AppReducer.tripsData);
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -58,20 +59,7 @@ const AdminTripsUsersData = () => {
 
     return (
         <>
-            {loading && (
-                <Box
-                    position="fixed"
-                    top="50%"
-                    left="50%"
-                    transform="translate(-50%, -50%)"
-                    zIndex={9999}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                >
-                    {/* Loading spinner */}
-                </Box>
-            )}
+            {loading && <KrishnaSpinner/>}
 
             <TableContainer bgColor={"white"}>
                 <Box bgColor={"gray"} color={"white"} p={"5px"}>

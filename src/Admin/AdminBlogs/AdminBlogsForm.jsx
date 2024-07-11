@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon, Textarea } from "@chakra-ui/react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { postAdminBlogsFormData } from '../../Redux/app/action';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
 import BlogsBarChart from '../AdminCharts/BlogsCharts/BlogsBarChart';
 import BlogsLineChart from '../AdminCharts/BlogsCharts/BlogsLineBar';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminBlogsForm = () => {
     const init = {
@@ -21,6 +22,7 @@ const AdminBlogsForm = () => {
     const [successAlert,setSuccessAlert] = useState(false);
     const [refresh ,setRefresh] = useState(false);
     const navigate = useNavigate()
+    const loading = useSelector(state=>state.AppReducer.isLoading)
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
       
@@ -55,7 +57,9 @@ const AdminBlogsForm = () => {
     return (
         <>
             <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
-        
+        {
+            loading && <KrishnaSpinner/>
+        }
 
             <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
                 <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><BlogsBarChart/></Card></Box>

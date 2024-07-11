@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
 import { Box, Card ,Input,FormLabel,Stack, Alert, AlertIcon} from '@chakra-ui/react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { singleAdminMindControlFormData, updateAdminMindControlFormData } from '../../Redux/app/action';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminMindControlEdit = () => {
   const init ={
@@ -16,6 +17,7 @@ const AdminMindControlEdit = () => {
 }
   const [formData ,setFormData] = useState(init);
   const [updatedSuccess,setUpdatedSuccess] = useState(false);
+  const loading = useSelector(state=>state.AppReducer.isLoading)
   const navigate = useNavigate()
   const {id } = useParams();
   const dispatch = useDispatch()
@@ -54,7 +56,9 @@ const AdminMindControlEdit = () => {
   return (
     <>
       <AdminTopNavbar/>
-    
+    {
+      loading && <KrishnaSpinner/>
+    }
       <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
         <Card>
             <Box>

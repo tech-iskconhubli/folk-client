@@ -3,15 +3,17 @@ import { Table,Text,Flex,Image, TableContainer, Thead, Tbody, Tr, Th, Td, Button
 import { deleteAdminBlogsFormData, getAdminBlogsFormData } from '../../Redux/app/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminBlogsDataTable = () => {
-  const loading = false;
+
     const store = useSelector((state) => state.AppReducer.adminBlogsData);
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedItem, setSelectedItem] = useState(null);
     const [refresh ,setRefresh] = useState(false);
     const [deleteSuccess,setDeleteSuccess] = useState(false)
+    const loading = useSelector(state=>state.AppReducer.isLoading)
     useEffect(() => {
         dispatch(getAdminBlogsFormData())
         .then(res=>{
@@ -53,20 +55,7 @@ const AdminBlogsDataTable = () => {
 
     return (
         <>
-            {loading && (
-                <Box
-                    position="fixed"
-                    top="50%"
-                    left="50%"
-                    transform="translate(-50%, -50%)"
-                    zIndex={9999}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                >
-                    {/* <SyncLoader height={4} width={4} color="black" /> */}
-                </Box>
-            )}
+            {loading && <KrishnaSpinner/>}
 
 
             <TableContainer bgColor={"white"}>

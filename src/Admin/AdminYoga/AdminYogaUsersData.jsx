@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Table, Text, Flex, Input, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import {  getYogaFormData } from '../../Redux/app/action';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminYogaUsersData = () => {
-    const loading = false;
     const store = useSelector((state) => state.AppReducer.yogaData);
+    const loading = useSelector(state=>state.AppReducer.isLoading)
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedItem, setSelectedItem] = useState(null);
@@ -57,20 +58,7 @@ const AdminYogaUsersData = () => {
 
     return (
         <>
-            {loading && (
-                <Box
-                    position="fixed"
-                    top="50%"
-                    left="50%"
-                    transform="translate(-50%, -50%)"
-                    zIndex={9999}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                >
-                    {/* Loading spinner */}
-                </Box>
-            )}
+            {loading && <KrishnaSpinner/>}
 
             <TableContainer bgColor={"white"}>
                 <Box bgColor={"gray"} color={"white"} p={"5px"}>

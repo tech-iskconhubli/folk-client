@@ -2,9 +2,28 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAdminYogaFormData } from '../../../Redux/app/action';
 import { Bar } from 'react-chartjs-2';
-import { Box, Heading, Center } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
-const YogaBarCart = () => {
+// Register the necessary components with Chart.js
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+const YogaBarChart = () => {
   const dispatch = useDispatch();
   const store = useSelector(store => store.AppReducer.adminYogaData);
 
@@ -98,7 +117,7 @@ const YogaBarCart = () => {
   };
 
   return (
-    <Box width={'100%'} mx="auto"  borderWidth={1} borderRadius="lg" boxShadow="lg" bg="white">
+    <Box width={'100%'} mx="auto" borderWidth={1} borderRadius="lg" boxShadow="lg" bg="white">
       <Center>
         <Bar data={data} options={options} />
       </Center>
@@ -106,4 +125,4 @@ const YogaBarCart = () => {
   );
 };
 
-export default YogaBarCart;
+export default YogaBarChart;

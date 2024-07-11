@@ -1,121 +1,147 @@
-import React, { useState } from 'react'
-import {Box, Input,FormLabel,Card,Stack, Alert, AlertIcon,} from "@chakra-ui/react"
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import {Box, Input,Textarea,FormLabel,Card,Stack, Alert, AlertIcon,} from "@chakra-ui/react"
+import { useDispatch, useSelector } from 'react-redux'
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
-import { postAdminSecretFormData } from '../../Redux/app/action'
+import {  postSecretOFSuccessFormData } from '../../Redux/app/action'
 import { useNavigate } from 'react-router-dom'
 import SecretOfSuccessBarCart from '../AdminCharts/SecretOfSuccessCharts/SecretOfSuccessBarChart'
 import SecretOfSuccessLineChart from '../AdminCharts/SecretOfSuccessCharts/SecretOfSuccessLineBar'
+import KrishnaSpinner from '../Spinner/KrishnaSpinner'
 const AdminSecretForm = () => {
-         const init ={
-        date:"",
-        time:"",
-        duration:"",
-        location:"",
-        description:"",
-        price:""
-    }
-
-    const dispatch = useDispatch()
-
-    const [formData,setFormData] = useState(init);
-    const [successAlert,setSuccessAlert] = useState(false);
-    const [refresh ,setRefresh] = useState(false);
-    const navigate = useNavigate()
-
-    const handleChange =(e)=>{
-            const {name,value} = e.target;
-
-            const payload = {
-                  ...formData,
-                  [name]:value
-            }
-
-            setFormData(payload);
-    }
+      const init = {
+            date: "",
+            time: "",
+            duration: "",
+            location: "",
+            description: "",
+            price: ""
+        };
     
-
-    const handleSubmit =(e)=>{
-            e.preventDefault();
-          dispatch(postAdminSecretFormData(formData))
-          .then(res=>{
-            if(res?.payload?.message === 'post success'){
-                  setSuccessAlert(!successAlert)
-                  setRefresh(prev=>!prev);
-                  setSuccessAlert(!successAlert)
-               setTimeout(() => {
-                setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
-               }, 500);
-               
-               setTimeout(() => {
-                  navigate('/admin/secret/data')
-               }, 1000);
+        const dispatch = useDispatch();
+        const loading = useSelector(state => state.AppReducer.isLoading);
+        const [formData, setFormData] = useState(init);
+        const [successAlert, setSuccessAlert] = useState(false);
+        const [refresh, setRefresh] = useState(false);
+        const [errors, setErrors] = useState(init);
+        const navigate = useNavigate();
+    
+        const handleChange = (e) => {
+            const { name, value } = e.target;
+    
+            const payload = {
+                ...formData,
+                [name]: value
+            };
+    
+            setFormData(payload);
+        };
+    
+        useEffect(() => {}, [refresh]);
+    
+        const handleSubmit = (e) => {
+            const newErrors = {};
+    
+            if (!formData.date) {
+                newErrors.date = "Date required";
             }
-          })
-    }
-
-  return (
-    <>
-        <AdminTopNavbar/>
-
-
-      
-        <Box  display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-            <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><SecretOfSuccessBarCart/></Card></Box>
-            <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><SecretOfSuccessLineChart/></Card></Box>
-        </Box>
-        <Box  width={"97%"}  margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
-            < >
-               <Box  bgColor={"white"}  color={"black"}>
-                  <form onSubmit={handleSubmit} >
-                   <Stack gap={"20px"} >
-                        <Box   display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"12%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Date</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='date' name={"date"} value={formData.date} onChange={handleChange}   placeholder='please enter Date'/></Box>
+    
+            if (!formData.time) {
+                newErrors.time = "Time required";
+            }
+    
+            if (!formData.duration) {
+                newErrors.duration = "Duration required";
+            }
+    
+            if (!formData.location) {
+                newErrors.location = "Location required";
+            }
+    
+            if (!formData.description) {
+                newErrors.description = "Description required";
+            }
+    
+            if (!formData.price) {
+                newErrors.price = "Price required";
+            }
+    
+            setErrors(newErrors);
+    
+            e.preventDefault();
+            if (Object.keys(newErrors).length === 0) {
+                dispatch(postSecretOFSuccessFormData(formData))
+                    .then(res => {
+                        if (res?.payload?.message === 'post success') {
+                            setSuccessAlert(!successAlert);
+                            setRefresh(prev => !prev);
+                            setSuccessAlert(!successAlert);
+                            setTimeout(() => {
+                                setSuccessAlert(false);
+                            }, 500);
+    
+                            setTimeout(() => {
+                                navigate('/admin/yoga/data');
+                            }, 1000);
+                        }
+                    });
+            }
+        };
+    
+        return (
+            <>
+                <AdminTopNavbar />
+    
+                {loading && <KrishnaSpinner />}
+    
+                <Box display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
+                    <Box borderRadius={"12px"} height={"350px"} width={"50%"}><Card> <SecretOfSuccessBarCart /></Card></Box>
+                    <Box borderRadius={"12px"} height={"350px"} width={"50%"}><Card> <SecretOfSuccessLineChart /></Card></Box>
+                </Box>
+                <Box width={"97%"} margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transprent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
+                    <>
+                        <Box bgColor={"white"} color={"black"}>
+                            <form onSubmit={handleSubmit}>
+                                {successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>}
+    
+                                <Stack gap={"20px"}>
+                                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                        <Box width={"12%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Date</FormLabel></Box>
+                                        <Box width={"90%"}>  <Input border={errors.date ? "2px solid red" : "1px solid lightgrey"} type='date' name={"date"} value={formData.date} onChange={handleChange} placeholder='please enter Date' /></Box>
+                                    </Box>
+    
+                                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                        <Box width={"12%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Time</FormLabel></Box>
+                                        <Box width={"90%"}>  <Input border={errors.time ? "2px solid red" : "1px solid lightgrey"} type='number' name={"time"} value={formData.time} onChange={handleChange} placeholder='please enter Time' /></Box>
+                                    </Box>
+    
+                                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                        <Box width={"12%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Duration</FormLabel></Box>
+                                        <Box width={"90%"}>  <Input border={errors.duration ? "2px solid red" : "1px solid lightgrey"} type='number' name={"duration"} value={formData.duration} onChange={handleChange} placeholder='please enter Duration' /></Box>
+                                    </Box>
+    
+                                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                        <Box width={"12%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Location</FormLabel></Box>
+                                        <Box width={"90%"}>  <Input border={errors.location ? "2px solid red" : "1px solid lightgrey"} type='text' name={"location"} value={formData.location} onChange={handleChange} placeholder='please enter Location' /></Box>
+                                    </Box>
+    
+                                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                        <Box width={"12%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Description</FormLabel></Box>
+                                        <Box width={"90%"}>  <Textarea border={errors.description ? "2px solid red" : "1px solid lightgrey"} type='text' name={"description"} value={formData.description} onChange={handleChange} placeholder='please enter Description' /></Box>
+                                    </Box>
+    
+                                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                        <Box width={"12%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Price</FormLabel></Box>
+                                        <Box width={"90%"}>  <Input border={errors.price ? "2px solid red" : "1px solid lightgrey"} type='number' name={"price"} value={formData.price} onChange={handleChange} placeholder='please enter Price' /></Box>
+                                    </Box>
+    
+                                    <Input bgColor={"white"} color={"black"} type='submit' />
+                                </Stack>
+                            </form>
                         </Box>
-
-
-                        <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"12%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Time</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='number' name={"time"} value={formData.time} onChange={handleChange}  placeholder='please enter Time'/></Box>
-                        </Box>
-
-
-                        <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"12%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Duration</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='number' name={"duration"} value={formData.duration} onChange={handleChange}   placeholder='please enter Duration'/></Box>
-                        </Box>
-
-                        <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"12%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Location</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"location"} value={formData.location} onChange={handleChange}   placeholder='please enter Location'/></Box>
-                        </Box>
-
-
-                        <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"12%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Description</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='text' name={"description"} value={formData.description} onChange={handleChange}   placeholder='please enter Description'/></Box>
-                        </Box>
-
-                        <Box  display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                              <Box width={"12%"}> <FormLabel  fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Price</FormLabel></Box>
-                              <Box width={"90%"}>  <Input borderColor={"#2B3553"} type='number' name={"price"} value={formData.price} onChange={handleChange}   placeholder='please enter Price'/></Box>
-                        </Box>
-                        {
-            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-        }
-
-                        <Input bgColor={"white"} color={"black"} type='submit'/>
-
-                   </Stack>
-                    
-                  </form>
-               </Box>
+                    </>
+                </Box>
             </>
-        </Box>
-    </>
-  )
-}
-
+        );
+    };
 
 export default AdminSecretForm

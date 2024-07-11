@@ -1,9 +1,10 @@
 import { Box, Card ,Input,FormLabel,Stack, Alert, AlertIcon,Image} from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { singleAdminGalleryFormData, updateAdminGalleryFormData } from '../../Redux/app/action';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminGalleryEdit = () => {
   const init ={
@@ -15,7 +16,8 @@ const [formData ,setFormData] = useState(init);
 const [updatedSuccess,setUpdatedSuccess] = useState(false);
 const navigate = useNavigate()
 const {id } = useParams();
-const dispatch = useDispatch()
+const dispatch = useDispatch();
+const loading = useSelector(state=>state.AppReducer.isLoading)
 useEffect(()=>{
 dispatch(singleAdminGalleryFormData(id))
 .then(res=>{
@@ -54,6 +56,9 @@ dispatch(updateAdminGalleryFormData(id,formData))
 return (
 <>
   <AdminTopNavbar/>
+  {
+    loading && <KrishnaSpinner/>
+  }
 
   <Box bg="#F5F7F8" border={"2px solid transpreant"} boxSizing='border-box' p={"150px 100px"}>
     <Card>

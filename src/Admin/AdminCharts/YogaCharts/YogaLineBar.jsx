@@ -2,7 +2,28 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAdminYogaFormData } from '../../../Redux/app/action';
 import { Line } from 'react-chartjs-2';
-import { Box, Heading, Center } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+// Register the necessary components with Chart.js
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const YogaLineChart = () => {
   const dispatch = useDispatch();
@@ -114,8 +135,7 @@ const YogaLineChart = () => {
   };
 
   return (
-    <Box width={'100%'}  borderWidth={1}borderRadius="lg" boxShadow="lg" bg="white">
-     
+    <Box width={'100%'} borderWidth={1} borderRadius="lg" boxShadow="lg" bg="white">
       <Center>
         <Line data={data} options={options} />
       </Center>

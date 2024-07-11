@@ -18,6 +18,7 @@ const SecretOfSuccessForm = () => {
     }
 
     const [formData,setFormData] = useState(init);
+    const [errors,setErrors] = useState(init)
     const dispatch = useDispatch();
     const handleChange = (e) => {
         const {name,value} = e.target;
@@ -32,11 +33,35 @@ const SecretOfSuccessForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const newErrors ={};
+
+        if(!formData.name){
+            newErrors.name = "name required"
+        }
+        if(!formData.watsAppNumber){
+            newErrors.watsAppNumber = "watsAppNumber required"
+        }
+        if(!formData.email){
+            newErrors.email = "email required"
+        }
+        if(!formData.age){
+            newErrors.age = "age required"
+        }
+        if(!formData.collageOrCompany){
+            newErrors.collageOrCompany = "collageOrCompany required"
+        }
+       
+        setErrors(newErrors)
+      
+        if(Object.keys(newErrors).length === 0){
+
         dispatch(postSecretOFSuccessFormData(formData))
         .then(res=>{
             console.log("res", res)
         })
         console.log(formData)
+    }
     }
    
   return (
@@ -93,50 +118,46 @@ const SecretOfSuccessForm = () => {
                         <hr  style={{width:'50px', backgroundColor:"blue",padding:'2px'}}/>
                         </Box>
 
-                            <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit}>
                         <Stack gap={"30px"} mt={"20px"} >
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Name</Text>
-                                <Input name='name' value={formData.name} onChange={handleChange} />
+                                <Input name='name' value={formData.name} border={errors.name ? "2px solid red" : "1px solid lightgrey"} onChange={handleChange} />
                             </Box> 
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>watsAppNumber</Text>
-                                <Input name='watsAppNumber' value={formData.watsAppNumber} onChange={handleChange}/>
+                                <Input name='watsAppNumber' value={formData.watsAppNumber} border={errors.watsAppNumber ? "2px solid red" : "1px solid lightgrey"} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Email</Text>
-                                <Input name='email' value={formData.email} onChange={handleChange}/>
+                                <Input name='email' value={formData.email} border={errors.email ? "2px solid red" : "1px solid lightgrey"} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Age</Text>
-                                <Input name='age' value={formData.age} onChange={handleChange}/>
+                                <Input name='age' value={formData.age} border={errors.age ? "2px solid red" : "1px solid lightgrey"} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","50%"]}>Collage or Company</Text>
-                                <Input name='collageOrCompany' value={formData.collageOrCompany} onChange={handleChange}/>
+                                <Input name='collageOrCompany' value={formData.collageOrCompany} border={errors.collageOrCompany ? "2px solid red" : "1px solid lightgrey"} onChange={handleChange}/>
                             </Box> 
                            
 
                             <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
                                 <Text width={["70%","","","","50%"]}>Branch and year</Text>
                                <Box position={"relative"}>
-                                <Input name='BranchOfYear' value={formData.BranchOfYear} onChange={handleChange} width={["200px","","370px","500px","290px"]}/>
+                                <Input name='BranchOfYear' value={formData.BranchOfYear}  onChange={handleChange} width={["200px","","370px","500px","290px"]}/>
                                 <br /><br />
                                 <i  style={{position:"absolute", bottom:"0px", left:"10px"}}>(If you are a student)</i>
                                </Box>
                             </Box> 
-                           
-                            {/* <Box display={"flex"} gap={"20px"} justifyContent={"space-between"}>
-                                <Text width={["70%","","","50%"]}>Register Amount</Text>
-                                <Input/>
-                            </Box>  */}
+                        
                            
                            <Box position={"absolute"} border={"2px solid transparent"} bottom={"-2px"} left={"-2px"} width={"100%"} display={"flex"}>
                             <Box width={["","","","80%","58%"]} bgColor={"lightgray"} boxSizing='border-box' p={"20px"}>

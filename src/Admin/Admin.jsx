@@ -1,8 +1,15 @@
+import { Box, Spinner } from '@chakra-ui/react'
 import React from 'react'
+import KrishnaSpinner from './Spinner/KrishnaSpinner'
+
 
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <>
+    {/* <Box> <KrishnaSpinner/></Box> */}
+
+   
+    </>
   )
 }
 

@@ -3,9 +3,10 @@ import { Table,Text,Flex,Image, TableContainer, Thead, Tbody, Tr, Th, Td, Button
 import { deleteAdminFestivalsFormData, getAdminFestivalsFormData } from '../../Redux/app/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import KrishnaSpinner from '../Spinner/KrishnaSpinner';
 
 const AdminFestivalsDateTable = () => {
-  const loading = false;
+  const loading = useSelector(state=>state.AppReducer.isLoading)
     const store = useSelector((state) => state.AppReducer.adminFestivals);
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -59,20 +60,7 @@ const AdminFestivalsDateTable = () => {
 
     return (
         <>
-            {loading && (
-                <Box
-                    position="fixed"
-                    top="50%"
-                    left="50%"
-                    transform="translate(-50%, -50%)"
-                    zIndex={9999}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                >
-                    {/* <SyncLoader height={4} width={4} color="black" /> */}
-                </Box>
-            )}
+            {loading && <KrishnaSpinner/>}
 
             <TableContainer bgColor={"white"} >
 
