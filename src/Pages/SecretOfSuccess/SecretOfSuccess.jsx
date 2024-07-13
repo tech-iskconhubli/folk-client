@@ -1,4 +1,5 @@
 import React from "react";
+import theme from '../../theme'
 import { Box, Text, Image,Button } from "@chakra-ui/react";
 import image1 from "../../Assets/sosimage1.jpg";
 import image2 from "../../Assets/sosimage2.png";
@@ -30,7 +31,7 @@ const SecretOfSuccess = () => {
         <Box backgroundImage={image1} w='100%' h='100vh' backgroundSize='cover' backgroundPosition='center'position='relative'>
         <Box position='absolute' fontSize='4rem' color='white' fontWeight='500' top='25%' left='8%' ref={heading}>Secret of Success
           <Box fontSize='1.5rem'><q>Self-Control is the mantra for Success</q></Box>
-          <Button bg="#DE8D38" color='white' _hover={{bg:'#DE8D38'}} ref={regbutton} onMouseEnter={handlebuttonenter} onMouseLeave={handlebuttonleave}>Register now</Button>
+          <Button bg="#DE8D38" color='white' _hover={{bg:theme.colors.col.secondary}} ref={regbutton} onMouseEnter={handlebuttonenter} onMouseLeave={handlebuttonleave}>Register now</Button>
         </Box>
         
         </Box>
@@ -40,7 +41,7 @@ const SecretOfSuccess = () => {
           boxSizing="border-box"
           p="0"
           m="0"
-          bg="#F0EAD6"
+          bg={theme.colors.col.primary}
           h="600px"
           display="flex"
           alignItems="center"
