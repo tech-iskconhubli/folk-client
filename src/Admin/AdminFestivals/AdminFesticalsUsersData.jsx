@@ -82,8 +82,8 @@ const AdminFesticalsUsersData = () => {
                           <Th>Number</Th>
                           <Th>Age</Th>
                           <Th>Collage or Company</Th>
-                          <Th>Branch</Th>
-                          <Th>Price</Th>
+                          {/* <Th>Branch</Th>
+                          <Th>Price</Th> */}
                           <Td pl={"30px"}></Td>
                       </Tr>
                   </Thead>
@@ -97,8 +97,8 @@ const AdminFesticalsUsersData = () => {
                               <Td>{item.watsAppNumber}</Td>
                               <Td>{item.age}</Td>
                               <Td>{item.collageOrCompany}</Td>
-                              <Td>{item.branch}</Td>
-                              <Td>{item.price}</Td>
+                              {/* <Td>{item.branch}</Td>
+                              <Td>{item.price}</Td> */}
                               <Td>
                                   <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
                               </Td>

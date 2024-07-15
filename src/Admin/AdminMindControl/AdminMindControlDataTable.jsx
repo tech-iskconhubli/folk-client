@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon} from '@chakra-ui/react';
+import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button,  Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon} from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteAdminMindControlFormData, getAdminMindControlFormData } from '../../Redux/app/action';

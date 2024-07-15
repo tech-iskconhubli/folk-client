@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Flex,
-  IconButton,
   Image,
   SimpleGrid,
   Text,

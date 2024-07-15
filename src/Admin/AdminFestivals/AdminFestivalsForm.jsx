@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { postAdminFestivalsFormData } from '../../Redux/app/action';
-import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon } from "@chakra-ui/react";
+import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon, Button } from "@chakra-ui/react";
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
 import { useNavigate } from 'react-router-dom';
 import FestivalsBarCart from '../AdminCharts/FestivalsCharts/FestivalsBarChart';
@@ -17,7 +17,8 @@ const AdminFestivalsForm = () => {
     toDate: "",
     img: "",
     location: "",
-    festivalAgenda: []
+    festivalAgenda: [],
+    additionalFields: []
 };
 
 const dispatch = useDispatch();
@@ -91,10 +92,11 @@ const handleSubmit = (e) => {
 
     setErrors(newErrors)
 
-    if(Object.keys(newErrors).length ===0  ){
+    
 
     dispatch(postAdminFestivalsFormData(formData))
-        .then(res => {
+    .then(res => {
+            console.log(res)
           if(res?.payload?.message === 'post success'){
             setSuccessAlert(!successAlert)
             setRefresh(prev=>!prev);
@@ -103,13 +105,31 @@ const handleSubmit = (e) => {
          }, 500);
          
          setTimeout(() => {
-            navigate('/admin/festivals/data')
+         navigate('/admin/festivals/data')
          }, 1000);
       }
         });
 
-    }
     console.log("formData", formData);
+};
+
+
+const inputDouble = () => {
+    setFormData(prev => ({
+        ...prev,
+        additionalFields: [...prev.additionalFields, { title: "", description: "" }]
+    }));
+};
+
+const handleAddInputValues = (index, e) => {
+    const { name, value } = e.target;
+    const updatedFields = formData.additionalFields.map((field, i) =>
+        i === index ? { ...field, [name]: value } : field
+    );
+    setFormData(prev => ({
+        ...prev,
+        additionalFields: updatedFields
+    }));
 };
 
 return (
@@ -175,6 +195,29 @@ return (
                             </Box>
                             </Box>
                         </Box>
+
+                        <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Additional Fields</FormLabel></Box>
+                                <Box width={"88%"}>
+                                    {formData.additionalFields.map((item, index) => (
+                                        <Box mb={"20px"} key={index} display={"flex"} flexDirection={"column"} gap={"10px"}>
+                                            <Input
+                                                name='title'
+                                                onChange={(e) => handleAddInputValues(index, e)}
+                                                value={item.title}
+                                                placeholder='Title'
+                                            />
+                                            <Input
+                                                name='description'
+                                                onChange={(e) => handleAddInputValues(index, e)}
+                                                value={item.description}
+                                                placeholder='Description'
+                                            />
+                                        </Box>
+                                    ))}
+                                    <Button onClick={inputDouble} colorScheme={"teal"}>Add More Fields</Button>
+                                </Box>
+                            </Box>
                         {
             successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
         }

@@ -24,7 +24,7 @@ const AdminFestivalsDateTable = () => {
             }, 1000);
         }
         })
-    }, [dispatch,refresh]);
+    }, [dispatch,refresh,deleteSuccess]);
 
     const truncateDescription = (description) => {
         const words = description?.split(' ');

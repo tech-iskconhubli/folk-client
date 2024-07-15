@@ -1,4 +1,4 @@
-import { Box ,Button,Heading,Image,Input,Stack,Text, useStatStyles} from '@chakra-ui/react'
+import { Box ,Button,Heading,Image,Input,Stack,Text} from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";

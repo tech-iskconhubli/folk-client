@@ -1,10 +1,10 @@
-import { Box ,Button,Heading,Image,Input,Stack,Text, useStatStyles} from '@chakra-ui/react'
+import { Box ,Button,Heading,Image,Input,Stack,Text} from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import image from "../../Assets/download.png"
 import { useDispatch } from 'react-redux';
-import { getArtOfMindFormData, postArtOfMindFormData, postSecretOFSuccessFormData } from '../../Redux/app/action';
+import {  postArtOfMindFormData } from '../../Redux/app/action';
 const ArtOFMindForm = () => {
 
     const init ={

@@ -14,7 +14,11 @@ const AdminTripsDataTable = () => {
     const [deleteSuccess,setDeleteSuccess] = useState(false)
     const loading = useSelector(state=>state.AppReducer.isLoading)
     useEffect(() => {
-        dispatch(getAdminTripsFormData());
+        dispatch(getAdminTripsFormData())
+        .then(res=>{
+         
+          console.log(res)
+        })
     }, [dispatch,refresh]);
 
     const truncateDescription = (description) => {
@@ -47,15 +51,7 @@ const AdminTripsDataTable = () => {
        })
      }
 
-    //  tripName:{type:String, required:true},
-    //  from:{type:String, required:true},
-    //  to:{type:String, required:true},
-    //  fromDate:{type:String, required:true},
-    //  toDate:{type:String, required:true},
-    //  img:[{type:String, required:true}],
-    //  description:{type:String, required:true},
-    //  price:{type:Number, required:true},
-    //  placesOfVisit:[{type:String, required:true}]
+  
     return (
         <>
             {loading && <KrishnaSpinner/>}

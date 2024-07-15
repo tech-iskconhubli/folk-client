@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
+import { Table,Text, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
 import { deleteAdminGalleryFormData, getAdminGalleryFormData } from '../../Redux/app/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -26,10 +26,7 @@ const AdminGalleryDataTable = () => {
       return words.length > 1 ? `${words[0]}...` : description;
   };
 
-  const truncateLocation = (location) => {
-      const words = location.split(' ');
-      return words.length > 1 ? `${words[0]}...` : location;
-  };
+
 
   const handleViewClick = (item) => {
       setSelectedItem(item);

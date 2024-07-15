@@ -2,9 +2,9 @@
 import { extendTheme } from "@chakra-ui/react";
 const colors = {
   col: {
-    primary:"##f5f5f5",
-    secondary: "#DF8C38",
-    text: "#B66009",
+    primary:"#f5f5f5", //white smoke color
+    secondary: "#DF8C38", // light orange
+    text: "#B66009", // dark orange
     300: "#a6adff",
    
   },

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
-import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon } from "@chakra-ui/react";
+import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon, Button } from "@chakra-ui/react";
 import { useDispatch, useSelector } from 'react-redux';
 import { postAdminTripsFormData } from '../../Redux/app/action';
 import { useNavigate } from 'react-router-dom';
@@ -18,24 +18,31 @@ const AdminTripsForm = () => {
         img: "",
         description: "",
         price: "",
-        placesOfVisit: []
+        placesOfVisit: [],
+        additionalFields: []
     };
 
     const dispatch = useDispatch();
     const [formData, setFormData] = useState(init);
     const [placeInput, setPlaceInput] = useState("");
-    const [successAlert,setSuccessAlert] = useState(false);
-    const [refresh ,setRefresh] = useState(false);
-    const loading = useSelector(state=>state.AppReducer.isLoading)
-    const navigate = useNavigate()
+    const [successAlert, setSuccessAlert] = useState(false);
+    const [refresh, setRefresh] = useState(false);
+    const loading = useSelector(state => state.AppReducer.isLoading);
+    const navigate = useNavigate();
 
+    
+    // useEffect(() => {
+    //     setFormData(init); 
+    // }, [refresh]); 
+
+
+    
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
-        
-        setFormData(prev=>({
+        setFormData(prev => ({
             ...prev,
             [name]: type === "file" ? files[0] : value
-        }))
+        }));
     };
 
     const handlePlaceInputChange = (e) => {
@@ -55,44 +62,66 @@ const AdminTripsForm = () => {
 
     const removePlace = (index) => {
         setFormData(prev => ({
-            ...prev,  
+            ...prev,
             placesOfVisit: prev.placesOfVisit.filter((_, i) => i !== index)
         }));
-    }; 
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+    
         dispatch(postAdminTripsFormData(formData))
             .then(res => {
-                if(res?.payload?.message === 'post success'){
-                    setSuccessAlert(!successAlert)
-                    setRefresh(prev=>!prev);
-                 setTimeout(() => {
-                  setRefresh ? setSuccessAlert(false):setSuccessAlert(true)
-                 }, 500);
-                 
-                 setTimeout(() => {
-                    navigate('/admin/trips/data')
-                 }, 1000);
-              }
-              console.log("res",res)
+                if (res?.payload?.message === 'post success') {
+                    setSuccessAlert(true);
+                    setRefresh(prev => !prev);
+                    setTimeout(() => {
+                        setSuccessAlert(false);
+                     navigate('/admin/trips/data');
+                    }, 1000);
+                }
+                console.log("res", res);
+            })
+            .catch(err => {
+                console.error("Error submitting form:", err);
             });
+    
         console.log("formData", formData);
     };
-    console.log(successAlert)
+    
+    
+
+    const inputDouble = () => {
+        setFormData(prev => ({
+            ...prev,
+            additionalFields: [...prev.additionalFields, { title: "", description: "" }]
+        }));
+    };
+
+    const handleAddInputValues = (index, e) => {
+        const { name, value } = e.target;
+        const updatedFields = formData.additionalFields.map((field, i) =>
+            i === index ? { ...field, [name]: value } : field
+        );
+        setFormData(prev => ({
+            ...prev,
+            additionalFields: updatedFields
+        }));
+    };
+
+    
 
     return (
         <>
             <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
-           {
-            loading && <KrishnaSpinner/>
-           }
+            {
+                loading && <KrishnaSpinner />
+            }
             <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-                <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><TripsBarCart/></Card></Box>
-                <Box borderRadius={"12px"}  height={"350px"} width={"50%"}><Card><TripsLineChart/></Card></Box>
+                <Box borderRadius={"12px"} height={"350px"} width={"50%"}><Card><TripsBarCart /></Card></Box>
+                <Box borderRadius={"12px"} height={"350px"} width={"50%"}><Card><TripsLineChart /></Card></Box>
             </Box>
             <Box width={"97%"} margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transparent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
-      
                 <Box bgColor={"white"} color={"black"}>
                     <form onSubmit={handleSubmit} action="/stats" enctype="multipart/form-data">
                         <Stack gap={"20px"}>
@@ -139,26 +168,47 @@ const AdminTripsForm = () => {
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter places of visit</FormLabel></Box>
                                 <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' value={placeInput} onChange={handlePlaceInputChange} onKeyPress={handlePlaceKeyPress} placeholder='please enter visit' />
-                                <Box>
-                                    {formData.placesOfVisit?.map((place, index) => (
-                                        <span key={index} style={{ marginRight: '8px', display: 'inline-block', padding: '4px', border: '1px solid #ccc', borderRadius: '4px' }}>
-                                            {place}
-                                            <button onClick={() => removePlace(index)} style={{ marginLeft: '4px' }}>x</button>
-                                        </span>
-                                    ))}
-                                </Box>
+                                    <Box>
+                                        {formData.placesOfVisit?.map((place, index) => (
+                                            <span key={index} style={{ marginRight: '8px', display: 'inline-block', padding: '4px', border: '1px solid #ccc', borderRadius: '4px' }}>
+                                                {place}
+                                                <button onClick={() => removePlace(index)} style={{ marginLeft: '4px' }}>x</button>
+                                            </span>
+                                        ))}
+                                    </Box>
                                 </Box>
                             </Box>
-                            {
-            successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
-        }
 
+                            <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Additional Fields</FormLabel></Box>
+                                <Box width={"88%"}>
+                                    {formData.additionalFields.map((item, index) => (
+                                        <Box mb={"20px"} key={index} display={"flex"} flexDirection={"column"} gap={"10px"}>
+                                            <Input
+                                                name='title'
+                                                onChange={(e) => handleAddInputValues(index, e)}
+                                                value={item.title}
+                                                placeholder='Title'
+                                            />
+                                            <Input
+                                                name='description'
+                                                onChange={(e) => handleAddInputValues(index, e)}
+                                                value={item.description}
+                                                placeholder='Description'
+                                            />
+                                        </Box>
+                                    ))}
+                                    <Button onClick={inputDouble} colorScheme={"teal"}>Add More Fields</Button>
+                                </Box>
+                            </Box>
 
+                            {successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>}
                             <Input bgColor={"white"} color={"black"} type='submit' />
                         </Stack>
                     </form>
                 </Box>
             </Box>
+          
         </>
     );
 };

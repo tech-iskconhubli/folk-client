@@ -23,10 +23,6 @@ const AdminResidencyDataTable = () => {
         return words.length > 1 ? `${words[0]}...` : description;
     };
 
-    const truncateLocation = (location) => {
-        const words = location.split(' ');
-        return words.length > 1 ? `${words[0]}...` : location;
-    };
 
     const handleViewClick = (item) => {
         setSelectedItem(item);

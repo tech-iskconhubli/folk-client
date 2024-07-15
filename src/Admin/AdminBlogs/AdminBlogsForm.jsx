@@ -18,7 +18,6 @@ const AdminBlogsForm = () => {
 
     const dispatch = useDispatch();
     const [formData, setFormData] = useState(init);
-    const [placeInput, setPlaceInput] = useState("");
     const [successAlert,setSuccessAlert] = useState(false);
     const [refresh ,setRefresh] = useState(false);
     const navigate = useNavigate()

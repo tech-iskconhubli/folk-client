@@ -73,6 +73,10 @@ import AdminSecretUsersFlex from '../Admin/AdminSecret/AdminSecretUsersFlex';
 import AdminMindControlUsersFlex from '../Admin/AdminMindControl/AdminMindControlUsersFlex';
 import AdminFestivalsUsersDataFlex from '../Admin/AdminFestivals/AdminFestivalsUsersDataFlex';
 import AdminTripsUsersFlex from '../Admin/AdminTrips/AdminTripsUsersFlex';
+import YogaSingeData from '../Pages/YogaForHappiness/YogaSingeData';
+import PlusForm from '../Dummy/PlusForm';
+import Dummy2 from '../Dummy/Dummy2';
+import TripDetailsPage from '../Dummy/TripsDetails';
 const AllRouts = () => {
   // console.log("")
   return (
@@ -94,11 +98,14 @@ const AllRouts = () => {
                   <Route path='/trips/tripsForm' element={<TripsForm/>}/>
                   <Route path='/allForms' element={<AllForms/>}/>
                   <Route path='/yogaForHappiness' element={<YogaForHappiness/>} />
-                  <Route path='/yogaForHappiness/yogaForm' element={<YogaForm/>} />     
+                  <Route path='/yogaForHappiness/yogaForm' element={<YogaForm/>} /> 
+                  <Route path='/yoga/:singleData' element={<YogaSingeData/>} />   
                   <Route path='/secretOfSuccess' element={<SecretOfSuccess/>} />
                   <Route path='/secretOfSuccess/secretForm' element={<SecretOfSuccessForm/>} />
                   <Route path='/artOfMindControl' element={<ArtOfMindControl/>} />
                   <Route path='/artOfMindControl/artFrom' element={<ArtOFMindForm/>} />
+                  <Route path='/handleAddSection' element={<PlusForm/>} />
+                  <Route path='/dummy2' element={<TripDetailsPage/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 
