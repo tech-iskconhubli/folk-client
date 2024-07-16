@@ -1,7 +1,7 @@
 import React from "react";
 import theme from "../../theme";
 import { Box, Text, Image, Button } from "@chakra-ui/react";
-import backgroundimage from "../../Assets/sosimage1.jpg";
+import backgroundimage from "../../Assets/sosbg.jpg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
@@ -36,14 +36,16 @@ const SecretofSuccessSection1 = () => {
         backgroundPosition="center"
         position="relative"
         ref={container}
+        mt='150px'
       >
+        <Box bg='rgba(0,0,0,0.25)' w='100%' h='100%'>
         <Box
           position="absolute"
-          fontSize="4rem"
+          fontSize="5rem"
           color="white"
           fontWeight="500"
-          top="25%"
-          left="8%"
+          top="15%"
+          left="10%"
           ref={heading}
         >
           Secret of Success
@@ -51,15 +53,16 @@ const SecretofSuccessSection1 = () => {
             <q>Self-Control is the mantra for Success</q>
           </Box>
           <Button
-            bg="#DE8D38"
+            bg={theme.colors.col.text}
             color="white"
-            _hover={{ bg: theme.colors.col.secondary }}
+            _hover={{ bg: theme.colors.col.text }}
             ref={regbutton}
             onMouseEnter={handleButtonEnter}
             onMouseLeave={handleButtonLeave}
           >
             Register now
           </Button>
+        </Box>
         </Box>
       </Box>
     </>
