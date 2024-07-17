@@ -1,0 +1,34 @@
+
+
+.timeLine{
+    position: relative;
+    width: 100%;
+}
+
+.timeLine::after{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background-color: orange;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -99;
+} 
+
+
+
+@media screen and (max-width:765px) {
+    .timeLine::after{
+        left: 10%;
+    
+     }
+}
+
+
+@media screen and (max-width:480px) {
+    .timeLine::after{
+        left: 0;
+    }
+}
