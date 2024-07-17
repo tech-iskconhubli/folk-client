@@ -53,6 +53,7 @@ const TripSectionOne = () => {
         w={["100%", "100%", "90%", "90%"]}
         maxW="1500px"
         marginX="auto"
+        overflow={'hidden'}
       >
              <Flex ref={flexContainer} flexDirection={['column','column','column','column','row']} p={['0.8rem','0.9rem','1rem','2rem']} gap={['2rem','2rem','2rem','2rem','3rem']}>
 
