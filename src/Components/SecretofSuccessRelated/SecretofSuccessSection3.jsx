@@ -7,7 +7,8 @@ import theme from "../../theme";
 const SecretofSuccessSection3 = () => {
   return (
     <>
-      <Box textAlign="center" mb="20px" fontSize="3rem">
+    <Box mt='50px'>
+      <Box textAlign="center" mb='50px' fontSize="3rem">
         Wisdom of Success from the Gita
       </Box>
       <Box
@@ -229,6 +230,7 @@ const SecretofSuccessSection3 = () => {
             </Box>
           </Box>
         </Box>
+      </Box>
       </Box>
     </>
   );

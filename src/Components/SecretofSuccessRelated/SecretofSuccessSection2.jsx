@@ -8,7 +8,8 @@ import theme from '../../theme'
 const SecretofSuccessSection2 = () => {
   return (
     <>
-      <Box fontSize='3rem' fontWeight='400' textAlign='center' mt="50px" mb='50px'>Principles of Success</Box>
+    <Box mt='50px'>
+      <Box mb='50px' fontSize='2.5rem' textAlign='center'>Principles of Success</Box>
       <Box display="flex" alignItems="center" justifyContent="center" >
         <Box
           w="65%"
@@ -16,7 +17,6 @@ const SecretofSuccessSection2 = () => {
           alignItems="center"
           justifyContent="flex-start"
           gap="10px"
-          mb='100px'
         >
           <Box
             h="400px"
@@ -91,6 +91,7 @@ const SecretofSuccessSection2 = () => {
           </Box>
           
         </Box>
+      </Box>
       </Box>
     </>
   );

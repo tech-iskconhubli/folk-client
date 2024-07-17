@@ -44,13 +44,15 @@ const SecretofSuccessSection1 = () => {
           fontSize="5rem"
           color="white"
           fontWeight="500"
-          top="15%"
-          left="10%"
+          top="20%"
+          left="15%"
           ref={heading}
+          w='710px'
+          textAlign='justify'
         >
           Secret of Success
-          <Box fontSize="1.5rem">
-            <q>Self-Control is the mantra for Success</q>
+          <Box fontSize="1rem">
+            <q>Perform your obligatory duty, because action is indeed better than inaction. Even the maintenance of your body would not be possible through inaction.</q>
           </Box>
           <Button
             bg={theme.colors.col.text}
@@ -59,6 +61,8 @@ const SecretofSuccessSection1 = () => {
             ref={regbutton}
             onMouseEnter={handleButtonEnter}
             onMouseLeave={handleButtonLeave}
+            fontSize='2rem'
+            p='25px'
           >
             Register now
           </Button>
