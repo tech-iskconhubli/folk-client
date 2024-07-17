@@ -63,7 +63,7 @@ import SecretOfSuccessForm from '../Pages/SecretOfSuccess/SecretOfSuccessFrom';
 import ArtOFMindForm from '../Pages/ArtOfMindControl/ArtOFMindForm';
 import TripsForm from '../Pages/Trips/TripsForm';
 import FestivalsForm from '../Pages/Festivals/FestivalsForm';
-import AdminYogaUsersData from ',ga/AdminYogaUsersData';
+import AdminYogaUsersData from '../Admin/AdminYoga/AdminYogaUsersData';
 import AdminMindControlUsersData from '../Admin/AdminMindControl/AdminMindControlUsersData';
 import AdminSecretUsersData from '../Admin/AdminSecret/AdminSecretUsersData';
 import AdminTripsUsersData from '../Admin/AdminTrips/AdminTripsUsersData';
