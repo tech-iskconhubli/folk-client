@@ -77,6 +77,9 @@ import YogaSingeData from '../Pages/YogaForHappiness/YogaSingeData';
 import PlusForm from '../Dummy/PlusForm';
 import Dummy2 from '../Dummy/Dummy2';
 import TripDetailsPage from '../Dummy/TripsDetails';
+import Login from '../Admin/AdminLogin/Login';
+import LoginLayout from '../Layouts/LoginLayout';
+import PrivateRoute from '../Private/Private';
 const AllRouts = () => {
   // console.log("")
   return (
@@ -110,7 +113,7 @@ const AllRouts = () => {
             </Route>
 
             <Route element={<AdminLayout/>}>
-                  <Route path='/admin' element={<Admin/>}/>
+                  <Route path='/admin' element={<PrivateRoute><Admin/></PrivateRoute>}/>
                   <Route path='/admin/yoga/createForm' element={<AdminYogaForm/>} />
                   <Route path='/admin/yoga/data' element={<AdminYogadata/>} />
                   <Route path='/admin/yoga/data/:id' element={<AdminYogaDataSingle/>}/>
@@ -151,9 +154,12 @@ const AllRouts = () => {
                   <Route path='/admin/gallery/createForm' element={<AdminGalleryForm/>}/>
                   <Route path='/admin/gallery/data' element={<AdminGalleryData/>}/>
                   <Route path='/admin/gallery/data/:id' element={<AdminGalleryDateSingle/>}/>
-                  <Route path='/admin/gallery/data/edit/:id' element={<AdminGalleryEdit/>}/>
-                  <Route path='/admin' />
+                  <Route path='/admin/gallery/data/edit/:id' element={<AdminGalleryEdit/>}/>        
                   <Route path='/skill' element={<SkillInput/>}/>
+            </Route>
+
+            <Route element={<LoginLayout/>}>
+            <Route path='/api/admin/login' element={<Login/>} />
             </Route>
         </Routes>
     </>

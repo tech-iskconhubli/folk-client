@@ -105,7 +105,7 @@ const handleSubmit = (e) => {
          }, 500);
          
          setTimeout(() => {
-         navigate('/admin/festivals/data')
+       //  navigate('/admin/festivals/data')
          }, 1000);
       }
         });

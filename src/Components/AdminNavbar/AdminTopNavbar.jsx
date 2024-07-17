@@ -11,7 +11,7 @@ const AdminTopNavbar = () => {
                  <Box width={"80%"} border={"2px solid black"}></Box>
                  <Box width={"20%"}  display={"flex"} alignItems={"center"} gap={"20px"}>
                     <Box><Input borderColor={"black"} Icon={<IoSearch color='white'/>}/></Box>
-                    <Box><FaRegUserCircle size={"30px"} color='black'/></Box>
+                    <Box><FaRegUserCircle  size={"30px"} color='black'/></Box>
                  </Box>
                  </Box>
             </Card>

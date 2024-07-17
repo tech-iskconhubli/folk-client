@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar';
-import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon, Button } from "@chakra-ui/react";
+import { Box, Input, FormLabel, Card, Stack, Alert, AlertIcon, Button, IconButton } from "@chakra-ui/react";
 import { useDispatch, useSelector } from 'react-redux';
 import { postAdminTripsFormData } from '../../Redux/app/action';
 import { useNavigate } from 'react-router-dom';
-import TripsBarCart from '../AdminCharts/TripsCharts/TripsBarChart';
+import TripsBarChart from '../AdminCharts/TripsCharts/TripsBarChart';
 import TripsLineChart from '../AdminCharts/TripsCharts/TripsLineBar';
 import KrishnaSpinner from '../Spinner/KrishnaSpinner';
+import { CloseIcon } from '@chakra-ui/icons';
 
 const AdminTripsForm = () => {
     const init = {
@@ -15,7 +16,7 @@ const AdminTripsForm = () => {
         to: "",
         fromDate: "",
         toDate: "",
-        img: "",
+        img: [],
         description: "",
         price: "",
         placesOfVisit: [],
@@ -26,23 +27,24 @@ const AdminTripsForm = () => {
     const [formData, setFormData] = useState(init);
     const [placeInput, setPlaceInput] = useState("");
     const [successAlert, setSuccessAlert] = useState(false);
-    const [refresh, setRefresh] = useState(false);
     const loading = useSelector(state => state.AppReducer.isLoading);
     const navigate = useNavigate();
 
-    
-    // useEffect(() => {
-    //     setFormData(init); 
-    // }, [refresh]); 
-
-
-    
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: type === "file" ? files[0] : value
-        }));
+        if (type === "file") {
+            // Convert FileList to array and store in state
+            const fileArray = Array.from(files);
+            setFormData(prev => ({
+                ...prev,
+                [name]: [...prev[name], ...fileArray]
+            }));
+        } else {
+            setFormData(prev => ({
+                ...prev,
+                [name]: value
+            }));
+        }
     };
 
     const handlePlaceInputChange = (e) => {
@@ -69,15 +71,14 @@ const AdminTripsForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         dispatch(postAdminTripsFormData(formData))
             .then(res => {
                 if (res?.payload?.message === 'post success') {
                     setSuccessAlert(true);
-                    setRefresh(prev => !prev);
                     setTimeout(() => {
                         setSuccessAlert(false);
-                     navigate('/admin/trips/data');
+                   //     navigate('/admin/trips/data');
                     }, 1000);
                 }
                 console.log("res", res);
@@ -85,11 +86,19 @@ const AdminTripsForm = () => {
             .catch(err => {
                 console.error("Error submitting form:", err);
             });
-    
+
         console.log("formData", formData);
     };
-    
-    
+
+    const addImageInput = () => {
+        // Create a new file input element
+        const input = document.createElement("input");
+        input.type = "file";
+        input.multiple = true; // Allow multiple file selection
+        input.name = "img";
+        input.addEventListener('change', handleChange); // Listen for changes
+        input.click(); // Trigger click event to open file selection dialog
+    };
 
     const inputDouble = () => {
         setFormData(prev => ({
@@ -109,16 +118,12 @@ const AdminTripsForm = () => {
         }));
     };
 
-    
-
     return (
         <>
             <Box position={"fixed"} top={0} width={"82%"}><AdminTopNavbar /></Box>
-            {
-                loading && <KrishnaSpinner />
-            }
+            {loading && <KrishnaSpinner />}
             <Box mt={"70px"} display="flex" justifyContent={"space-between"} boxSizing='border-box' padding={"20px"} gap={"20px"}>
-                <Box borderRadius={"12px"} height={"350px"} width={"50%"}><Card><TripsBarCart /></Card></Box>
+                <Box borderRadius={"12px"} height={"350px"} width={"50%"}><Card><TripsBarChart /></Card></Box>
                 <Box borderRadius={"12px"} height={"350px"} width={"50%"}><Card><TripsLineChart /></Card></Box>
             </Box>
             <Box width={"97%"} margin={"auto"} mt={"10px"} bgColor={"white"} border={"2px solid transparent"} boxSizing='border-box' padding={"50px"} borderRadius={"12px"}>
@@ -127,47 +132,69 @@ const AdminTripsForm = () => {
                         <Stack gap={"20px"}>
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Trip name</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"tripName"} value={formData.tripName} onChange={handleChange} placeholder='please enter trip Name' /></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"tripName"} value={formData.tripName} onChange={handleChange} placeholder='Please enter trip Name' /></Box>
                             </Box>
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter location From</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"from"} value={formData.from} onChange={handleChange} placeholder='please enter location from' /></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"from"} value={formData.from} onChange={handleChange} placeholder='Please enter location from' /></Box>
                             </Box>
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter location To</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"to"} value={formData.to} onChange={handleChange} placeholder='please enter location To' /></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"to"} value={formData.to} onChange={handleChange} placeholder='Please enter location To' /></Box>
                             </Box>
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter from Date</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"fromDate"} value={formData.fromDate} onChange={handleChange} placeholder='please enter date' /></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"fromDate"} value={formData.fromDate} onChange={handleChange} placeholder='Please enter date' /></Box>
                             </Box>
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter to Date</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"toDate"} value={formData.toDate} onChange={handleChange} placeholder='please enter date' /></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='date' name={"toDate"} value={formData.toDate} onChange={handleChange} placeholder='Please enter date' /></Box>
                             </Box>
 
-                            <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
-                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Upload image</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='file' name={"img"} onChange={handleChange} placeholder='upload image' /></Box>
+                            <Box display={"flex"} justifyContent={"left"} alignItems={"center"} gap={"50px"}>
+                                <Box ><FormLabel  fontWeight={"500"} fontFamily={"body"}>Upload image</FormLabel></Box>
+                                <Box >
+                                    <input type="file" multiple name="img" onChange={handleChange} style={{ display: "none" }} />
+                                    <Button onClick={addImageInput} colorScheme={"teal"} mr={2}>Add Images</Button>
+                                    {formData.img.length > 0 && (
+                                        <Stack direction="column">
+                                            {formData.img.map((image, index) => (
+                                                <Box key={index}>
+                                                    <IconButton
+                                                        aria-label="Remove Image"
+                                                        icon={<CloseIcon />}
+                                                        onClick={() => {
+                                                            setFormData(prev => ({
+                                                                ...prev,
+                                                                img: prev.img.filter((_, i) => i !== index)
+                                                            }));
+                                                        }}
+                                                    />
+                                                    <Box>{image.name}</Box>
+                                                </Box>
+                                            ))}
+                                        </Stack>
+                                    )}
+                                </Box>
                             </Box>
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Description</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"description"} value={formData.description} onChange={handleChange} placeholder='please enter Description' /></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' name={"description"} value={formData.description} onChange={handleChange} placeholder='Please enter Description' /></Box>
                             </Box>
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter Price</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='number' name={"price"} value={formData.price} onChange={handleChange} placeholder='please enter price' /></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='number' name={"price"} value={formData.price} onChange={handleChange} placeholder='Please enter price' /></Box>
                             </Box>
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter places of visit</FormLabel></Box>
-                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' value={placeInput} onChange={handlePlaceInputChange} onKeyPress={handlePlaceKeyPress} placeholder='please enter visit' />
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' value={placeInput} onChange={handlePlaceInputChange} onKeyPress={handlePlaceKeyPress} placeholder='Please enter visit' />
                                     <Box>
                                         {formData.placesOfVisit?.map((place, index) => (
                                             <span key={index} style={{ marginRight: '8px', display: 'inline-block', padding: '4px', border: '1px solid #ccc', borderRadius: '4px' }}>
@@ -208,7 +235,6 @@ const AdminTripsForm = () => {
                     </form>
                 </Box>
             </Box>
-          
         </>
     );
 };

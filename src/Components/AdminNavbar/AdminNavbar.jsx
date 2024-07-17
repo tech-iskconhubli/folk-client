@@ -10,7 +10,7 @@ import { GrGallery } from "react-icons/gr";
 import { IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
 import { IoMdLogOut } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const CustomBox = ({ children, ...props }) => (
   <Box transition="all 0.8s ease-in-out" {...props}>
@@ -21,6 +21,7 @@ const CustomBox = ({ children, ...props }) => (
 const AdminNavbar = () => {
   const [activeItem, setActiveItem] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate(); // Add useNavigate hook for navigation
   const [collapseStates, setCollapseStates] = useState({
     programmesShow: false,
     artOfMind: false,
@@ -43,7 +44,7 @@ const AdminNavbar = () => {
     { label: 'Blogs', icon: TbLogs, path: '/admin/blogs', toggle: 'blogs' },
     { label: 'Gallery', icon: GrGallery, path: '/admin/gallery', toggle: 'gallery' },
     { label: 'Donation', icon: BiSolidDonateBlood, path: '/admin/donations', toggle: 'donation' },
-    { label: 'Profile', icon: CgProfile, path: '/profile' },
+    // { label: 'Profile', icon: CgProfile, path: '/profile' },
     { label: 'Log Out', icon: IoMdLogOut, path: '/logout' }
   ];
 
@@ -65,11 +66,17 @@ const AdminNavbar = () => {
     '/admin/festivals'
   ];
 
+  const handleRemoveToken = () => {
+    localStorage.removeItem('token');
+    navigate('/api/admin/login'); 
+  };
+
   return (
+   
     <Box h="100vh" bg="#F5F7F8" color="black"> 
       <Box p={4} bg="" borderRadius="md">
         <Box>
-          <Heading fontSize={"34px"} m={"10px 0px"} textAlign={"center"} fontFamily={"body"} color="black">Folk Vizag</Heading>
+          <Heading fontSize={"34px"} m={"20px 0px"} textAlign={"center"} fontFamily={"body"} color="black">Folk Vizag</Heading>
         </Box>
         <Grid templateColumns="repeat(2, 1fr)" gap={5}>
           {navItems.map((item, index) => (
@@ -81,7 +88,13 @@ const AdminNavbar = () => {
                 bgColor={activeItem === item ? 'blue.200' : '#eeeeee'}
                 color="black"
                 _hover={{ bgColor: 'lightgray' }}
-                onClick={() => toggleActiveItem(item)}
+                onClick={() => {
+                  if (item.path === '/logout') {
+                    handleRemoveToken();
+                  } else {
+                    toggleActiveItem(item);
+                  }
+                }}
                 cursor="pointer"
               >
                 <HStack justifyContent="center" width="100%">
@@ -104,7 +117,6 @@ const AdminNavbar = () => {
                     {pathsWithUserResponse.includes(item.path) && (
                       <NavLink className={({ isActive }) => isActive ? "activeLink" : ""} to={`${item.path}/response/data`}>
                         <Button
-                          // display={location.pathname === `${item.path}/response/data` || location.pathname.startsWith(`${item.path}/response`) ? 'block' : 'none'}
                           width="80%"
                           mt={2}
                         >
