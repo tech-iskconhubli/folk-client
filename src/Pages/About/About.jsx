@@ -6,6 +6,7 @@ import AboutusSection2 from "../../Components/AboutusRelated/AboutusSection2";
 import AboutusSection3 from "../../Components/AboutusRelated/AboutusSection3";
 import AboutusSection4 from "../../Components/AboutusRelated/AboutusSection4";
 import AboutusSection5 from "../../Components/AboutusRelated/AboutusSection5";
+import AboutusTimeline from "../../Components/AboutusRelated/AboutusTimeline";
 
 const About = () => {
   return (
@@ -22,6 +23,7 @@ const About = () => {
         <AboutusSection2 />
         <AboutusSection3 />
         <AboutusSection4 />
+        <AboutusTimeline/>
         <AboutusSection5 />
       </Box>
     </>
