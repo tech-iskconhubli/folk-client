@@ -1,6 +1,6 @@
 import React from "react";
 import theme from "../../theme";
-import { Box, Text, Image, Button } from "@chakra-ui/react";
+import { Box, Text, Image, Button,Heading } from "@chakra-ui/react";
 import backgroundimage from "../../Assets/sosbg.jpg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -31,28 +31,28 @@ const SecretofSuccessSection1 = () => {
       <Box
         backgroundImage={backgroundimage}
         w="100%"
-        h="100vh"
+        h="96vh"
         backgroundSize="cover"
         backgroundPosition="center"
         position="relative"
         ref={container}
         mt='150px'
+        fontFamily={theme.fonts.body}
       >
         <Box bg='rgba(0,0,0,0.25)' w='100%' h='100%'>
         <Box
           position="absolute"
-          fontSize="5rem"
           color="white"
           fontWeight="500"
-          top="20%"
-          left="15%"
+          top="25%"
+          left="14%"
           ref={heading}
           w='710px'
           textAlign='justify'
         >
-          Secret of Success
-          <Box fontSize="1rem">
-            <q>Perform your obligatory duty, because action is indeed better than inaction. Even the maintenance of your body would not be possible through inaction.</q>
+          <Heading fontSize="5rem" fontWeight={500} fontFamily={theme.fonts.body}>Secret of Success</Heading>
+          <Box fontSize="1rem" m={'25px 0px'}>
+            <Text fontWeight={400} fontSize={'18px'} fontFamily={theme.fonts.body}>You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction</Text>
           </Box>
           <Button
             bg={theme.colors.col.text}
@@ -61,8 +61,11 @@ const SecretofSuccessSection1 = () => {
             ref={regbutton}
             onMouseEnter={handleButtonEnter}
             onMouseLeave={handleButtonLeave}
-            fontSize='2rem'
-            p='25px'
+            p={'25px 50px'}
+            fontSize={'20px'}
+            fontWeight={400}
+            mt='10px'
+            
           >
             Register now
           </Button>
