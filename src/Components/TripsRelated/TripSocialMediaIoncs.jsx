@@ -14,6 +14,7 @@ const TripSocialMediaIoncs = () => {
         w={["100%", "100%", "100%", "90%"]}
         maxW="1500px"
         marginX="auto"
+        overflow={'hidden'}
       >
         <SimpleGrid
           p={["0.8rem", "0.9rem", "1rem", "2rem"]}

@@ -150,7 +150,7 @@ const ResidencySectionOne = () => {
 
 
 
-             <Box w={['100%','100%','100%','100%','45%']}>
+             <Box w={['100%','100%','100%','100%','45%']}  h={'100%'}>
                 <Flex flexDirection={'column'} gap={['1rem']}>
                    <Box ref={imageContainerRef} w={['100%']} h={['300px','350px','400px','500px','500px']} borderRadius={'10px'} overflow={'hidden'}>
                      <Image w={'100%'} h={'100%'} borderRadius={'10px'} objectFit={'cover'} src='https://folknet.in/wp-content/uploads/2018/04/Residency-1.jpg' />

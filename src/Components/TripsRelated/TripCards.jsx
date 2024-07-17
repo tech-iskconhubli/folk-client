@@ -72,6 +72,7 @@ const TripCards = () => {
       w={["100%", "100%", "100%", "90%"]}
       maxW="1500px"
       marginX="auto"
+      overflow={'hidden'}
     >
 
 
@@ -108,7 +109,7 @@ const TripCards = () => {
 
                 {/* Card Container */}
                  
-                 <Box ref={cardContainer} w={['100%','100%','100%','100%','65%']} flexDirection={['column','column','row']} display={'flex'} alignItems={'flex-start'}  gap={['1.5rem','1.5rem','1.2rem','1rem','2rem']}>
+                 <Box ref={cardContainer} w={['100%','100%','100%','100%','65%']} flexDirection={['column','column','row']} display={'flex'} alignItems={'flex-start'}  gap={['1.5rem','1.5rem','0.7rem','1rem','2rem']}>
 
                     {/* Box One Container*/}
                      <Box ref={boxOneContainer} w={['100%','100%','100%','100%','auto']} display={'flex'} flexDirection={['column']} gap={['1.5rem','1.5rem','1.5rem','1.5rem','2rem']}>
@@ -118,7 +119,7 @@ const TripCards = () => {
                                  <CardBody>
 
                                     {/* Image Box */}
-                                 <Box  w={['100%']} h={['250px','280px','250px','250px']} borderRadius={'5px'} overflow={'hidden'}>
+                                 <Box  w={['100%']} h={['250px','280px','200px','250px']} borderRadius={'5px'} overflow={'hidden'}>
                                   <Image className='image' w={'100%'} h={'100%'} objectFit={'cover'} borderRadius={'5px'} src='https://i.pinimg.com/564x/8e/18/97/8e1897f7dbdfa6146dac00886a33b4eb.jpg' />
                                  </Box>
 
@@ -152,7 +153,7 @@ const TripCards = () => {
                                  <CardBody>
 
                                     {/* Image Box */}
-                                 <Box w={['100%']} h={['250px','280px','250px']} borderRadius={'5px'} overflow={'hidden'}>
+                                 <Box w={['100%']} h={['250px','280px','200px']} borderRadius={'5px'} overflow={'hidden'}>
                                   <Image className='image' w={'100%'} h={'100%'} objectFit={'cover'} borderRadius={'5px'} src='https://i.pinimg.com/564x/cf/37/65/cf3765d940c40dbf1ee7663230be1a78.jpg' />
                                  </Box>
 
@@ -190,7 +191,7 @@ const TripCards = () => {
                                  <CardBody>
 
                                     {/* Image Box */}
-                                 <Box w={['100%']} h={['250px','280px','250px']} borderRadius={'5px'} overflow={'hidden'}>
+                                 <Box w={['100%']} h={['250px','280px','200px']} borderRadius={'5px'} overflow={'hidden'}>
                                   <Image className='image' w={'100%'} h={'100%'} objectFit={'cover'} borderRadius={'5px'} src='https://i.pinimg.com/736x/c1/f1/db/c1f1dbecfaaafce3a7c38d1cfe480d89.jpg' />
                                  </Box>
 
@@ -224,7 +225,7 @@ const TripCards = () => {
                                  <CardBody>
 
                                     {/* Image Box */}
-                                 <Box w={['100%']} h={['250px','280px','250px']} borderRadius={'5px'} overflow={'hidden'}>
+                                 <Box w={['100%']} h={['250px','280px','200px']} borderRadius={'5px'} overflow={'hidden'}>
                                   <Image className='image' w={'100%'} h={'100%'} objectFit={'cover'} borderRadius={'5px'} src='https://i.pinimg.com/564x/d4/9c/8a/d49c8abb59f1a14e88c38ed6b2dbd9e4.jpg' />
                                  </Box>
 

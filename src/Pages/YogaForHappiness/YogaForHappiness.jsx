@@ -4,7 +4,6 @@ import YogaSectionTwo from './YogaSectionTwo'
 import YogaSectionThree from './YogaSectionThree'
 import YogaSectionFour from './YogaSectionFour'
 import WelcomSection from './WelcomSection'
-import TimeLIneSection from './TimeLIneSection'
 import HelpingYouAchieveHarmony from './HelpingYouAchieveHarmony'
 
 
@@ -18,7 +17,6 @@ const YogaForHappiness = () => {
     <YogaSectionFour />
     <HelpingYouAchieveHarmony />
     <WelcomSection />
-    <TimeLIneSection />
     </>
   )
 }

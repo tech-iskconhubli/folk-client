@@ -4,10 +4,12 @@ import ContributionSection from '../../Components/DonationRelated/ContributionSe
 import SuccessStoriesSection from '../../Components/DonationRelated/SuccessStoriesSection'
 import HelpingSection from '../../Components/DonationRelated/HelpingSection'
 import OurMissionSection from '../../Components/DonationRelated/OurMissionSection'
+import DonationHeader from '../../Components/DonationRelated/DonationHeader'
 
 const Donation = () => {
   return (
     <>
+    <DonationHeader />
     <OurPrograms />
     <ContributionSection />
     <SuccessStoriesSection />
