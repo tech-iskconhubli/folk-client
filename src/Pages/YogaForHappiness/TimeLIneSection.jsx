@@ -2,8 +2,13 @@ import { Box, Container, Flex, Image, Text, VStack } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { useTheme } from "@emotion/react";
 import theme from "../../theme";
+
 import "../../Styles/TimeLine.css";
 import { useGSAP } from "@gsap/react";
+
+import '../../Styles/Timeline.css';
+import { useGSAP } from '@gsap/react'
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 gsap.registerPlugin(ScrollTrigger);
