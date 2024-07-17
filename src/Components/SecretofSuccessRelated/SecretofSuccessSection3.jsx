@@ -18,7 +18,7 @@ const SecretofSuccessSection3 = () => {
         alignItems="center"
       >
         <Box
-          w={{ base: "90%", md: "90%", lg: "80%", xl: "60%" }}
+          w={{ base: "90%", md: "90%", lg: "80%", xl: "70%" }}
           display="flex"
           alignItems="center"
           flexDirection="column"
