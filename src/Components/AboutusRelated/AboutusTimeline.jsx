@@ -2,14 +2,14 @@ import { Box, Container, Flex, Image, Text, VStack } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { useTheme } from "@emotion/react";
 import theme from "../../theme";
-import '../../Styles/TimeLine.css';
+import '../../Styles/Timeline.css';
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap'
 gsap.registerPlugin(ScrollTrigger);
 
 
-const TimeLIneSection = () => {
+const AboutusTimeline = () => {
 
    const headingBox = useRef(null);
 
@@ -144,7 +144,7 @@ const TimeLIneSection = () => {
     },[])
    
   return (
-    <Box w={'100%'} overflowX={'hidden'} mmy={['1rem','1rem','2rem', '3rem']}>
+    <Box w={'100%'} overflowX={'hidden'} mmy={['1rem','1rem','2rem', '3rem']} mt='20px'>
       <Container
         w={["100%", "100%", "90%", "90%"]}
         maxW="1500px"
@@ -161,7 +161,7 @@ const TimeLIneSection = () => {
             PROGRAMS
           </Box>
           <Box mt={['0.7rem']} maxW={'700px'} fontSize={['1.2rem','1.6rem','2rem',]} fontWeight={"bold"} lineHeight={['auto',]} w={['auto','450px']} mx={'auto'}>
-            Meditation, Yoga, Retreats, Free Programs & More...
+          Journey Through Time: The History of FOLK
           </Box>
         </Box>
 
@@ -188,7 +188,7 @@ const TimeLIneSection = () => {
 
             {/* Matter Container  */}
             <VStack mt={['1rem','1rem','0']} ref={matterContainerOne} gap={['0.8rem','0.8rem','0.7rem','0.7rem','1rem']} alignItems={'start'} w={['100%','100%','48%']} >
-              <Box color={theme.colors.col.secondary} fontWeight={'bold'} w={['auto','auto','auto','auto','450px']} fontSize={['1.4rem','1.8rem','1.5rem','2rem','2.5rem']}>The Happiness Program</Box>
+              <Box color={theme.colors.col.secondary} fontWeight={'bold'} w={['auto','auto','auto','auto','450px']} fontSize={['1.4rem','1.8rem','1.5rem','2rem','2.5rem']}>Early Beginnings</Box>
               <Text fontSize={['0.8rem','1rem']} lineHeight={['1.5rem','1.8rem','1.8rem','1.9rem','2rem']}>
                 The practiacal knowledge of breathing teachniques gives you
                 balance and wisdom that will transform your life by unlocking
@@ -205,7 +205,7 @@ const TimeLIneSection = () => {
 
           <VStack mt={['1rem','1rem','0']} ref={matterContainerTwo} gap={['0.8rem','0.8rem','0.7rem','0.7rem','1rem']} alignItems={['start','start','end']} w={['100%','100%','48%']} >
 
-          <Box color={theme.colors.col.secondary} fontWeight={'bold'} w={['auto','auto','auto','auto','450px']} fontSize={['1.4rem','1.8rem','1.5rem','2rem','2.5rem']} textAlign={['left','left','right']}>Sahaj Samadhi Meditation</Box>
+          <Box color={theme.colors.col.secondary} fontWeight={'bold'} w={['auto','auto','auto','auto','450px']} fontSize={['1.4rem','1.8rem','1.5rem','2rem','2.5rem']} textAlign={['left','left','right']}>First Major Festivals</Box>
           <Text fontSize={['0.8rem','1rem']} lineHeight={['1.5rem','1.8rem','1.8rem','1.9rem','2rem']}>
                 The state of samadhi will help you experience deep inner peace
                 as well as increase self-awareness. It's really easy to become
@@ -240,7 +240,7 @@ const TimeLIneSection = () => {
             </Box>
 
             <VStack mt={['1rem']} ref={matterContainerThree} gap={['0.8rem','0.8rem','0.7rem']} alignItems={'start'} w={['100%','100%','48%']} >
-            <Box color={theme.colors.col.secondary} fontWeight={'bold'} w={['auto','auto','auto','auto','450px']} fontSize={['1.4rem','1.8rem','1.5rem','2rem','2.5rem']}>Advanced Meditation Program</Box>
+            <Box color={theme.colors.col.secondary} fontWeight={'bold'} w={['auto','auto','auto','auto','450px']} fontSize={['1.4rem','1.8rem','1.5rem','2rem','2.5rem']}>Expansion of Services</Box>
             <Text fontSize={['0.8rem','1rem']} lineHeight={['1.5rem','1.8rem','1.8rem','1.9rem','2rem']}>
               For an extrodinary sence of peace ,go beyond your habitual active mind.Get renewed vitality with the help of our guided meditation processos.</Text>
             </VStack>
@@ -253,4 +253,4 @@ const TimeLIneSection = () => {
   );
 };
 
-export default TimeLIneSection;
+export default AboutusTimeline;

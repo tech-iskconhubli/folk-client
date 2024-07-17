@@ -191,7 +191,7 @@ const AboutusSection3 = () => {
   return (
     <>
       {/* ourAssociateSection */}
-      <Box p={{ base: "20px", md: "50px", lg: "0" }} mb="100px"> 
+      <Box p={{ base: "20px", md: "50px", lg: "0" }} mt='30px'> 
         <Box textAlign="center" fontSize="2.5rem" fontWeight="300" mb="30px">
           Our Associates
         </Box>
@@ -421,34 +421,15 @@ const AboutusSection3 = () => {
               p={{ base: "10px", md: "10px", lg: "30px", xl: "50px" }}
               overflow={{ base: "auto", md: "auto", lg: "hidden" }}
               boxShadow="0px 0px 5px 1px rgba(0, 0, 0, 0.3)"
-              textAlign="justify"
-              fontSize={{ base: "0.8rem", md: "0.8rem", lg: "1rem" }}
+              display='flex'
+              justifyContent='center'
+              alignItems='center'
               ref={card32}
             >
-              <Text
-                fontSize={{
-                  base: "1rem",
-                  md: "1rem",
-                  lg: "1.5rem",
-                  xl: "1.5rem",
-                }}
-                fontWeight="500"
-              >
-                The Akshaya Patra Foundation
+              
+              <Text fontWeight="500" fontSize='1.5rem'>
+                Join us to <Box as='span' fontSize={{base:'2rem',md:'2rem',lg:'3rem',xl:'3rem'}}>Celebrate <span style={{color:theme.colors.col.secondary}}>Life!</span></Box>
               </Text>
-              <br />
-              <Text fontWeight="500">
-                The Akshaya Patra Foundation is a not-for-profit organisation
-                headquartered in Bengaluru, India. The organisation strives to
-                eliminate classroom hunger by implementing the Mid-Day Meal
-                Scheme in the government schools and government-aided schools.
-                Alongside, Akshaya Patra also aims at countering malnutrition
-                and supporting the right to education of socio-economically
-                disadvantaged children.
-              </Text>
-              <Box color={theme.colors.col.secondary} mt="10px">
-                Learn more
-              </Box>
             </Box>
           </Box>
         </Box>

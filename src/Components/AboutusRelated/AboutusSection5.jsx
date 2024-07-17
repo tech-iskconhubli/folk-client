@@ -121,7 +121,7 @@ const AboutusSection5 = () => {
   return (
     <>
       {/* LatestnewsSection */}
-      <Box> 
+      <Box mt='30px'> 
         <Text textAlign="center" fontSize="2.5rem" fontWeight="300">Latest News</Text>
         <Box
           display="flex"
@@ -143,8 +143,8 @@ const AboutusSection5 = () => {
               src={newsimage}
               w={{ base: "100%", md: "100%", lg: "650px", xl: "650px" }}
               height={{ base: "auto", md: "450px", lg: "450px", xl: "450px" }}
-              _hover={{ filter: "brightness(0.3)", transition: "0.4" }}
-              filter="brightness(0.5)"
+              _hover={{ filter: "brightness(0.4)", transition: "0.4" }}
+              filter="brightness(0.6)"
             />
             <Box
               position="absolute"
@@ -161,13 +161,13 @@ const AboutusSection5 = () => {
                 gap="20px"
                 fontWeight="200"
               >
-                <Box fontSize={{ base: "0.5rem", md: "0.8rem" }} ref={slidetextleft}>by Theresa Barnes</Box>
+                <Box fontSize={{ base: "0.5rem", md: "0.8rem" }} ref={slidetextleft}>by FOLK</Box>
                 <Box w="1px" h="20px" bg="white"></Box>
                 <Box fontSize={{ base: "0.5rem", md: "0.8rem" }}>News</Box>
                 <Box w="1px" h="20px" bg="white"></Box>
                 <Box fontSize={{ base: "0.5rem", md: "0.8rem" }} ref={slidetextright}>Jan,2024</Box>
               </Box>
-              <Box mt={{ base: "8px", md: "10px" }}>Hinduism: Way of Life, Beliefs, and Practices</Box>
+              <Box mt={{ base: "8px", md: "10px" }}> Never trust anyone completely but Krishna. Love people, but put your full trust only in Krishna.</Box>
             </Box>
           </Box>
           
@@ -184,28 +184,28 @@ const AboutusSection5 = () => {
             <Box ref={newsbox1}>
               <NewsBox
                 index={0}
-                date="21"
-                month="April"
-                name="The Secrets of Mystic Hinduism"
-                person="TheresaBarnes"
+                date="19"
+                month="Aug"
+                name="Grand Janmashtami Celebration"
+                person="FOLK"
               />
             </Box>
             <Box ref={newsbox2}>
               <NewsBox
                 index={0}
-                date="21"
-                month="April"
-                name="Interesting facts of Hinduism"
-                person="TheresaBarnes"
+                date="10"
+                month="Sep"
+                name="Spiritual Retreat to Vrindavan"
+                person="FOLK"
               />
             </Box>
             <Box ref={newsbox3}>
               <NewsBox
                 index={0}
-                date="21"
-                month="April"
-                name="The Meaning of Hinduism"
-                person="TheresaBarnes"
+                date="30"
+                month="July"
+                name="Free Prasadam Distribution Drive"
+                person="FOLK"
               />
             </Box>
             <Button

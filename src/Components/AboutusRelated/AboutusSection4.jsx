@@ -4,8 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { FaPeopleGroup, FaChevronRight } from "react-icons/fa6";
-import { SiGoogleforms } from "react-icons/si";
-import { FaFire, FaAddressCard, FaStar, FaHeart } from "react-icons/fa";
+import { GoGoal } from "react-icons/go";
+import { GiMeditation } from "react-icons/gi";
+import { FaTrophy } from "react-icons/fa6";
+import { FaBrain } from "react-icons/fa";
+import { HiEmojiHappy } from "react-icons/hi";
+import { BiDumbbell } from "react-icons/bi";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
@@ -39,7 +43,7 @@ const AboutusSection4 = () => {
   });
 
   //serviceboxComponent
-  const ServiceBox = ({ index, icon: Icon, title, description }) => {
+  const ServiceBox = ({ index, icon: Icon, title, description,duration }) => {
     const [iconColor, setIconColor] = useState(null);
 
     return (
@@ -52,7 +56,6 @@ const AboutusSection4 = () => {
         gap="10px"
         onMouseEnter={() => setIconColor(index)}
         onMouseLeave={() => setIconColor()}
-        mt="10px"
       >
         <Box
           fontSize="3rem"
@@ -76,6 +79,7 @@ const AboutusSection4 = () => {
         </Box>
         <Box fontSize="1.5rem" fontWeight="300" textAlign="center">{title}</Box>
         <Box textAlign="center" fontWeight="300" fontSize="0.8rem" lineHeight="1.5rem">{description}</Box>
+        <Box textAlign='center' fontWeight='500' fontSize='0.8rem'>{duration}</Box>
       </Box>
     );
   };
@@ -83,7 +87,7 @@ const AboutusSection4 = () => {
   return (
     <>
       {/* ourServicesSection */}
-      <Box>
+      <Box mt="30px">
         <Text textAlign="center" fontSize="2.5rem" fontWeight="300">
           Our Services
         </Text>
@@ -103,51 +107,55 @@ const AboutusSection4 = () => {
           <Box ref={service1}>
             <ServiceBox
               index={0}
-              icon={FaPeopleGroup}
-              title="Hindu Meetings"
-              description=" We organize regular meetings of Hinduists in the US and support
-                various public discussions that are related to Hinduism and its
-                development."
+              icon={GoGoal}
+              title="Focus"
+              description="Learn how to avoid distractions and work with absolute focus. Converge your energy into a single point. Harness the power of a focused mind and achieve unparalleled outcomes."
+              duration='Session Duration-2hrs'
             />
           </Box>
           <Box ref={service2}>
             <ServiceBox
               index={1}
-              icon={SiGoogleforms}
-              title="Hindu Forums"
-              description="Our organization members take part and organize numerous Hindu forums that unite Hindus from all over the world and establish international connections."
+              icon={GiMeditation}
+              title="Yoga for Happiness"
+              description="You’ve heard of Yoga For Fitness, Health, and related benefits. But what is the Real goal of Yoga according to its architect? Yoga leads to Happiness. Learn the Real Yoga here."
+              duration='Workshop Duration-1Day'
             />
           </Box>
           <Box ref={service3}>
             <ServiceBox
               index={2}
-              icon={FaFire}
-              title="Esoteric Hinduism Events"
-              description="Hindu Faith often acts as an organizer of various Esoteric Hinduism events all over the US and Europe. We aim to popularize this side of Hinduism as well."
+              icon={FaTrophy}
+              title="Secret of Success"
+              description="2 Men. Similar Age. Same Goal. Equal Competence. Same Efforts. But the success levels differ. Is it an element of deficiency in us, or are we unaware of an external factor that is beyond our control?"
+              duration='Session Duration-2hrs'
             />
           </Box>
           <Box ref={service4}>
             <ServiceBox
               index={3}
-              icon={FaAddressCard}
-              title="Educational Services"
-              description="Hindu Faith provides a wide variety of educational services by providing necessary assistance in teaching Hinduism in schools and colleges."
+              icon={FaBrain}
+              title="Art of Mind Control"
+              description="What is wrong with driving a car with defective steering and brake mechanism? Everything. Better not drive! Our mind is the vehicle that drives our life. Can you steer it smoothly?"
+              duration='Session Duration-2hrs'
             />
           </Box>
           <Box ref={service5}>
             <ServiceBox
               index={4}
-              icon={FaStar}
-              title="Organization of Festivals"
-              description="Annually, we organize up to 3 Hinduism Festivals: Holi, Diwali, and Dussehra. They attract the attention of Non-Hindus to our religion."
+              icon={HiEmojiHappy}
+              title="Happiness Workshops"
+              description="Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.Explore unfound dimensions of pleasure that keep you ever blissful."
+              duration='Workshop Duration-2hrs'
             />
           </Box>
           <Box ref={service6}>
             <ServiceBox
               index={5}
-              icon={FaHeart}
-              title="Charitable Help"
-              description="Our organization fully supports all kinds of charity by providing help to members of Hinduism community through giving, gifting, sharing and caring for others."
+              icon={BiDumbbell}
+              title="Self-Empowerment"
+              description="A large load of cotton will not harm even a fly, but a small atom can destroy the whole city when divided. Power is not dependent on size or even strength. It is an innate force that is harnessed by profound tools."
+              duration='Workshop Duration-2hrs'
             />
           </Box>
         </Box>

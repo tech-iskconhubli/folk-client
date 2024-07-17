@@ -11,6 +11,7 @@ const AboutusSection2 = () => {
         justifyContent="center"
         alignItems="center"
         fontWeight="300"
+        mt='30px'
       >
         <Box //textcontainer
           p="20px"

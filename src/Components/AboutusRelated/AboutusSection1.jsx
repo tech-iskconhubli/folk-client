@@ -47,14 +47,14 @@ const AboutusSection1 = () => {
                 xl: "1.5rem",
               }}
             >
-              ABOUT US
+              Energizing Youth Culture
             </Box>
           </Box>
           <Box //middletext
             fontSize={{ base: "2rem", md: "3rem", lg: "3rem", xl: "4rem" }}
             fontWeight="100"
           >
-            About Us
+            FOLK
           </Box>
           <Box //lowertext
             display="flex"
