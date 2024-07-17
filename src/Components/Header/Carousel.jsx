@@ -32,7 +32,7 @@ const Carousel = () => {
      lg:'45vh',
      xl:'70vh'
    }}>
-       <Box className='slider-container' w="100%" h="100%" position="relative" mt={['7rem','7rem','7rem','10rem']}>
+       <Box className='slider-container' w="100%" h="100%" position="relative">
             {HeaderImages.map((image,index)=>(
              <Box className={index === current ? 'slider-image slider-image-active' : 'slider-image'} key={index} position={'absolute'} w={'100%'} h='100%'  objectFit='cover'>
                <img  width='100%'  height="100%"  src={image} alt="" />

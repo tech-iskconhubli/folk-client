@@ -7,7 +7,9 @@ import { Box, Text } from "@chakra-ui/react";
 const AboutusSection1 = () => {
   return (
     <>
-      <Box //backgroundimage
+      <Box
+      mt={"155px"} 
+      //backgroundimage
         backgroundImage={backgroundimage}
         w="100%"
         h={{ base: "300px", md: "300px", lg: "450px", xl: "450px" }}

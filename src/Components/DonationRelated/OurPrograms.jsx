@@ -66,7 +66,7 @@ const OurPrograms = () => {
   }, []);
 
   return (
-    <Box width="100%" my={["2rem", "2rem", "2rem", "5rem"]}>
+    <Box mt={"100px"} width="100%" my={["2rem", "2rem", "2rem", "5rem"]}>
       <Container
         w={["100%", "100%", "90%", "90%"]}
         maxW="1500px"
