@@ -1,12 +1,37 @@
-import React, { useState } from "react"
-import {Box,text} from '@chakra-ui/react'
+import React, { useState,useRef } from "react"
+import {Box,Text} from '@chakra-ui/react'
 import theme from "../../theme";
 import { MdOutlineSchedule } from "react-icons/md";
 import { GoGoal } from "react-icons/go";
 import { GiAwareness } from "react-icons/gi";
 import { FaScaleUnbalancedFlip } from "react-icons/fa6";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const SecretofSuccessSection4=()=>{
    const [hoveredText,setHoveredText]=useState("")
+   const Animatedcircle=useRef([]);
+   const animatedText=useRef();
+   
+   useGSAP(()=>{
+    gsap.fromTo(
+        Animatedcircle.current,{
+            opacity:1,transform:(i)=>`rotate(-${(i*60)+90}deg) translate(100px) rotate(${(i*60)+90}deg)` 
+        },{
+            rotate:'360deg',
+            opacity:1,
+            transform:(i)=>`rotate(-${(i*60)+90}deg) translate(225px) rotate(${(i*60)+90}deg)`,
+            duration:2,
+            ease:'power2.out'
+        }
+    )
+  })
+
+
+  useGSAP(()=>{
+    gsap.fromTo(animatedText.current,{opacity:0,w:0},{opacity:1,w:'100%',duration:2,ease:'power2.out'})
+  })
+
    const paths=[
     {name:'Self Realization',
         text:'True self-realization begins when one understands their eternal relationship with the Divine.'
@@ -30,8 +55,11 @@ const SecretofSuccessSection4=()=>{
    ]
    const handleMouseEnter=(text)=>{
     setHoveredText(text);
-    
+
    }
+ 
+
+
 return(
 <>
 <Box mt='50px' mb='50px'>
@@ -40,8 +68,8 @@ return(
     <Box w='1150px' display='flex' alignItems='center' justifyContent='center' gap='100px'>
     
     <Box position='relative' w='450px' h='450px' borderRadius='50%' border='2px solid gray' display='flex' alignItems='center' justifyContent='center'>
+        
         {paths.map((path,index)=>{
-            const angle=((index)/paths.length)*360 +90;
             return(
                 <Box key='index'
                 position='absolute'
@@ -56,16 +84,15 @@ return(
                 borderRadius='50%'
                 fontSize='0.9rem'
                 textAlign='center'
-                style={{
-                    transform: `rotate(-${angle}deg) translate(220px) rotate(${angle}deg)`,
-                  }}
+                ref={(el) => (Animatedcircle.current[index] = el)}
                 _hover={{bg:'rgba(246,247,249)',color:theme.colors.col.secondary}}
                 onMouseEnter={()=>{handleMouseEnter(path.text)}}>
                     <text>{path.name}</text>
                 </Box>
             );
         })}
-       <Box fontSize='0.8rem' color={theme.colors.col.secondary} p='20px' textAlign='center'>
+        
+       <Box fontSize='0.8rem' color={theme.colors.col.secondary} p='20px' textAlign='center' ref={animatedText}>
         {hoveredText? hoveredText:" "}
        </Box>
         
