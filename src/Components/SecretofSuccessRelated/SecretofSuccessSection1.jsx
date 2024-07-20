@@ -31,12 +31,12 @@ const SecretofSuccessSection1 = () => {
       <Box
         backgroundImage={backgroundimage}
         w="100%"
-        h="96vh"
+        h={{base:'50vh',md:'50vh',lg:'97vh',xl:'97vh'}}
         backgroundSize="cover"
-        backgroundPosition="center"
+        backgroundPosition={{base:'right',md:'right',lg:'center',xl:'center'}}
         position="relative"
         ref={container}
-        mt='150px'
+        mt={{base:'100px',md:'100px',lg:'150px',xl:'250px'}}
         fontFamily={theme.fonts.body}
       >
         <Box bg='rgba(0,0,0,0.25)' w='100%' h='100%'>
@@ -44,15 +44,16 @@ const SecretofSuccessSection1 = () => {
           position="absolute"
           color="white"
           fontWeight="500"
-          top="25%"
-          left="14%"
+          top={{base:'none',md:'25%',lg:'20%',xl:'25%'}}
+          bottom={{base:'5%',md:'none'}}
+          left={{base:'5%',md:'5%',lg:'8%',xl:'14%'}}
           ref={heading}
-          w='710px'
+          w={{base:'auto',md:'300px',lg:'500px',xl:'710px'}}
           textAlign='justify'
         >
-          <Heading fontSize="5rem" fontWeight={500} fontFamily={theme.fonts.body}>Secret of Success</Heading>
-          <Box fontSize="1rem" m={'25px 0px'}>
-            <Text fontWeight={400} fontSize={'18px'} fontFamily={theme.fonts.body}>You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction</Text>
+          <Heading fontSize={{base:'1.5rem',md:'2rem',lg:'3.5rem',xl:'5rem'}} fontWeight={500} fontFamily={theme.fonts.body}>Secret of Success</Heading>
+          <Box fontSize={{base:'0.5rem',md:'0.5rem',lg:'14px',xl:'18px'}} m={{base:'5px 0px',md:'20px 0px',lg:'25px 0px'}}>
+            <Text fontWeight={400}  fontFamily={theme.fonts.body} display={{base:'none',md:'block'}}>You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction</Text>
           </Box>
           <Button
             bg={theme.colors.col.text}
@@ -61,11 +62,10 @@ const SecretofSuccessSection1 = () => {
             ref={regbutton}
             onMouseEnter={handleButtonEnter}
             onMouseLeave={handleButtonLeave}
-            p={'25px 50px'}
-            fontSize={'20px'}
+            p={{base:'5px 10px',md:'10px 20px',lg:'25px 50px'}}
+            fontSize={{base:'15px',md:'25px'}}
             fontWeight={400}
-            mt='10px'
-            
+            mt={{base:'0px',md:'5px',lg:'10px',xl:'10px'}}
           >
             Register now
           </Button>

@@ -9,23 +9,25 @@ const SecretofSuccessSection2 = () => {
   return (
     <>
     <Box mt='50px'>
-      <Box mb='50px' fontSize='2.5rem' textAlign='center'>Principles of Success</Box>
-      <Box display="flex" alignItems="center" justifyContent="center" >
+      <Box mb='50px' fontSize={{base:'1.5rem',md:'2rem',lg:'2.5rem'}} textAlign='center'>Principles of Success</Box>
+      <Box display="flex" alignItems="center" flexDirection={{base:'column',md:'row'}} justifyContent="center" >
         <Box
-          w="65%"
+          w={{base:'90%',md:'90%',lg:'80%',xl:'65%'}}
+          h={{base:'1230px',md:'400px'}}
           display="flex"
+          flexDirection={{base:'column',md:'row'}}
           alignItems="center"
           justifyContent="flex-start"
           gap="10px"
         >
           <Box
-            h="400px"
+            h='400px'
             backgroundImage={image1}
             backgroundPosition='center'
             backgroundSize='cover'
-            flex="1"
+            flex={1}
             borderRadius="5px"
-            _hover={{ flex: 3 }}
+            _hover={{ flex:3 }}
             transition="all ease-in-out 0.5s"
             position='relative'
             boxShadow="0 4px 4px rgba(0,0,0,0.25)"
