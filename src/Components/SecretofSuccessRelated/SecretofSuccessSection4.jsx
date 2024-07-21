@@ -7,6 +7,8 @@ import { GiAwareness } from "react-icons/gi";
 import { FaScaleUnbalancedFlip } from "react-icons/fa6";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const SecretofSuccessSection4 = () => {
   const [hoveredText, setHoveredText] = useState("");
@@ -30,6 +32,11 @@ const SecretofSuccessSection4 = () => {
         {
           rotate: "360deg",
           opacity: 1,
+          ScrollTrigger:{
+            trigger:Animatedcircle.current,
+            start:'top 90%%',
+            end:'bottom 100px'
+          },
           transform: (i) =>
             `rotate(-${i * 60 + 90}deg) translate(125px) rotate(${
               i * 60 + 90
@@ -51,6 +58,11 @@ const SecretofSuccessSection4 = () => {
         {
           rotate: "360deg",
           opacity: 1,
+          ScrollTrigger:{
+            trigger:Animatedcircle.current,
+            start:'top 90%%',
+            end:'bottom 100px'
+          },
           transform: (i) =>
             `rotate(-${i * 60 + 90}deg) translate(150px) rotate(${
               i * 60 + 90
@@ -72,6 +84,11 @@ const SecretofSuccessSection4 = () => {
         {
           rotate: "360deg",
           opacity: 1,
+          ScrollTrigger:{
+            trigger:Animatedcircle.current,
+            start:'top 90%%',
+            end:'bottom 100px'
+          },
           transform: (i) =>
             `rotate(-${i * 60 + 90}deg) translate(200px) rotate(${
               i * 60 + 90
@@ -93,6 +110,11 @@ const SecretofSuccessSection4 = () => {
         {
           rotate: "360deg",
           opacity: 1,
+          ScrollTrigger:{
+            trigger:Animatedcircle.current,
+            start:'top 90%%',
+            end:'bottom 100px'
+          },
           transform: (i) =>
             `rotate(-${i * 60 + 90}deg) translate(225px) rotate(${
               i * 60 + 90
@@ -172,7 +194,7 @@ const SecretofSuccessSection4 = () => {
               {paths.map((path, index) => {
                 return (
                   <Box
-                    key="index"
+                    key={index}
                     position="absolute"
                     w={{ base: "60px", md: "80px", lg: "100px", xl: "120px" }}
                     h={{ base: "60px", md: "80px", lg: "100px", xl: "120px" }}
@@ -225,13 +247,13 @@ const SecretofSuccessSection4 = () => {
               flexDirection="column"
               alignItems="center"
               justifyContent="flex-start"
-              gap='20px'
+              gap={{base:'20px',md:'15px',lg:'20px',xl:'20px'}}
               textAlign='justify'
             >
               <Box
                 display="flex"
                 justifyContent="space-between"
-                gap="20px"
+                gap={{base:'20px',md:'15px',lg:'20px',xl:'20px'}}
               >
                 <Box
                   bg={theme.colors.col.text}
@@ -244,7 +266,7 @@ const SecretofSuccessSection4 = () => {
                   fontSize={{
                     base: "2rem",
                     md: "1rem",
-                    lg: "1.5rem",
+                    lg: "1.3rem",
                     xl: "2rem",
                   }}
                   color="white"
@@ -256,7 +278,7 @@ const SecretofSuccessSection4 = () => {
                   w={{ base: "200px", md: "280px", lg: "420px", xl: "450px" }}
                 >
                   {" "}
-                  <Box fontSize="1.1rem" mb="10px" fontWeight="600">
+                  <Box fontSize="1.1rem" mb={{base:'10px',md:'5px',lg:'10px',xl:'10px'}} fontWeight="600">
                     Chanting
                   </Box>
                   <Box fontSize="0.8rem">
@@ -269,7 +291,7 @@ const SecretofSuccessSection4 = () => {
               <Box
                 display="flex"
                 justifyContent="space-between"
-                gap="20px"
+                gap={{base:'20px',md:'15px',lg:'20px',xl:'20px'}}
               >
                 <Box
                   bg={theme.colors.col.text}
@@ -294,7 +316,7 @@ const SecretofSuccessSection4 = () => {
                   w={{ base: "200px", md: "280px", lg: "420px", xl: "450px" }}
                 >
                   {" "}
-                  <Box fontSize="1.1rem" mb="10px" fontWeight="600">
+                  <Box fontSize="1.1rem"  mb={{base:'10px',md:'5px',lg:'10px',xl:'10px'}} fontWeight="600">
                     Aligining Goals
                   </Box>
                   <Box fontSize="0.8rem">
@@ -307,7 +329,7 @@ const SecretofSuccessSection4 = () => {
               <Box
                 display="flex"
                 justifyContent="space-between"
-                gap="20px"
+                gap={{base:'20px',md:'15px',lg:'20px',xl:'20px'}}
               >
                 <Box
                   bg={theme.colors.col.text}
@@ -332,7 +354,7 @@ const SecretofSuccessSection4 = () => {
                   w={{ base: "200px", md: "280px", lg: "420px", xl: "450px" }}
                 >
                   {" "}
-                  <Box fontSize="1.1rem" mb="10px" fontWeight="600">
+                  <Box fontSize="1.1rem"  mb={{base:'10px',md:'5px',lg:'10px',xl:'10px'}} fontWeight="600">
                     Awareness
                   </Box>
                   <Box fontSize="0.8rem">
@@ -345,7 +367,7 @@ const SecretofSuccessSection4 = () => {
               <Box
                 display="flex"
                 justifyContent="space-between"
-                gap="20px"
+                gap={{base:'20px',md:'15px',lg:'20px',xl:'20px'}}
               >
                 <Box
                   bg={theme.colors.col.text}
@@ -370,7 +392,7 @@ const SecretofSuccessSection4 = () => {
                   w={{ base: "200px", md: "280px", lg: "420px", xl: "450px" }}
                 >
                   {" "}
-                  <Box fontSize="1.1rem" mb="10px" fontWeight="600">
+                  <Box fontSize="1.1rem"  mb={{base:'10px',md:'5px',lg:'10px',xl:'10px'}} fontWeight="600">
                     Balanced Life
                   </Box>
                   <Box fontSize="0.8rem">
