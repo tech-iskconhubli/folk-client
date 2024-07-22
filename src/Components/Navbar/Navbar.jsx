@@ -83,7 +83,7 @@ const Navbar = () => {
   }
 
   return (
-    <Box position="fixed" top="0" zIndex="100" width="100%" boxShadow= "0px 8px 16px 0px rgba(0,0,0,0.2)" mb='100px'>
+    <Box position="fixed" top="0" zIndex="100" width="100%" boxShadow= "0px 8px 16px 0px rgba(0,0,0,0.2)">
       {/*Desktop navbar*/}
       <Box
         w="100%"
