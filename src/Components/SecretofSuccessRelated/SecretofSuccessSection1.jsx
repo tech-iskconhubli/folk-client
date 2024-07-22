@@ -36,7 +36,6 @@ const SecretofSuccessSection1 = () => {
         backgroundPosition={{base:'right',md:'right',lg:'center',xl:'center'}}
         position="relative"
         ref={container}
-        mt={{base:'100px',md:'100px',lg:'150px',xl:'250px'}}
         fontFamily={theme.fonts.body}
       >
         <Box bg='rgba(0,0,0,0.25)' w='100%' h='100%'>

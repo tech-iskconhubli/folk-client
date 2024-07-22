@@ -7,7 +7,7 @@ import SecretofSuccessSection4 from "../../Components/SecretofSuccessRelated/Sec
 const SecretofSuccess=()=>{
 return(
   <>
-  <Box  p='0' m='0' boxSizing="border-box" cursor='pointer'>
+  <Box  p='0' m='0' boxSizing="border-box" cursor='pointer' mt={{base:'100px',md:'100px',lg:'150px'}}>
    <SecretofSuccessSection1/>
     <SecretofSuccessSection4/>
     <SecretofSuccessSection2/> 
