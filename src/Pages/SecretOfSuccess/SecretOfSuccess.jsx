@@ -12,8 +12,6 @@ return(
     <SecretofSuccessSection4/>
     <SecretofSuccessSection2/> 
     <SecretofSuccessSection3/>
-   
-
   </Box>
   </>
 );
