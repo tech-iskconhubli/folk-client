@@ -5,6 +5,7 @@ import SuccessStoriesSection from '../../Components/DonationRelated/SuccessStori
 import HelpingSection from '../../Components/DonationRelated/HelpingSection'
 import OurMissionSection from '../../Components/DonationRelated/OurMissionSection'
 import DonationHeader from '../../Components/DonationRelated/DonationHeader'
+import DonationCardsSection from '../../Components/DonationRelated/DonationCardsSection'
 
 const Donation = () => {
   return (
@@ -15,6 +16,7 @@ const Donation = () => {
     <SuccessStoriesSection />
     <HelpingSection />
     <OurMissionSection />
+    <DonationCardsSection />
     </>
   )
 }

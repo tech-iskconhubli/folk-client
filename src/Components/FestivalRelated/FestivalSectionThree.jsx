@@ -92,7 +92,7 @@ const FestivalSectionThree = () => {
         maxW="1500px"
         marginX="auto"
       >
-        <Flex ref={flexContainerRef} gap={['1.5rem','1.5rem','1.5rem','1rem','2rem']} flexDirection={['column','column','column','row']} justifyContent={'space-between'}>
+        <Flex w={['100%','90%','100%']} mx={'auto'} ref={flexContainerRef} gap={['1.5rem','1.5rem','1.5rem','1rem','2rem']} flexDirection={['column','column','column','row']} justifyContent={'space-between'}>
 
           <Box ref={imageRef} w={["100%",'100%','100%','45%','40%']} h={['400px','450px','650px']}>
             <Image w={'100%'} h={'100%'} objectFit={'cover'} objectPosition={['center','center','left center']} src="https://i.pinimg.com/564x/89/47/38/8947388c67a6eef9470a75fb4fd982b8.jpg" />
@@ -101,11 +101,11 @@ const FestivalSectionThree = () => {
           <Box w={["100%",'100%','100%','55%','60%']} display={'flex'} flexDirection={'column'} justifyContent={'space-between'} alignItems={'flex-start'} gap={['1.5rem','1.5rem','2.5rem','1rem','0']}>
 
          
-             <Text ref={textRefOne} lineHeight={['1.7rem','1.7rem','2.5rem','2rem','1.7rem']} fontSize={['0.85rem','0.85rem','0.9rem','0.8rem','0.9rem','1rem']} >
+             <Text ref={textRefOne} lineHeight={['1.7rem','1.7rem','2.5rem','2rem','1.7rem']} fontSize={['0.85rem','0.85rem','0.9rem','0.8rem','0.9rem','1rem']} fontWeight={'500'}>
              Diwali, also known as Deepavali, is a prominent Hindu festival celebrated worldwide. It symbolizes the victory of light over darkness and good over evil. Homes and streets are adorned with oil lamps (diyas) and colorful decorations, creating a festive ambiance. Families exchange sweets, offer prayers to Goddess Lakshmi for prosperity, and enjoy fireworks displays. Diwali is a time of joyous celebration, unity, and the renewal of relationships.
              </Text>
             
-             <Text ref={textRefTwo} lineHeight={['1.7rem','1.7rem','2.5rem','2rem','1.7rem']} fontSize={['0.85rem','0.85rem','0.9rem','0.8rem','0.9rem','1rem']} >
+             <Text ref={textRefTwo} lineHeight={['1.7rem','1.7rem','2.5rem','2rem','1.7rem']} fontSize={['0.85rem','0.85rem','0.9rem','0.8rem','0.9rem','1rem']} fontWeight={'500'}>
             Beyond its religious origins, Diwali holds cultural significance as a time for reconciliation and community bonding. It marks the start of the Hindu New Year in some regions, symbolizing new beginnings and the pursuit of happiness and prosperity. Diwali transcends religious boundaries, celebrated by people of various faiths who join in the spirit of festivity and goodwill. It exemplifies the spirit of compassion, generosity, and the triumph of knowledge over ignorance.
             </Text>
 

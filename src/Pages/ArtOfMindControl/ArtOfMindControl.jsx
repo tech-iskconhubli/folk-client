@@ -4,6 +4,7 @@ import MindControlSectionTwo from '../../Components/ArtOfMindControlRelated/Mind
 import MindControlSectionThree from '../../Components/ArtOfMindControlRelated/MindControlSectionThree'
 import MindControlSectionFour from '../../Components/ArtOfMindControlRelated/MindControlSectionFour'
 import MindControlHeader from '../../Components/ArtOfMindControlRelated/MindControlHeader'
+import MindControlCardsSection from '../../Components/ArtOfMindControlRelated/MindControlCardsSection'
 
 const ArtOfMindControl = () => {
   return (
@@ -13,6 +14,7 @@ const ArtOfMindControl = () => {
      <MindControlSectionTwo />
      <MindControlSectionThree />
      <MindControlSectionFour />
+     <MindControlCardsSection />
     </>
   )
 }
