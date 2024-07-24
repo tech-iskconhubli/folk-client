@@ -8,7 +8,9 @@ import { FaScaleUnbalancedFlip } from "react-icons/fa6";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 gsap.registerPlugin(ScrollTrigger);
+
 
 const SecretofSuccessSection4 = () => {
   const [hoveredText, setHoveredText] = useState("");
@@ -34,7 +36,7 @@ const SecretofSuccessSection4 = () => {
           opacity: 1,
           ScrollTrigger:{
             trigger:Animatedcircle.current,
-            start:'top 90%%',
+            start:'top 90%',
             end:'bottom 100px'
           },
           transform: (i) =>
@@ -60,7 +62,7 @@ const SecretofSuccessSection4 = () => {
           opacity: 1,
           ScrollTrigger:{
             trigger:Animatedcircle.current,
-            start:'top 90%%',
+            start:'top 90%',
             end:'bottom 100px'
           },
           transform: (i) =>
@@ -86,7 +88,7 @@ const SecretofSuccessSection4 = () => {
           opacity: 1,
           ScrollTrigger:{
             trigger:Animatedcircle.current,
-            start:'top 90%%',
+            start:'top 90%',
             end:'bottom 100px'
           },
           transform: (i) =>
@@ -98,21 +100,29 @@ const SecretofSuccessSection4 = () => {
         }
       );
     } else {
-      gsap.fromTo(
+      gsap.to(
         Animatedcircle.current,
         {
-          opacity: 1,
+          duration:2,
+          motionPath:{
+            path:'Animatedcircle',
+            autoRotate:'true'
+          }
+
+          
+         /*  opacity: 1,
           transform: (i) =>
             `rotate(-${i * 60 + 90}deg) translate(100px) rotate(${
               i * 60 + 90
-            }deg)`,
+            }deg)`, */
         },
-        {
+       
+        /* {
           rotate: "360deg",
           opacity: 1,
           ScrollTrigger:{
             trigger:Animatedcircle.current,
-            start:'top 90%%',
+            start:'top 90%',
             end:'bottom 100px'
           },
           transform: (i) =>
@@ -121,7 +131,7 @@ const SecretofSuccessSection4 = () => {
             }deg)`,
           duration: 2,
           ease: "power2.out",
-        }
+        } */
       );
     }
   });
@@ -130,7 +140,7 @@ const SecretofSuccessSection4 = () => {
     {
       name: "Self Realization",
       text: "True self-realization begins when one understands their eternal relationship with the Divine.",
-    },
+    }/* ,
     {
       name: "Knowledge",
       text: "True knowledge is not just information, but the understanding and wisdom to apply it for the greater good.",
@@ -150,7 +160,7 @@ const SecretofSuccessSection4 = () => {
     {
       name: "Discipline",
       text: "Discipline is the foundation upon which success is built.",
-    },
+    }, */
   ];
   const handleMouseEnter = (text, index) => {
     setHoveredText(text);
