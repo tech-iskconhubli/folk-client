@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Box, Text, Flex, VStack, Button } from "@chakra-ui/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Link } from 'react-router-dom';
 
 const festivals = [
   {
@@ -147,6 +148,7 @@ const FestivalHeader = () => {
 
 
         <Box> 
+          <Link to={'/singlePageWithAccoridon'}>
           <Button
            
             fontSize={["0.6rem",'0.7rem','1rem','0.9rem','1rem']}
@@ -159,6 +161,7 @@ const FestivalHeader = () => {
           >
             Support Now
           </Button>
+          </Link>
         </Box>
         </VStack>
 

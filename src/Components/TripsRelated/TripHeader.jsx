@@ -3,6 +3,7 @@ import { Box, Button, Text, VStack } from "@chakra-ui/react";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const TripHeader = () => {
   const mainHeading = useRef(null);
@@ -109,6 +110,7 @@ const TripHeader = () => {
           </VStack>
 
           <Box ref={button}>
+          <Link to={'/singlePageWithAccoridon'}>
             <Button
               fontSize={["0.6rem", "0.7rem", "1rem", "0.9rem", "1rem"]}
               p={["1rem", "0.8rem", "1.5rem", "2rem"]}
@@ -120,6 +122,7 @@ const TripHeader = () => {
             >
               Register for Temple Tours
             </Button>
+          </Link>
           </Box>
         </VStack>
       </Box>

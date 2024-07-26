@@ -4,6 +4,7 @@ import YogaBgImage from "../../../src/Assets/Monk.jpg";
 import { GoNorthStar } from "react-icons/go";
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { Link } from "react-router-dom";
 
 
 
@@ -89,6 +90,7 @@ const YogaHeroSection = () => {
 
 
         <Box  ref={button}> 
+        <Link to={'/singlePage'}> 
           <Button
            
             fontSize={["0.6rem",'0.7rem','1rem','0.9rem','1rem']}
@@ -105,6 +107,7 @@ const YogaHeroSection = () => {
             </span>
             Join Our Classes
           </Button>
+          </Link>
         </Box>
         </VStack>
 
