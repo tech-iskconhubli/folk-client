@@ -82,6 +82,7 @@ import PrivateRoute from '../Private/Private';
 import Newform from '../Dummy/Newform';
 import SinglePage from "../Components/SinglePages/SinglePage"
 import SinglePageWithAccordion from "../Components/SinglePages/SinglePageWithAccoridon"
+import Dummy2 from '../Dummy/Dummy2';
 const AllRouts = () => {
   // console.log("")
   return (
@@ -110,7 +111,7 @@ const AllRouts = () => {
                   <Route path='/artOfMindControl' element={<ArtOfMindControl/>} />
                   <Route path='/artOfMindControl/artFrom' element={<ArtOFMindForm/>} />
                   <Route path='/handleAddSection' element={<PlusForm/>} />
-                  <Route path='/dummy2' element={<Newform/>} />
+                  <Route path='/dummy2' element={<Dummy2/>} />
                   <Route path='/singlePage' element={<SinglePage/>} />
                   <Route path='/singlePageWithAccordion' element={<SinglePageWithAccordion/>} />
                   <Route path='*' element={<NotFound/>}/>
