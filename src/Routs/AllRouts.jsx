@@ -4,7 +4,6 @@ import Home from '../Pages/Home/Home';
 import MainLayout from "../Layouts/MainLayout";
 import About from "../Pages/About/About";
 import Blogs from "../Pages/Blogs/Blogs";
-import BlogContent from '../Components/BlogsRelated/BlogContent';
 import Donation from "../Pages/Donation/Donation";
 import Festivals from "../Pages/Festivals/Festivals";
 import Gallery from "../Pages/Gallery/Gallery";
@@ -41,7 +40,6 @@ const AllRouts = () => {
                   <Route path='/' element={<Home/>}/>
                   <Route path='/about' element={<About/>}/>
                   <Route path='/blogs' element={<Blogs/>}/>
-                  <Route path='/blogContent' element={<BlogContent/>}/>
                   <Route path='/donation' element={<Donation/>}/>
                   <Route path='/festivals' element={<Festivals/>}/>
                   <Route path='/gallery' element={<Gallery/>}/>
