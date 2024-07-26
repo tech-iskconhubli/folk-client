@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
+import { Link } from 'react-router-dom'
 
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
@@ -86,6 +87,7 @@ const MindControlHeader = () => {
 
 
       <Box  ref={button}> 
+        <Link to={'/singlePage'}> 
         <Button
          
           fontSize={["0.6rem",'0.7rem','1rem','0.9rem','1rem']}
@@ -98,6 +100,7 @@ const MindControlHeader = () => {
         >
          Register Now
         </Button>
+        </Link>
       </Box>
       </VStack>
 

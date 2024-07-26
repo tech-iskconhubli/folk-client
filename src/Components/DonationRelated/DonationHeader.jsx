@@ -3,6 +3,7 @@ import { Box, Button, Text, VStack } from "@chakra-ui/react";
 
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { Link } from "react-router-dom";
 
 
 const DonationHeader = () => {
@@ -90,6 +91,7 @@ const DonationHeader = () => {
 
 
         <Box  ref={button}> 
+        <Link to={'/singlePage'}> 
           <Button
            
             fontSize={["0.6rem",'0.7rem','1rem','0.9rem','1rem']}
@@ -102,6 +104,7 @@ const DonationHeader = () => {
           >
             Support Now
           </Button>
+          </Link>
         </Box>
         </VStack>
 
