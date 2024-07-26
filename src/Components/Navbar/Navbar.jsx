@@ -38,7 +38,7 @@ const Navbar = () => {
     const handleMouseEnter = contextSafe(() => {
       gsap.to(hoverableUnderline.current, {
         x: "0",
-        backgroundColor: "#DE8D38",
+        backgroundColor: "white",
         duration: "1",
         width: "100%",
       });
@@ -51,7 +51,7 @@ const Navbar = () => {
         <Box
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          _hover={{ color: "#DE8D38" }}
+          _hover={{ color: "white" }}
         >
           {children}
         </Box>
@@ -83,9 +83,16 @@ const Navbar = () => {
   }
 
   return (
-    <Box position="fixed" top="0" zIndex="100" width="100%" boxShadow= "0px 8px 16px 0px rgba(0,0,0,0.2)">
+    <Box
+      position="fixed"
+      top="0"
+      zIndex="100"
+      width="100%"
+      boxShadow="0px 8px 16px 0px rgba(0,0,0,0.2)"
+      
+    >
       {/*Desktop navbar*/}
-      <Box
+      {/* <Box
         w="100%"
         bg="#DE8D38"
         display={{ base: "none", md: "none", lg: "flex" }}
@@ -143,20 +150,23 @@ const Navbar = () => {
             <FaLinkedin />
           </Box>
         </Box>
-      </Box>
+      </Box> */}
       <Box
         display="flex"
         justifyContent={{
           base: "space-between",
           md: "space-between",
-          lg: "center",
-          xl: "center",
+          lg: "space-between",
+          xl: 'space-between'
         }}
         alignItems="center"
-        bg="white"
+        bg="#DE8D38"
         w="100%"
         h="100px"
         fontWeight="400"
+        color="white"
+        boxSizing="border-box"
+        padding={{base:'',md:'',lg:'0px 30px',xl:'0px 50px'}}
       >
         <Box>
           <Image
@@ -164,9 +174,8 @@ const Navbar = () => {
             alt="FOLK"
             height="60px"
             width={{ base: "250px", md: "300px", lg: "300px", xl: "300px" }}
-            ml={{ base: "10px", md: "100px",lg:'0',xl:'0' }}
-            bg="black"
-            mr={{base:'0',md:'0',lg:'10px',xl:'20px'}}
+            ml={{ base: "10px", md: "100px", lg: "0", xl: "0" }}
+            mr={{ base: "0", md: "0", lg: "10px", xl: "20px" }}
           />
         </Box>
         <Box
@@ -181,7 +190,7 @@ const Navbar = () => {
             marginRight={{ base: "10px", md: "100px" }}
           >
             {" "}
-            <IoMenu style={{ color: "#DE8D38" }} />
+            <IoMenu style={{ color: "white" }} />
           </Box>
 
           <Drawer
@@ -189,6 +198,7 @@ const Navbar = () => {
             placement="right"
             onClose={handleToggleMenu}
             cursor="pointer"
+            color="black"
           >
             <DrawerOverlay>
               <DrawerContent>
@@ -290,34 +300,34 @@ const Navbar = () => {
                       </ListItem>
                       {isOpenProgrammes && (
                         <Box>
-                          <Link to='/yogaForHappiness'>
-                          <ListItem _hover={{ color: "#DE8D38" }}>
-                            Yoga for Happiness
-                          </ListItem>
+                          <Link to="/yogaForHappiness">
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Yoga for Happiness
+                            </ListItem>
                           </Link>
                           <hr />
-                          <Link to=''>
-                          <ListItem _hover={{ color: "#DE8D38" }}>
-                            Art of Control
-                          </ListItem>
+                          <Link to="">
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Art of Control
+                            </ListItem>
                           </Link>
                           <hr />
-                          <Link to=''>
-                          <ListItem _hover={{ color: "#DE8D38" }}>
-                            Secret of Success
-                          </ListItem>
+                          <Link to="">
+                            <ListItem _hover={{ color: "#DE8D38" }}>
+                              Secret of Success
+                            </ListItem>
                           </Link>
                         </Box>
                       )}
                       <hr />
-                      <Link to='/recidency'>
-                      <ListItem _hover={{ color: "#DE8D38" }}>
-                        Residency
-                      </ListItem>
+                      <Link to="/recidency">
+                        <ListItem _hover={{ color: "#DE8D38" }}>
+                          Residency
+                        </ListItem>
                       </Link>
                       <hr />
-                      <Link to='/trips'>
-                      <ListItem _hover={{ color: "#DE8D38" }}>Trips</ListItem>
+                      <Link to="/trips">
+                        <ListItem _hover={{ color: "#DE8D38" }}>Trips</ListItem>
                       </Link>
                     </UnorderedList>
                   </Box>
@@ -344,13 +354,21 @@ const Navbar = () => {
             }}
             gap={{ lg: "0.8rem", xl: "1.5rem" }}
           >
+            <Link to="/">
+              <ListItem>
+                <HoverableListitem children="Home" />
+              </ListItem>
+            </Link>
+
             <Box
               onMouseLeave={handleUnsetAboutUs}
               onMouseEnter={handleSetAboutUs}
               display="inline-block"
             >
               <ListItem>
-                <Link to='/about'><HoverableListitem children="AboutUs" /></Link>
+                <Link to="/about">
+                  <HoverableListitem children="AboutUs" />
+                </Link>
                 <UnorderedList
                   className="submenu"
                   padding={{ lg: "10px", xl: "20px" }}
@@ -359,6 +377,7 @@ const Navbar = () => {
                     display: "block",
                     position: "absolute",
                     zIndex: "1",
+                    color: "black",
                     backgroundColor: "white",
                     lineHeight: "2.5rem",
                     listStyleType: "none",
@@ -368,52 +387,51 @@ const Navbar = () => {
                     visibility: isHoveredAboutus ? "visible" : "hidden",
                   }}
                 >
-                  <Link to='/about'><ListItem _hover={{ color: "#DE8D38" }}>AboutUs</ListItem></Link>
-                  <Link to='/privacy-policy'><ListItem _hover={{ color: "#DE8D38" }}>
-                    Privacy and Policy
-                  </ListItem>
+                  <Link to="/about">
+                    <ListItem _hover={{ color: "#DE8D38" }}>AboutUs</ListItem>
                   </Link>
-                  <Link to='/terms-and-conditions'>
-                  <ListItem _hover={{ color: "#DE8D38" }}>
-                    Terms and Conditions
-                  </ListItem>
+                  <Link to="/privacy-policy">
+                    <ListItem _hover={{ color: "#DE8D38" }}>
+                      Privacy and Policy
+                    </ListItem>
+                  </Link>
+                  <Link to="/terms-and-conditions">
+                    <ListItem _hover={{ color: "#DE8D38" }}>
+                      Terms and Conditions
+                    </ListItem>
                   </Link>
                 </UnorderedList>
               </ListItem>
             </Box>
-            <Link to='/blogs'>
-            <ListItem>
-              <HoverableListitem children="Blogs" />
-            </ListItem>
+            <Link to="/blogs">
+              <ListItem>
+                <HoverableListitem children="Blogs" />
+              </ListItem>
             </Link>
-            <Link to='/donation'>
-            <ListItem>
-              <HoverableListitem children="Donation" />
-            </ListItem>
+            <Link to="/donation">
+              <ListItem>
+                <HoverableListitem children="Donation" />
+              </ListItem>
             </Link>
-            <Link to='/festivals'>
-            <ListItem>
-              <HoverableListitem children="Festivals" />
-            </ListItem>
+            <Link to="/festivals">
+              <ListItem>
+                <HoverableListitem children="Festivals" />
+              </ListItem>
             </Link>
-            <Link to='/gallery'>
-            <ListItem>
-              <HoverableListitem children="Gallery" />
-            </ListItem>
+            <Link to="/gallery">
+              <ListItem>
+                <HoverableListitem children="Gallery" />
+              </ListItem>
             </Link>
-            <Link to='/'>
-            <ListItem>
-              <HoverableListitem children="Home" />
-            </ListItem>
-            </Link>
+
             <Box
               onMouseLeave={handleUnsetProgrammes}
               onMouseEnter={handleSetProgrammes}
               display="inline-block"
             >
               <ListItem>
-                <Link to='/programmes'>
-                <HoverableListitem children="Programmes" />
+                <Link to="/programmes">
+                  <HoverableListitem children="Programmes" />
                 </Link>
                 <UnorderedList
                   className="submenu"
@@ -422,6 +440,7 @@ const Navbar = () => {
                   style={{
                     display: "block",
                     position: "absolute",
+                    color: "black",
                     zIndex: "1",
                     backgroundColor: "white",
                     lineHeight: "2.5rem",
@@ -432,33 +451,33 @@ const Navbar = () => {
                     visibility: isHoveredProgrammes ? "visible" : "hidden",
                   }}
                 >
-                  <Link to='/yogaForHappiness'>
-                  <ListItem _hover={{ color: "#DE8D38" }}>
-                    Yoga for Happiness
-                  </ListItem>
+                  <Link to="/yogaForHappiness">
+                    <ListItem _hover={{ color: "#DE8D38" }}>
+                      Yoga for Happiness
+                    </ListItem>
                   </Link>
-                  <Link to=''>
-                  <ListItem _hover={{ color: "#DE8D38" }}>
-                    Art of Control
-                  </ListItem>
+                  <Link to="">
+                    <ListItem _hover={{ color: "#DE8D38" }}>
+                      Art of Control
+                    </ListItem>
                   </Link>
-                  <Link to=''>
-                  <ListItem _hover={{ color: "#DE8D38" }}>
-                    Secret of Success
-                  </ListItem>
+                  <Link to="">
+                    <ListItem _hover={{ color: "#DE8D38" }}>
+                      Secret of Success
+                    </ListItem>
                   </Link>
                 </UnorderedList>
               </ListItem>
             </Box>
-            <Link to='/recidency'>
-            <ListItem>
-              <HoverableListitem children="Residency" />
-            </ListItem>
+            <Link to="/recidency">
+              <ListItem>
+                <HoverableListitem children="Residency" />
+              </ListItem>
             </Link>
-            <Link to='/trips'>
-            <ListItem>
-              <HoverableListitem children="Trips" />
-            </ListItem>
+            <Link to="/trips">
+              <ListItem>
+                <HoverableListitem children="Trips" />
+              </ListItem>
             </Link>
           </UnorderedList>
         </Box>
