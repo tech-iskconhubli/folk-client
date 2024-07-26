@@ -75,11 +75,11 @@ import AdminFestivalsUsersDataFlex from '../Admin/AdminFestivals/AdminFestivalsU
 import AdminTripsUsersFlex from '../Admin/AdminTrips/AdminTripsUsersFlex';
 import YogaSingeData from '../Pages/YogaForHappiness/YogaSingeData';
 import PlusForm from '../Dummy/PlusForm';
-import Dummy2 from '../Dummy/Dummy2';
 import TripDetailsPage from '../Dummy/TripsDetails';
 import Login from '../Admin/AdminLogin/Login';
 import LoginLayout from '../Layouts/LoginLayout';
 import PrivateRoute from '../Private/Private';
+import Newform from '../Dummy/Newform';
 const AllRouts = () => {
   // console.log("")
   return (
@@ -108,7 +108,7 @@ const AllRouts = () => {
                   <Route path='/artOfMindControl' element={<ArtOfMindControl/>} />
                   <Route path='/artOfMindControl/artFrom' element={<ArtOFMindForm/>} />
                   <Route path='/handleAddSection' element={<PlusForm/>} />
-                  <Route path='/dummy2' element={<TripDetailsPage/>} />
+                  <Route path='/dummy2' element={<Newform/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 

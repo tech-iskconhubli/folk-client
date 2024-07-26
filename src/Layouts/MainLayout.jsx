@@ -6,9 +6,9 @@ import FooterSection from '../Components/Footer/FooterSection'
 const MainLayout = () => {
   return (
     <>
-      <Navbar/>   
+      {/* <Navbar/>    */}
       <Outlet/>
-    <FooterSection />
+    {/* <FooterSection /> */}
     </>
   )
 }
