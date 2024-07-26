@@ -80,6 +80,8 @@ import Login from '../Admin/AdminLogin/Login';
 import LoginLayout from '../Layouts/LoginLayout';
 import PrivateRoute from '../Private/Private';
 import Newform from '../Dummy/Newform';
+import SinglePage from "../Components/SinglePages/SinglePage"
+import SinglePageWithAccordion from "../Components/SinglePages/SinglePageWithAccoridon"
 const AllRouts = () => {
   // console.log("")
   return (
@@ -109,6 +111,8 @@ const AllRouts = () => {
                   <Route path='/artOfMindControl/artFrom' element={<ArtOFMindForm/>} />
                   <Route path='/handleAddSection' element={<PlusForm/>} />
                   <Route path='/dummy2' element={<Newform/>} />
+                  <Route path='/singlePage' element={<SinglePage/>} />
+                  <Route path='/singlePageWithAccordion' element={<SinglePageWithAccordion/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 
