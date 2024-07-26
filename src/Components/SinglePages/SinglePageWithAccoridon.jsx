@@ -24,16 +24,15 @@ import {
 } from "@chakra-ui/react";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCalendar } from "react-icons/io5";
-
+import theme from "../../theme";
 import { FaMapPin } from "react-icons/fa";
 import {  motion } from "framer-motion";
-import { tripData } from "./TripDate";
+import { tripData } from "../SinglePages/TripsDate";
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
 const SinglePageWithAccoridon = () => {
-    let colorTheme = "#DF8C38";
     const {
       tripName,
       from,
@@ -106,7 +105,7 @@ const SinglePageWithAccoridon = () => {
                 <Box fontSize={['2.5rem','3rem','3.5rem','4rem','4.5rem']} lineHeight={{lg:'5.5rem'}} fontWeight={"600"}>
                   {tripName}
                 </Box>
-                <Box fontSize={['2rem','2.5rem','3rem','3.5rem']} color={colorTheme} fontWeight={"700"}>
+                <Box fontSize={['2rem','2.5rem','3rem','3.5rem']} color={theme.colors.col.secondary} fontWeight={"700"}>
                 RS:{price}/-
                 </Box>
               </VStack>
@@ -302,7 +301,7 @@ const SinglePageWithAccoridon = () => {
   
         {/* Additional Fields (Accordion) */}
         <Box w={["100%", "100%", "90%", "90%", "95%"]} maxW={'1500px'} p={['1rem']} mx={"auto"} mt={['2rem','2rem','2rem','7rem']}>
-        <Heading size={{base:'2xl' ,xl:'3xl'}} color={colorTheme} mb={"9"}>
+        <Heading size={{base:'2xl' ,xl:'3xl'}} color={theme.colors.col.secondary} mb={"9"}>
             Tour Plan
           </Heading>
           <Accordion allowMultiple>
@@ -336,7 +335,7 @@ const SinglePageWithAccoridon = () => {
   
         {/* Related Images */}
         <Box  w={["100%", "100%", "90%", "90%", "95%"]} p={['1rem']} maxW={'1500px'} mx={"auto"} my={['7rem']}>
-          <Heading size={{base:'2xl' ,xl:'3xl'}} color={colorTheme} mb={"9"}>
+          <Heading size={{base:'2xl' ,xl:'3xl'}} color={theme.colors.col.secondary} mb={"9"}>
             Related Images
           </Heading>
           <SimpleGrid
