@@ -4,6 +4,7 @@ import ResidencySectionTwo from '../../Components/ResidencyRelated/ResidencySect
 import ResidencySectionThree from '../../Components/ResidencyRelated/ResidencySectionThree'
 import ResidencyMatterSection from '../../Components/ResidencyRelated/ResidencyMatterSection'
 import ResidencyHeader from '../../Components/ResidencyRelated/ResidencyHeader'
+import ResidencyCardsSection from '../../Components/ResidencyRelated/ResidencyCardsSection'
 
 const Recidency = () => {
   return (
@@ -13,6 +14,7 @@ const Recidency = () => {
      <ResidencyMatterSection />
      <ResidencySectionTwo />
      <ResidencySectionThree />
+     <ResidencyCardsSection />
     </>
   )
 }
