@@ -100,24 +100,17 @@ const SecretofSuccessSection4 = () => {
         }
       );
     } else {
-      gsap.to(
+      gsap.fromTo(
         Animatedcircle.current,
         {
-          duration:2,
-          motionPath:{
-            path:'Animatedcircle',
-            autoRotate:'true'
-          }
-
-          
-         /*  opacity: 1,
+          opacity: 1,
           transform: (i) =>
             `rotate(-${i * 60 + 90}deg) translate(100px) rotate(${
               i * 60 + 90
-            }deg)`, */
+            }deg)`,
         },
        
-        /* {
+        {
           rotate: "360deg",
           opacity: 1,
           ScrollTrigger:{
@@ -131,7 +124,7 @@ const SecretofSuccessSection4 = () => {
             }deg)`,
           duration: 2,
           ease: "power2.out",
-        } */
+        }
       );
     }
   });
@@ -140,7 +133,7 @@ const SecretofSuccessSection4 = () => {
     {
       name: "Self Realization",
       text: "True self-realization begins when one understands their eternal relationship with the Divine.",
-    }/* ,
+    } ,
     {
       name: "Knowledge",
       text: "True knowledge is not just information, but the understanding and wisdom to apply it for the greater good.",
@@ -160,7 +153,7 @@ const SecretofSuccessSection4 = () => {
     {
       name: "Discipline",
       text: "Discipline is the foundation upon which success is built.",
-    }, */
+    }, 
   ];
   const handleMouseEnter = (text, index) => {
     setHoveredText(text);
