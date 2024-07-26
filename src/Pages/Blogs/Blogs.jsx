@@ -1,8 +1,10 @@
 import React from 'react'
-
+import BlogsSection1 from '../../Components/BlogsRelated/BlogsSection1';
 const Blogs = () => {
   return (
-    <div>Blogs</div>
+   <>
+   <BlogsSection1/>
+   </>
   )
 }
 

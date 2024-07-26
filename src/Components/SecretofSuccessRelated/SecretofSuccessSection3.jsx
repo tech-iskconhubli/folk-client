@@ -8,7 +8,7 @@ const SecretofSuccessSection3 = () => {
   return (
     <>
     <Box mt='50px'>
-      <Box textAlign="center" mb='50px' fontSize="3rem">
+      <Box textAlign="center" mb='50px' fontSize={{base:'1.5rem',md:'2rem',lg:'2.5rem'}}>
         Wisdom of Success from the Gita
       </Box>
       <Box
