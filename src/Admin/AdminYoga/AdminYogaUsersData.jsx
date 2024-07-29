@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Text, Flex, Input, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from '@chakra-ui/react';
+import { Table, Text, Flex, Input, TableContainer, Thead, Tbody, Tr, Th, Td, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon, Select } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import {  getYogaFormData } from '../../Redux/app/action';
 import KrishnaSpinner from '../Spinner/KrishnaSpinner';
@@ -16,7 +16,7 @@ const AdminYogaUsersData = () => {
     const [nameFilter, setNameFilter] = useState("");
     const [dateFilter, setDateFilter] = useState("");
     const [filteredData, setFilteredData] = useState(store);
-
+    const [attendance,setAttendance] = useState(false);
     useEffect(() => {
         dispatch(getYogaFormData());
     }, [dispatch, refresh]);
@@ -56,6 +56,14 @@ const AdminYogaUsersData = () => {
         setDateFilter(e.target.value);
     };
 
+    const handleAttendance =(id,e)=>{
+        console.log(e.target.value, id)
+    }
+
+
+    console.log(store ,"store")
+
+
     return (
         <>
             {loading && <KrishnaSpinner/>}
@@ -77,34 +85,46 @@ const AdminYogaUsersData = () => {
                             <Th>Name</Th>
                             <Th>Email</Th>
                             <Th>Number</Th>
-                            <Th>Age</Th>
-                            <Th>Collage or Company</Th>
-                            {/* <Th>Branch</Th>
-                            <Th>Price</Th> */}
+                            <Th>Attendance</Th>
+                            {/* <Th>Price</Th> */}
                             <Td pl={"30px"}></Td>
                         </Tr>
                     </Thead>
                     <Tbody fontSize={"14px"} fontWeight={"400"}>
-                        {filteredData?.map((item, index) => (
-                            <Tr key={item.id}>
-                                <Td>{index + 1}</Td>
-                                <Td>{item.createdAt?.split("T")[0]}</Td>
-                                <Td>{item.name}</Td>
-                                <Td>{item.email}</Td>
-                                <Td>{item.watsAppNumber}</Td>
-                                <Td>{item.age}</Td>
-                                <Td>{item.collageOrCompany}</Td>
-                                {/* <Td>{item.branch}</Td>
-                                <Td>{item.price}</Td> */}
-                                <Td>
-                                    <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>View</Button>
-                                </Td>
-                                {/* Uncomment the following lines if edit and delete functionality is needed */}
-                                {/* <Link to={`/admin/yoga/data/edit/${item._id}`}><Td><Button fontSize={"14px"} fontWeight={"400"} color={"blue"}>Edit</Button></Td></Link> */}
-                                {/* <Td><Button onClick={()=>deleteHandler(item._id)} fontSize={"14px"} fontWeight={"400"} color={"red"}>Delete</Button></Td> */}
-                            </Tr>
-                        ))}
-                    </Tbody>
+    {filteredData?.map((item, index) => (
+        <Tr key={item._id}>
+            <Td>{index + 1}</Td>
+            <Td>{item.createdAt?.split("T")[0]}</Td>
+            <Td>{item.name}</Td>
+            <Td>{item.email}</Td>
+            <Td>{item.watsAppNumber}</Td>
+            <Td>
+                {item.attendance.length > 0 ? (
+                    item.attendance.map((att, i) => (
+                        <Text key={i} color={att.status ? "green" : "red"}>
+                            {att.status ? 'Attend' : 'Absent'}
+                        </Text>
+                    ))
+                ) : (
+                    <Text>No attendance data</Text>
+                )}
+            </Td>
+            <Td>
+                <Select onChange={(e) => { handleAttendance(item._id, e) }} placeholder='status'>
+                    <option value="true">Attend</option>
+                    <option value="false">Absent</option>
+                </Select>
+            </Td>
+            <Td>
+                <Button onClick={() => handleViewClick(item)} fontSize={"14px"} fontWeight={"400"} color={"green"}>
+                    View
+                </Button>
+            </Td>
+           
+        </Tr>
+    ))}
+</Tbody>
+
                 </Table>
             </TableContainer>
 
@@ -151,7 +171,7 @@ const AdminYogaUsersData = () => {
                                 <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
                                     <Text flex="0 0 200px"><strong>Branch</strong></Text>
                                     <Text flex="0 0 20px" textAlign="center">:</Text>
-                                    <Text flex="1" color="gray">{selectedItem.branch}</Text>
+                                    <Text flex="1" color="gray">{selectedItem.BranchOfYear}</Text>
                                 </Flex>
                                 <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
                                     <Text flex="0 0 200px"><strong>Price</strong></Text>

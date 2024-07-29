@@ -151,7 +151,7 @@ const AdminSecretUsersData = () => {
                                 <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
                                     <Text flex="0 0 200px"><strong>Branch</strong></Text>
                                     <Text flex="0 0 20px" textAlign="center">:</Text>
-                                    <Text flex="1" color="gray">{selectedItem.branch}</Text>
+                                    <Text flex="1" color="gray">{selectedItem.BranchOfYear}</Text>
                                 </Flex>
                                 <Flex fontSize="20px" fontWeight="500" mb="10px" borderBottom="1px solid #E2E8F0" p="10px" alignItems="center">
                                     <Text flex="0 0 200px"><strong>Price</strong></Text>
