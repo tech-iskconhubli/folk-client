@@ -17,7 +17,7 @@ const BlogContent = () => {
   }
   return (
     <>
-      <Box mt={{ base: "100px", md: "100px", lg: "150px" }}>
+      <Box mt='100px'>
         <Box display="flex" alignItems="center" justifyContent="center">
           <Box w={{base:'95%',md:'70%',lg:'60%',xl:'50%'}} mt={{base:'10px',md:'20px',lg:'30px',xl:'30px'}} fontFamily={theme.fonts.body}>
             <Box
@@ -26,6 +26,7 @@ const BlogContent = () => {
               justifyContent="flex-start"
               gap="20px"
             >
+              {/* blogtitle */}
               <Box
                 color={theme.colors.col.text}
                 fontFamily={theme.fonts.heading}
@@ -39,6 +40,7 @@ const BlogContent = () => {
                 alignItems="center"
                 gap="20px"
               >
+               {/*  bloguserdetails */}
                 <Box
                   w="60px"
                   h="60px"
@@ -54,6 +56,7 @@ const BlogContent = () => {
                 </Box>
               </Box>
               <hr />
+              {/* blogreactions */}
               <Box
                 fontSize="25px"
                 display="flex"
@@ -67,6 +70,7 @@ const BlogContent = () => {
                 <Box> <FaRegComment /></Box>
               </Box>
               <hr />
+              {/* blogimage and text */}
               <Box textAlign="justify">
                 <Box w={{base:'100%',md:'100%',lg:'100%'}} h='50vh' backgroundImage={blogimage} backgroundsize='cover' backgroundPosition='center' mb='30px' backgroundRepeat='no-repeat'></Box>
                 <Text>
