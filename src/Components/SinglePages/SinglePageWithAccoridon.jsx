@@ -57,7 +57,7 @@ const SinglePageWithAccoridon = () => {
           bgPosition="center"
           bgRepeat="no-repeat"
           bgSize="cover"
-          height={["50vh", "50vh", "60vh", "80vh"]}
+          height={["50vh", "50vh", "60vh", "75vh"]}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -66,6 +66,7 @@ const SinglePageWithAccoridon = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           position={"relative"}
+          mt={['6rem']}
         >
           <Box
             bg="rgba(0, 0, 0, 0.5)"

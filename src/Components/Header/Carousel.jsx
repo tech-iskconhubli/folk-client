@@ -1,18 +1,26 @@
 
 import React, { useEffect, useState } from 'react'
 import { Box} from '@chakra-ui/react'
+import HeaderImageOne from '../../Assets/HomePageImages/HeaderImages/Header-Image-One.jpg';
+import HeaderImageTwo from '../../Assets/HomePageImages/HeaderImages/Header-Image-Two.jpg';
+import HeaderImageThree from '../../Assets/HomePageImages/HeaderImages/Header-Image-Three.jpg';
+import HeaderImageFour from '../../Assets/HomePageImages/HeaderImages/Header-Image-Four.jpg';
+import HeaderImageFive from '../../Assets/HomePageImages/HeaderImages/Header-Image-Five.jpg';
+import HeaderImageSix from '../../Assets/HomePageImages/HeaderImages/Header-Image-Six.jpg';
+import HeaderImageSeven from '../../Assets/HomePageImages/HeaderImages/Header-Image-Seven.jpg';
+
+
 const Carousel = () => {
     let [current,setCurrent] = useState(0);
 
     const HeaderImages = [
-      "https://folknet.in/wp-content/uploads/2021/04/Value-Banner.jpg",
-      "https://folknet.in/wp-content/uploads/2018/04/Main-Slider.jpg",
-      "https://folknet.in/wp-content/uploads/2018/04/Slide-2.jpg",
-      "https://folknet.in/wp-content/uploads/2018/04/Slide-3-2.jpg",
-      "https://folknet.in/wp-content/uploads/2018/04/Slide-4-2.jpg",
-      "https://folknet.in/wp-content/uploads/2018/04/Slide-5-2.jpg",
-      "https://folknet.in/wp-content/uploads/2018/04/Slide-1-2.jpg"
-  
+      HeaderImageOne,
+      HeaderImageTwo,
+      HeaderImageThree,
+      HeaderImageFour,
+      HeaderImageFive,
+      HeaderImageSix,
+      HeaderImageSeven
     ]
     useEffect(()=>{
        setTimeout(() => {
@@ -30,8 +38,8 @@ const Carousel = () => {
      sm:'29vh',
      md:'35vh',
      lg:'45vh',
-     xl:'70vh'
-   }}>
+     xl:'75vh'
+   }}  mt={['6rem']} >
        <Box className='slider-container' w="100%" h="100%" position="relative">
             {HeaderImages.map((image,index)=>(
              <Box className={index === current ? 'slider-image slider-image-active' : 'slider-image'} key={index} position={'absolute'} w={'100%'} h='100%'  objectFit='cover'>

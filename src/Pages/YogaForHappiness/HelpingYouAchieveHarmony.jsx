@@ -2,6 +2,7 @@ import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HelpYouAchieveImage from '../../Assets/YogaPageImages/HelpYouAchieveImage/Help_You_Achieve_Image.webp'
 import gsap from "gsap";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +36,7 @@ const HelpingYouAchieveHarmony = () => {
         backgroundAttachment={"fixed"}
         bgRepeat={"no-repeat"}
         bg={
-          "url(https://ideogram.ai/assets/image/lossless/response/J48iJ4LrQpe22_CoUwdmTA)"
+          `url(${HelpYouAchieveImage})`
         }
         h={"100%"}
         w={"100%"}

@@ -3,6 +3,7 @@ import { Box, Text, Flex, VStack, Button } from "@chakra-ui/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Link } from 'react-router-dom';
+import theme from "../../theme";
 
 const festivals = [
   {
@@ -78,14 +79,18 @@ const FestivalHeader = () => {
 
     const interval = setInterval(rotateSlides, 5000);
 
-    return () => clearInterval(interval);
+     return function () {
+           tl.kill();
+           clearInterval(interval);
+     }
+    
   }, []);
 
   return (
     <Flex
       w={"100%"}
       h={["30vh", "40vh", "50vh", "75vh", "90vh"]}
-      mt={["7rem", "7rem", "7rem", "10rem", "9rem"]}
+      mt={['6rem']}
       alignItems="center"
       justifyContent="center"
       position="relative"
@@ -118,7 +123,7 @@ const FestivalHeader = () => {
         alignItems={"start"}
         flexDirection={"column"}
         position={'relative'}
-        bgColor={"rgb(0,0,0,0.6)"}
+        bgColor={"rgb(0,0,0,0.65)"}
         w={"100%"}
         h={"100%"}
         color={"white"}
@@ -132,14 +137,14 @@ const FestivalHeader = () => {
             className="yoga-heading"
             fontSize={['1.2rem','2rem','3rem','3.5rem','5rem']}
             lineHeight={['2rem','2.8rem','3.7rem','4.8rem','6rem']}
-            fontWeight={"600"}
+            fontWeight={"500"}
             display={"inline-block"}
-            
+            fontFamily={theme.fonts.body}
           >
            {festival.title}
           </Box>
           <Box >
-            <Text fontSize={["0.6rem","0.7rem",'0.9rem','1rem','1.1rem','1.2rem']}  display={"inline-block"} lineHeight={['1rem','1.2rem','1.5rem','1.7rem','2rem']}>
+            <Text fontWeight={'300'} fontFamily={theme.fonts.body} fontSize={["0.6rem","0.7rem",'0.9rem','1rem','1.1rem','1.2rem']}  display={"inline-block"} lineHeight={['1rem','1.2rem','1.5rem','1.7rem','2rem']}>
             {festival.description}
             </Text>
           </Box>

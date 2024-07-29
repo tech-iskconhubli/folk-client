@@ -41,16 +41,17 @@ const SinglePage = () => {
   const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
 
   return (
-    <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "2"]}>
+    <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "0",'2']}>
       {/* Background Image with Heading */}
       <MotionBox
         bgImage={`url(${img[0]})`}
         w={"100%"}
-        borderRadius={{ lg: "10px" }}
+        borderRadius={{ xl: "10px" }}
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover"
-        height={["50vh", "50vh", "60vh", "80vh"]}
+        height={["50vh", "50vh", "60vh", "80vh",'85vh']}
+        mt={{base:'6rem',xl:'7rem'}}
         display="flex"
         alignItems="center"
         justifyContent="center"

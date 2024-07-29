@@ -16,6 +16,7 @@ import theme from "../../theme";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionThreeImage from '../../Assets/ResidencyPageImages/ResidencySectionThreeImages/Residency_House.jpg'
 gsap.registerPlugin(ScrollTrigger);
 
 const ResidencySectionTwo = () => {
@@ -79,7 +80,7 @@ const ResidencySectionTwo = () => {
               h={"100%"}
               objectFit={"cover"}
               borderRadius={"5px"}
-              src="https://folknet.in/wp-content/uploads/2018/04/House-1.jpg"
+              src={SectionThreeImage}
             />
           </Box>
 

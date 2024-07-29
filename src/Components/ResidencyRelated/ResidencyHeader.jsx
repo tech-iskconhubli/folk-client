@@ -1,58 +1,20 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-
+import theme from "../../theme";
+import ResidencyHeaderImage from '../../Assets/ResidencyPageImages/ResidencyHeaderImage/ResidencyHeaderImage.jpeg'
 
 const ResidencyHeader = () => {
 
-
-    const mainHeading = useRef(null);
-  const matter = useRef(null);
-  const button = useRef(null);
-  
-
-  // Hero Section Animation
-  useGSAP(()=>{
-     const tl = gsap.timeline();
-    
-     tl.from(mainHeading.current,{
-       y:-100,
-       opacity:0,
-       duration:0.5,
-       ease: 'power1.inOut',
-     })
-     tl.from(matter.current,{
-      y:-100,
-       opacity:0,
-       duration:0.5,
-       ease: 'power1.inOut',
-     })
-     tl.from(button.current,{
-       scale:0,
-       opacity:0,
-       duration:0.5,
-       ease: 'power1.inOut',
-     });
-     return () => {
-      tl.kill();
-    };
-
-  },[])
-
-
-
-
   return (
     <Box
-    style={{ backgroundImage: `url(https://ideogram.ai/assets/progressive-image/balanced/response/Exq-7VCJRYieKEUqqhCYAg)` }}
+    style={{ backgroundImage: `url(${ResidencyHeaderImage})` }}
     w={"100%"}
     h={["30vh", "40vh", "50vh", "75vh", "90vh"]}
     bgRepeat={"no-repeat"}
     bgSize={"cover"}
     bgPosition={"center bottom"}
-    mt={['7rem','7rem','7rem','10rem','9rem']}
+    mt={['6rem']}
   >
     <Box
       gap={['0.5rem','0.6rem','0.8rem','1rem']}
@@ -60,7 +22,7 @@ const ResidencyHeader = () => {
       justifyContent={"center"}
       alignItems={"start"}
       flexDirection={"column"}
-      bgColor={"rgb(0,0,0,0.60)"}
+      bgColor={"rgb(0,0,0,0.65)"}
       w={"100%"}
       h={"100%"}
       color={"white"}
@@ -74,14 +36,14 @@ const ResidencyHeader = () => {
           className="yoga-heading"
           fontSize={['1.2rem','2rem','3rem','3.5rem','5rem']}
           lineHeight={['2rem','2.8rem','3.7rem','4.8rem','6rem']}
-          fontWeight={"600"}
+          fontWeight={"500"}
+          fontFamily={theme.fonts.body}
           display={"inline-block"}
-          ref={mainHeading}
         >
          Experience Tranquil Residency
         </Box>
-        <Box ref={matter}>
-          <Text fontSize={["0.6rem","0.7rem",'0.9rem','1rem','1.1rem','1.2rem']}  display={"inline-block"} lineHeight={['1rem','1.2rem','1.5rem','1.7rem','2rem']}>
+        <Box>
+          <Text fontWeight={'300'} fontFamily={theme.fonts.body} fontSize={["0.6rem","0.7rem",'0.9rem','1rem','1.1rem','1.2rem']}  display={"inline-block"} lineHeight={['1rem','1.2rem','1.5rem','1.7rem','2rem']}>
           Discover peaceful living at our Hare Krishna movement residencies. Immerse yourself in a community that values spirituality, simplicity, and holistic well-being. Our serene accommodations offer a sanctuary for personal growth and contemplation, surrounded by lush gardens and tranquil atmospheres. Join us in embracing a lifestyle enriched by meditation, yoga, and timeless wisdom.
           </Text>
         </Box>
@@ -89,7 +51,7 @@ const ResidencyHeader = () => {
         </VStack>
 
 
-      <Box  ref={button}> 
+      <Box> 
       <Link to={'/singlePage'}> 
         <Button
          

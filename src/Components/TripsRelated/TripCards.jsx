@@ -5,11 +5,9 @@ import {
   CardBody,
   CardFooter,
   Container,
-  Flex,
   HStack,
   Image,
   SimpleGrid,
-  Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -19,6 +17,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
+import TripCards2 from "./TripCards2";
 gsap.registerPlugin(ScrollTrigger);
 
 const tripsImages = [
@@ -53,33 +52,7 @@ const tripsImages = [
 ];
 
 const TripCards = () => {
-  const flexContainer = useRef(null);
-  const matterContainer = useRef(null);
-
-
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: flexContainer.current,
-        start: "top 90%",
-        end: "bottom 90%",
-      },
-    });
-
-    tl.from(matterContainer.current.children, {
-      y: 200,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.3,
-    });
-
-    return () => {
-      tl.kill();
-    };
-  }, []);
-
-
-   
+ 
   const gridContainer = useRef();
 
    useGSAP(()=>{
@@ -117,85 +90,49 @@ const TripCards = () => {
         "none",
         "linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, #DF8C38 50%)",
       ]}
+      py={{base:'0',xl:'5rem'}}
     >
       <Container
-        w={["100%", "100%", "100%", "90%"]}
+        w={["100%", "100%", "100%", "90%",'98%']}
         maxW="1500px"
         marginX="auto"
         overflow={"hidden"}
+        display={'flex'}
+        flexDirection={'column'}
+        gap={'5rem'}
       >
-        {/* Flex Container */}
-        <Flex
-          ref={flexContainer}
-          flexDirection={["column", "column", "column", "column", "row"]}
-          p={["0", "0.9rem", "0rem", "2rem"]}
-          alignItems={"center"}
-          gap={{base:'2.5rem',xl:'3rem'}}
+        <VStack alignItems={'flex-start'} gap={'2rem'}>
+        <HStack
+          w={['100%','90%','100%']}
+          mx={'auto'}
+          justifyContent={["space-between"]}
+          gap={["1rem"]}
+          alignItems={"flex-end"}
         >
-          {/* Matter Container */}
-
           <Box
-            w={["100%", "100%", "90%", "100%", "40%"]}
-            p={["0.8rem", "0.8rem", "0.8rem", "0.8rem", "0"]}
+            fontSize={["1.5rem", "1.5rem", "1.8rem", "2.5rem"]}
+            fontWeight={"600"}
+            color={theme.colors.col.secondary}
           >
-            <Box
-              ref={matterContainer}
-              display={"flex"}
-              flexDirection={"column"}
-              gap={["1.2rem", "1.2rem", "1.3rem", "1.3rem", "1.5rem"]}
-              alignItems={"flex-start"}
-            >
-              <Box
-                color={theme.colors.col.secondary}
-                fontSize={["0.9rem", "0.9rem", "1rem"]}
-                fontWeight={"bold"}
-              >
-                Discover Sacred Destinations
-              </Box>
-
-              <Box
-                fontWeight={"bold"}
-                lineHeight={["auto", "auto", "auto", "auto", "4rem"]}
-                display={"flex"}
-                alignItems={"center"}
-                gap={["0.2rem"]}
-                fontSize={["1.5rem", "1.6rem", "2rem", "2.5rem", "2.5rem"]}
-              >
-                Explore Spiritual Tranquility
-              </Box>
-
-              <Text
-                lineHeight={["1.5rem", "1.5rem", "1.9rem", "2rem"]}
-                fontSize={["0.8rem", "0.9rem", "0.9rem", "0.9rem"]}
-              >
-                Embark on a profound pilgrimage experience with us. Our temple
-                trips are meticulously designed to enrich your soul and connect
-                you with ancient traditions and spiritual serenity. Whether you
-                seek solace in quiet prayer or wish to marvel at the intricate
-                beauty of historic temples, our carefully planned journeys cater
-                to every aspect of your spiritual adventure. Join us on a
-                transformative expedition where spirituality meets exploration,
-                and where each temple visit becomes a cherished memory. Start
-                your journey today and discover the peace and tranquility that
-                temple travel can bring.
-              </Text>
-
-              <Box>
-                <Button
-                  colorScheme="orange"
-                  fontSize={["0.8rem", "0.8rem", "0.9rem"]}
-                  display={"inline-block"}
-                >
-                  View More
-                </Button>
-              </Box>
-            </Box>
+            PAST TEMPLE VISITS
           </Box>
+          <Box>
+            <Button
+              size={["sm", "sm", "md",'lg']}
+              fontSize={["0.8rem", "0.8rem", "0.9rem"]}
+               bg={{base:theme.colors.col.secondary,xl:'white'}}
+               color={{base:'white',xl:theme.colors.col.secondary}}
+            >
+              View all
+            </Button>
+          </Box>
+        </HStack>
+
 
           {/* Card Container */}
-        <Box  w={["100%", "100%", "100%", "100%", "60%"]}>
+          <Box  w={["100%",'80%','100%']} mx={'auto'}>
           <SimpleGrid
-            columns={['1','1','2']}
+            columns={['1','1','2','2','4']}
             spacing={['5']}
             ref={gridContainer} 
           >
@@ -304,7 +241,11 @@ const TripCards = () => {
 
           </SimpleGrid>
         </Box>
-        </Flex>
+        </VStack>
+
+        <VStack>
+            <TripCards2 />
+        </VStack>
       </Container>
     </Box>
   );

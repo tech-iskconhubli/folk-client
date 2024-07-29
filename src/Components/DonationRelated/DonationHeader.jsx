@@ -1,59 +1,21 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
-
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 import { Link } from "react-router-dom";
+import theme from "../../theme";
+import DonationHeaderImage from '../../Assets/DonationPageImages/DonationHeaderImage/Donation_Header.webp'
 
 
 const DonationHeader = () => {
-
-      
-  const mainHeading = useRef(null);
-  const matter = useRef(null);
-  const button = useRef(null);
-  
-
-  // Hero Section Animation
-  useGSAP(()=>{
-     const tl = gsap.timeline();
-    
-     tl.from(mainHeading.current,{
-       y:-100,
-       opacity:0,
-       duration:0.5,
-       ease: 'power1.inOut',
-     })
-     tl.from(matter.current,{
-      y:-100,
-       opacity:0,
-       duration:0.5,
-       ease: 'power1.inOut',
-     })
-     tl.from(button.current,{
-       scale:0,
-       opacity:0,
-       duration:0.5,
-       ease: 'power1.inOut',
-     });
-     return () => {
-      tl.kill();
-    };
-
-  },[])
-
-
-
-
   return (
     <Box
-      style={{ backgroundImage: `url(https://ideogram.ai/assets/image/lossless/response/DgX1dK88QFyaHBsBV7Xl9A)` }}
+      style={{ backgroundImage: `url(${DonationHeaderImage})` }}
       w={"100%"}
       h={["30vh", "40vh", "50vh", "75vh", "90vh"]}
       bgRepeat={"no-repeat"}
       bgSize={"cover"}
       bgPosition={"center bottom"}
-      mt={['7rem','7rem','7rem','10rem','9rem']}
+      mt={['6rem']}
+    
     >
       <Box
         gap={['0.5rem','0.6rem','0.8rem','1rem']}
@@ -61,7 +23,7 @@ const DonationHeader = () => {
         justifyContent={"center"}
         alignItems={"start"}
         flexDirection={"column"}
-        bgColor={"rgb(0,0,0,0.60)"}
+        bgColor={"rgb(0,0,0,0.65)"}
         w={"100%"}
         h={"100%"}
         color={"white"}
@@ -75,14 +37,14 @@ const DonationHeader = () => {
             className="yoga-heading"
             fontSize={['1.2rem','2rem','3rem','3.5rem','5rem']}
             lineHeight={['2rem','2.8rem','3.7rem','4.8rem','6rem']}
-            fontWeight={"600"}
+            fontWeight={"500"}
             display={"inline-block"}
-            ref={mainHeading}
+            fontFamily={theme.fonts.body}
           >
            Support Our Mission of Love and Service
           </Box>
-          <Box ref={matter}>
-            <Text fontSize={["0.6rem","0.7rem",'0.9rem','1rem','1.1rem','1.2rem']}  display={"inline-block"} lineHeight={['1rem','1.2rem','1.5rem','1.7rem','2rem']}>
+          <Box>
+            <Text fontFamily={theme.fonts.body} fontSize={["0.6rem","0.7rem",'0.9rem','1rem','1.1rem','1.2rem']} fontWeight={'300'}  display={"inline-block"} lineHeight={['1rem','1.2rem','1.5rem','1.7rem','2rem']}>
             "Join us in spreading joy and spirituality through the teachings of the Hare Krishna movement. Your generous donation fuels our efforts to promote peace, compassion, and cultural understanding worldwide. Together, we nurture hearts and minds, embodying the spirit of devotion and service to humanity."
             </Text>
           </Box>
@@ -90,7 +52,7 @@ const DonationHeader = () => {
           </VStack>
 
 
-        <Box  ref={button}> 
+        <Box> 
         <Link to={'/singlePage'}> 
           <Button
            
