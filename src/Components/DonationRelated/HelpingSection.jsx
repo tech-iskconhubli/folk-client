@@ -1,6 +1,5 @@
 import { Box, Container, Flex, Image } from "@chakra-ui/react";
 import theme from "../../theme";
-import { useTheme } from "@emotion/react";
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -10,58 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HelpingSection = () => {
 
-    const flexContainerRef = useRef(null);
-    const BoxOneHeadingRef = useRef(null);
-    const BoxOneImageRef = useRef(null);
-    const BoxOneImgRef = useRef(null);
-    const BoxTwoRef = useRef(null);
-      
-
-    useGSAP(()=>{
-         const tl = gsap.timeline({
-            scrollTrigger:{
-                trigger:flexContainerRef.current,
-                start:'top 90%',
-                end:'bottom 90%'
-            }
-         });
-
-         tl.from(BoxOneImageRef.current,{
-             scale:0,
-             opacity:0,
-             duration:0.5,
-             ease: "power1.inOut",
-         });
-         tl.from(BoxOneImgRef.current,{
-             scale:0,
-             opacity:0,
-             duration:0.4,
-             ease: "power1.inOut",
-         });
-         tl.from(BoxOneHeadingRef.current,{
-             x:'100',
-             opacity:0,
-             duration:0.5,
-             ease: "power1.inOut",
-         });
-
-         tl.from(BoxTwoRef.current.children,{
-            x:100,
-            duration:0.5,
-            ease: "power1.inOut",
-            stagger:0.3,
-            opacity:0
-         });
-
-
-
-         return ()=>{
-             tl.kill();
-         }
-
-    },[])
-
- 
+  
 
 
 
@@ -82,7 +30,7 @@ const HelpingSection = () => {
            h={['auto','auto','auto','500px']}
            gap={['1rem','1rem','1rem','1.5rem','1rem']}
            p={['0','0','1rem']}
-           ref={flexContainerRef}
+          
         >
 
             {/* Box One */}
@@ -90,13 +38,13 @@ const HelpingSection = () => {
           
 
           {/* Heading */}
-            <Box ref={BoxOneHeadingRef} color={theme.colors.col.secondary} textAlign={['left','left','left','left','right']} display={['inline-block','inline-block','none','inline-block']} position={['relative','relative','relative','relative','absolute']} right={['','','','','20%']} top={['','','','','9%']} zIndex={'10'}>
+            <Box color={theme.colors.col.secondary} textAlign={['left','left','left','left','right']} display={['inline-block','inline-block','none','inline-block']} position={['relative','relative','relative','relative','absolute']} right={['','','','','20%']} top={['','','','','9%']} zIndex={'10'}>
               <Box fontSize={['3rem','3rem','3rem','4rem','5rem']} fontWeight={'bold'} lineHeight={['2rem','2rem','2rem','3rem','4rem']}>1995</Box>
               <Box fontWeight={'bold'} fontSize={['0.7rem','0.7rem','0.7rem','0.9rem','1rem']} letterSpacing={['.1rem']}>HELPING SINCE</Box>
             </Box>
             
             {/* Box One Image */}
-            <Box ref={BoxOneImageRef} display={['none','none','none','block']} w={['100%','100%','100%','250px','350px']} h={["300px",'350px','300px','250px','400px']} position={['relative','relative','relative','absolute']} top={['','','','15%','20%']} left={['','','','0','15%']}>
+            <Box  display={['none','none','none','block']} w={['100%','100%','100%','250px','350px']} h={["300px",'350px','300px','250px','400px']} position={['relative','relative','relative','absolute']} top={['','','','15%','20%']} left={['','','','0','15%']}>
               <Image
                 objectFit={"cover"}
                 objectPosition={'center'}
@@ -107,7 +55,7 @@ const HelpingSection = () => {
             </Box>
            
              {/* Box Two Image */}
-            <Box ref={BoxOneImgRef} w={["100%",'100%','100%','250px','350px']} h={["300px",'350px','300px','250px','400px']} zIndex={'10'} position={['relative','relative','relative','absolute']} top={['','','','50%','70%']} left={['','','','40%','50%']}>
+            <Box  w={["100%",'100%','100%','250px','350px']} h={["300px",'350px','300px','250px','400px']} zIndex={'10'} position={['relative','relative','relative','absolute']} top={['','','','50%','70%']} left={['','','','40%','50%']}>
               <Image
                objectFit={"cover"}
                objectPosition={'center'}
@@ -121,7 +69,7 @@ const HelpingSection = () => {
          
 
          {/* Box Two  */}
-          <Box ref={BoxTwoRef} w={['100%','80%','50%','50%','48%']} mx={'auto'} display={'flex'} flexDirection={'column'}  justifyContent={['center','center','space-between','center','center']} px={['0.5rem','0','0','0','2rem']} py={['0.5rem']} gap={['0.5rem','0.5rem','0','0.5rem','1rem']}>
+          <Box  w={['100%','80%','50%','50%','48%']} mx={'auto'} display={'flex'} flexDirection={'column'}  justifyContent={['center','center','space-between','center','center']} px={['0.5rem','0','0','0','2rem']} py={['0.5rem']} gap={['0.5rem','0.5rem','0','0.5rem','1rem']}>
           
           {/* Box Two heading */}
           <Box color={theme.colors.col.secondary} textAlign={['left']} display={['none','none','inline-block','none']} position={['relative']} right={['']} top={['']} zIndex={'10'}>

@@ -4,6 +4,7 @@ import theme from "../../theme";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionTwoImage from '../../Assets/ResidencyPageImages/ResidencySectionTwoImages/Residency_Section_Two_Image.jpg'
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -153,7 +154,7 @@ const ResidencySectionOne = () => {
              <Box w={['100%','100%','100%','100%','45%']}  h={'100%'}>
                 <Flex flexDirection={'column'} gap={['1rem']}>
                    <Box ref={imageContainerRef} w={['100%']} h={['300px','350px','400px','500px','500px']} borderRadius={'10px'} overflow={'hidden'}>
-                     <Image w={'100%'} h={'100%'} borderRadius={'10px'} objectFit={'cover'} src='https://folknet.in/wp-content/uploads/2018/04/Residency-1.jpg' />
+                     <Image w={'100%'} h={'100%'} borderRadius={'10px'} objectFit={'cover'} src={SectionTwoImage}/>
                    </Box>
 
                    <Box ref={matterContainerRef} bgColor={'rgb(245, 247, 248)'} p={['2rem','2rem','2rem','2rem','2.2rem']} borderRadius={'10px'} display={'flex'}  flexDirection={'column'} gap={['1.5rem','1.5rem','1.5rem','1.5rem','2rem']} textAlign={'center'}>

@@ -3,9 +3,12 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import theme from "../../theme"
 import { useTheme } from "@emotion/react";
+import ImageOne from '../../Assets/HomePageImages/SectionTwoImages/Section_Two_Image_One.png'
+import ImageTwo from '../../Assets/HomePageImages/SectionTwoImages/Section_Two_Image_Two.png'
+import ImageThree from '../../Assets/HomePageImages/SectionTwoImages/Section_Two_Image_Three.png'
 gsap.registerPlugin(ScrollTrigger);
+
 
 const ZSpiralImages = () => {
   const container1 = useRef(null);
@@ -119,7 +122,7 @@ const ZSpiralImages = () => {
               overflow="hidden"
             >
               <Image
-                src="https://backofficeapi.neuro-flash.com/api/v1/image-generations/e574979ecc19b5b4915ee1c79f8adca2/view"
+                src={ImageOne}
                 alt="Connecting Community Image"
                 borderRadius="10px"
                 objectFit="cover"
@@ -223,7 +226,7 @@ const ZSpiralImages = () => {
               overflow="hidden"
             >
               <Image
-                src="https://backofficeapi.neuro-flash.com/api/v1/image-generations/68d91471a062680f289f277df837a866/view"
+                src={ImageTwo}
                 alt="Connecting Community Image"
                 borderRadius="10px"
                 objectFit="cover"
@@ -258,7 +261,7 @@ const ZSpiralImages = () => {
               overflow="hidden"
             >
               <Image
-                src="https://backofficeapi.neuro-flash.com/api/v1/image-generations/b424f29a9ab23f3992c2180733358e74/view"
+                src={ImageThree}
                 alt="Connecting Community Image"
                 borderRadius="10px"
                 objectFit="cover"
