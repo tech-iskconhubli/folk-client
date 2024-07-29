@@ -173,7 +173,7 @@ const Navbar = () => {
             src={logo}
             alt="FOLK"
             height="60px"
-            width={{ base: "250px", md: "300px", lg: "300px", xl: "300px" }}
+            width={{ base: "200px", md: "200px", lg: "200px", xl: "200px" }}
             ml={{ base: "10px", md: "100px", lg: "0", xl: "0" }}
             mr={{ base: "0", md: "0", lg: "10px", xl: "20px" }}
           />
