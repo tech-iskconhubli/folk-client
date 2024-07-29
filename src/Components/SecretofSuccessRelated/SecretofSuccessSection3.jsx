@@ -14,7 +14,7 @@ const SecretofSuccessSection3 = () => {
         justifyContent="center"
         alignItems="center"
       >
-
+          {/* wisdomSection */}
         <Box
           w={{ base: "90%", md: "95%", lg: "80%", xl: "65%" }}
           display="flex"
@@ -25,6 +25,7 @@ const SecretofSuccessSection3 = () => {
           <Box  mt='70px'>
         <Heading fontSize={{base:'2rem',md:'3rem'}}>Wisdom of Success from the <span style={{color:theme.colors.col.text}}>Gita</span></Heading>
           </Box>
+          {/* quote1 */}
           <Box
             display="flex"
             flexDirection={{
@@ -38,6 +39,7 @@ const SecretofSuccessSection3 = () => {
             w="100%"
             gap={{ base: "none", md: "1%", lg: "3%", xl: "3%" }}
           >
+            {/* image */}
             <Box
               w={{ base: "100%", md: "30%", lg: "30%", xl: "30%" }}
               h="235px"
@@ -47,6 +49,7 @@ const SecretofSuccessSection3 = () => {
               backgroundSize="cover"
               backgroundPosition="center"
             ></Box>
+            {/* text */}
             <Box
               w={{ base: "100%", md: "60%", lg: "60%", xl: "60%" }}
               h="235px"
@@ -96,6 +99,8 @@ const SecretofSuccessSection3 = () => {
             </Box>
           </Box>
 
+          {/* quote2 */}
+
           <Box
             display="flex"
             flexDirection={{
@@ -109,6 +114,7 @@ const SecretofSuccessSection3 = () => {
             w="100%"
             gap={{ base: "none", md: "1%", lg: "3%", xl: "3%" }}
           >
+            {/* image */}
             <Box
               w={{ base: "100%", md: "30%", lg: "30%", xl: "30%" }}
               h="235px"
@@ -119,6 +125,7 @@ const SecretofSuccessSection3 = () => {
               backgroundPosition="center"
               order={{ base: "1", md: "2" }}
             ></Box>
+            {/* text */}
             <Box
               w={{ base: "100%", md: "60%", lg: "60%", xl: "60%" }}
               h="235px"
@@ -168,6 +175,8 @@ const SecretofSuccessSection3 = () => {
             </Box>
           </Box>
 
+          {/* quote3 */}
+
           <Box
             display="flex"
             flexDirection={{
@@ -181,6 +190,7 @@ const SecretofSuccessSection3 = () => {
             w="100%"
             gap={{ base: "none", md: "1%", lg: "3%", xl: "3%" }}
           >
+            {/* image */}
             <Box
               w={{ base: "100%", md: "30%", lg: "30%", xl: "30%" }}
               h="235px"
@@ -190,6 +200,7 @@ const SecretofSuccessSection3 = () => {
               backgroundSize="cover"
               backgroundPosition="center"
             ></Box>
+            {/* text */}
             <Box
               w={{ base: "100%", md: "60%", lg: "60%", xl: "60%" }}
               h="235px"
@@ -229,6 +240,7 @@ const SecretofSuccessSection3 = () => {
               </Box>
             </Box>
           </Box>
+          
         </Box>
       </Box>
       </Box>

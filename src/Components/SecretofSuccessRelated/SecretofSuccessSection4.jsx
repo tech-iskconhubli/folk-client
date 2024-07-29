@@ -12,6 +12,7 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 gsap.registerPlugin(ScrollTrigger);
 
 const SecretofSuccessSection4 = () => {
+  /* fortextonhover */
   const [hoveredText, setHoveredText] = useState("");
   const handleMouseEnter = (text, index) => {
     setHoveredText(text);
@@ -46,6 +47,7 @@ const SecretofSuccessSection4 = () => {
   return (
     <>
       <Box display="flex" flexDirection="column" alignItems="center" mt="20px">
+        {/* pathSection */}
         <Box w={{ base: "90%", md: "750px", lg: "900px", xl: "1240px" }}>
           <Heading
             fontSize={{ base: "2rem", md: "3rem" }}
@@ -60,8 +62,9 @@ const SecretofSuccessSection4 = () => {
             flexDirection={{ base: "column", md: "row", lg: "row" }}
             alignItems="center"
             justifyContent="space-evenly"
-            gap={{ base: "30px", md: "25px", lg: "50px", xl: "100px" }}
+            gap={{ base: "30px", md: "25px", lg: "50px", xl: "80px" }}
           >
+            {/* circle */}
             <Box
               w={{ base: "190px", md: "220px", lg: "300px", xl: "380px" }}
               h={{ base: "190px", md: "220px", lg: "300px", xl: "380px" }}
@@ -72,6 +75,7 @@ const SecretofSuccessSection4 = () => {
               alignItems="center"
               justifyContent="center"
             >
+              {/* innerdivs */}
               {paths.map((path, index) => {
                 let angle = index * 60 + 90;
                 return (
@@ -127,6 +131,8 @@ const SecretofSuccessSection4 = () => {
                 {hoveredText ? hoveredText : " "}
               </Box>
             </Box>
+
+            {/* textcontainer */}
             <Box
               w={{ base: "98%", md: "350px", lg: "500px", xl: "600px" }}
               h={{ base: "450px", md: "300px", lg: "400px", xl: "450px" }}
@@ -137,6 +143,7 @@ const SecretofSuccessSection4 = () => {
               gap={{ base: "20px", md: "15px", lg: "20px", xl: "20px" }}
               textAlign="justify"
             >
+              {/* box1 */}
               <Box
                 display="flex"
                 justifyContent="space-between"
@@ -179,6 +186,7 @@ const SecretofSuccessSection4 = () => {
                 </Box>
               </Box>
 
+              {/* box2 */}
               <Box
                 display="flex"
                 justifyContent="space-between"
@@ -221,6 +229,7 @@ const SecretofSuccessSection4 = () => {
                 </Box>
               </Box>
 
+              {/* box3 */}
               <Box
                 display="flex"
                 justifyContent="space-between"
@@ -263,6 +272,7 @@ const SecretofSuccessSection4 = () => {
                 </Box>
               </Box>
 
+              {/* box4 */}
               <Box
                 display="flex"
                 justifyContent="space-between"
