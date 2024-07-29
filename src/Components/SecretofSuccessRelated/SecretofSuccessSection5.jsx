@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef } from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text,Heading } from "@chakra-ui/react";
 import profile1 from "../../Assets/sostestimonials1.jpg";
 import theme from "../../theme";
 import gsap from "gsap";
@@ -27,8 +27,8 @@ const SecretofSuccessSection5 = () => {
   return (
     <>
       <Box>
-        <Box textAlign="center" fontSize="2rem" mt="50px" mb="30px">
-          Happy Attendies
+        <Box textAlign="center"  mt="70px" mb="30px">
+         <Heading style={{color:theme.colors.col.text}} fontSize={{base:'2rem',md:'3rem'}}> Happy Attendies</Heading>
         </Box>
         <Box
           display="flex"
