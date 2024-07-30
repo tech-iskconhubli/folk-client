@@ -95,18 +95,18 @@ const TripSinglePage = () => {
     {/* Trip Details */}
     <Flex
       my={["2rem",'3rem','4rem','5rem']}
-      px={['4','7','7','7']}
-      w={["100%", "100%", "90%", "90%", "95%"]}
+      px={['4','7','7','7','5']}
+      w={["100%", "100%", "90%", "90%", "99%",'98%']}
       boxSizing="border-box"
       mx={"auto"}
       gap={['2rem']}
       flexDirection={{base:'column' ,xl:'row'}}
     >
-      <VStack w={['100%','100%','100%','100%']} h={'auto'} alignItems={"flex-start"} gap={['3rem','3rem','2.5rem']}>
+      <VStack w={['100%','100%','100%','100%','55%']} h={'auto'} alignItems={"flex-start"} gap={['3rem','3rem','2.5rem']}>
 
         <VStack alignItems={"flex-start"} w={"100%"} gap={"1.5rem"}>
           <VStack alignItems={"flex-start"}>
-            <Box fontSize={['2.5rem','3rem','3.5rem','4rem','4.5rem']} lineHeight={{lg:'5.5rem'}} fontWeight={"600"}>
+            <Box fontSize={['2.5rem','3rem','3.5rem','4rem','4rem','4.5rem']} lineHeight={{lg:'5rem'}} fontWeight={"600"}>
               {tripName}
             </Box>
             <Box fontSize={['2rem','2.5rem','3rem','3.5rem']} color={theme.colors.col.secondary} fontWeight={"700"}>
@@ -210,7 +210,7 @@ const TripSinglePage = () => {
 
      
         <VStack
-          w={['100%','100%','100%','100%']}
+          w={['100%','100%','100%','100%','50%']}
           h={"auto"}
           alignItems={"flex-start"}
           gap={"2rem"}
