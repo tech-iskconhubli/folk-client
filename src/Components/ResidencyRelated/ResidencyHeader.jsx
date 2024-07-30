@@ -52,7 +52,7 @@ const ResidencyHeader = () => {
 
 
       <Box> 
-      <Link to={'/singlePage'}> 
+      <Link to={'/recidency/:singlePage'}> 
         <Button
          
           fontSize={["0.6rem",'0.7rem','1rem','0.9rem','1rem']}

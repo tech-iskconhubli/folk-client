@@ -41,17 +41,16 @@ const SinglePage = () => {
   const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
 
   return (
-    <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "0",'2']}>
+    <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "2"]}>
       {/* Background Image with Heading */}
       <MotionBox
         bgImage={`url(${img[0]})`}
         w={"100%"}
-        borderRadius={{ xl: "10px" }}
+        borderRadius={{ lg: "10px" }}
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover"
         height={["50vh", "50vh", "60vh", "80vh",'85vh']}
-        mt={{base:'6rem',xl:'7rem'}}
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -60,6 +59,7 @@ const SinglePage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         position={"relative"}
+        mt={{base:'6rem',lg:'7rem'}}
       >
         <Box
           bg="rgba(0, 0, 0, 0.5)"
@@ -225,10 +225,10 @@ const SinglePage = () => {
           boxShadow={{ xl: " 1px 0px 10px 2px rgba(0,0,0,0.1)" }}
         >
           <Box
-            fontSize={["1.6rem", "2rem", "2.5rem", "3rem", "2.1rem"]}
+            fontSize={["1.6rem", "2rem", "2.5rem", "3rem"]}
             fontWeight={"700"}
           >
-            REGISTER FOR YOUR DEVOTIONAL JOURNEY
+             REGISTER TRIP
           </Box>
 
           <form style={{ width: "100%", height: "100%" }}>
