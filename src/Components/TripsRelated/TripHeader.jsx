@@ -82,7 +82,7 @@ const TripHeader = () => {
           </VStack>
 
           <Box>
-          <Link to={'/singlePageWithAccordion'}>
+          <Link to={'/trips/:singlePage'}>
             <Button
               fontSize={["0.6rem", "0.7rem", "1rem", "0.9rem", "1rem"]}
               p={["1rem", "0.8rem", "1.5rem", "2rem"]}

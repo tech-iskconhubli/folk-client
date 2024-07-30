@@ -153,7 +153,7 @@ const FestivalHeader = () => {
 
 
         <Box> 
-          <Link to={'/singlePageWithAccordion'}>
+          <Link to={'/festival/:singlePage'}>
           <Button
            
             fontSize={["0.6rem",'0.7rem','1rem','0.9rem','1rem']}

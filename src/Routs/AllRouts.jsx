@@ -83,6 +83,17 @@ import Newform from '../Dummy/Newform';
 import SinglePage from "../Components/SinglePages/SinglePage"
 import SinglePageWithAccordion from "../Components/SinglePages/SinglePageWithAccoridon"
 import Dummy2 from '../Dummy/Dummy2';
+import FestivalSinglePage from '../Components/FestivalRelated/FestivalSinglePage';
+import GallerySinglePage from '../Components/GalleryRelated/GallerySinglePage';
+import TripSinglePage from '../Components/TripsRelated/TripSinglePage';
+import YogaSinglePage from '../Pages/YogaForHappiness/YogaSinglePage';
+import MindControlSinglePage from '../Components/ArtOfMindControlRelated/MindControlSinglePage';
+import DonationSinglePage from '../Components/DonationRelated/DonationSinglePage';
+import ResidencySinglePage from '../Components/ResidencyRelated/ResidencySinglePage'
+
+
+
+
 const AllRouts = () => {
   // console.log("")
   return (
@@ -93,23 +104,30 @@ const AllRouts = () => {
                   <Route path='/about' element={<About/>}/>
                   <Route path='/blogs' element={<Blogs/>}/>
                   <Route path='/donation' element={<Donation/>}/>
+                  <Route path='/donation/:singlePage' element={<DonationSinglePage />} /> 
                   <Route path='/festivals' element={<Festivals/>}/>
                   <Route path='/festivals/festivalsForm' element={<FestivalsForm/>}/>
+                  <Route path='/festival/:singlePage' element={<FestivalSinglePage />} />
                   <Route path='/gallery' element={<Gallery/>}/>
+                  <Route path='/gallery/:singlePage' element={<GallerySinglePage />} />
                   <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
                   <Route path='/programmes' element={<Programmes/>}/>
                   <Route path='/recidency' element={<Recidency/>}/>
+                  <Route path='/recidency/:singlePage' element={<ResidencySinglePage />} />
                   <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
                   <Route path='/trips' element={<Trips/>}/>
                   <Route path='/trips/tripsForm' element={<TripsForm/>}/>
+                  <Route path='/trips/:singlePage' element={<TripSinglePage />} />
                   <Route path='/allForms' element={<AllForms/>}/>
                   <Route path='/yogaForHappiness' element={<YogaForHappiness/>} />
                   <Route path='/yogaForHappiness/yogaForm' element={<YogaForm/>} /> 
-                  <Route path='/yoga/:singleData' element={<YogaSingeData/>} />   
+                  <Route path='/yoga/:singleData' element={<YogaSingeData/>} />  
+                  <Route path='/yogaForHappiness/:singlePage' element={<YogaSinglePage />} /> 
                   <Route path='/secretOfSuccess' element={<SecretOfSuccess/>} />
                   <Route path='/secretOfSuccess/secretForm' element={<SecretOfSuccessForm/>} />
                   <Route path='/artOfMindControl' element={<ArtOfMindControl/>} />
                   <Route path='/artOfMindControl/artFrom' element={<ArtOFMindForm/>} />
+                  <Route path='/artOfMindControl/:singlePage' element={<MindControlSinglePage />} />
                   <Route path='/handleAddSection' element={<PlusForm/>} />
                   <Route path='/dummy2' element={<Dummy2/>} />
                   <Route path='/singlePage' element={<SinglePage/>} />
