@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Heading,
@@ -22,10 +22,25 @@ import { FaMapPin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { tripData } from "../SinglePages/TripsDate";
 import theme from "../../theme";
+import { useLocation, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
 const SinglePage = () => {
+  const [singleData,setSingleData] = useState({})
+  const {id} = useParams();
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const fetchDataFunction = location.state?.getSingleAdminYogaFormData;
+
+  console.log("func",fetchDataFunction)
+
+  console.log(id)
+  useEffect(()=>{
+   
+  },[])
+  
   const {
     tripName,
     from,

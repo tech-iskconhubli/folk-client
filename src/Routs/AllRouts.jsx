@@ -130,7 +130,7 @@ const AllRouts = () => {
                   <Route path='/artOfMindControl/:singlePage' element={<MindControlSinglePage />} />
                   <Route path='/handleAddSection' element={<PlusForm/>} />
                   <Route path='/dummy2' element={<Dummy2/>} />
-                  <Route path='/singlePage' element={<SinglePage/>} />
+                  <Route path='/singlePage/:id' element={<SinglePage/>} />
                   <Route path='/singlePageWithAccordion' element={<SinglePageWithAccordion/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>

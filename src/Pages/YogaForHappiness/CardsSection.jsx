@@ -11,47 +11,34 @@ import {
     Text,
     VStack,
   } from "@chakra-ui/react";
-  import React, { useRef } from "react";
+  import React, { useEffect, useRef } from "react";
   import theme from "../../theme";
   import gsap from "gsap";
   import { useGSAP } from "@gsap/react";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { FiArrowUpRight } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { getAdminYogaFormData, getSingleAdminYogaFormData } from "../../Redux/app/action";
+import { Link } from "react-router-dom";
   gsap.registerPlugin(ScrollTrigger);
 
 
-  const festivalImages = [
-    {
-      imageUrl:
-        "https://images.unsplash.com/photo-1567591391293-f9a99c77e128?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fHZpbmF5YWthJTIwY2hhdml0aGl8ZW58MHx8MHx8fDA%3D",
-      festivalName: "Vinayaka Chavithi",
-       date:' 07-Sep-2024',
-       desc:' Vinayaka Chavithi celebrates Lord Ganeshas birth with decorations, sweets, prayers, and idol immersion, promoting community unity and eco-consciousness.'
-    },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/22/eb/a2/22eba2405402e8cd184142895d4f4095.jpg",
-       festivalName: "Maha Shivaratri",
-       date:'08-March-2024',
-       desc:'Maha Shivaratri is a Hindu festival dedicated to Lord Shiva, marked by fasting, prayers, and night-long vigils. It signifies devotion and spiritual renewal.'
-  },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/48/de/06/48de060c9b2bd71629ca0e54ba25d180.jpg",
-    festivalName: "Rath Yatra",
-    date:'07-July-2024',
-    desc:'Rath Yatra is a Hindu festival known for its grand processions of chariots carrying deities, celebrating the journey of Lord Jagannath, Balabhadra, and Subhadra.'
-  },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/fb/78/5c/fb785cf2f8a94df58e39b3e85a332108.jpg",
-    festivalName: "Janmaashtami",
-    date:'26-Aug-2024',
-    desc:'Krishna Janmashtami celebrates the birth of Lord Krishna, marked with fasting, devotional songs, and midnight festivities.'
-  },
-];
 
 const CardsSection = () => {
+
+  const store = useSelector(store=>store.AppReducer.adminYogaData);
+  const dispatch = useDispatch();
+
+  
+
+  useEffect(()=>{
+    dispatch(getAdminYogaFormData())
+  },[])
+
+
+
+  console.log(store)
+
     const gridContainer = useRef();
 
     useGSAP(()=>{
@@ -104,7 +91,7 @@ const CardsSection = () => {
                size={["sm", "sm", "md",'lg']}
                fontSize={["0.8rem", "0.8rem", "0.9rem"]}
                variant={"outline"}
-               colorScheme="orange"
+               colorScheme="orange" 
              >
                View all
              </Button>
@@ -113,23 +100,23 @@ const CardsSection = () => {
  
          <SimpleGrid ref={gridContainer} w={'100%'}  columns={['1','1','2','2','4']} mt={['3rem']} spacing={[10,10,5,10,4]}>
            {
-             festivalImages.map((singleImage,index)=>(
+             store?.slice(0,4).map((item,index)=>(
                <Card key={index} bgColor={'rgb(245,247,248)'} overflow={'hidden'} p={3} borderRadius={'10px'}>
                <Box w={'100%'} h={['250px']} position={['relative']} overflow={'hidden'} borderRadius={'10px'}>
-                  <Image w={'100%'} h={'100%'} objectFit={'cover'} src={singleImage.imageUrl} />
+                  <Image w={'100%'} h={'100%'} objectFit={'cover'} src={"https://images.pexels.com/photos/161183/thailand-monks-temple-tourism-161183.jpeg?auto=compress&cs=tinysrgb&w=800"} />
  
                   <Box position={'absolute'} top={'4%'} left={'3%'} bgColor={theme.colors.col.secondary} color={'white'} boxShadow={'0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.10)'} borderRadius={'10px'} p={2} fontWeight={'600'} pointerEvents={'none'} fontSize={'0.9rem'}>
-                     {singleImage.date}
+                     {item.date}
                   </Box>
                </Box>
  
               <CardBody px={2}>
                    <VStack alignItems={'flex-start'}>
                      <Box fontSize={'1.5rem'} fontWeight={'600'} color={theme.colors.col.secondary}>
-                    {singleImage.festivalName.length >= 18 ? `${singleImage.festivalName.substring(0,19)}...`: singleImage.festivalName}
+                    {"Yoga for happiness"}
                      </Box>
                      <Text lineHeight={['1.7rem']} fontSize={['0.9rem']}>
-                      {singleImage.desc.length >= 150 ? `${singleImage.desc.substring(0,150)}...` : singleImage.desc}
+                      {item.desc}
                      </Text>
                    </VStack>
               </CardBody>
@@ -141,7 +128,7 @@ const CardsSection = () => {
                       </Box>
                        <Box role="group" bgColor={theme.colors.col.secondary} display={'inline-flex'} w={'40px'} h={'40px'}  justifyContent={'center'} alignItems={'center'} fontSize={'1.1rem'} color={'white'} borderRadius={'10px'} boxShadow={'0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.10)'} cursor={'pointer'}>
                         <Box _groupHover={{transform:'rotate(45deg)'}} transition={'all 0.2s linear'}>
-                       <FiArrowUpRight  />
+                       <Link to={`/singlePage/${item._id}`}><FiArrowUpRight  /></Link>
                         </Box>
                        </Box>
                    </HStack>
