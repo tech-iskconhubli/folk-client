@@ -79,9 +79,6 @@ import TripDetailsPage from '../Dummy/TripsDetails';
 import Login from '../Admin/AdminLogin/Login';
 import LoginLayout from '../Layouts/LoginLayout';
 import PrivateRoute from '../Private/Private';
-import Newform from '../Dummy/Newform';
-import SinglePage from "../Components/SinglePages/SinglePage"
-import SinglePageWithAccordion from "../Components/SinglePages/SinglePageWithAccoridon"
 import Dummy2 from '../Dummy/Dummy2';
 import FestivalSinglePage from '../Components/FestivalRelated/FestivalSinglePage';
 import GallerySinglePage from '../Components/GalleryRelated/GallerySinglePage';
@@ -130,8 +127,6 @@ const AllRouts = () => {
                   <Route path='/artOfMindControl/:singlePage' element={<MindControlSinglePage />} />
                   <Route path='/handleAddSection' element={<PlusForm/>} />
                   <Route path='/dummy2' element={<Dummy2/>} />
-                  <Route path='/singlePage/:id' element={<SinglePage/>} />
-                  <Route path='/singlePageWithAccordion' element={<SinglePageWithAccordion/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 

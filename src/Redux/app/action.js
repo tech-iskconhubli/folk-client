@@ -27,6 +27,7 @@ export const getAdminYogaFormData = ()=>(dispatch)=>{
 }
 
 export const getSingleAdminYogaFormData = (id)=>(dispatch)=>{
+  console.log(id)
   dispatch({type:types.GET_SINGLE_ADMIN_YOGA_FORM_REQUEST});
 
 return  axios.get(`http://localhost:2346/api/adminyoga/${id}`)

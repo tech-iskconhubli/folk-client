@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Heading,
@@ -21,10 +21,13 @@ import { IoTimeSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { singleData } from "../../Components/SinglePages/SingleData";
 import theme from "../../theme";
+
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
 const YogaSinglePage = () => {
+
+
 
     const {
       yogaName,
@@ -35,9 +38,11 @@ const YogaSinglePage = () => {
         img,
         description,
         price,
-      } = singleData;
-      const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
+        placesOfVisit,
+      } = tripData
 
+      
+      const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
 
   return (
     <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "2"]}>
@@ -119,7 +124,7 @@ const YogaSinglePage = () => {
             fontSize={["1rem", "1rem", "1.1rem", "1.2rem"]}
             lineHeight={"1.9rem"}
           >
-            {description}
+            {description}            
           </Box>
         </VStack>
 
