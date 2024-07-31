@@ -85,43 +85,28 @@ const GallerySinglePage = () => {
 
     {/* Trip Details */}
     <Flex
-      my={["2rem", "3rem", "4rem", "5rem"]}
-      px={["4", "7", "7", "7"]}
-      w={["100%", "100%", "90%", "90%", "95%"]}
+      my={["2rem",'3rem','4rem','5rem']}
+      px={['4','7','7','7','5']}
+      w={["100%", "100%", "90%", "90%", "99%",'98%']}
       boxSizing="border-box"
       mx={"auto"}
-      gap={["2rem"]}
-      flexDirection={{ base: "column", xl: "row" }}
+      gap={['2rem']}
+      flexDirection={{base:'column' ,xl:'row'}}
     >
-      <VStack
-        w={["100%", "100%", "100%", "100%"]}
-        h={"auto"}
-        alignItems={"flex-start"}
-        gap={["3rem", "3rem", "2.5rem"]}
-      >
+      <VStack w={['100%','100%','100%','100%','55%']} h={'auto'} alignItems={"flex-start"} gap={['3rem','3rem','2.5rem']}>
+
         <VStack alignItems={"flex-start"} w={"100%"} gap={"1.5rem"}>
           <VStack alignItems={"flex-start"}>
-            <Box
-              fontSize={["2.5rem", "3rem", "3.5rem", "4rem", "4.5rem"]}
-              lineHeight={{ lg: "5.5rem" }}
-              fontWeight={"600"}
-            >
+            <Box fontSize={['2.5rem','3rem','3.5rem','4rem','4rem','4.5rem']} lineHeight={{lg:'5rem'}} fontWeight={"600"}>
               {tripName}
             </Box>
-            <Box
-              fontSize={["2rem", "2.5rem", "3rem", "3.5rem"]}
-              color={theme.colors.col.secondary}
-              fontWeight={"700"}
-            >
-              RS:{price}/-
+            <Box fontSize={['2rem','2.5rem','3rem','3.5rem']} color={theme.colors.col.secondary} fontWeight={"700"}>
+            RS:{price}/-
             </Box>
           </VStack>
           <Divider border={"1px solid rgb(0,0,0,0.90)"} />
 
-          <Box
-            fontSize={["1rem", "1rem", "1.1rem", "1.2rem"]}
-            lineHeight={"1.9rem"}
-          >
+          <Box fontSize={['1rem','1rem','1.1rem','1.2rem']} lineHeight={"1.9rem"}>
             {description}
           </Box>
         </VStack>
@@ -132,11 +117,11 @@ const GallerySinglePage = () => {
           w={"100%"}
           gap={10}
           bgColor={"rgb(245,247,248)"}
-          boxShadow={{ xl: " 1px 0px 10px 2px rgba(0,0,0,0.1)" }}
+          boxShadow={{xl:" 1px 0px 10px 2px rgba(0,0,0,0.1)"}}
           p={8}
           borderRadius={"10px"}
         >
-          <VStack spacing={6} align="start" w={["100%"]}>
+          <VStack spacing={6} align="start" w={['100%']}>
             <Box fontSize={"1.5rem"} fontWeight={"700"}>
               TRIP DETAIL
             </Box>
@@ -191,7 +176,7 @@ const GallerySinglePage = () => {
             </HStack>
           </VStack>
 
-          <VStack w={["100%"]} spacing={6} alignItems={["flex-start"]}>
+          <VStack w={['100%']} spacing={6} alignItems={["flex-start"]}>
             <Box fontSize={"1.5rem"} fontWeight={"700"}>
               PLACE OF VISIT
             </Box>
@@ -214,131 +199,96 @@ const GallerySinglePage = () => {
         </Flex>
       </VStack>
 
-      <VStack
-        w={["100%", "100%", "100%", "100%"]}
-        h={"auto"}
-        alignItems={"flex-start"}
-        gap={"2rem"}
-        bg={"rgb(245,248,249)"}
-        px={["3", "4", "8"]}
-        py={["5", "8", "8"]}
-        borderRadius={"10px"}
-        boxShadow={{ xl: " 1px 0px 10px 2px rgba(0,0,0,0.1)" }}
-      >
-        <Box
-          fontSize={["1.6rem", "2rem", "2.5rem", "3rem"]}
-          fontWeight={"700"}
+     
+        <VStack
+          w={['100%','100%','100%','100%','50%']}
+          h={"auto"}
+          alignItems={"flex-start"}
+          gap={"2rem"}
+          bg={"rgb(245,248,249)"}
+          px={['3','4','8']}
+          py={['5','8','8']}
+          borderRadius={"10px"}
+          boxShadow={{xl:" 1px 0px 10px 2px rgba(0,0,0,0.1)"}}
         >
-           REGISTER TRIP
-        </Box>
+          <Box fontSize={['1.6rem','2rem','2.5rem','3rem']} fontWeight={"700"}>
+          REGISTER TRIP
+          </Box>
 
-        <form style={{ width: "100%", height: "100%" }}>
-          <VStack
-            w={"100%"}
-            h={"100%"}
-            gap={["2rem", "2rem", "2rem", "2rem", "2.5rem"]}
-          >
-            <HStack
-              w={"100%"}
-              gap={["2rem", "1rem", "1.2rem"]}
-              flexDirection={["column", "row"]}
-            >
-              <Input
-                size={"lg"}
-                border={"1px solid black"}
-                type="text"
-                placeholder="Full Name"
-              />
-              <Input
-                size={"lg"}
-                border={"1px solid black"}
-                type="number"
-                placeholder="WhatsApp Number"
-              />
-            </HStack>
-            <HStack
-              w={"100%"}
-              gap={["2rem", "1rem", "1.2rem"]}
-              flexDirection={["column", "row"]}
-            >
-              <Input
-                size={"lg"}
-                border={"1px solid black"}
-                type="email"
-                placeholder="Email"
-              />
-              <Input
-                size={"lg"}
-                border={"1px solid black"}
-                type="tel"
-                placeholder="age"
-              />
-            </HStack>
-            <HStack
-              w={"100%"}
-              gap={["2rem", "1rem", "1.2rem"]}
-              flexDirection={["column", "row"]}
-            >
-              <VStack alignItems={"flex-start"} w={"100%"}>
+          <form style={{ width: "100%", height: "100%" }}>
+            <VStack w={"100%"} h={"100%"} gap={['2rem','2rem','2rem','2rem','2.5rem']}>
+              <HStack w={"100%"} gap={['2rem','1rem','1.2rem']} flexDirection={['column','row']}>
+                <Input
+                  size={"lg"}
+                  border={"1px solid black"}
+                  type="text"
+                  placeholder="Full Name"
+                />
+                <Input
+                  size={"lg"}
+                  border={"1px solid black"}
+                  type="number"
+                  placeholder="WhatsApp Number"
+                />
+              </HStack>
+              <HStack w={"100%"} gap={['2rem','1rem','1.2rem']} flexDirection={['column','row']}>
+                <Input
+                  size={"lg"}
+                  border={"1px solid black"}
+                  type="email"
+                  placeholder="Email"
+                />
+                <Input
+                  size={"lg"}
+                  border={"1px solid black"}
+                  type="tel"
+                  placeholder="age"
+                />
+              </HStack>
+              <HStack w={"100%"} gap={['2rem','1rem','1.2rem']} flexDirection={['column','row']}>
+                <VStack alignItems={'flex-start'} w={'100%'}>
                 <Input
                   size={"lg"}
                   border={"1px solid black"}
                   type="text"
                   placeholder="College or Company"
                 />
-              </VStack>
-              <VStack
-                alignItems={"flex-start"}
-                w={"100%"}
-                gap={"0"}
-                position={"relative"}
-              >
+                </VStack>
+                <VStack alignItems={'flex-start'} w={'100%'} gap={'0'} position={'relative'}>
                 <Input
                   size={"lg"}
                   border={"1px solid black"}
                   type="number"
                   placeholder="Branch of Year"
                 />
-                <Box
-                  position={"absolute"}
-                  bottom={"-6"}
-                  fontWeight={"500"}
-                  fontSize={"0.9rem"}
-                  left={"1"}
-                  opacity={"0.8"}
-                >
-                  (If your a student)
-                </Box>
-              </VStack>
-            </HStack>
+                 <Box position={'absolute'} bottom={'-6'} fontWeight={'500'} fontSize={'0.9rem'} left={'1'} opacity={'0.8'}>(If your a student)</Box>
+                </VStack>
+              
+              </HStack>
 
-            <HStack
-              w={"100%"}
-              gap={["2rem", "1rem", "1.2rem"]}
-              flexDirection={["column", "row"]}
-            >
+              <HStack w={"100%"} gap={['2rem','1rem','1.2rem']} flexDirection={['column','row']}>
               <Input
-                size={"lg"}
-                border={"1px solid black"}
-                type="number"
-                placeholder="Register Amount"
-              />
-            </HStack>
+                  size={"lg"}
+                  border={"1px solid black"}
+                  type="number"
+                  placeholder="Register Amount"
+                />
+                </HStack>
 
-            <Box mt={"auto"} w={"100%"}>
-              <Button
-                colorScheme="orange"
-                w={"100%"}
-                fontSize={["1rem"]}
-                px={["1rem"]}
-                py={["1.5rem"]}
-              >
-                REGSITER NOW
-              </Button>
-            </Box>
-          </VStack>
-        </form>
-      </VStack>
+              <Box mt={"auto"} w={"100%"}>
+                <Button
+                  colorScheme="orange"
+                  w={"100%"}
+                  fontSize={['1rem']}
+                  px={['1rem']}
+                  py={['1.5rem']}
+                >
+                  REGSITER NOW
+                </Button>
+              </Box>
+            </VStack>
+          </form>
+        </VStack>
     </Flex>
 
    

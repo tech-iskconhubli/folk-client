@@ -7,8 +7,6 @@ import {
   SimpleGrid,
   GridItem,
   Container,
-  List,
-  ListItem,
   Flex,
   useBreakpointValue,
   HStack,
@@ -18,29 +16,28 @@ import {
 } from "@chakra-ui/react";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCalendar } from "react-icons/io5";
-import { FaMapPin } from "react-icons/fa";
+import { MdTimer } from "react-icons/md";
+import { IoTimeSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { tripData } from "../SinglePages/TripsDate";
+import { singleData } from "../../Components/SinglePages/SingleData";
 import theme from "../../theme";
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
+
 const MindControlSinglePage = () => {
 
-    const {
-        tripName,
-        from,
-        to,
-        fromDate,
-        toDate,
-        img,
-        description,
-        price,
-        placesOfVisit,
-        additionalFields,
-      } = tripData;
-      const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
-
+  const {
+    yogaName,
+    fromDate,
+      duration,
+      location,
+      time,
+      img,
+      description,
+      price,
+    } = singleData;
+    const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
   return (
     <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "2"]}>
     {/* Background Image with Heading */}
@@ -78,7 +75,7 @@ const MindControlSinglePage = () => {
           zIndex={"99"}
           size={["lg", "xl", "2xl", "2xl", "2xl"]}
         >
-          {tripName}
+          {yogaName}
         </Heading>
       </VStack>
     </MotionBox>
@@ -86,15 +83,15 @@ const MindControlSinglePage = () => {
     {/* Trip Details */}
     <Flex
       my={["2rem", "3rem", "4rem", "5rem"]}
-      px={["4", "7", "7", "7"]}
-      w={["100%", "100%", "90%", "90%", "95%"]}
+      px={['4','7','7','7','5']}
+      w={["100%", "100%", "90%", "90%", "99%",'98%']}
       boxSizing="border-box"
       mx={"auto"}
       gap={["2rem"]}
       flexDirection={{ base: "column", xl: "row" }}
     >
       <VStack
-        w={["100%", "100%", "100%", "100%"]}
+       w={['100%','100%','100%','100%','55%']}
         h={"auto"}
         alignItems={"flex-start"}
         gap={["3rem", "3rem", "2.5rem"]}
@@ -102,11 +99,10 @@ const MindControlSinglePage = () => {
         <VStack alignItems={"flex-start"} w={"100%"} gap={"1.5rem"}>
           <VStack alignItems={"flex-start"}>
             <Box
-              fontSize={["2.5rem", "3rem", "3.5rem", "4rem", "4.5rem"]}
-              lineHeight={{ lg: "5.5rem" }}
+             fontSize={['2.5rem','3rem','3.5rem','4rem','4rem','4.5rem']} lineHeight={{lg:'5rem'}}
               fontWeight={"600"}
             >
-              {tripName}
+              {yogaName}
             </Box>
             <Box
               fontSize={["2rem", "2.5rem", "3rem", "3.5rem"]}
@@ -138,18 +134,18 @@ const MindControlSinglePage = () => {
         >
           <VStack spacing={6} align="start" w={["100%"]}>
             <Box fontSize={"1.5rem"} fontWeight={"700"}>
-              TRIP DETAIL
+              Yoga Session Details
             </Box>
 
             <HStack fontSize="lg" gap={"1rem"}>
               <Box fontSize={"lg"} color={"orange"}>
-                <FaLocationDot />
+              <MdTimer />
               </Box>
 
               <HStack>
-                <strong>From:</strong>
+                <strong>Duration:</strong>
                 <Box fontWeight={"500"} fontSize={"1rem"}>
-                  {from}
+                  {duration}
                 </Box>
               </HStack>
             </HStack>
@@ -159,9 +155,9 @@ const MindControlSinglePage = () => {
                 <FaLocationDot />
               </Box>
               <HStack>
-                <strong>To:</strong>{" "}
+                <strong>Location:</strong>
                 <Box fontWeight={"500"} fontSize={"1rem"}>
-                  {to}
+                 {location}
                 </Box>
               </HStack>
             </HStack>
@@ -171,7 +167,7 @@ const MindControlSinglePage = () => {
                 <IoCalendar />
               </Box>
               <HStack>
-                <strong>From Date:</strong>{" "}
+                <strong>Session Date:</strong>{" "}
                 <Box fontWeight={"500"} fontSize={"1rem"}>
                   {fromDate}
                 </Box>
@@ -180,42 +176,23 @@ const MindControlSinglePage = () => {
 
             <HStack fontSize="lg" gap={"1rem"}>
               <Box fontSize={"lg"} color={"orange"}>
-                <IoCalendar />
+              <IoTimeSharp />
               </Box>
               <HStack>
-                <strong>To Date:</strong>{" "}
+                <strong>Time:</strong>{" "}
                 <Box fontWeight={"500"} fontSize={"1rem"}>
-                  {toDate}
+                  {time}
                 </Box>
               </HStack>
             </HStack>
           </VStack>
 
-          <VStack w={["100%"]} spacing={6} alignItems={["flex-start"]}>
-            <Box fontSize={"1.5rem"} fontWeight={"700"}>
-              PLACE OF VISIT
-            </Box>
 
-            <List spacing={5}>
-              {placesOfVisit.map((place, index) => (
-                <ListItem key={index}>
-                  <HStack gap={"0.8rem"}>
-                    <Box fontSize={"lg"} color={"orange"}>
-                      <FaMapPin />
-                    </Box>
-                    <Box fontSize={["1rem"]} fontWeight={"500"}>
-                      {place}
-                    </Box>
-                  </HStack>
-                </ListItem>
-              ))}
-            </List>
-          </VStack>
         </Flex>
       </VStack>
 
       <VStack
-        w={["100%", "100%", "100%", "100%"]}
+         w={['100%','100%','100%','100%','50%']}
         h={"auto"}
         alignItems={"flex-start"}
         gap={"2rem"}
@@ -229,7 +206,7 @@ const MindControlSinglePage = () => {
           fontSize={["1.6rem", "2rem", "2.5rem", "3rem"]}
           fontWeight={"700"}
         >
-           REGISTER TRIP
+           ENROLL NOW
         </Box>
 
         <form style={{ width: "100%", height: "100%" }}>
