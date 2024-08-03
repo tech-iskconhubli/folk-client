@@ -51,7 +51,7 @@ const AdminFestivalsEvents = () => {
     setDateFilter(e.target.value);
   };
 
-  console.log("filteredData", filteredData);
+  console.log("h")
 
   return (
     <>
