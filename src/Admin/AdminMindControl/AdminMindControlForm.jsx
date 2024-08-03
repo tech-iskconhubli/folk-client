@@ -80,7 +80,7 @@ const AdminMindControlForm = () => {
                             }, 500);
     
                             setTimeout(() => {
-                                navigate('/admin/yoga/data');
+                                navigate('/admin/mindControl/data');
                             }, 1000);
                         }
                     });

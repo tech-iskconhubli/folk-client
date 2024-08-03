@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Box, Input,Textarea,FormLabel,Card,Stack, Alert, AlertIcon,} from "@chakra-ui/react"
 import { useDispatch, useSelector } from 'react-redux'
 import AdminTopNavbar from '../../Components/AdminNavbar/AdminTopNavbar'
-import {  postSecretOFSuccessFormData } from '../../Redux/app/action'
+import {  postAdminSecretFormData } from '../../Redux/app/action'
 import { useNavigate } from 'react-router-dom'
 import SecretOfSuccessBarCart from '../AdminCharts/SecretOfSuccessCharts/SecretOfSuccessBarChart'
 import SecretOfSuccessLineChart from '../AdminCharts/SecretOfSuccessCharts/SecretOfSuccessLineBar'
@@ -69,7 +69,7 @@ const AdminSecretForm = () => {
     
             e.preventDefault();
             if (Object.keys(newErrors).length === 0) {
-                dispatch(postSecretOFSuccessFormData(formData))
+                dispatch(postAdminSecretFormData(formData))
                     .then(res => {
                         if (res?.payload?.message === 'post success') {
                             setSuccessAlert(!successAlert);
@@ -80,7 +80,7 @@ const AdminSecretForm = () => {
                             }, 500);
     
                             setTimeout(() => {
-                                navigate('/admin/yoga/data');
+                                navigate('/admin/secret/data');
                             }, 1000);
                         }
                     });

@@ -4,16 +4,21 @@ const init = {
   isError: false,
   adminYogaData: [],
   adminYogaSingleData: {},
+  adminGetDataBasedOnLocation:[],
+  adminGetSecretDataBasedOnLocation:[],
   adminSecretData: [],
   adminSecretSingleData: {},
+  adminMindControlDataBasedOnLocation:[],
   adminMindControlData: [],
   adminMindControlSingleData: {},
   adminTripsData: [],
   adminTripsSingle: {},
+  adminTripsControlDataBasedOnLocation:[],
   adminResidencyData: [],
   adminResidencySingle: {},
   adminFestivals: [],
   adminFestivalsSingle: {},
+  adminFestivalsControlDataBasedOnLocation:[],
   adminBlogsData: [],
   adminBlogsDataSingle: {},
   adminGalleryData: [],
@@ -28,6 +33,7 @@ const init = {
   singleTripsData: {},
   festivalsData: [],
   singleFestivalsData: {},
+
 };
 
 export const reducer = (oldState = init, action) => {
@@ -52,6 +58,27 @@ export const reducer = (oldState = init, action) => {
         isLoading: false,
         isError: true,
       };
+      case types.GET_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST:
+        return {
+          ...oldState,
+          isLoading: true,
+          adminGetDataBasedOnLocation:[],
+          isError: false,
+        };
+      case types.GET_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS:
+        return {
+          ...oldState,
+          isLoading: false,
+          adminGetDataBasedOnLocation:payload,
+          isError: false,
+        };
+      case types.GET_DATA_BASED_ON_LOCATION_AND_USERS_FAILURE:
+        return {
+          ...oldState,
+          isLoading: false,
+          adminGetDataBasedOnLocation:[],
+          isError: true,
+        };
 
     case types.GET_ADMIN_YOGA_FORM_REQUEST:
       return {
@@ -95,6 +122,28 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         adminSecretData: [],
       };
+
+      case types.GET_SECRET_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST:
+        return {
+          ...oldState,
+          isLoading: true,
+          isError: false,
+          adminGetSecretDataBasedOnLocation: [],
+        };
+      case types.GET_SECRET_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS:
+        return {
+          ...oldState,
+          isLoading: false,
+          isError: false,
+          adminGetSecretDataBasedOnLocation: payload,
+        };
+      case types.GET_SECRET_DATA_BASED_ON_LOCATION_AND_USERS_FAILURE:
+        return {
+          ...oldState,
+          isLoading: false,
+          isError: true,
+          adminGetSecretDataBasedOnLocation: [],
+        };
     case types.GET_ADMIN_SECRET_FORM_REQUEST:
       return {
         ...oldState,
@@ -136,7 +185,29 @@ export const reducer = (oldState = init, action) => {
         isLoading: false,
         isError: true,
         adminMindControlData: [],
+      };case types.GET_MIND_CONTROL_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        adminMindControlDataBasedOnLocation:[],
+        isError: false,
       };
+    case types.GET_MIND_CONTROL_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        adminMindControlDataBasedOnLocation:payload,
+        isError: false,
+      };
+    case types.GET_MIND_CONTROL_DATA_BASED_ON_LOCATION_AND_USERS_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        adminMindControlDataBasedOnLocation:[],
+        isError: true,
+      };
+
+
     case types.GET_ADMIN_MIND_CONTROL_FORM_REQUEST:
       return {
         ...oldState,
@@ -200,6 +271,28 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         adminTripsData: [],
       };
+
+      case types.GET_TRIPS_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST:
+        return {
+          ...oldState,
+          isLoading: true,
+          adminTripsControlDataBasedOnLocation:[],
+          isError: false,
+        };
+      case types.GET_TRIPS_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS:
+        return {
+          ...oldState,
+          isLoading: false,
+          adminTripsControlDataBasedOnLocation:payload,
+          isError: false,
+        };
+      case types.GET_TRIPS_DATA_BASED_ON_LOCATION_AND_USERS_FAILURE:
+        return {
+          ...oldState,
+          isLoading: false,
+          adminTripsControlDataBasedOnLocation:[],
+          isError: true,
+        };
     case types.GET_SINGLE_ADMIN_TRIPS_FORM_REQUEST:
       return {
         ...oldState,
@@ -284,6 +377,28 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         adminFestivals: [],
       };
+
+      case types.GET_FESTIVALS_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST:
+        return {
+          ...oldState,
+          isLoading: true,
+          adminFestivalsControlDataBasedOnLocation:[],
+          isError: false,
+        };
+      case types.GET_FESTIVALS_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS:
+        return {
+          ...oldState,
+          isLoading: false,
+          adminFestivalsControlDataBasedOnLocation:payload,
+          isError: false,
+        };
+      case types.GET_FESTIVALS_DATA_BASED_ON_LOCATION_AND_USERS_FAILURE:
+        return {
+          ...oldState,
+          isLoading: false,
+          adminFestivalsControlDataBasedOnLocation:[],
+          isError: true,
+        };
     case types.GET_SINGLE_ADMIN_FESTIVALS_FORM_REQUEST:
       return {
         ...oldState,

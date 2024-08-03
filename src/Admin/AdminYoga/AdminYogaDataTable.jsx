@@ -15,7 +15,10 @@ const AdminYogaDataTable = () => {
     const [refresh ,setRefresh] = useState(false);
     const [deleteSuccess,setDeleteSuccess] = useState(false)
     useEffect(() => {
-        dispatch(getAdminYogaFormData());
+        dispatch(getAdminYogaFormData())
+        .then(res=>{
+          console.log(res)
+        })
     }, [dispatch,refresh]);
 
     const truncateDescription = (description) => {
