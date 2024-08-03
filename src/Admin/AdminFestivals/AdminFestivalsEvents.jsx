@@ -52,13 +52,15 @@ const AdminFestivalsEvents = () => {
   };
 
 
-
   console.log("hello")
 
   console.log("filter", filteredData);
 
 
   console.log("filteredData", filteredData);
+
+  console.log("h")
+
 
 
   return (
