@@ -162,6 +162,10 @@ const DonationSinglePage = () => {
             <FormLabel>Course(Only for students)</FormLabel>
             <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
+
+            <FormLabel>Amount *</FormLabel>
+            <Input type="number"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
             </Stack>
              <Box w={'100%'}>
                <Button w={'100%'} bgColor={'white'} size={'md'}>Register</Button>
