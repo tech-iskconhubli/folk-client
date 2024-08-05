@@ -15,7 +15,7 @@ export const tripData = {
     ],
     description: "Join us for an unforgettable adventure in the Swiss Alps. Explore stunning landscapes, enjoy thrilling activities, and experience the beauty of nature.",
     price: 2500,
-    placesOfVisit: ["Zurich", "Interlaken", "Zermatt", "Lucerne", "Geneva"],
+    placesOfVisit: ["Reenactments", "Decorations", "Midnight Ceremony", "Music & Dance", "Prasadam","Processions",'Interactive Activities',"Community Gathering"],
     additionalFields: [
       { title: "Day 1", description: "Arrival in Geneva and transfer to Zurich." },
       { title: "Day 2", description: "Sightseeing in Zurich and travel to Interlaken." },

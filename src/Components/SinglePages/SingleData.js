@@ -16,5 +16,6 @@ export const singleData = {
         { title: "Day 5", description: "Visit the Matterhorn and nearby attractions." },
         { title: "Day 6", description: "Travel to Lucerne and enjoy the scenic views." },
         { title: "Day 7", description: "Return to Geneva and departure." }
-      ]
+      ],
+  placesOfVisit: ["Reenactments", "Decorations", "Midnight Ceremony", "Music & Dance", "Prasadam","Processions",'Interactive Activities',"Community Gathering"],
   };

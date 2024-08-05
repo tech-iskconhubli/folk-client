@@ -24,7 +24,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import theme from "../../theme";
 import { singleData } from "../SinglePages/SingleData";
 import { IoClose } from "react-icons/io5";
-
+import { FaHandPointRight } from "react-icons/fa";
 
 const FestivalSinglePage = () => {
 
@@ -90,7 +90,8 @@ const FestivalSinglePage = () => {
     location,
     state,
     img,
-    additionalFields
+    additionalFields,
+    placesOfVisit
   } = singleData;
 
 
@@ -168,6 +169,10 @@ const FestivalSinglePage = () => {
             <FormLabel>Course(Only for students)</FormLabel>
             <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
+
+            <FormLabel>Amount *</FormLabel>
+            <Input type="number"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
             </Stack>
              <Box w={'100%'}>
                <Button w={'100%'} bgColor={'white'} size={'md'}>Register</Button>
@@ -212,7 +217,7 @@ const FestivalSinglePage = () => {
       <Container mt={['8rem']} w={["100%"]} maxW={"1200px"} mx={"auto"}>
       
         <Flex gap={['3rem','3rem','3rem','1.5rem']} w={"100%"} flexDirection={['column','column','column','row']}>
-          <VStack w={['100%','100%','100%','40%']} h={"auto"} alignItems={"flex-start"} gap={['2rem']}>
+          <VStack w={['100%','100%','100%','40%']} h={"auto"} alignItems={"flex-start"} gap={['1.5rem']}>
             <Box
               w={['100%','100%']}
               mx={'auto'}
@@ -231,7 +236,7 @@ const FestivalSinglePage = () => {
             </Box>
 
             <VStack w={"100%"} alignItems={"flex-start"}>
-              <Box fontWeight={"600"} fontSize={"1rem"} opacity={"0.8"}>
+              <Box fontWeight={"600"}  opacity={"0.8"}>
                 Hosted By
               </Box>
               <Divider borderBottom={"1px solid rgb(0,0,0,0.3)"} />
@@ -265,6 +270,29 @@ const FestivalSinglePage = () => {
                 </Box>
               </Box>
             </HStack>
+
+
+            <VStack w={"100%"} alignItems={"flex-start"} mt={2}>
+              <Box fontWeight={"600"} fontSize={"1rem"} opacity={"0.8"}>
+              Festival Agenda 
+              </Box>
+              <Divider borderBottom={"1px solid rgb(0,0,0,0.3)"} />
+            </VStack>
+
+            <VStack alignItems={'flex-start'}>
+              {placesOfVisit.map((item,index)=>(
+                   <HStack key={index}>
+                   <Box color={theme.colors.col.secondary}>
+                   <FaHandPointRight />
+                   </Box>
+                    <Box fontWeight={500}>
+                      {item}
+                    </Box>
+                </HStack>
+              ))}
+            </VStack>
+
+
           </VStack>
 
           <VStack w={['100%','100%','100%','60%']} h={"auto"} alignItems={"flex-start"} gap={"2.1rem"}>
@@ -447,7 +475,7 @@ const FestivalSinglePage = () => {
           <Accordion allowMultiple>
             {additionalFields.map((field, index) => (
               <AccordionItem
-               p={'0.5rem'}
+               py={'0.5rem'}
                 key={index}
               >
                 <h2>
