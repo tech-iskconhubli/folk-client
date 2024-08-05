@@ -57,6 +57,9 @@ const AdminSecretEvents = () => {
 
   console.log("store",store)
 
+  console.log("store secret",store)
+
+
 
   return (
     <>

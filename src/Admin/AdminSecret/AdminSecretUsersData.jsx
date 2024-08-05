@@ -106,12 +106,13 @@ const AdminYogaUsersData = () => {
   };
 
 
+
 console.log(filteredData,"filtered data here")
 
-console.log(filteredData,"filtered ")
 
 
-console.log(filteredData,"filtered data")
+console.log(filteredData,"filtered data here")
+
 
 
   return (
