@@ -106,7 +106,7 @@ const AdminYogaUsersData = () => {
       }
     });
   };
-
+console.log("Attendance updated successfully")
   return (
     <>
       {loading && <KrishnaSpinner />}
