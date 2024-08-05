@@ -48,7 +48,11 @@ const AdminSecretEvents = () => {
     setDateFilter(e.target.value);
   };
 
+
   console.log("store secret",store)
+
+  console.log("store one",store)
+
 
   return (
     <>

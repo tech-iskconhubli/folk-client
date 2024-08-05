@@ -129,6 +129,9 @@ const handleSubmit = (e) => {
         });
 
     console.log("formData festival", formData);
+
+    console.log("form", formData);
+ 
 };
 
 

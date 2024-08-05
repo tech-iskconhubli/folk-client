@@ -107,7 +107,7 @@ const AdminYogaUsersData = () => {
     });
   };
 
-console.log(filteredData,"filtered data")
+console.log(filteredData,"filtered")
 
   return (
     <>

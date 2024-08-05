@@ -51,7 +51,7 @@ const AdminTripsEvents = () => {
     setDateFilter(e.target.value);
   };
 
-  console.log("filteredData", filteredData);
+  console.log("filtered", filteredData);
 
   return (
     <>
