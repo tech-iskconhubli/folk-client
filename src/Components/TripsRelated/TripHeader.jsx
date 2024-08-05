@@ -84,12 +84,11 @@ const TripHeader = () => {
           <Box>
           <Link to={'/trips/:singlePage'}>
             <Button
-              fontSize={["0.6rem", "0.7rem", "1rem", "0.9rem", "1rem"]}
-              p={["1rem", "0.8rem", "1.5rem", "2rem"]}
+              fontSize={["0.7rem", "0.8rem", "1rem", "0.9rem", "1rem"]}
+              p={["0.9rem", "1.2rem", "1.5rem", "2rem"]}
               colorScheme="orange"
               display={"flex"}
               alignItems={"center"}
-              gap={["0.3rem"]}
               borderRadius={"10px"}
             >
               Register for Temple Tours

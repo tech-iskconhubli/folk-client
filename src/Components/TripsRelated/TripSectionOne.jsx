@@ -53,7 +53,6 @@ const TripSectionOne = () => {
         w={["100%", "100%", "90%", "90%"]}
         maxW="1500px"
         marginX="auto"
-        overflow={'hidden'}
       >
              <Flex ref={flexContainer} flexDirection={['column','column','column','column','row']} p={['0.8rem','0.9rem','1rem','2rem']} gap={['2rem','2rem','2rem','2rem','3rem']}>
 
@@ -80,7 +79,7 @@ const TripSectionOne = () => {
 
                      </Box>
                      
-                     <Box w={['80%','60%','50%','50%','50%']} h={['150px','180px','200px','250px','220px']} bg={'white'} p={'0.5rem'} position={['absolute']} zIndex={'10'} top={['80%','75%','75%','75%','55%']} left={['10%','0']}>
+                     <Box w={['80%','60%','50%','50%','50%']} h={['150px','180px','200px','250px','220px']} bg={'white'} p={'0.5rem'} position={['absolute']} zIndex={'10'} top={['80%','75%','75%','75%','40%']} left={['10%','0']}>
                      <Image w={'100%'} h={'100%'} objectFit={'cover'}  src='https://i.pinimg.com/564x/fa/0c/98/fa0c983d3e9e9e8aadd8e665d7b711ad.jpg' />
                      </Box>
 

@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Button,
   Container,
@@ -13,24 +17,18 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import React, {  useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import theme from "../../theme";
-import { singleData as data } from '../../Components/SinglePages/SingleData';
+import { singleData } from "../SinglePages/SingleData";
 import { IoClose } from "react-icons/io5";
-import {
-  getSingleAdminYogaFormData,
-  postYogaFormData,
-} from "../../Redux/app/action";
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 
 
 
-const YogaSinglePage = () => {
-  const [singleData, setSingleData] = useState({});
+const SinglePageTwo = () => {
   const [toggle, setToggle] = useState(false);
   const [toggleImage,setToggleImage] = useState(false);
 
@@ -92,8 +90,9 @@ const YogaSinglePage = () => {
     duration,
     location,
     state,
-    img
-  } = data;
+    img,
+    additionalFields
+  } = singleData;
 
 
 
@@ -107,75 +106,6 @@ const YogaSinglePage = () => {
   const day = daysOfWeek[dayIndex] || "";
   const month = months[monthIndex] || "";
 
-  const init = {
-    name: "",
-    watsAppNumber: "",
-    email: "",
-    age: "",
-    collageOrCompany: "",
-    BranchOfYear: "",
-    eventId:""
-  };
-
-  const [formData, setFormData] = useState(init);
-  const [errors, setErrors] = useState(init);
-
-  const { singlePage } = useParams();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getSingleAdminYogaFormData(singlePage)).then((res) => {
-      setSingleData(res?.payload?.data);
-      setFormData({
-        eventId:res.payload.data?._id
-      })
-    });
-  }, []);
-
-
-
- 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    const payload = {
-      ...formData,
-      [name]: value,
-    };
-
-    setFormData(payload);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newErrors = {};
-
-    if (!formData.name) {
-      newErrors.name = "name required";
-    }
-    if (!formData.watsAppNumber) {
-      newErrors.watsAppNumber = "watsAppNumber required";
-    }
-    if (!formData.email) {
-      newErrors.email = "email required";
-    }
-    if (!formData.age) {
-      newErrors.age = "age required";
-    }
-    if (!formData.collageOrCompany) {
-      newErrors.collageOrCompany = "collageOrCompany required";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors)?.length === 0) {
-      dispatch(postYogaFormData(formData)).then((res) => {
-        console.log("res", res);
-      });
-      console.log(formData);
-    }
-  };
 
 
   return (
@@ -283,6 +213,9 @@ const YogaSinglePage = () => {
       <Container mt={['8rem']} w={["100%"]} maxW={"1200px"} mx={"auto"}>
       
         <Flex gap={['3rem','3rem','3rem','1.5rem']} w={"100%"} flexDirection={['column','column','column','row']}>
+
+
+          {/* Image Container */}
           <VStack w={['100%','100%','100%','40%']} h={"auto"} alignItems={"flex-start"} gap={['2rem']}>
             <Box
               w={['100%','100%']}
@@ -337,8 +270,15 @@ const YogaSinglePage = () => {
               </Box>
             </HStack>
           </VStack>
+         
 
-          <VStack w={['100%','100%','100%','60%']} h={"auto"} alignItems={"flex-start"} gap={"2.1rem"}>
+
+
+
+
+
+         {/* Details Container */}
+          <VStack w={['100%','100%','100%','60%']} h={"auto"} alignItems={"flex-start"} gap={{base:'2.2rem',lg:'3rem'}}>
 
             {/* Event Title */}
             <Box
@@ -378,7 +318,7 @@ const YogaSinglePage = () => {
                       overflow={"hidden"}
                       textTransform={'uppercase'}
                     >
-                     {month?.length > 4 ? month.substring(0,3) : month}
+                     {month.length > 4 ? month.substring(0,3) : month}
                     </Box>
                   </Box>
                   <Box
@@ -423,7 +363,7 @@ const YogaSinglePage = () => {
               
                 <Box w={['80%']}>
                   <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>
-                  {location?.length > 67 ? `${location.substring(0,68)}...` : location}
+                  {location.length > 67 ? `${location.substring(0,68)}...` : location}
                   </Box>
                   <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{state}</Box>
                 </Box>
@@ -511,6 +451,44 @@ const YogaSinglePage = () => {
             </VStack>
 
 
+         
+         {/* Accordions */}
+
+         <Box w={["100%"]}>
+         <Box fontWeight={"600"} fontSize={['1.5rem']} mb={'5'}>Tour Plan</Box>
+          <Accordion allowMultiple>
+            {additionalFields.map((field, index) => (
+              <AccordionItem
+               p={'0.5rem'}
+                key={index}
+              >
+                <h2>
+                  <AccordionButton _hover={"none"}>
+                    <Box
+                      flex="1"
+                      textAlign="left"
+                      fontSize={["1rem"]}
+                      color={theme.colors.col.secondary}
+                      fontWeight={"600"}
+                    >
+                      {field.title}
+                    </Box>
+                    <Box fontSize={"1.1rem"}>
+                      <AccordionIcon color={"orange"} />
+                    </Box>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel py={5} px={8} fontWeight={"500"} fontSize={'1.1rem'}>
+                  {field.description}
+                </AccordionPanel>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Box>
+
+
+
+
 
            {/* Location of Event */}
             <VStack>
@@ -530,6 +508,7 @@ const YogaSinglePage = () => {
       </Container>
     </Box>
   );
-}
+};
 
-export default YogaSinglePage;
+export default SinglePageTwo;
+
