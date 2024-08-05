@@ -88,7 +88,26 @@ const AdminYogaUsersData = () => {
 
   const handleFilterDateChange = (e) => {
     setDateFilter(e.target.value);
+
   };
+
+  // const handleAttendance = (event, id, e) => {
+  //   let status = e.target.value;
+
+  //   let payload = {
+  //     eventId: event,
+  //     userId: id,
+  //     status: status,
+  //   };
+
+  //   dispatch(patchAttendanceAdminFestivalsFormData(payload)).then((res) => {
+  //     console.log(res.payload.message);
+  //     if (res.payload.message === "Attendance updated successfully") {
+  //       setAttendance(!attendance); // Toggle attendance to trigger a re-render
+  //     }
+  //   });
+
+  // };
 
   const handleAttendance = (event, id, e) => {
     let status = e.target.value;

@@ -107,7 +107,11 @@ const AdminYogaUsersData = () => {
     });
   };
 
+
 console.log(filteredData,"filtered")
+
+console.log(filteredData,"filtered data")
+
 
   return (
     <>

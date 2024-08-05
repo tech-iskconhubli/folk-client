@@ -48,7 +48,11 @@ const AdminMindEvents = () => {
     setDateFilter(e.target.value);
   };
 
+
   console.log("store one",store)
+
+  console.log("store",store)
+
 
   return (
     <>

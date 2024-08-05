@@ -19,8 +19,12 @@ const AdminTripsEvents = () => {
     dispatch(getTripsDataBasedOnLocationAndUsers())
     .then(res => {
         console.log(res)
-    }); 
-  }, [dispatch]);
+
+    },[dispatch]); 
+
+    });
+
+
 
   useEffect(() => {
     if (store.data) {
@@ -51,7 +55,11 @@ const AdminTripsEvents = () => {
     setDateFilter(e.target.value);
   };
 
+
   console.log("filtered", filteredData);
+
+  console.log("filteredData", filteredData);
+
 
   return (
     <>
@@ -132,6 +140,7 @@ const AdminTripsEvents = () => {
                   View Users
                 </Button>
               </Stack>
+
             </Card> 
           ))}
         </Box>
