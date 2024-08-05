@@ -52,6 +52,7 @@ const AdminYogaDataTable = () => {
      }
      console.log("refresh",refresh)
      console.log("delete", deleteSuccess)
+     console.log("store",store)
 
     return (
         <>

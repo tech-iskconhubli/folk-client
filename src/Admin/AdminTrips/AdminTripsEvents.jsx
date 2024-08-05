@@ -19,7 +19,7 @@ const AdminTripsEvents = () => {
     dispatch(getTripsDataBasedOnLocationAndUsers())
     .then(res => {
         console.log(res)
-    });
+    }); 
   }, [dispatch]);
 
   useEffect(() => {
@@ -132,7 +132,7 @@ const AdminTripsEvents = () => {
                   View Users
                 </Button>
               </Stack>
-            </Card>
+            </Card> 
           ))}
         </Box>
       </Box>

@@ -45,7 +45,7 @@ const AdminYogaEvents = () => {
     setDateFilter(e.target.value);
   };
 
-  console.log(store)
+  console.log(store,"store")
 
   return (
     <>

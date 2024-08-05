@@ -128,7 +128,7 @@ const handleSubmit = (e) => {
       }
         });
 
-    console.log("formData", formData);
+    console.log("formData festival", formData);
 };
 
 
