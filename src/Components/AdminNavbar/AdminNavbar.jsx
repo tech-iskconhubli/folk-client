@@ -109,20 +109,25 @@ const AdminNavbar = () => {
                 <Collapse in={collapseStates[item.toggle]} animateOpacity>
                   <CustomBox mt={2} ml={"80px"}>
                     <NavLink className={({ isActive }) => isActive ? "activeLink" : ""} to={`${item.path}/createForm`}>
-                      <Button width="80%">Add Event</Button>
+                      <Button border={"2px solid white"} width="80%">Add Event</Button>
                     </NavLink>
                     <NavLink className={({ isActive }) => isActive ? "activeLink" : ""} to={`${item.path}/data`}>
-                      <Button width="80%" mt={2}>Show Data</Button>
+                      <Button border={"2px solid white"} width="80%" mt={2}>Show Data</Button>
+                    </NavLink>
+                    <NavLink className={({ isActive }) => isActive ? "activeLink" : ""} to={`${item.path}/events`}>
+                      <Button border={"2px solid white"} width="80%" mt={2}>Events Data</Button>
                     </NavLink>
                     {pathsWithUserResponse.includes(item.path) && (
                       <NavLink className={({ isActive }) => isActive ? "activeLink" : ""} to={`${item.path}/response/data`}>
                         <Button
+                        border={"2px solid white"}
                           width="80%"
                           mt={2}
                         >
                           User Response
                         </Button>
                       </NavLink>
+                      
                     )}
                   </CustomBox>
                 </Collapse>

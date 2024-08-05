@@ -128,7 +128,7 @@ const CardsSection = () => {
                       </Box>
                        <Box role="group" bgColor={theme.colors.col.secondary} display={'inline-flex'} w={'40px'} h={'40px'}  justifyContent={'center'} alignItems={'center'} fontSize={'1.1rem'} color={'white'} borderRadius={'10px'} boxShadow={'0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.10)'} cursor={'pointer'}>
                         <Box _groupHover={{transform:'rotate(45deg)'}} transition={'all 0.2s linear'}>
-                       <Link to={`/singlePage/${item._id}`}><FiArrowUpRight  /></Link>
+                       <Link to={`/yogaForHappiness/${item._id}`}><FiArrowUpRight  /></Link>
                         </Box>
                        </Box>
                    </HStack>

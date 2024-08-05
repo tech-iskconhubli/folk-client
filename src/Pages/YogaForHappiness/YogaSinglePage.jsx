@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -12,17 +13,24 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, {  useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import theme from "../../theme";
-import { singleData } from "../../Components/SinglePages/SingleData";
+import { singleData as data } from '../../Components/SinglePages/SingleData';
 import { IoClose } from "react-icons/io5";
+import {
+  getSingleAdminYogaFormData,
+  postYogaFormData,
+} from "../../Redux/app/action";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+
 
 
 const YogaSinglePage = () => {
-
+  const [singleData, setSingleData] = useState({});
   const [toggle, setToggle] = useState(false);
   const [toggleImage,setToggleImage] = useState(false);
 
@@ -85,7 +93,7 @@ const YogaSinglePage = () => {
     location,
     state,
     img
-  } = singleData;
+  } = data;
 
 
 
@@ -99,6 +107,75 @@ const YogaSinglePage = () => {
   const day = daysOfWeek[dayIndex] || "";
   const month = months[monthIndex] || "";
 
+  const init = {
+    name: "",
+    watsAppNumber: "",
+    email: "",
+    age: "",
+    collageOrCompany: "",
+    BranchOfYear: "",
+    eventId:""
+  };
+
+  const [formData, setFormData] = useState(init);
+  const [errors, setErrors] = useState(init);
+
+  const { singlePage } = useParams();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSingleAdminYogaFormData(singlePage)).then((res) => {
+      setSingleData(res?.payload?.data);
+      setFormData({
+        eventId:res.payload.data?._id
+      })
+    });
+  }, []);
+
+
+
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const payload = {
+      ...formData,
+      [name]: value,
+    };
+
+    setFormData(payload);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newErrors = {};
+
+    if (!formData.name) {
+      newErrors.name = "name required";
+    }
+    if (!formData.watsAppNumber) {
+      newErrors.watsAppNumber = "watsAppNumber required";
+    }
+    if (!formData.email) {
+      newErrors.email = "email required";
+    }
+    if (!formData.age) {
+      newErrors.age = "age required";
+    }
+    if (!formData.collageOrCompany) {
+      newErrors.collageOrCompany = "collageOrCompany required";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors)?.length === 0) {
+      dispatch(postYogaFormData(formData)).then((res) => {
+        console.log("res", res);
+      });
+      console.log(formData);
+    }
+  };
 
 
   return (
@@ -301,7 +378,7 @@ const YogaSinglePage = () => {
                       overflow={"hidden"}
                       textTransform={'uppercase'}
                     >
-                     {month.length > 4 ? month.substring(0,3) : month}
+                     {month?.length > 4 ? month.substring(0,3) : month}
                     </Box>
                   </Box>
                   <Box
@@ -346,7 +423,7 @@ const YogaSinglePage = () => {
               
                 <Box w={['80%']}>
                   <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>
-                  {location.length > 67 ? `${location.substring(0,68)}...` : location}
+                  {location?.length > 67 ? `${location.substring(0,68)}...` : location}
                   </Box>
                   <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{state}</Box>
                 </Box>
@@ -434,12 +511,6 @@ const YogaSinglePage = () => {
             </VStack>
 
 
-         
-         
-
-
-
-
 
            {/* Location of Event */}
             <VStack>
@@ -461,4 +532,4 @@ const YogaSinglePage = () => {
   );
 }
 
-export default YogaSinglePage
+export default YogaSinglePage;

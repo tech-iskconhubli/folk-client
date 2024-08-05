@@ -63,11 +63,6 @@ import SecretOfSuccessForm from '../Pages/SecretOfSuccess/SecretOfSuccessFrom';
 import ArtOFMindForm from '../Pages/ArtOfMindControl/ArtOFMindForm';
 import TripsForm from '../Pages/Trips/TripsForm';
 import FestivalsForm from '../Pages/Festivals/FestivalsForm';
-import AdminYogaUsersData from '../Admin/AdminYoga/AdminYogaUsersData';
-import AdminMindControlUsersData from '../Admin/AdminMindControl/AdminMindControlUsersData';
-import AdminSecretUsersData from '../Admin/AdminSecret/AdminSecretUsersData';
-import AdminTripsUsersData from '../Admin/AdminTrips/AdminTripsUsersData';
-import AdminFesticalsUsersData from '../Admin/AdminFestivals/AdminFesticalsUsersData';
 import AdminYogaUserFlex from '../Admin/AdminYoga/AdminYogaUserFlex';
 import AdminSecretUsersFlex from '../Admin/AdminSecret/AdminSecretUsersFlex';
 import AdminMindControlUsersFlex from '../Admin/AdminMindControl/AdminMindControlUsersFlex';
@@ -79,9 +74,6 @@ import TripDetailsPage from '../Dummy/TripsDetails';
 import Login from '../Admin/AdminLogin/Login';
 import LoginLayout from '../Layouts/LoginLayout';
 import PrivateRoute from '../Private/Private';
-import Newform from '../Dummy/Newform';
-import SinglePage from "../Components/SinglePages/SinglePage"
-import SinglePageWithAccordion from "../Components/SinglePages/SinglePageWithAccoridon"
 import Dummy2 from '../Dummy/Dummy2';
 import FestivalSinglePage from '../Components/FestivalRelated/FestivalSinglePage';
 import GallerySinglePage from '../Components/GalleryRelated/GallerySinglePage';
@@ -90,6 +82,11 @@ import YogaSinglePage from '../Pages/YogaForHappiness/YogaSinglePage';
 import MindControlSinglePage from '../Components/ArtOfMindControlRelated/MindControlSinglePage';
 import DonationSinglePage from '../Components/DonationRelated/DonationSinglePage';
 import ResidencySinglePage from '../Components/ResidencyRelated/ResidencySinglePage'
+import AdminYogaEvents from '../Admin/AdminYoga/AdminYogaEvents';
+import AdminSecretEvents from '../Admin/AdminSecret/AdminSecretEvents';
+import AdminMindEvents from '../Admin/AdminMindControl/AdminMindEvents';
+import AdminTripsEvents from '../Admin/AdminTrips/AdminTripsEvents';
+import AdminFestivalsEvents from '../Admin/AdminFestivals/AdminFestivalsEvents';
 
 
 
@@ -130,8 +127,6 @@ const AllRouts = () => {
                   <Route path='/artOfMindControl/:singlePage' element={<MindControlSinglePage />} />
                   <Route path='/handleAddSection' element={<PlusForm/>} />
                   <Route path='/dummy2' element={<Dummy2/>} />
-                  <Route path='/singlePage/:id' element={<SinglePage/>} />
-                  <Route path='/singlePageWithAccordion' element={<SinglePageWithAccordion/>} />
                   <Route path='*' element={<NotFound/>}/>
             </Route>
 
@@ -139,21 +134,25 @@ const AllRouts = () => {
                   <Route path='/admin' element={<PrivateRoute><Admin/></PrivateRoute>}/>
                   <Route path='/admin/yoga/createForm' element={<AdminYogaForm/>} />
                   <Route path='/admin/yoga/data' element={<AdminYogadata/>} />
+                  <Route path='/admin/yoga/events' element={<AdminYogaEvents/>} />
                   <Route path='/admin/yoga/data/:id' element={<AdminYogaDataSingle/>}/>
                   <Route path='/admin/yoda/data/edit/:id' element={<AdminYogaDataEdit/>} />
                   <Route path='/admin/yoga/response/data' element={<AdminYogaUserFlex/>} />
                   <Route path='/admin/secret/createForm' element={<AdminSecretForm/>} />
                   <Route path='/admin/secret/data' element={<AdminSecretData/>} />
+                  <Route path='/admin/secret/events' element={<AdminSecretEvents/>} />
                   <Route path='/admin/secret/data/:id' element={<AdminSecretDataSingle/>}/>
                   <Route path='/admin/secret/data/edit/:id' element={<AdminSecretDataEdit/>}/>
                   <Route path='/admin/secret/response/data' element={<AdminSecretUsersFlex/>} />
                   <Route path='/admin/mindControl/createForm' element={<AdminMindControlForm/>} />
                   <Route path='/admin/mindControl/data' element={<AdminMindControlData/>} />
+                  <Route path='/admin/mindControl/events' element={<AdminMindEvents/>} />
                   <Route path='/admin/mindControl/data/:id' element={<AdminMindControlSingle/>}/>
                   <Route path='/admin/mindControl/data/edit/:id' element={<AdminMindControlEdit/>}/>
                   <Route path='/admin/mindControl/response/data' element={<AdminMindControlUsersFlex/>} />
                   <Route path='/admin/trips/createForm' element={<AdminTripsFrom/>}/>
                   <Route path='/admin/trips/data' element={<AdminTripsData/>}/>
+                  <Route path='/admin/trips/events' element={<AdminTripsEvents/>}/>
                   <Route path='/admin/trips/data/:id' element={<AdminTripsDataSingle/>}/>
                   <Route path='/admin/trips/response/data' element={<AdminTripsUsersFlex/>}/>
                   <Route path='/admin/trips/data/edit/:id' element={<AdminTripsDataEdit/>}/>
@@ -163,6 +162,7 @@ const AllRouts = () => {
                   <Route path='/admin/residency/data/edit/:id' element={<AdminResidencyDataEdit/>}/>
                   <Route path='/admin/festivals/createForm' element={<AdminFestivalsForm/>}/>
                   <Route path='/admin/festivals/data' element={<AdminFestivalsDate/>}/>
+                  <Route path='/admin/festivals/events' element={<AdminFestivalsEvents/>}/>
                   <Route path='/admin/festivals/data/:id' element={<AdminFestivalsDateSingle/>}/>
                   <Route path='/admin/festivals/data/edit/:id' element={<AdminFestivalsDateEdit/>}/>
                   <Route path='/admin/festivals/response/data' element={<AdminFestivalsUsersDataFlex/>}/>

@@ -56,7 +56,7 @@ const AdminFestivalsDateTable = () => {
        })
      }
 
-     console.log("store",store)
+     console.log("store one",store)
 
     return (
         <>
