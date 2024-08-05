@@ -1,4 +1,9 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Button,
   Container,
@@ -17,12 +22,13 @@ import { FaInstagram } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import theme from "../../theme";
-import { singleData } from "../../Components/SinglePages/SingleData";
+import { singleData } from "../SinglePages/SingleData";
 import { IoClose } from "react-icons/io5";
 
 
-const YogaSinglePage = () => {
 
+
+const SinglePageTwo = () => {
   const [toggle, setToggle] = useState(false);
   const [toggleImage,setToggleImage] = useState(false);
 
@@ -84,7 +90,8 @@ const YogaSinglePage = () => {
     duration,
     location,
     state,
-    img
+    img,
+    additionalFields
   } = singleData;
 
 
@@ -206,6 +213,9 @@ const YogaSinglePage = () => {
       <Container mt={['8rem']} w={["100%"]} maxW={"1200px"} mx={"auto"}>
       
         <Flex gap={['3rem','3rem','3rem','1.5rem']} w={"100%"} flexDirection={['column','column','column','row']}>
+
+
+          {/* Image Container */}
           <VStack w={['100%','100%','100%','40%']} h={"auto"} alignItems={"flex-start"} gap={['2rem']}>
             <Box
               w={['100%','100%']}
@@ -260,8 +270,15 @@ const YogaSinglePage = () => {
               </Box>
             </HStack>
           </VStack>
+         
 
-          <VStack w={['100%','100%','100%','60%']} h={"auto"} alignItems={"flex-start"} gap={"2.1rem"}>
+
+
+
+
+
+         {/* Details Container */}
+          <VStack w={['100%','100%','100%','60%']} h={"auto"} alignItems={"flex-start"} gap={{base:'2.2rem',lg:'3rem'}}>
 
             {/* Event Title */}
             <Box
@@ -435,7 +452,39 @@ const YogaSinglePage = () => {
 
 
          
-         
+         {/* Accordions */}
+
+         <Box w={["100%"]}>
+         <Box fontWeight={"600"} fontSize={['1.5rem']} mb={'5'}>Tour Plan</Box>
+          <Accordion allowMultiple>
+            {additionalFields.map((field, index) => (
+              <AccordionItem
+               p={'0.5rem'}
+                key={index}
+              >
+                <h2>
+                  <AccordionButton _hover={"none"}>
+                    <Box
+                      flex="1"
+                      textAlign="left"
+                      fontSize={["1rem"]}
+                      color={theme.colors.col.secondary}
+                      fontWeight={"600"}
+                    >
+                      {field.title}
+                    </Box>
+                    <Box fontSize={"1.1rem"}>
+                      <AccordionIcon color={"orange"} />
+                    </Box>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel py={5} px={8} fontWeight={"500"} fontSize={'1.1rem'}>
+                  {field.description}
+                </AccordionPanel>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Box>
 
 
 
@@ -459,6 +508,7 @@ const YogaSinglePage = () => {
       </Container>
     </Box>
   );
-}
+};
 
-export default YogaSinglePage
+export default SinglePageTwo;
+
