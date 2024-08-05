@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
-  Button,
-  Container,
-  Divider,
-  Flex,
-  FormLabel,
-  HStack,
+  Heading,
   Image,
-  Input,
-  Stack,
-  Text,
   VStack,
+  SimpleGrid,
+  GridItem,
+  Container,
+  Flex,
+  useBreakpointValue,
+  HStack,
+  Button,
+  Divider,
+  Input,
 } from "@chakra-ui/react";
-import { FaInstagram } from "react-icons/fa";
-import { IoLocationOutline } from "react-icons/io5";
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoCalendar } from "react-icons/io5";
+import { MdTimer } from "react-icons/md";
+import { IoTimeSharp } from "react-icons/io5";
+import { motion } from "framer-motion";
+import { singleData } from "../../Components/SinglePages/SingleData";
 import theme from "../../theme";
-import { singleData as data } from '../../Components/SinglePages/SingleData';
-import { IoClose } from "react-icons/io5";
 import {
   getSingleAdminYogaFormData,
   postYogaFormData,
@@ -26,86 +28,11 @@ import {
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-
-
+const MotionBox = motion(Box);
+const MotionImage = motion(Image);
 
 const YogaSinglePage = () => {
   const [singleData, setSingleData] = useState({});
-  const [toggle, setToggle] = useState(false);
-  const [toggleImage,setToggleImage] = useState(false);
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
-
-  const daysOfWeek = [
-    "Sunday", "Monday", "Tuesday", "Wednesday",
-    "Thursday", "Friday", "Saturday"
-  ];
-
-
-  const handleRegisterForm = () =>{
-   setToggle(!toggle)
-  }
-
-  const handleClose = () =>{
-    if(toggle){
-      setToggle(false)
-    }
-    else{
-      setToggle(true)
-    }
-  }
-
-
-  const handleOpenImage = () =>{
-    setToggleImage(!toggle)
-  }
-
-  const handleCloseImage = () =>{
-    if(toggleImage){
-      setToggleImage(false)
-    }
-    else{
-      setToggleImage(true)
-    }
-  }
-
-
-
-  const {
-    title,
-    date,
-    description,
-    time,
-    duration,
-    location,
-    state,
-    img
-  } = data;
-
-
-
-
-
-  const dt = new Date(date);
-  const dayIndex = dt.getDay();
-  const monthIndex = dt.getMonth();
-  const dateIndex = dt.getDate();
-
-  const day = daysOfWeek[dayIndex] || "";
-  const month = months[monthIndex] || "";
 
   const init = {
     name: "",
@@ -128,12 +55,12 @@ const YogaSinglePage = () => {
     dispatch(getSingleAdminYogaFormData(singlePage)).then((res) => {
       setSingleData(res?.payload?.data);
       setFormData({
-        eventId:res.payload.data?._id
+        eventId:res.payload.data._id
       })
     });
   }, []);
 
-
+  console.log(singleData._id)
 
  
   const handleChange = (e) => {
@@ -169,7 +96,7 @@ const YogaSinglePage = () => {
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors)?.length === 0) {
+    if (Object.keys(newErrors).length === 0) {
       dispatch(postYogaFormData(formData)).then((res) => {
         console.log("res", res);
       });
@@ -177,359 +104,365 @@ const YogaSinglePage = () => {
     }
   };
 
+  const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
 
   return (
-    <Box w={"100%"} position={"relative"}>
-      {/* Register Form */}
-     
-     <Box
-        position={"fixed"}
-        inset={0}
-        zIndex={9999999999}
+    <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "2"]}>
+      {/* Background Image with Heading */}
+      <MotionBox
+        // bgImage={`url(${img[0]})`}
         w={"100%"}
-        h={"100vh"}
-        display={'flex'}
-        bgColor={"rgb(0,0,0,0.9)"}
-        overflow={"hidden"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        backdropFilter={'blur(20px)'}
-        transition="opacity 0.4s ease-in-out, transform 0.4s ease-in-out"
-       transform={toggle ? 'scale(1)':'scale(0)'}
-       opacity={toggle ? 1 : 0}
+        borderRadius={{ lg: "10px" }}
+        bgPosition="center"
+        bgRepeat="no-repeat"
+        bgSize="cover"
+        height={["50vh", "50vh", "60vh", "80vh", "85vh"]}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        position={"relative"}
+        mt={{ base: "6rem", lg: "7rem" }}
       >
+        <Box
+          bg="rgba(0, 0, 0, 0.5)"
+          p={6}
+          borderRadius={{ lg: "10px" }}
+          overflow={"hidden"}
+          position={"absolute"}
+          width={"100%"}
+          h={"100%"}
+          inset={0}
+        ></Box>
+        <VStack gap={["2rem"]}>
+          <Heading
+            position={"relative"}
+            zIndex={"99"}
+            size={["lg", "xl", "2xl", "2xl", "2xl"]}
+          >
+            {"Yoga for Happiness"}
+          </Heading>
+        </VStack>
+      </MotionBox>
 
-        {/* close button */}
-        <Box onClick={handleClose} bgColor={'#2C3133'} color={'white'} position={'absolute'} top={{base:'1rem',lg:'2rem'}} right={{base:'1rem',lg:'2rem'}} p={2} fontSize={'1.5rem'} borderRadius={'50%'} overflow={'hidden'} cursor={'pointer'}>
-        <IoClose />
-        </Box>
-       
+      {/* Details */}
+      <Flex
+        my={["2rem", "3rem", "4rem", "5rem"]}
+        px={["4", "7", "7", "7", "5"]}
+        w={["100%", "100%", "90%", "90%", "99%", "98%"]}
+        boxSizing="border-box"
+        mx={"auto"}
+        gap={["2rem"]}
+        flexDirection={{ base: "column", xl: "row" }}
+      >
+        <VStack
+          w={["100%", "100%", "100%", "100%", "55%"]}
+          h={"auto"}
+          alignItems={"flex-start"}
+          gap={["3rem", "3rem", "2.5rem"]}
+        >
+          <VStack alignItems={"flex-start"} w={"100%"} gap={"1.5rem"}>
+            <VStack alignItems={"flex-start"}>
+              <Box
+                fontSize={[
+                  "2.5rem",
+                  "3rem",
+                  "3.5rem",
+                  "4rem",
+                  "4rem",
+                  "4.5rem",
+                ]}
+                lineHeight={{ lg: "5rem" }}
+                fontWeight={"600"}
+              >
+                {"Yoga For Happiness Event"}
+              </Box>
+              <Box
+                fontSize={["2rem", "2.5rem", "3rem", "3.5rem"]}
+                color={theme.colors.col.secondary}
+                fontWeight={"700"}
+              >
+                RS:{100}/-
+              </Box>
+            </VStack>
+            <Divider border={"1px solid rgb(0,0,0,0.90)"} />
 
-       {/* Form */}
-        <Box w={['90%']} maxW={'400px'}>
-          <form style={{ width: "100%"}}>
+            <Box
+              fontSize={["1rem", "1rem", "1.1rem", "1.2rem"]}
+              lineHeight={"1.9rem"}
+            >
+              {singleData.description}
+            </Box>
+          </VStack>
+
+          <Flex
+            direction={{ base: "column", lg: "row" }}
+            justifyContent={"space-between"}
+            w={"100%"}
+            gap={10}
+            bgColor={"rgb(245,247,248)"}
+            boxShadow={{ xl: " 1px 0px 10px 2px rgba(0,0,0,0.1)" }}
+            p={8}
+            borderRadius={"10px"}
+          >
+            <VStack spacing={6} align="start" w={["100%"]}>
+              <Box fontSize={"1.5rem"} fontWeight={"700"}>
+                Yoga Session Details
+              </Box>
+
+              <HStack fontSize="lg" gap={"1rem"}>
+                <Box fontSize={"lg"} color={"orange"}>
+                  <MdTimer />
+                </Box>
+
+                <HStack>
+                  <strong>Duration:</strong>
+                  <Box fontWeight={"500"} fontSize={"1rem"}>
+                    {singleData.duration}
+                  </Box>
+                </HStack>
+              </HStack>
+
+              <HStack fontSize="lg" gap={"1rem"}>
+                <Box fontSize={"lg"} color={"orange"}>
+                  <FaLocationDot />
+                </Box>
+                <HStack>
+                  <strong>Location:</strong>
+                  <Box fontWeight={"500"} fontSize={"1rem"}>
+                    {singleData.location}
+                  </Box>
+                </HStack>
+              </HStack>
+
+              <HStack fontSize="lg" gap={"1rem"}>
+                <Box fontSize={"lg"} color={"orange"}>
+                  <IoCalendar />
+                </Box>
+                <HStack>
+                  <strong>Session Date:</strong>{" "}
+                  <Box fontWeight={"500"} fontSize={"1rem"}>
+                    {singleData.date}
+                  </Box>
+                </HStack>
+              </HStack>
+
+              <HStack fontSize="lg" gap={"1rem"}>
+                <Box fontSize={"lg"} color={"orange"}>
+                  <IoTimeSharp />
+                </Box>
+                <HStack>
+                  <strong>Time:</strong>{" "}
+                  <Box fontWeight={"500"} fontSize={"1rem"}>
+                    {singleData.time}
+                  </Box>
+                </HStack>
+              </HStack>
+            </VStack>
+          </Flex>
+        </VStack>
+
+        <VStack
+          w={["100%", "100%", "100%", "100%", "50%"]}
+          h={"auto"}
+          alignItems={"flex-start"}
+          gap={"2rem"}
+          bg={"rgb(245,248,249)"}
+          px={["3", "4", "8"]}
+          py={["5", "8", "8"]}
+          borderRadius={"10px"}
+          boxShadow={{ xl: " 1px 0px 10px 2px rgba(0,0,0,0.1)" }}
+        >
+          <Box
+            fontSize={["1.6rem", "2rem", "2.5rem", "3rem"]}
+            fontWeight={"700"}
+          >
+            ENROLL NOW
+          </Box>
+
+          <form
+            onSubmit={handleSubmit}
+            style={{ width: "100%", height: "100%" }}
+          >
             <VStack
               w={"100%"}
               h={"100%"}
-              gap={['2rem']}
-              alignItems={'flex-start'}
-              color={'white'}
+              gap={["2rem", "2rem", "2rem", "2rem", "2.5rem"]}
             >
-              <Box fontSize={'1.5rem'} fontWeight={'600'}>
-                 Your Info
+              <HStack
+                w={"100%"}
+                gap={["2rem", "1rem", "1.2rem"]}
+                flexDirection={["column", "row"]}
+              >
+                <Input
+                  size={"lg"}
+                  border={errors.name ? "2px solid red" : "1px solid lightgrey"}
+                  type="text"
+                  placeholder="Full Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  
+                />
+                <Input
+                  size={"lg"}
+                  border={errors.watsAppNumber ? "2px solid red" : "1px solid lightgrey"}
+                  type="number"
+                  placeholder="WhatsApp Number"
+                  name="watsAppNumber"
+                  value={formData.watsAppNumber}
+                  onChange={handleChange}
+                />
+              </HStack>
+              <HStack
+                w={"100%"}
+                gap={["2rem", "1rem", "1.2rem"]}
+                flexDirection={["column", "row"]}
+              >
+                <Input
+                  size={"lg"}
+                  border={errors.email ? "2px solid red" : "1px solid lightgrey"}
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <Input
+                  size={"lg"}
+                  border={errors.age ? "2px solid red" : "1px solid lightgrey"}
+                  type="tel"
+                  placeholder="age"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
+                />
+              </HStack>
+              <HStack
+                w={"100%"}
+                gap={["2rem", "1rem", "1.2rem"]}
+                flexDirection={["column", "row"]}
+              >
+                <VStack alignItems={"flex-start"} w={"100%"}>
+                  <Input
+                    size={"lg"}
+                    border={errors.collageOrCompany ? "2px solid red" : "1px solid lightgrey"}
+                    type="text"
+                    placeholder="College or Company"
+                    name="collageOrCompany"
+                    value={formData.collageOrCompany}
+                    onChange={handleChange}
+                  />
+                </VStack>
+                <VStack
+                  alignItems={"flex-start"}
+                  w={"100%"}
+                  gap={"0"}
+                  position={"relative"}
+                >
+                  <Input
+                    size={"lg"}
+                    
+                    type="text"
+                    placeholder="Branch of Year"
+                    name="BranchOfYear"
+                    value={formData.BranchOfYear}
+                    onChange={handleChange}
+                  />
+                  <Box
+                    position={"absolute"}
+                    bottom={"-6"}
+                    fontWeight={"500"}
+                    fontSize={"0.9rem"}
+                    left={"1"}
+                    opacity={"0.8"}
+                  >
+                    (If your a student)
+                  </Box>
+                </VStack>
+              </HStack>
+
+              <HStack
+                w={"100%"}
+                gap={["2rem", "1rem", "1.2rem"]}
+                flexDirection={["column", "row"]}
+              >
+                <Input
+                  size={"lg"}
+                  border={"1px solid black"}
+                  type="number"
+                  placeholder="Register Amount"
+                  value={100}
+                  disabled={true}
+                />
+              </HStack>
+
+              <Box mt={"auto"} w={"100%"}>
+                <Input
+                  colorScheme="orange"
+                  w={"100%"}
+                  fontSize={["1rem"]}
+                  px={["1rem"]}
+                  py={["1.5rem"]}
+                  type="submit"
+
+
+                />
+                 
               </Box>
-            <Stack w={'100%'} alignItems={'flex-start'} gap={'0.5rem'}>
-
-            <FormLabel>Name *</FormLabel>
-            <Input type="text" placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
-
-
-            <FormLabel>Email *</FormLabel>
-            <Input type="email" _placeholder={{color:'#6E7272',fontWeight:'600'}} placeholder="you@email.com" variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
-
-
-            <FormLabel>Phone Number *</FormLabel>
-            <Input type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
-
-
-            <FormLabel>College/Company *</FormLabel>
-            <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
-
-
-            <FormLabel>Course(Only for students)</FormLabel>
-            <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
-
-            </Stack>
-             <Box w={'100%'}>
-               <Button w={'100%'} bgColor={'white'} size={'md'}>Register</Button>
-             </Box>
-
             </VStack>
           </form>
-        </Box>
+        </VStack>
+      </Flex>
 
-
-      </Box>
-
-      {/* View Image */}
-
-     {toggleImage &&  <Box
-        position={"fixed"}
-        inset={0}
-        zIndex={9999999999}
-        w={"100%"}
-        h={"100vh"}
-        display={'flex'}
-        bgColor={"rgb(0,0,0,0.9)"}
-        overflow={"hidden"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        backdropFilter={'blur(20px)'}
+      {/* Related Images */}
+      <Box
+        w={["100%", "100%", "90%", "90%", "95%"]}
+        p={["1rem"]}
+        maxW={"1500px"}
+        mx={"auto"}
+        my={["7rem"]}
       >
-        {/* close button */}
-        <Box onClick={handleCloseImage} bgColor={'#2C3133'} color={'white'} position={'absolute'} top={{base:'1rem',lg:'2rem'}} right={{base:'1rem',lg:'2rem'}} p={2} fontSize={'1.5rem'} borderRadius={'50%'} overflow={'hidden'} cursor={'pointer'}>
-        <IoClose />
-        </Box>
-
-        {/* Image */}
-        
-        <Box w={['90%','90%','auto']} h={['400px','500px','550px']}>
-           <Image w={'100%'} h={'100%'} src={img} objectFit={'cover'} />
-        </Box>
-
-
-      </Box>}
-
-      <Container mt={['8rem']} w={["100%"]} maxW={"1200px"} mx={"auto"}>
-      
-        <Flex gap={['3rem','3rem','3rem','1.5rem']} w={"100%"} flexDirection={['column','column','column','row']}>
-          <VStack w={['100%','100%','100%','40%']} h={"auto"} alignItems={"flex-start"} gap={['2rem']}>
-            <Box
-              w={['100%','100%']}
-              mx={'auto'}
-              height={['350px','450px','500px','400px','450px']}
-              overflow={"hidden"}
-              borderRadius={"5px"}
-            >
-              {/* Main Image */}
-              <Image
-                w={"100%"}
-                h={"100%"}
-                objectFit={"cover"}
-                onClick={handleOpenImage}
-                src={img}
-              />
-            </Box>
-
-            <VStack w={"100%"} alignItems={"flex-start"}>
-              <Box fontWeight={"600"} fontSize={"1rem"} opacity={"0.8"}>
-                Hosted By
-              </Box>
-              <Divider borderBottom={"1px solid rgb(0,0,0,0.3)"} />
-            </VStack>
-
-            <HStack
-              justifyContent={"space-between"}
+        <Heading
+          size={{ base: "2xl", xl: "3xl" }}
+          color={theme.colors.col.secondary}
+          mb={"9"}
+        >
+          Related Images
+        </Heading>
+        <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 3 }}
+          spacing={5}
+          bgColor={"rgb(245,247,248)"}
+          p={"1rem"}
+          borderRadius={"10px"}
+        >
+          {/* {img.slice(1).map((image, index) => (
+          <GridItem
+            key={index}
+            w={"100%"}
+            h={"100%"}
+            overflow={"hidden"}
+            position={"relative"}
+          >
+            <MotionImage
+              src={image}
               w={"100%"}
-              alignItems={"center"}
-            >
-              <HStack>
-                <Box w={"35px"} overflow={"hidden"} borderRadius={"50%"}>
-                  <Image
-                    w={"100%"}
-                    h={"100%"}
-                    objectFit={"cover"}
-                    
-                    src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=112,height=112/avatars/rr/7cebffaf-fda4-4b9f-9006-b5de52b1c478"
-                  />
-                </Box>
-                <Box fontWeight={"600"}>Folk vizag</Box>
-              </HStack>
-
-              <Box>
-                <Box
-                  cursor={"pointer"}
-                  fontSize={"1.2rem"}
-                  color={theme.colors.col.secondary}
-                >
-                  <FaInstagram />
-                </Box>
-              </Box>
-            </HStack>
-          </VStack>
-
-          <VStack w={['100%','100%','100%','60%']} h={"auto"} alignItems={"flex-start"} gap={"2.1rem"}>
-
-            {/* Event Title */}
-            <Box
-              fontSize={['1.8rem','2.5rem','3rem','2.5rem','3rem']}
-              lineHeight={['2.2rem','2.3rem','2.4rem','2.5rem','4rem']}
-              fontWeight={"600"}
-              color={theme.colors.col.secondary}
-              textTransform={'capitalize'}
-            >
-              {title}
-            </Box>
-
-
-
-            <VStack w={"100%"} alignItems={"flex-start"} gap={'1rem'}>
-
-              {/* Event Calender */}
-              <HStack gap={"0.8rem"} w={'100%'} alignItems={['flex-start','center']}>
-                <Box
-                  border={"1px solid orange"}
-                  w={['45px']}
-                  h={['48px']}
-                  borderRadius={"5px"}
-                  overflow={"hidden"}
-                >
-                  <Box>
-                    <Box
-                      w={"100%"}
-                      h={"40%"}
-                      bgColor={"orange"}
-                      color={"white"}
-                      fontSize={"0.6rem"}
-                      display={"flex"}
-                      alignItems={"center"}
-                      justifyContent={"center"}
-                      fontWeight={"bold"}
-                      overflow={"hidden"}
-                      textTransform={'uppercase'}
-                    >
-                     {month?.length > 4 ? month.substring(0,3) : month}
-                    </Box>
-                  </Box>
-                  <Box
-                    w={"100%"}
-                    h={"60%"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    fontWeight={"500"}
-                    color={"orange"}
-                    overflow={"hidden"}
-                    fontSize={"1rem"}
-                  >
-                    {dateIndex}
-                  </Box>
-                </Box>
-                <VStack h={"auto"} gap={"0"} w={['80%']} alignItems={"flex-start"}>
-                  <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{`${month}, ${day} ${dateIndex}`}</Box>
-                  <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{time}- {duration > 1 ? duration + 'hours' : duration + 'hour'}</Box>
-                </VStack>
-              </HStack>
-
-
-
-              {/* Event Location */}
-              <HStack gap={"0.8rem"} w={'100%'} alignItems={['flex-start','center']}>
-                <Box
-                  w={['45px']}
-                  h={['48px']}
-                  overflow={"hidden"}
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"center"}
-                  fontSize={"1.5rem"}
-                  border={"1px solid orange"}
-                  color={"orange"}
-                  borderRadius={"5px"}
-                >
-                  <IoLocationOutline />
-                </Box>
-               
-              
-                <Box w={['80%']}>
-                  <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>
-                  {location?.length > 67 ? `${location.substring(0,68)}...` : location}
-                  </Box>
-                  <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{state}</Box>
-                </Box>
-               
-              </HStack>
-            </VStack>
-
-            <VStack
-              bgColor={"rgb(245,247,248)"}
-              w={['100%']}
-              alignItems={"flex-start"}
-              overflow={"hidden"}
-              borderRadius={"10px"}
-              gap={"1rem"}
-            >
-
-              <Box
-                bgColor={"lightgray"}
-                w={"100%"}
-                p={"3"}
-                fontWeight={"bold"}
-                color={theme.colors.col.secondary}
-                fontSize={"1.5rem"}
-                textTransform={"uppercase"}
-              >
-                Registartion
-              </Box>
-
-              <HStack p={3} gap={['1rem']} alignItems={['flex-start']}>
-                <Box
-                  bg={"orange"}
-                  color={"white"}
-                  w={['45px']}
-                  h={['48px']}
-                  overflow={"hidden"}
-                  display={"flex"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  fontSize={"1.2rem"}
-                  borderRadius={"5px"}
-                >
-                  <FaCalendarAlt />
-                </Box>
-                <VStack w={['80%']}  alignItems={"flex-start"} gap={"0"}>
-                  <Box fontWeight={"bold"} fontSize={['1rem']}>Past Events</Box>
-                  <Box fontSize={"0.9rem"} fontWeight={"500"}>
-                    This event ended 13 hours ago.
-                  </Box>
-                </VStack>
-              </HStack>
-              <Divider
-                borderBottom={"1px solid rgb(0,0,0,0.3)"}
-                w={"96%"}
-                mx={"auto"}
-              />
-
-
-               {/* Register Button */}
-              <VStack p={3} alignItems={"flex-start"} w={"100%"} gap={"1rem"}>
-                <Box fontWeight={"500"} fontSize={['0.9rem']}>
-                  Welcome! To join the event, please register below.
-                </Box>
-                <Box w={"100%"}>
-                  <Button    onClick={handleRegisterForm} w={"100%"} colorScheme="orange">
-                    Register
-                  </Button>
-                </Box>
-              </VStack>
-            </VStack>
-
-
-            {/* About Event */}
-
-            <VStack w={"100%"} alignItems={"flex-start"}>
-              <VStack w={"100%"} alignItems={"flex-start"}>
-                <Box fontWeight={"600"} fontSize={['1.5rem']}>About Event</Box>
-                <Divider borderBottom={"1px solid rgb(0,0,0,0.3)"} />
-              </VStack>
-
-              <Box>
-                <Text fontSize={"0.9rem"} lineHeight={"1.8rem"}>
-                 {description}
-                </Text>
-              </Box>
-            </VStack>
-
-
-
-           {/* Location of Event */}
-            <VStack>
-              <VStack w={"100%"} alignItems={"flex-start"}>
-                <Box fontWeight={"600"} fontSize={['1.5rem']}>Location</Box>
-                <Divider borderBottom={"1px solid rgb(0,0,0,0.3)"} />
-              </VStack>
-
-              <Box>
-                <Text fontSize={"0.9rem"} lineHeight={"1.8rem"}>
-                 {location}
-                </Text>
-              </Box>
-            </VStack>
-          </VStack>
-        </Flex>
-      </Container>
-    </Box>
+              h={"100%"}
+              alt={`Trip Image ${index + 1}`}
+              borderRadius="md"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            />
+          </GridItem>
+        ))} */}
+        </SimpleGrid>
+      </Box>
+    </Container>
   );
-}
+};
 
 export default YogaSinglePage;
