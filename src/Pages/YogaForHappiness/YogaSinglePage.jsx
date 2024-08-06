@@ -8,18 +8,18 @@ import {
   GridItem,
   Container,
   Flex,
-  useBreakpointValue,
+  useBreakpointValue, 
   HStack,
   Button,
   Divider,
   Input,
 } from "@chakra-ui/react";
 import { FaLocationDot } from "react-icons/fa6";
-import { IoCalendar } from "react-icons/io5";
+import { IoCalendar } from "react-icons/io5"; 
 import { MdTimer } from "react-icons/md";
 import { IoTimeSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { singleData } from "../../Components/SinglePages/SingleData";
+import { singleData } from "../../Components/SinglePages/SingleData"; 
 import theme from "../../theme";
 import {
   getSingleAdminYogaFormData,
