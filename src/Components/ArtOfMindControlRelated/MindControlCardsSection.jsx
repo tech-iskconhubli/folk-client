@@ -115,7 +115,7 @@ const MindControlCardsSection = () => {
                     {"Art Of Mind Control"}
                      </Box>
                      <Text lineHeight={['1.7rem']} fontSize={['0.9rem']}>
-                      {item.desc}
+                      {item.description}
                      </Text>
                    </VStack>
               </CardBody>
@@ -143,3 +143,5 @@ const MindControlCardsSection = () => {
 }
 
 export default MindControlCardsSection
+
+
