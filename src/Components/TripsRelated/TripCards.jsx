@@ -17,7 +17,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
-import TripCards2 from "./TripCards2";
 gsap.registerPlugin(ScrollTrigger);
 
 const tripsImages = [
@@ -27,27 +26,6 @@ const tripsImages = [
     festivalName: "Puri Jagannath Rath Yatra",
     date: " 07-Sep-2024",
     desc: " Experience the vibrant spectacle of the annual Rath Yatra in Puri, Odisha, celebrating Lord Jagannaths journey amidst joyous chants and colorful processions.",
-  },
-  {
-    imageUrl:
-      "https://i.pinimg.com/736x/c1/f1/db/c1f1dbecfaaafce3a7c38d1cfe480d89.jpg",
-    festivalName: "Ayodhya Ram Mandir Temple",
-    date: "08-March-2024",
-    desc: "Visit Ayodhya Ram Mandir, a sacred temple dedicated to Lord Ram in Uttar Pradesh, known for its spiritual significance and serene ambiance.",
-  },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/cf/37/65/cf3765d940c40dbf1ee7663230be1a78.jpg",
-    festivalName: "Journey to Tirupati",
-    date: "07-July-2024",
-    desc: "Discover the spiritual serenity of Tirupati, home to the revered Sri Venkateswara Temple atop picturesque hills in Andhra Pradesh.",
-  },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/d4/9c/8a/d49c8abb59f1a14e88c38ed6b2dbd9e4.jpg",
-    festivalName: "Dwarkadhish Temple Journey",
-    date: "26-Aug-2024",
-    desc: "Discover the ancient Dwarkadhish Temple in Dwarka, Gujarat, dedicated to Lord Krishna, renowned for its spiritual aura and architectural beauty.",
   },
 ];
 
@@ -83,13 +61,6 @@ const TripCards = () => {
     <Box
       width="100%"
       my={["5rem", "5rem", "7rem", "5rem", "5rem"]}
-      background={[
-        "none",
-        "none",
-        "none",
-        "none",
-        "linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, #DF8C38 50%)",
-      ]}
       py={{base:'0',xl:'5rem'}}
     >
       <Container
@@ -243,9 +214,6 @@ const TripCards = () => {
         </Box>
         </VStack>
 
-        <VStack>
-            <TripCards2 />
-        </VStack>
       </Container>
     </Box>
   );

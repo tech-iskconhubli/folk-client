@@ -27,28 +27,7 @@ import {
       festivalName: "Vinayaka Chavithi",
        date:' 07-Sep-2024',
        desc:' Vinayaka Chavithi celebrates Lord Ganeshas birth with decorations, sweets, prayers, and idol immersion, promoting community unity and eco-consciousness.'
-    },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/22/eb/a2/22eba2405402e8cd184142895d4f4095.jpg",
-       festivalName: "Maha Shivaratri",
-       date:'08-March-2024',
-       desc:'Maha Shivaratri is a Hindu festival dedicated to Lord Shiva, marked by fasting, prayers, and night-long vigils. It signifies devotion and spiritual renewal.'
-  },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/48/de/06/48de060c9b2bd71629ca0e54ba25d180.jpg",
-    festivalName: "Rath Yatra",
-    date:'07-July-2024',
-    desc:'Rath Yatra is a Hindu festival known for its grand processions of chariots carrying deities, celebrating the journey of Lord Jagannath, Balabhadra, and Subhadra.'
-  },
-  {
-    imageUrl:
-      "https://i.pinimg.com/564x/fb/78/5c/fb785cf2f8a94df58e39b3e85a332108.jpg",
-    festivalName: "Janmaashtami",
-    date:'26-Aug-2024',
-    desc:'Krishna Janmashtami celebrates the birth of Lord Krishna, marked with fasting, devotional songs, and midnight festivities.'
-  },
+    }
 ];
 
 
