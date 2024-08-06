@@ -221,7 +221,7 @@ const YogaSinglePage = () => {
             <Stack w={'100%'} alignItems={'flex-start'} gap={'0.5rem'}>
 
             <FormLabel>Name *</FormLabel>
-            <Input type="text" placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input type="text"  placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
 
             <FormLabel>Email *</FormLabel>
