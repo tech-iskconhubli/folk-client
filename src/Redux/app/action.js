@@ -717,6 +717,7 @@ return  axios.patch(`http://localhost:2346/api/adminGallery/${id}`, payload)
 
 export const postYogaFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_YOGA_FORM_REQUEST});
+  console.log(payload)
 
 return  axios.post("http://localhost:2346/api/yoga/addYogaData",payload)
   .then(res=>{

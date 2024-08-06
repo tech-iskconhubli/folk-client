@@ -30,7 +30,6 @@ import { useDispatch } from "react-redux";
 
 
 const YogaSinglePage = () => {
-  const [singleData, setSingleData] = useState({});
   const [toggle, setToggle] = useState(false);
   const [toggleImage,setToggleImage] = useState(false);
 
@@ -85,11 +84,6 @@ const YogaSinglePage = () => {
 
 
   const {
-    title,
-    date,
-    description,
-    time,
-    duration,
     location,
     state,
     img
@@ -99,13 +93,6 @@ const YogaSinglePage = () => {
 
 
 
-  const dt = new Date(date);
-  const dayIndex = dt.getDay();
-  const monthIndex = dt.getMonth();
-  const dateIndex = dt.getDate();
-
-  const day = daysOfWeek[dayIndex] || "";
-  const month = months[monthIndex] || "";
 
   const init = {
     name: "",
@@ -119,8 +106,10 @@ const YogaSinglePage = () => {
 
   const [formData, setFormData] = useState(init);
   const [errors, setErrors] = useState(init);
+  const [singleData,setSingleData] = useState({})
 
   const { singlePage } = useParams();
+  console.log("singlePage: " + singlePage)
 
   const dispatch = useDispatch();
 
@@ -132,6 +121,8 @@ const YogaSinglePage = () => {
       })
     });
   }, []);
+
+  console.log(singleData)
 
 
 
@@ -168,14 +159,25 @@ const YogaSinglePage = () => {
     }
 
     setErrors(newErrors);
+    console.log("clicked")
 
-    if (Object.keys(newErrors)?.length === 0) {
+    if (Object.keys(newErrors).length ===0) {
       dispatch(postYogaFormData(formData)).then((res) => {
         console.log("res", res);
-      });
-      console.log(formData);
+      });    
     }
   };
+
+
+  const dt = new Date(singleData.date);
+  const dayIndex = dt.getDay();
+  const monthIndex = dt.getMonth();
+  const dateIndex = dt.getDate();
+
+  const day = daysOfWeek[dayIndex] || "";
+  const month = months[monthIndex] || "";
+
+
 
 
   return (
@@ -207,7 +209,7 @@ const YogaSinglePage = () => {
 
        {/* Form */}
         <Box w={['90%']} maxW={'400px'}>
-          <form style={{ width: "100%"}}>
+          <form style={{ width: "100%"}} onSubmit={handleSubmit}>
             <VStack
               w={"100%"}
               h={"100%"}
@@ -221,31 +223,35 @@ const YogaSinglePage = () => {
             <Stack w={'100%'} alignItems={'flex-start'} gap={'0.5rem'}>
 
             <FormLabel>Name *</FormLabel>
-            <Input type="text"  placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.name ? "2px solid red" : "1px solid lightgrey"} name="name" value={formData.name} onChange={handleChange} type="text"  placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white" />
 
 
             <FormLabel>Email *</FormLabel>
-            <Input type="email" _placeholder={{color:'#6E7272',fontWeight:'600'}} placeholder="you@email.com" variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.email ? "2px solid red" : "1px solid lightgrey"} name="email" value={formData.email} onChange={handleChange} type="email" _placeholder={{color:'#6E7272',fontWeight:'600'}} placeholder="you@email.com" variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
 
             <FormLabel>Phone Number *</FormLabel>
-            <Input type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.watsAppNumber ? "2px solid red" : "1px solid lightgrey"} name="watsAppNumber" value={formData.watsAppNumber} onChange={handleChange} type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+            <FormLabel>Age *</FormLabel>
+            <Input border={errors.age ? "2px solid red" : "1px solid lightgrey"} name="age" value={formData.age} onChange={handleChange} type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
 
 
             <FormLabel>College/Company *</FormLabel>
-            <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.collageOrCompany ? "2px solid red" : "1px solid lightgrey"} name="collageOrCompany" value={formData.collageOrCompany} onChange={handleChange} type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
 
             <FormLabel>Course(Only for students)</FormLabel>
-            <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input  name="BranchOfYear" value={formData.BranchOfYear} onChange={handleChange} type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
 
             <FormLabel>Amount *</FormLabel>
-            <Input type="number"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input disabled="true" value={100} type="number"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
             </Stack>
              <Box w={'100%'}>
-               <Button w={'100%'} bgColor={'white'} size={'md'}>Register</Button>
+               <Input value={"register"} type="submit" w={'100%'} bgColor={'white'} color={"black"} size={'md'}/>
              </Box>
 
             </VStack>
@@ -352,7 +358,7 @@ const YogaSinglePage = () => {
               color={theme.colors.col.secondary}
               textTransform={'capitalize'}
             >
-              {title}
+              {"Yoga for Happiness"}
             </Box>
 
 
@@ -401,7 +407,7 @@ const YogaSinglePage = () => {
                 </Box>
                 <VStack h={"auto"} gap={"0"} w={['80%']} alignItems={"flex-start"}>
                   <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{`${month}, ${day} ${dateIndex}`}</Box>
-                  <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{time}- {duration > 1 ? duration + 'hours' : duration + 'hour'}</Box>
+                  <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{"Time "+singleData.time+"PM"} - {singleData.duration+" Hours"}</Box>
                 </VStack>
               </HStack>
 
@@ -427,7 +433,7 @@ const YogaSinglePage = () => {
               
                 <Box w={['80%']}>
                   <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>
-                  {location?.length > 67 ? `${location.substring(0,68)}...` : location}
+                  {singleData.location?.length > 67 ? `${singleData.location.substring(0,68)}...` : singleData.location}
                   </Box>
                   <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{state}</Box>
                 </Box>
@@ -474,7 +480,7 @@ const YogaSinglePage = () => {
                 <VStack w={['80%']}  alignItems={"flex-start"} gap={"0"}>
                   <Box fontWeight={"bold"} fontSize={['1rem']}>Past Events</Box>
                   <Box fontSize={"0.9rem"} fontWeight={"500"}>
-                    This event ended 13 hours ago.
+                    please register for this event.
                   </Box>
                 </VStack>
               </HStack>
@@ -509,7 +515,7 @@ const YogaSinglePage = () => {
 
               <Box>
                 <Text fontSize={"0.9rem"} lineHeight={"1.8rem"}>
-                 {description}
+                 {singleData.description}
                 </Text>
               </Box>
             </VStack>
