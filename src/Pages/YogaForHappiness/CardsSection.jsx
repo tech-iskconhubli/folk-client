@@ -116,7 +116,7 @@ const CardsSection = () => {
                     {"Yoga for happiness"}
                      </Box>
                      <Text lineHeight={['1.7rem']} fontSize={['0.9rem']}>
-                      {item.desc}
+                      {item.description}
                      </Text>
                    </VStack>
               </CardBody>
