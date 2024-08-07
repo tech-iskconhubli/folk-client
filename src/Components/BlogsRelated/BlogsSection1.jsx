@@ -92,13 +92,6 @@ const BlogsSection1 = () => {
           </Box>
           {/* bloglayout */}
           <Grid templateColumns={{base:'repeat(1,1fr)',md:'repeat(2,1fr)',lg:'repeat(2,1fr)',xl:'repeat(3,1fr)'}} gap={{base:10,md:8,lg:7,xl:6}}>
-            <GridItem>
-            <Blogpost />
-            </GridItem>
-            <GridItem><Blogpost /></GridItem>
-            <GridItem><Blogpost /></GridItem>
-            <GridItem><Blogpost /></GridItem>
-            <GridItem><Blogpost /></GridItem>
             <GridItem><Blogpost /></GridItem>
           </Grid>
         </Box>
