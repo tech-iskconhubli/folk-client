@@ -272,6 +272,29 @@ export const reducer = (oldState = init, action) => {
         adminTripsData: [],
       };
 
+
+      case types.POST_ADMIN_TRIPS_FORM_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+        
+      };
+    case types.POST_ADMIN_TRIPS_FORM_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        
+      };
+    case types.POST_ADMIN_TRIPS_FORM_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+        
+      };
+
       case types.GET_TRIPS_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST:
         return {
           ...oldState,
@@ -335,6 +358,31 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         adminResidencyData: [],
       };
+
+
+      case types.POST_ADMIN_RESIDENCY_FORM_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+        adminResidencyData: [],
+      };
+    case types.POST_ADMIN_RESIDENCY_FORM_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        adminResidencyData:[],
+      };
+    case types.POST_ADMIN_RESIDENCY_FORM_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+        adminResidencyData: [],
+      };
+
+
     case types.GET_SINGLE_ADMIN_RESIDENCY_FORM_REQUEST:
       return {
         ...oldState,
@@ -377,6 +425,31 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         adminFestivals: [],
       };
+
+
+      case types.POST_ADMIN_FESTIVALS_FORM_REQUEST:
+        return {
+          ...oldState,
+          isLoading: true,
+          isError: false,
+          adminFestivals: [],
+        };
+      case types.POST_ADMIN_FESTIVALS_FORM_SUCCESS:
+        return {
+          ...oldState,
+          isLoading: false,
+          isError: false,
+          adminFestivals: [],
+        };
+      case types.POST_ADMIN_FESTIVALS_FORM_FAILURE:
+        return {
+          ...oldState,
+          isLoading: false,
+          isError: true,
+          adminFestivals: [],
+        };
+
+        
 
       case types.GET_FESTIVALS_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST:
         return {
@@ -441,6 +514,31 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         adminBlogsData: [],
       };
+
+
+      case types.POST_ADMIN_BLOGS_FORM_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+        adminBlogsData: [],
+      };
+    case types.POST_ADMIN_BLOGS_FORM_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        adminBlogsData: payload,
+      };
+    case types.POST_ADMIN_BLOGS_FORM_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+        adminBlogsData: [],
+      };
+
+
     case types.GET_SINGLE_ADMIN_BLOGS_FORM_REQUEST:
       return {
         ...oldState,
@@ -528,6 +626,30 @@ export const reducer = (oldState = init, action) => {
         yogaData: [],
       };
 
+
+      case types.POST_YOGA_FORM_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+        yogaData: [],
+      };
+    case types.POST_YOGA_FORM_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        yogaData: payload,
+      };
+    case types.POST_YOGA_FORM_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+        yogaData: [],
+      };
+
+
     case types.GET_ART_OF_MIND_FORM_REQUEST:
       return {
         ...oldState,
@@ -543,6 +665,28 @@ export const reducer = (oldState = init, action) => {
         artOfMindData: payload,
       };
     case types.GET_ART_OF_MIND_FORM_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+        artOfMindData: [],
+      };
+
+      case types.POST__ART_OF_MIND_FORM_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+        artOfMindData: [],
+      };
+    case types.POST__ART_OF_MIND_FORM_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        artOfMindData: [],
+      };
+    case types.POST__ART_OF_MIND_FORM_FAILURE:
       return {
         ...oldState,
         isLoading: false,
@@ -572,6 +716,28 @@ export const reducer = (oldState = init, action) => {
         secretData: [],
       };
 
+      case types.POST_SECRET_OF_SUCCESS_FORM_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+        secretData: [],
+      };
+    case types.POST_SECRET_OF_SUCCESS_FORM_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        secretData: [],
+      };
+    case types.POST_SECRET_OF_SUCCESS_FORM_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+        secretData: [],
+      };
+
     case types.GET_FESTIVALS_REQUEST:
       return {
         ...oldState,
@@ -593,6 +759,31 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         festivalsData: [],
       };
+
+
+      case types.POST_FESTIVALS_REQUEST:
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+        festivalsData: [],
+      };
+    case types.POST_FESTIVALS_SUCCESS:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        festivalsData: [],
+      };
+    case types.POST_FESTIVALS_FAILURE:
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+        festivalsData: [],
+      };
+
+
 
     case types.GET_SECRET_OF_SUCCESS_FORM_REQUEST:
       return {
@@ -659,6 +850,28 @@ export const reducer = (oldState = init, action) => {
         isError: true,
         tripsData: [],
       };
+
+      case types.POST_TRIPS_REQUEST:
+        return {
+          ...oldState,
+          isLoading: true,
+          isError: false,
+          tripsData: [],
+        };
+      case types.POST_TRIPS_SUCCESS:
+        return {
+          ...oldState,
+          isLoading: false,
+          isError: false,
+          tripsData: payload,
+        };
+      case types.POST_TRIPS_FAILURE:
+        return {
+          ...oldState,
+          isLoading: false,
+          isError: true,
+          tripsData: [],
+        };
 
     default:
       return oldState;

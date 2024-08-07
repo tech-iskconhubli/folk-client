@@ -268,7 +268,7 @@ return  axios.patch(`http://localhost:2346/api/adminartcontrol/${id}`, payload)
 export const patchAttendanceAdminMindFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_MIND_CONTROL_ATTENDANCE_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminartcontrol/postattendance`,payload)
+return  axios.patch(`http://localhost:2346/api/arts/postattendance`,payload)
   .then(res=>{
 
     return  dispatch({type:types.POST_MIND_CONTROL_ATTENDANCE_SUCCESS, payload:res.data})
@@ -749,14 +749,14 @@ return  axios.get("http://localhost:2346/api/yoga")
 
 
 export const postSecretOFSuccessFormData = (payload)=>(dispatch)=>{
-  dispatch({type:types.POST__SECRET_OF_SUCCESS_FORM_REQUEST});
+  dispatch({type:types.POST_SECRET_OF_SUCCESS_FORM_REQUEST});
 
 return  axios.post("http://localhost:2346/api/secrets/addsecretsdata",payload)
   .then(res=>{
-    return  dispatch({type:types.POST__SECRET_OF_SUCCESS_FORM_SUCCESS, payload:res.data})
+    return  dispatch({type:types.POST_SECRET_OF_SUCCESS_FORM_SUCCESS, payload:res.data})
   })
   .catch(err=>{
-   return   dispatch({type:types.POST__SECRET_OF_SUCCESS_FORM_FAILURE, payload:err.message})
+   return   dispatch({type:types.POST_SECRET_OF_SUCCESS_FORM_FAILURE, payload:err.message})
   })
 }
 

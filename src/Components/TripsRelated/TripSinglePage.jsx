@@ -86,15 +86,11 @@ const TripSinglePage = () => {
 
   const {
     title,
-    date,
     description,
     time,
     duration,
     location,
-    state,
     img,
-    additionalFields,
-    placesOfVisit
   } = Data;
 
 
@@ -224,7 +220,7 @@ const TripSinglePage = () => {
 
        {/* Form */}
         <Box w={['90%']} maxW={'400px'}>
-          <form style={{ width: "100%"}}>
+          <form style={{ width: "100%"}} onSubmit={handleSubmit}>
             <VStack
               w={"100%"}
               h={"100%"}
@@ -387,11 +383,6 @@ const TripSinglePage = () => {
                 </HStack>
               ))}
             </VStack>
-
-
-            
-
-
 
           </VStack>
 
