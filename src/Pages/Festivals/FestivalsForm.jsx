@@ -66,7 +66,7 @@ const FestivalsForm = () => {
     }
     }
 
-    // bgcolor={["red","green","","","black"]}
+    
    
   return (
     <>
