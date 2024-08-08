@@ -92,6 +92,7 @@ const AdminYogaUsersData = () => {
 
   const handleAttendance = (event, id, e) => {
     let status = e.target.value;
+    console.log("event",event, id, status);
 
     let payload = {
       eventId: event,
@@ -102,15 +103,15 @@ const AdminYogaUsersData = () => {
     dispatch(patchAttendanceAdminMindFormData(payload)).then((res) => {
       console.log(res.payload);
       if (res.payload.message === "Attendance updated successfully") {
-        setAttendance(!attendance); // Toggle attendance to trigger a re-render
+        setAttendance(!attendance); 
       }
     });
   };
 
 
-console.log(filteredData,"filtered")
 
 console.log(filteredData,"filtered data")
+
 
 
   return (

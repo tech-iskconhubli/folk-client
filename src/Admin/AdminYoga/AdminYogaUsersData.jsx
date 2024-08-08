@@ -47,7 +47,6 @@ const AdminYogaUsersData = () => {
 
   useEffect(() => {
     dispatch(getYogaFormData()).then((res) => {
-      console.log(res);
     });
   }, [dispatch, refresh, attendance]);
 
@@ -106,7 +105,7 @@ const AdminYogaUsersData = () => {
   };
 
 
-  console.log("Attendance updated successfully");
+
 
   return (
     <>
@@ -409,19 +408,19 @@ const AdminYogaUsersData = () => {
                       <Text flex="0 0 200px" color="orange" fontWeight="bold">
                         Event Date:
                       </Text>
-                      <Text color="gray">{selectedItem.eventId.date}</Text>
+                      <Text color="gray">{selectedItem.eventId?.date}</Text>
                     </Box>
                     <Box display="flex" alignItems="center">
                       <Text flex="0 0 200px" color="orange" fontWeight="bold">
                         Event Location:
                       </Text>
-                      <Text color="gray">{selectedItem.eventId.location}</Text>
+                      <Text color="gray">{selectedItem?.eventId?.location}</Text>
                     </Box>
                     <Box display="flex" alignItems="center">
                       <Text flex="0 0 200px" color="orange" fontWeight="bold">
                         Event Duration:
                       </Text>
-                      <Text color="gray">{selectedItem.eventId.duration}</Text>
+                      <Text color="gray">{selectedItem?.eventId?.duration}</Text>
                     </Box>
                     <Box display="flex" alignItems="center">
                       <Text flex="0 0 200px" color="orange" fontWeight="bold">

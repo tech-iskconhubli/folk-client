@@ -17,14 +17,17 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import theme from "../../theme";
-import { singleData } from "../SinglePages/SingleData";
+import { singleData as Data } from "../SinglePages/SingleData";
 import { IoClose } from "react-icons/io5";
 import { FaHandPointRight } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { postFestivalsFormData, singleAdminFestivalsFormData } from "../../Redux/app/action";
 
 const FestivalSinglePage = () => {
 
@@ -82,29 +85,105 @@ const FestivalSinglePage = () => {
 
 
   const {
-    title,
-    date,
-    description,
     time,
     duration,
-    location,
-    state,
     img,
-    additionalFields,
-    placesOfVisit
-  } = singleData;
+  } = Data;
 
 
 
 
+  const init = {
+    name: "",
+    watsAppNumber: "",
+    email: "",
+    age: "",
+    collageOrCompany: "",
+    BranchOfYear: "",
+    eventId:""
+  };
 
-  const dt = new Date(date);
+
+  const [singleData,setSingleData] = useState({})
+  const [formData, setFormData] = useState(init);
+  const [errors, setErrors] = useState(init);
+
+  const { singlePage } = useParams();
+
+
+
+
+ 
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(singleAdminFestivalsFormData(singlePage)).then((res) => {
+      console.log("res",res)
+      setSingleData(res?.payload?.data);
+      setFormData({
+        eventId:res.payload.data?._id
+      })
+    });
+  }, []);
+
+  console.log("single data",singleData)
+
+
+
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const payload = {
+      ...formData,
+      [name]: value,
+    };
+
+    setFormData(payload);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newErrors = {};
+
+    if (!formData.name) {
+      newErrors.name = "name required";
+    }
+    if (!formData.watsAppNumber) {
+      newErrors.watsAppNumber = "watsAppNumber required";
+    }
+    if (!formData.email) {
+      newErrors.email = "email required";
+    }
+    if (!formData.age) {
+      newErrors.age = "age required";
+    }
+    if (!formData.collageOrCompany) {
+      newErrors.collageOrCompany = "collageOrCompany required";
+    }
+
+    setErrors(newErrors);
+    console.log("clicked")
+
+    if (Object.keys(newErrors)?.length ===0) {
+      dispatch(postFestivalsFormData(formData)).then((res) => {
+        console.log("res", res);
+      });    
+    }
+  };
+
+
+  const dt = new Date(singleData?.fromDate);
   const dayIndex = dt.getDay();
   const monthIndex = dt.getMonth();
   const dateIndex = dt.getDate();
 
   const day = daysOfWeek[dayIndex] || "";
   const month = months[monthIndex] || "";
+
+
+  console.log("singdata", singleData)
 
 
 
@@ -137,7 +216,7 @@ const FestivalSinglePage = () => {
 
        {/* Form */}
         <Box w={['90%']} maxW={'400px'}>
-          <form style={{ width: "100%"}}>
+          <form style={{ width: "100%"}} onSubmit={handleSubmit}>
             <VStack
               w={"100%"}
               h={"100%"}
@@ -151,27 +230,31 @@ const FestivalSinglePage = () => {
             <Stack w={'100%'} alignItems={'flex-start'} gap={'0.5rem'}>
 
             <FormLabel>Name *</FormLabel>
-            <Input type="text" placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.name ? "2px solid red" : "1px solid lightgrey"} name="name" value={formData.name} onChange={handleChange} type="text"  placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white" />
 
 
             <FormLabel>Email *</FormLabel>
-            <Input type="email" _placeholder={{color:'#6E7272',fontWeight:'600'}} placeholder="you@email.com" variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.email ? "2px solid red" : "1px solid lightgrey"} name="email" value={formData.email} onChange={handleChange} type="email" _placeholder={{color:'#6E7272',fontWeight:'600'}} placeholder="you@email.com" variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
 
             <FormLabel>Phone Number *</FormLabel>
-            <Input type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.watsAppNumber ? "2px solid red" : "1px solid lightgrey"} name="watsAppNumber" value={formData.watsAppNumber} onChange={handleChange} type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+            <FormLabel>Age *</FormLabel>
+            <Input border={errors.age ? "2px solid red" : "1px solid lightgrey"} name="age" value={formData.age} onChange={handleChange} type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
 
 
             <FormLabel>College/Company *</FormLabel>
-            <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input border={errors.collageOrCompany ? "2px solid red" : "1px solid lightgrey"} name="collageOrCompany" value={formData.collageOrCompany} onChange={handleChange} type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
 
             <FormLabel>Course(Only for students)</FormLabel>
-            <Input type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input  name="BranchOfYear" value={formData.BranchOfYear} onChange={handleChange} type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
 
             <FormLabel>Amount *</FormLabel>
-            <Input type="number"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+            <Input disabled="true" value={100} type="number"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
 
             </Stack>
              <Box w={'100%'}>
@@ -280,7 +363,7 @@ const FestivalSinglePage = () => {
             </VStack>
 
             <VStack alignItems={'flex-start'}>
-              {placesOfVisit.map((item,index)=>(
+              {singleData?.festivalAgenda?.map((item,index)=>(
                    <HStack key={index}>
                    <Box color={theme.colors.col.secondary}>
                    <FaHandPointRight />
@@ -305,7 +388,7 @@ const FestivalSinglePage = () => {
               color={theme.colors.col.secondary}
               textTransform={'capitalize'}
             >
-              {title}
+              {"Festival Event"}
             </Box>
 
 
@@ -335,7 +418,7 @@ const FestivalSinglePage = () => {
                       overflow={"hidden"}
                       textTransform={'uppercase'}
                     >
-                     {month.length > 4 ? month.substring(0,3) : month}
+                     {month?.length > 4 ? month.substring(0,3) : month}
                     </Box>
                   </Box>
                   <Box
@@ -380,9 +463,9 @@ const FestivalSinglePage = () => {
               
                 <Box w={['80%']}>
                   <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>
-                  {location.length > 67 ? `${location.substring(0,68)}...` : location}
+                  {singleData?.location?.length > 67 ? `${singleData?.location.substring(0,68)}...` : singleData?.location}
                   </Box>
-                  <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{state}</Box>
+                  <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>{}</Box>
                 </Box>
                
               </HStack>
@@ -427,7 +510,7 @@ const FestivalSinglePage = () => {
                 <VStack w={['80%']}  alignItems={"flex-start"} gap={"0"}>
                   <Box fontWeight={"bold"} fontSize={['1rem']}>Past Events</Box>
                   <Box fontSize={"0.9rem"} fontWeight={"500"}>
-                    This event ended 13 hours ago.
+                   Please register for the festival event.
                   </Box>
                 </VStack>
               </HStack>
@@ -462,7 +545,7 @@ const FestivalSinglePage = () => {
 
               <Box>
                 <Text fontSize={"0.9rem"} lineHeight={"1.8rem"}>
-                 {description}
+                 {singleData?.description}
                 </Text>
               </Box>
             </VStack>
@@ -473,7 +556,7 @@ const FestivalSinglePage = () => {
          <Box w={["100%"]}>
          <Box fontWeight={"600"} fontSize={['1.5rem']} mb={'5'}>Tour Plan</Box>
           <Accordion allowMultiple>
-            {additionalFields.map((field, index) => (
+            {singleData?.additionalFields?.map((field, index) => (
               <AccordionItem
                py={'0.5rem'}
                 key={index}
@@ -517,7 +600,7 @@ const FestivalSinglePage = () => {
 
               <Box>
                 <Text fontSize={"0.9rem"} lineHeight={"1.8rem"}>
-                 {location}
+                 {singleData.location}
                 </Text>
               </Box>
             </VStack>
