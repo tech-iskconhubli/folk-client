@@ -42,13 +42,13 @@ const BlogsSection1 = () => {
         fontFamily={theme.fonts.body}
       >
         <Box w="80%" mt="100px">
-          <Box fontSize="2rem" color={theme.colors.col.secondary}>
+          <Heading fontSize="2.5rem" color={theme.colors.col.text} mt='20px' p={3} >
             Latest Blogs
-          </Box>
+          </Heading>
           <SimpleGrid
             w={"100%"}
-            columns={["1", "1", "2", "2", "4"]}
-            mt={["3rem"]}
+            columns={["1", "1", "2", "2", "3"]}
+            mt={["2.5rem"]}
             spacing={[10, 10, 5, 10, 4]}
           >
             {BlogPost.map((blog, index) => (
@@ -82,11 +82,11 @@ const BlogsSection1 = () => {
                 <CardFooter py='1' px='2'>
                   <Box display="flex" justifyContent='space-between' alignItems='center' w='100%'>
                     {/* blogdate */}
-                    <Box bgColor={theme.colors.col.text} color={'white'}  borderRadius={'10px'} p={2} fontWeight={'600'} pointerEvents={'none'} fontSize={'1rem'} textAlign='center' h='40px' display='flex' alignItems='center' justifyContent='center'>
+                    <Box bgColor={theme.colors.col.text} color={'white'}  borderRadius={'10px'} p={'6'} fontWeight={'600'} pointerEvents={'none'} fontSize={'1.2rem'} textAlign='center' h='40px' display='flex' alignItems='center' justifyContent='center'>
                      {blog.date}
                    </Box>
                    {/* blogarrow */}
-                    <Box role='group' w='40px' h='40px' bg={theme.colors.col.text} display='flex' alignItems='center' justifyContent='center' fontSize='1.1rem' color='white' borderRadius='10px'>
+                    <Box role='group' w='40px' h='40px' bg={theme.colors.col.text} p={6} display='flex' alignItems='center' justifyContent='center' fontSize='1.5rem' color='white' borderRadius='10px'>
                       <Box _groupHover={{transform:'rotate(45deg)'}} transition={'all 0.2s linear'}><FiArrowUpRight  /></Box>
                       </Box>
                   </Box>
