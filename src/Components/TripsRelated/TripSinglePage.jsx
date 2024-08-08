@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   Box,
   Heading,
@@ -46,6 +46,7 @@ import { TiTick } from "react-icons/ti";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import theme from "../../theme";
+import React from "react";
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
