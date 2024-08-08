@@ -20,15 +20,19 @@ const AdminTripsForm = () => {
         description: "",
         price: "",
         placesOfVisit: [],
+        instagramUrl: [],
         additionalFields: []
     };
 
     const dispatch = useDispatch();
     const [formData, setFormData] = useState(init);
     const [placeInput, setPlaceInput] = useState("");
+    const [instagramPlaceInput, setInstagramPlaceInput] = useState("");
     const [successAlert, setSuccessAlert] = useState(false);
     const loading = useSelector(state => state.AppReducer.isLoading);
     const navigate = useNavigate();
+
+    console.log("loading...", loading);
 
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
@@ -51,6 +55,10 @@ const AdminTripsForm = () => {
         setPlaceInput(e.target.value);
     };
 
+    const handleInstagramPlaceInputChange = (e) => {
+        setInstagramPlaceInput(e.target.value);
+    };
+
     const handlePlaceKeyPress = (e) => {
         if (e.key === "Enter" && placeInput.trim() !== "") {
             setFormData(prev => ({
@@ -69,6 +77,24 @@ const AdminTripsForm = () => {
         }));
     };
 
+    const handlePlaceInstagramKeyPress = (e) => {
+        if (e.key === "Enter" && instagramPlaceInput.trim() !== "") {
+            setFormData(prev => ({
+                ...prev,
+                instagramUrl: [...prev.instagramUrl, instagramPlaceInput.trim()]
+            }));
+            setInstagramPlaceInput('');
+            e.preventDefault();
+        }
+    };
+
+    const removeInstagramPlace = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            instagramUrl: prev.instagramUrl.filter((_, i) => i !== index)
+        }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -78,7 +104,7 @@ const AdminTripsForm = () => {
                     setSuccessAlert(true);
                     setTimeout(() => {
                         setSuccessAlert(false);
-                   //     navigate('/admin/trips/data');
+                        navigate('/admin/trips/data');
                     }, 1000);
                 }
                 console.log("res", res);
@@ -87,7 +113,7 @@ const AdminTripsForm = () => {
                 console.error("Error submitting form:", err);
             });
 
-        console.log("formData", formData);
+        console.log("formData trips", formData);
     };
 
     const addImageInput = () => {
@@ -205,6 +231,22 @@ const AdminTripsForm = () => {
                                     </Box>
                                 </Box>
                             </Box>
+
+
+                            <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
+                                <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Enter places instagram url</FormLabel></Box>
+                                <Box width={"88%"}><Input borderColor={"#2B3553"} type='text' value={instagramPlaceInput} onChange={handleInstagramPlaceInputChange} onKeyPress={handlePlaceInstagramKeyPress} placeholder='Please enter instagram urls' />
+                                    <Box>
+                                        {formData.instagramUrl?.map((place, index) => (
+                                            <span key={index} style={{ marginRight: '8px', display: 'inline-block', padding: '4px', border: '1px solid #ccc', borderRadius: '4px' }}>
+                                                {place}
+                                                <button onClick={() => removeInstagramPlace(index)} style={{ marginLeft: '4px' }}>x</button>
+                                            </span>
+                                        ))}
+                                    </Box>
+                                </Box>
+                            </Box>
+
 
                             <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={"0px"}>
                                 <Box width={"14%"}><FormLabel fontSize={"14px"} fontWeight={"500"} fontFamily={"body"}>Additional Fields</FormLabel></Box>

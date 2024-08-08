@@ -26,6 +26,7 @@ import {
   CardFooter,
   IconButton,
 } from "@chakra-ui/react";
+
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCalendar } from "react-icons/io5";
 import { FaMapPin } from "react-icons/fa";
@@ -47,11 +48,24 @@ import { FaWhatsappSquare } from "react-icons/fa";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import theme from "../../theme";
 
+import React, {  useEffect, useState } from "react";
+import { FaInstagram } from "react-icons/fa";
+import { IoLocationOutline } from "react-icons/io5";
+import { FaCalendarAlt } from "react-icons/fa";
+import theme from "../../theme";
+import { singleData as Data } from "../SinglePages/SingleData";
+import { IoClose } from "react-icons/io5";
+import { FaHandPointRight } from "react-icons/fa";
+import { postTripsFormData, singleAdminTripsFormData } from "../../Redux/app/action";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
 const TripSinglePage = () => {
   const {
+
     tripName,
     from,
     to,
@@ -64,6 +78,113 @@ const TripSinglePage = () => {
     additionalFields,
   } = tripData;
   const containerWidth = useBreakpointValue({ base: "100%", md: "100%" });
+
+    title,
+    description,
+    time,
+    duration,
+    location,
+    img,
+  } = Data;
+
+
+
+  const init = {
+    name: "",
+    watsAppNumber: "",
+    email: "",
+    age: "",
+    collageOrCompany: "",
+    BranchOfYear: "",
+    eventId:""
+  };
+
+
+  const [singleData,setSingleData] = useState({})
+  const [formData, setFormData] = useState(init);
+  const [errors, setErrors] = useState(init);
+
+  const { singlePage } = useParams();
+
+
+
+
+ 
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(singleAdminTripsFormData(singlePage)).then((res) => {
+      console.log("res",res)
+      setSingleData(res?.payload?.data);
+      setFormData({
+        eventId:res.payload.data?._id
+      })
+    });
+  }, []);
+
+  console.log("single data",singleData)
+
+
+
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const payload = {
+      ...formData,
+      [name]: value,
+    };
+
+    setFormData(payload);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newErrors = {};
+
+    if (!formData.name) {
+      newErrors.name = "name required";
+    }
+    if (!formData.watsAppNumber) {
+      newErrors.watsAppNumber = "watsAppNumber required";
+    }
+    if (!formData.email) {
+      newErrors.email = "email required";
+    }
+    if (!formData.age) {
+      newErrors.age = "age required";
+    }
+    if (!formData.collageOrCompany) {
+      newErrors.collageOrCompany = "collageOrCompany required";
+    }
+
+    setErrors(newErrors);
+    console.log("clicked")
+
+    if (Object.keys(newErrors)?.length ===0) {
+      dispatch(postTripsFormData(formData)).then((res) => {
+        console.log("res", res);
+      });    
+    }
+  };
+
+
+  const dt = new Date(singleData?.fromDate);
+  const dayIndex = dt.getDay();
+  const monthIndex = dt.getMonth();
+  const dateIndex = dt.getDate();
+
+  const day = daysOfWeek[dayIndex] || "";
+  const month = months[monthIndex] || "";
+
+
+  console.log("singdata", singleData)
+  
+  console.log(singleData?.img?.map(item=>item))
+
+
+
 
   return (
     <Container maxW={containerWidth} margin="auto" p={["0", "0", "0", "2"]}>
@@ -86,6 +207,7 @@ const TripSinglePage = () => {
         transition={{ duration: 1 }}
         position={"relative"}
       >
+
         <Box
           bg="rgba(0, 0, 0, 0.5)"
           p={6}
@@ -140,6 +262,63 @@ const TripSinglePage = () => {
               >
                 RS:{price}/-
               </Box>
+
+
+        {/* close button */}
+        <Box onClick={handleClose} bgColor={'#2C3133'} color={'white'} position={'absolute'} top={{base:'1rem',lg:'2rem'}} right={{base:'1rem',lg:'2rem'}} p={2} fontSize={'1.5rem'} borderRadius={'50%'} overflow={'hidden'} cursor={'pointer'}>
+        <IoClose />
+        </Box>
+       
+
+       {/* Form */}
+        <Box w={['90%']} maxW={'400px'}>
+          <form style={{ width: "100%"}} onSubmit={handleSubmit}>
+            <VStack
+              w={"100%"}
+              h={"100%"}
+              gap={['2rem']}
+              alignItems={'flex-start'}
+              color={'white'}
+            >
+              <Box fontSize={'1.5rem'} fontWeight={'600'}>
+                 Your Info
+              </Box>
+            <Stack w={'100%'} alignItems={'flex-start'} gap={'0.5rem'}>
+
+            <FormLabel>Name *</FormLabel>
+            <Input border={errors.name ? "2px solid red" : "1px solid lightgrey"} name="name" value={formData.name} onChange={handleChange} type="text"  placeholder="Your Name" variant={'filled'} _placeholder={{color:'#6E7272',fontWeight:'600'}} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white" />
+
+
+            <FormLabel>Email *</FormLabel>
+            <Input border={errors.email ? "2px solid red" : "1px solid lightgrey"} name="email" value={formData.email} onChange={handleChange} type="email" _placeholder={{color:'#6E7272',fontWeight:'600'}} placeholder="you@email.com" variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+
+            <FormLabel>Phone Number *</FormLabel>
+            <Input border={errors.watsAppNumber ? "2px solid red" : "1px solid lightgrey"} name="watsAppNumber" value={formData.watsAppNumber} onChange={handleChange} type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+            <FormLabel>Age *</FormLabel>
+            <Input border={errors.age ? "2px solid red" : "1px solid lightgrey"} name="age" value={formData.age} onChange={handleChange} type="number" placeholder="+919876543210" _placeholder={{color:'#6E7272',fontWeight:'600'}} variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+
+
+            <FormLabel>College/Company *</FormLabel>
+            <Input border={errors.collageOrCompany ? "2px solid red" : "1px solid lightgrey"} name="collageOrCompany" value={formData.collageOrCompany} onChange={handleChange} type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+
+            <FormLabel>Course(Only for students)</FormLabel>
+            <Input  name="BranchOfYear" value={formData.BranchOfYear} onChange={handleChange} type="text"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+
+            <FormLabel>Amount *</FormLabel>
+            <Input disabled="true" value={100} type="number"  variant={'filled'} bgColor={'#2C3133'} _hover={{bgColor:'#2C3133'}} focusBorderColor="white"/>
+
+            </Stack>
+             <Box w={'100%'}>
+               <Input value={"register"} type="submit" w={'100%'} bgColor={'white'} color={"black"} size={'md'}/>
+             </Box>
+
+
+
             </VStack>
             <Divider border={"1px solid rgb(0,0,0,0.90)"} />
 
@@ -178,6 +357,17 @@ const TripSinglePage = () => {
                   </Box>
                 </HStack>
               </HStack>
+
+        {/* Image */}
+        
+        <Box w={['90%','90%','auto']} h={['400px','500px','550px']}>
+          
+            
+              <Image w={'100%'} h={'100%'} src={img} objectFit={'cover'} />
+          
+          
+        </Box>
+
 
               <HStack fontSize="lg" gap={"1rem"}>
                 <Box fontSize={"lg"} color={"orange"}>
@@ -323,6 +513,7 @@ const TripSinglePage = () => {
                 </Box>
               </HStack>
 
+
               <HStack>
                 <Box fontSize={["1.5rem"]} color={theme.colors.col.secondary}>
                   <TiTick />
@@ -367,6 +558,21 @@ const TripSinglePage = () => {
                 </Box>
               </HStack>
             </HStack>
+
+            <VStack alignItems={'flex-start'}>
+              {singleData?.placesOfVisit?.map((item,index)=>(
+                   <HStack key={index}>
+                   <Box color={theme.colors.col.secondary}>
+                   <FaHandPointRight />
+                   </Box>
+                    <Box fontWeight={500}>
+                      {item}
+                    </Box>
+                </HStack>
+              ))}
+            </VStack>
+
+
           </VStack>
 
           <VStack
@@ -461,7 +667,10 @@ const TripSinglePage = () => {
                       left={"1"}
                       opacity={"0.8"}
                     >
+
                       (If your a student)
+
+                     {month?.length > 4 ? month.substring(0,3) : month}
                     </Box>
                   </VStack>
                 </HStack>
@@ -538,6 +747,7 @@ const TripSinglePage = () => {
                 >
                   Sthala Purana Narrations
                 </Box>
+
                 <Text
                   textAlign={"center"}
                   fontSize={"1rem"}
@@ -547,6 +757,18 @@ const TripSinglePage = () => {
                   Learn the spiritual history of the dham in your local language
                 </Text>
               </VStack>
+
+               
+              
+                <Box w={['80%']}>
+                  <Box fontWeight={"bold"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}>
+                  {singleData.to?.length > 67 ? `${singleData.to.substring(0,68)}...` : singleData.to}
+                  </Box>
+                  <Box fontWeight={"500"} fontSize={['0.8rem','0.9rem','0.9rem','0.9rem']}></Box>
+                </Box>
+               
+              </HStack>
+
             </VStack>
 
             {/* Icon Two */}
@@ -598,6 +820,7 @@ const TripSinglePage = () => {
               </Text>
             </VStack>
 
+
             {/* Icon Four */}
             <VStack w={["90%", "70%", "65%", "50%", "100%"]} mx={"auto"}>
               <IconButton
@@ -639,6 +862,34 @@ const TripSinglePage = () => {
                 borderRadius={"50%"}
                 fontSize={"2.5rem"}
                 icon={<GiDrumKit />}
+
+              <HStack p={3} gap={['1rem']} alignItems={['flex-start']}>
+                <Box
+                  bg={"orange"}
+                  color={"white"}
+                  w={['45px']}
+                  h={['48px']}
+                  overflow={"hidden"}
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  fontSize={"1.2rem"}
+                  borderRadius={"5px"}
+                >
+                  <FaCalendarAlt />
+                </Box>
+                <VStack w={['80%']}  alignItems={"flex-start"} gap={"0"}>
+                  <Box fontWeight={"bold"} fontSize={['1rem']}>Past Events</Box>
+                  <Box fontSize={"0.9rem"} fontWeight={"500"}>
+                    please register for this tour.
+                  </Box>
+                </VStack>
+              </HStack>
+              <Divider
+                borderBottom={"1px solid rgb(0,0,0,0.3)"}
+                w={"96%"}
+                mx={"auto"}
+
               />
               <Box fontSize={"1.3em"} textAlign={"center"} fontWeight={"bold"}>
                 Bhajans and Kirtans
@@ -884,7 +1135,40 @@ const TripSinglePage = () => {
       </Box>
 
 
-     
+
+           <Box w={["100%"]}>
+         <Box fontWeight={"600"} fontSize={['1.5rem']} mb={'5'}>Tour Plan</Box>
+          <Accordion allowMultiple>
+            {singleData?.additionalFields?.map((field, index) => (
+              <AccordionItem
+               py={'0.5rem'}
+                key={index}
+              >
+                <h2>
+                  <AccordionButton _hover={"none"}>
+                    <Box
+                      flex="1"
+                      textAlign="left"
+                      fontSize={["1rem"]}
+                      color={theme.colors.col.secondary}
+                      fontWeight={"600"}
+                    >
+                      {field.title}
+                    </Box>
+                    <Box fontSize={"1.1rem"}>
+                      <AccordionIcon color={"orange"} />
+                    </Box>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel py={5} px={8} fontWeight={"500"} fontSize={'1.1rem'}>
+                  {field.description}
+                </AccordionPanel>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Box>
+         
+
 
 
 

@@ -15,13 +15,13 @@ const AdminTripsEvents = () => {
   
   const store = useSelector((store) => store.AppReducer.adminTripsControlDataBasedOnLocation);
 
+  // Corrected useEffect: Ensures dispatch is only called once when the component mounts
   useEffect(() => {
     dispatch(getTripsDataBasedOnLocationAndUsers())
-    .then(res => {
-        console.log(res)
-    },[dispatch]); 
-    });
-
+      .then(res => {
+        console.log(res);
+      });
+  }, [dispatch]); // Corrected dependency array
 
   useEffect(() => {
     if (store.data) {
@@ -52,11 +52,8 @@ const AdminTripsEvents = () => {
     setDateFilter(e.target.value);
   };
 
-
   console.log("filtered", filteredData);
-
   console.log("filteredData", filteredData);
-
 
   return (
     <>

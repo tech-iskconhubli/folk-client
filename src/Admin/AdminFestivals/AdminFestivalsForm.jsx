@@ -110,8 +110,6 @@ const handleSubmit = (e) => {
 
     setErrors(newErrors)
 
-    
-
     dispatch(postAdminFestivalsFormData(formData))
     .then(res => {
             console.log(res)
@@ -123,14 +121,12 @@ const handleSubmit = (e) => {
          }, 500);
          
          setTimeout(() => {
-       //  navigate('/admin/festivals/data')
+      navigate('/admin/festivals/data')
          }, 1000);
       }
         });
 
     console.log("formData festival", formData);
-
-    console.log("form", formData);
  
 };
 
@@ -264,7 +260,8 @@ return (
                         {
             successAlert && <Alert status='success'><AlertIcon />Data uploaded successfully</Alert>
         }
-                        <Input bgColor={"white"} color={"black"} type='submit' />
+                        <Input bgColor={"white"} color={"black"} type='submit' value='Submit' />
+
                     </Stack>
                 </form>
             </Box>
