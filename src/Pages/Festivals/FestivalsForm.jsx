@@ -65,9 +65,13 @@ const FestivalsForm = () => {
         console.log(formData)
     }
     }
+
+    // bgcolor={["red","green","","","black"]}
    
   return (
     <>
+
+
         <Box mt={"150px"}  border={"2px solid transparent"} height={"auto"} boxSizing="border-box" padding={["","","","0px 0px 0px 0px","0px 0px 0px 17%"]} fontFamily={"form"}>
             <Box width={["95%","","90%","80%","100%"]} m={"auto"}   display={["","","","flex"]} gap={"20px"} >
                 <Box width={"0.2%"} height={"auto"} bgColor={"lightblue"}></Box>
