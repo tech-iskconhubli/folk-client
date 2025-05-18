@@ -4,7 +4,7 @@ import * as types from "./actionTypes"
 export const postAdminYogaFormData = (payload)=>(dispatch)=>{
     dispatch({type:types.POST_ADMIN_YOGA_FORM_REQUEST});
 
-  return  axios.post("http://localhost:2346/api/adminyoga/addadminyoga",payload)
+  return  axios.post("https://folk-server-fbkr.onrender.com/api/adminyoga/addadminyoga",payload)
     .then(res=>{
       return  dispatch({type:types.POST_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
     })
@@ -16,7 +16,7 @@ export const postAdminYogaFormData = (payload)=>(dispatch)=>{
 export const getAdminYogaFormData = ()=>(dispatch)=>{
     dispatch({type:types.GET_ADMIN_YOGA_FORM_REQUEST});
 
-  return  axios.get("http://localhost:2346/api/adminyoga")
+  return  axios.get("https://folk-server-fbkr.onrender.com/api/adminyoga")
     .then(res=>{
         
       return  dispatch({type:types.GET_ADMIN_YOGA_FORM_SUCCESS, payload:res.data.data})
@@ -30,7 +30,7 @@ export const getSingleAdminYogaFormData = (id)=>(dispatch)=>{
 
   dispatch({type:types.GET_SINGLE_ADMIN_YOGA_FORM_REQUEST});
 
-return  axios.get(`http://localhost:2346/api/adminyoga/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminyoga/${id}`)
   .then(res=>{
       
     return  dispatch({type:types.GET_SINGLE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
@@ -43,7 +43,7 @@ return  axios.get(`http://localhost:2346/api/adminyoga/${id}`)
 export const updateAdminYogaFormData = (id,payload)=>(dispatch)=>{
   dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminyoga/${id}`, payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminyoga/${id}`, payload)
   .then(res=>{
     
     return  dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
@@ -56,7 +56,7 @@ return  axios.patch(`http://localhost:2346/api/adminyoga/${id}`, payload)
 export const deleteAdminYogaFormData = (id)=>(dispatch)=>{
   dispatch({type:types.DELETE_ADMIN_YOGA_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminyoga/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminyoga/${id}`)
   .then(res=>{
 
     return  dispatch({type:types.DELETE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
@@ -71,7 +71,7 @@ return  axios.delete(`http://localhost:2346/api/adminyoga/${id}`)
 export const patchAttendanceAdminYogaFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_ATTENDANCE_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/yoga/postattendance`,payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/yoga/postattendance`,payload)
   .then(res=>{
 
     return  dispatch({type:types.POST_SECRET_ATTENDANCE_SUCCESS, payload:res.data})
@@ -84,7 +84,7 @@ return  axios.patch(`http://localhost:2346/api/yoga/postattendance`,payload)
 
 export const getYogaDataBasedOnLocationAndUsers =()=>(dispatch)=>{
   dispatch({type:types.GET_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST})
-   return axios.get("http://localhost:2346/api/yoga/events-by-location-users")
+   return axios.get("https://folk-server-fbkr.onrender.com/api/yoga/events-by-location-users")
     .then(res=>{
    return dispatch({type:types.GET_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS, payload:res.data})
     })
@@ -107,7 +107,7 @@ export const getYogaDataBasedOnLocationAndUsers =()=>(dispatch)=>{
 export const postAdminSecretFormData = (payload)=>(dispatch)=>{
     dispatch({type:types.POST_ADMIN_SECRET_FORM_REQUEST});
 
-  return  axios.post("http://localhost:2346/api/adminSecretSuccess/addadminsecretsuccess",payload)
+  return  axios.post("https://folk-server-fbkr.onrender.com/api/adminSecretSuccess/addadminsecretsuccess",payload)
     .then(res=>{
       return  dispatch({type:types.POST_ADMIN_SECRET_FORM_SUCCESS, payload:res.data})
     })
@@ -120,7 +120,7 @@ export const postAdminSecretFormData = (payload)=>(dispatch)=>{
 export const getAdminSecretFormData = ()=>(dispatch)=>{
     dispatch({type:types.GET_ADMIN_SECRET_FORM_REQUEST});
 
-  return  axios.get("http://localhost:2346/api/adminsecretsuccess")
+  return  axios.get("https://folk-server-fbkr.onrender.com/api/adminsecretsuccess")
     .then(res=>{
       return  dispatch({type:types.GET_ADMIN_SECRET_FORM_SUCCESS, payload:res.data.data})
     })
@@ -132,7 +132,7 @@ export const getAdminSecretFormData = ()=>(dispatch)=>{
 export const getSingleAdminSecretFormData = (id)=>(dispatch)=>{
   dispatch({type:types.GET_SINGLE_ADMIN_SECRET_FORM_REQUEST});
 
-return  axios.get(`http://localhost:2346/api/adminsecretsuccess/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminsecretsuccess/${id}`)
   .then(res=>{
     return  dispatch({type:types.GET_SINGLE_ADMIN_SECRET_FORM_SUCCESS, payload:res.data})
   })
@@ -144,7 +144,7 @@ return  axios.get(`http://localhost:2346/api/adminsecretsuccess/${id}`)
 export const updateAdminSecretFormData = (id,payload)=>(dispatch)=>{
   dispatch({type:types.UPDATE_ADMIN_SECRET_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminsecretsuccess/${id}`,payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminsecretsuccess/${id}`,payload)
   .then(res=>{
     return  dispatch({type:types.UPDATE_ADMIN_YOGA_FORM_SUCCESS, payload:res.data})
   })
@@ -158,7 +158,7 @@ return  axios.patch(`http://localhost:2346/api/adminsecretsuccess/${id}`,payload
 export const deleteAdminSecretFormData = (id)=>(dispatch)=>{
   dispatch({type:types.DELETE_ADMIN_SECRET_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminsecretsuccess/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminsecretsuccess/${id}`)
   .then(res=>{
     return  dispatch({type:types.DELETE_ADMIN_SECRET_FORM_SUCCESS, payload:res.data})
   })
@@ -172,7 +172,7 @@ return  axios.delete(`http://localhost:2346/api/adminsecretsuccess/${id}`)
 export const patchAttendanceAdminSecretFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_SECRET_ATTENDANCE_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/secrets/postattendance`,payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/secrets/postattendance`,payload)
   .then(res=>{
 
     return  dispatch({type:types.POST_SECRET_ATTENDANCE_SUCCESS, payload:res.data})
@@ -186,7 +186,7 @@ return  axios.patch(`http://localhost:2346/api/secrets/postattendance`,payload)
 
 export const getSecretDataBasedOnLocationAndUsers =()=>(dispatch)=>{
   dispatch({type:types.GET_SECRET_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS})
-   return axios.get("http://localhost:2346/api/secrets/events-by-location-users")
+   return axios.get("https://folk-server-fbkr.onrender.com/api/secrets/events-by-location-users")
     .then(res=>{
    return dispatch({type:types.GET_SECRET_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS, payload:res.data})
     })
@@ -206,7 +206,7 @@ export const getSecretDataBasedOnLocationAndUsers =()=>(dispatch)=>{
 export const postAdminMindControlFormData = (payload)=>(dispatch)=>{
     dispatch({type:types.POST_ADMIN_MIND_CONTROL_FORM_REQUEST});
 
-  return  axios.post("http://localhost:2346/api/adminartcontrol/addadminartcontrol",payload)
+  return  axios.post("https://folk-server-fbkr.onrender.com/api/adminartcontrol/addadminartcontrol",payload)
     .then(res=>{
       return  dispatch({type:types.POST_ADMIN_MIND_CONTROL_FORM_SUCCESS, payload:res.data})
     })
@@ -218,7 +218,7 @@ export const postAdminMindControlFormData = (payload)=>(dispatch)=>{
 export const getAdminMindControlFormData = ()=>(dispatch)=>{
   dispatch({type:types.GET_ADMIN_MIND_CONTROL_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/adminartcontrol")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/adminartcontrol")
   .then(res=>{
     return  dispatch({type:types.GET_ADMIN_MIND_CONTROL_FORM_SUCCESS, payload:res.data.data})
   })
@@ -230,7 +230,7 @@ return  axios.get("http://localhost:2346/api/adminartcontrol")
 export const singleAdminMindControlFormData = (id)=>(dispatch)=>{
   dispatch({type:types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_REQUEST});
  
-return  axios.get(`http://localhost:2346/api/adminartcontrol/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminartcontrol/${id}`)
   .then(res=>{
     return  dispatch({type:types.GET_SINGLE_ADMIN_MIND_CONTROL_FORM_SUCCESS, payload:res.data})
   })
@@ -243,7 +243,7 @@ return  axios.get(`http://localhost:2346/api/adminartcontrol/${id}`)
 export const deleteAdminMindControlFormData = (id)=>(dispatch)=>{
   dispatch({type:types.DELETE_ADMIN_MIND_CONTROL_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminartcontrol/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminartcontrol/${id}`)
   .then(res=>{
     return  dispatch({type:types.DELETE_ADMIN_MIND_CONTROL_FORM_SUCCESS, payload:res.data})
   })
@@ -256,7 +256,7 @@ return  axios.delete(`http://localhost:2346/api/adminartcontrol/${id}`)
 export const updateAdminMindControlFormData = (id,payload)=>(dispatch)=>{
   dispatch({type:types.UPDATE_ADMIN_MIND_CONTROL_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminartcontrol/${id}`, payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminartcontrol/${id}`, payload)
   .then(res=>{
     return  dispatch({type:types.UPDATE_ADMIN_MIND_CONTROL_FORM_SUCCESS, payload:res.data})
   })
@@ -268,7 +268,7 @@ return  axios.patch(`http://localhost:2346/api/adminartcontrol/${id}`, payload)
 export const patchAttendanceAdminMindFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_MIND_CONTROL_ATTENDANCE_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/arts/postattendance`,payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/arts/postattendance`,payload)
   .then(res=>{
 
     return  dispatch({type:types.POST_MIND_CONTROL_ATTENDANCE_SUCCESS, payload:res.data})
@@ -281,7 +281,7 @@ return  axios.patch(`http://localhost:2346/api/arts/postattendance`,payload)
 
 export const getMindDataBasedOnLocationAndUsers =()=>(dispatch)=>{
   dispatch({type:types.GET_MIND_CONTROL_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST})
-   return axios.get("http://localhost:2346/api/arts/events-by-location-users")
+   return axios.get("https://folk-server-fbkr.onrender.com/api/arts/events-by-location-users")
     .then(res=>{
    return dispatch({type:types.GET_MIND_CONTROL_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS, payload:res.data})
     })
@@ -303,7 +303,7 @@ export const getMindDataBasedOnLocationAndUsers =()=>(dispatch)=>{
 export const postAdminTripsFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_ADMIN_TRIPS_FORM_REQUEST});
 
-return  axios.post("http://localhost:2346/api/adminTrips/addAdminTrips",payload,{
+return  axios.post("https://folk-server-fbkr.onrender.com/api/adminTrips/addAdminTrips",payload,{
   headers: {
     'Content-Type': 'multipart/form-data',
 },
@@ -319,7 +319,7 @@ return  axios.post("http://localhost:2346/api/adminTrips/addAdminTrips",payload,
 export const getAdminTripsFormData = ()=>(dispatch)=>{
 dispatch({type:types.GET_ADMIN_TRIPS_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/adminTrips")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/adminTrips")
 .then(res=>{
   return  dispatch({type:types.GET_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data.data})
 })
@@ -331,7 +331,7 @@ return  axios.get("http://localhost:2346/api/adminTrips")
 export const singleAdminTripsFormData = (id)=>(dispatch)=>{
 dispatch({type:types.GET_SINGLE_ADMIN_TRIPS_FORM_REQUEST});
 // console.log("action id: " + id)
-return  axios.get(`http://localhost:2346/api/adminTrips/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminTrips/${id}`)
 .then(res=>{
 
   return  dispatch({type:types.GET_SINGLE_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
@@ -345,7 +345,7 @@ return  axios.get(`http://localhost:2346/api/adminTrips/${id}`)
 export const deleteAdminTripsFormData = (id)=>(dispatch)=>{
 dispatch({type:types.DELETE_ADMIN_TRIPS_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminTrips/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminTrips/${id}`)
 .then(res=>{
   return  dispatch({type:types.DELETE_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
 })
@@ -358,7 +358,7 @@ return  axios.delete(`http://localhost:2346/api/adminTrips/${id}`)
 export const updateAdminTripsFormData = (id,payload)=>(dispatch)=>{
 dispatch({type:types.UPDATE_ADMIN_TRIPS_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminTrips/${id}`, payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminTrips/${id}`, payload)
 .then(res=>{
   return  dispatch({type:types.UPDATE_ADMIN_TRIPS_FORM_SUCCESS, payload:res.data})
 })
@@ -371,7 +371,7 @@ return  axios.patch(`http://localhost:2346/api/adminTrips/${id}`, payload)
 export const patchAttendanceAdminTripsFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_TRIPS_ATTENDANCE_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/trips/postattendance`,payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/trips/postattendance`,payload)
   .then(res=>{
 
     return  dispatch({type:types.POST_TRIPS_ATTENDANCE_SUCCESS, payload:res.data})
@@ -384,7 +384,7 @@ return  axios.patch(`http://localhost:2346/api/trips/postattendance`,payload)
 
 export const getTripsDataBasedOnLocationAndUsers =()=>(dispatch)=>{
   dispatch({type:types.GET_TRIPS_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST})
-   return axios.get("http://localhost:2346/api/trips/events-by-location-users")
+   return axios.get("https://folk-server-fbkr.onrender.com/api/trips/events-by-location-users")
     .then(res=>{
    return dispatch({type:types.GET_TRIPS_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS, payload:res.data})
     })
@@ -402,7 +402,7 @@ export const getTripsDataBasedOnLocationAndUsers =()=>(dispatch)=>{
 export const postAdminResidencyFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_ADMIN_RESIDENCY_FORM_REQUEST});
 
-return  axios.post("http://localhost:2346/api/adminResidency/addAdminResidency",payload,{
+return  axios.post("https://folk-server-fbkr.onrender.com/api/adminResidency/addAdminResidency",payload,{
   headers: {
     'Content-Type': 'multipart/form-data',
 },
@@ -418,7 +418,7 @@ return  axios.post("http://localhost:2346/api/adminResidency/addAdminResidency",
 export const getAdminResidencyFormData = ()=>(dispatch)=>{
 dispatch({type:types.GET_ADMIN_RESIDENCY_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/adminResidency")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/adminResidency")
 .then(res=>{
   return  dispatch({type:types.GET_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data.data})
 })
@@ -430,7 +430,7 @@ return  axios.get("http://localhost:2346/api/adminResidency")
 export const singleAdminResidencyFormData = (id)=>(dispatch)=>{
 dispatch({type:types.GET_SINGLE_ADMIN_RESIDENCY_FORM_REQUEST});
 // console.log("action id: " + id)
-return  axios.get(`http://localhost:2346/api/adminResidency/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminResidency/${id}`)
 .then(res=>{
   return  dispatch({type:types.GET_SINGLE_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data})
 })
@@ -443,7 +443,7 @@ return  axios.get(`http://localhost:2346/api/adminResidency/${id}`)
 export const deleteAdminResidencyFormData = (id)=>(dispatch)=>{
 dispatch({type:types.DELETE_ADMIN_RESIDENCY_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminResidency/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminResidency/${id}`)
 .then(res=>{
   return  dispatch({type:types.DELETE_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data})
 })
@@ -457,7 +457,7 @@ export const updateAdminResidencyFormData = (id,payload)=>(dispatch)=>{
 
 dispatch({type:types.UPDATE_ADMIN_RESIDENCY_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminResidency/${id}`, payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminResidency/${id}`, payload)
 .then(res=>{
   return  dispatch({type:types.UPDATE_ADMIN_RESIDENCY_FORM_SUCCESS, payload:res.data})
 })
@@ -475,7 +475,7 @@ return  axios.patch(`http://localhost:2346/api/adminResidency/${id}`, payload)
 export const postAdminFestivalsFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_ADMIN_FESTIVALS_FORM_REQUEST});
   console.log("action form", payload)
-return  axios.post("http://localhost:2346/api/adminFestival/addAdminFestival",payload,{
+return  axios.post("https://folk-server-fbkr.onrender.com/api/adminFestival/addAdminFestival",payload,{
   headers: {
     'Content-Type': 'multipart/form-data',
 },
@@ -491,7 +491,7 @@ return  axios.post("http://localhost:2346/api/adminFestival/addAdminFestival",pa
 export const getAdminFestivalsFormData = ()=>(dispatch)=>{
 dispatch({type:types.GET_ADMIN_FESTIVALS_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/adminFestival")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/adminFestival")
 .then(res=>{
   return  dispatch({type:types.GET_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data.data})
 })
@@ -503,7 +503,7 @@ return  axios.get("http://localhost:2346/api/adminFestival")
 export const singleAdminFestivalsFormData = (id)=>(dispatch)=>{
 dispatch({type:types.GET_SINGLE_ADMIN_FESTIVALS_FORM_REQUEST});
 // console.log("action id: " + id)
-return  axios.get(`http://localhost:2346/api/adminFestival/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminFestival/${id}`)
 .then(res=>{
   return  dispatch({type:types.GET_SINGLE_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data})
 })
@@ -516,7 +516,7 @@ return  axios.get(`http://localhost:2346/api/adminFestival/${id}`)
 export const deleteAdminFestivalsFormData = (id)=>(dispatch)=>{
 dispatch({type:types.DELETE_ADMIN_FESTIVALS_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminFestival/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminFestival/${id}`)
 .then(res=>{
   return  dispatch({type:types.DELETE_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data})
 })
@@ -529,7 +529,7 @@ return  axios.delete(`http://localhost:2346/api/adminFestival/${id}`)
 export const updateAdminFestivalsFormData = (id,payload)=>(dispatch)=>{
 dispatch({type:types.UPDATE_ADMIN_FESTIVALS_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminFestival/${id}`, payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminFestival/${id}`, payload)
 .then(res=>{
   return  dispatch({type:types.UPDATE_ADMIN_FESTIVALS_FORM_SUCCESS, payload:res.data})
 })
@@ -542,7 +542,7 @@ return  axios.patch(`http://localhost:2346/api/adminFestival/${id}`, payload)
 export const patchAttendanceAdminFestivalsFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_FESTIVALS_ATTENDANCE_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/festivals/postattendance`,payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/festivals/postattendance`,payload)
   .then(res=>{
 
     return  dispatch({type:types.POST_FESTIVALS_ATTENDANCE_SUCCESS, payload:res.data})
@@ -555,7 +555,7 @@ return  axios.patch(`http://localhost:2346/api/festivals/postattendance`,payload
 
 export const getFestivalsDataBasedOnLocationAndUsers =()=>(dispatch)=>{
   dispatch({type:types.GET_FESTIVALS_DATA_BASED_ON_LOCATION_AND_USERS_REQUEST})
-   return axios.get("http://localhost:2346/api/festival/events-by-location-users")
+   return axios.get("https://folk-server-fbkr.onrender.com/api/festival/events-by-location-users")
     .then(res=>{
    return dispatch({type:types.GET_FESTIVALS_DATA_BASED_ON_LOCATION_AND_USERS_SUCCESS, payload:res.data})
     })
@@ -575,7 +575,7 @@ export const getFestivalsDataBasedOnLocationAndUsers =()=>(dispatch)=>{
 export const postAdminBlogsFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_ADMIN_BLOGS_FORM_REQUEST});
 
-return  axios.post("http://localhost:2346/api/adminblogs/addblogsdata",payload,{
+return  axios.post("https://folk-server-fbkr.onrender.com/api/adminblogs/addblogsdata",payload,{
   headers: {
     'Content-Type': 'multipart/form-data',
 },
@@ -591,7 +591,7 @@ return  axios.post("http://localhost:2346/api/adminblogs/addblogsdata",payload,{
 export const getAdminBlogsFormData = ()=>(dispatch)=>{
 dispatch({type:types.GET_ADMIN_BLOGS_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/adminblogs")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/adminblogs")
 .then(res=>{
   return  dispatch({type:types.GET_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data.data})
 })
@@ -603,7 +603,7 @@ return  axios.get("http://localhost:2346/api/adminblogs")
 export const singleAdminBlogsFormData = (id)=>(dispatch)=>{
 dispatch({type:types.GET_SINGLE_ADMIN_BLOGS_FORM_REQUEST});
 // console.log("action id: " + id)
-return  axios.get(`http://localhost:2346/api/adminblogs/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminblogs/${id}`)
 .then(res=>{
   return  dispatch({type:types.GET_SINGLE_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data.data})
 })
@@ -616,7 +616,7 @@ return  axios.get(`http://localhost:2346/api/adminblogs/${id}`)
 export const deleteAdminBlogsFormData = (id)=>(dispatch)=>{
 dispatch({type:types.DELETE_ADMIN_BLOGS_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminblogs/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminblogs/${id}`)
 .then(res=>{
   return  dispatch({type:types.DELETE_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data})
 })
@@ -629,7 +629,7 @@ return  axios.delete(`http://localhost:2346/api/adminblogs/${id}`)
 export const updateAdminBlogsFormData = (id,payload)=>(dispatch)=>{
 dispatch({type:types.UPDATE_ADMIN_BLOGS_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminblogs/${id}`, payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminblogs/${id}`, payload)
 .then(res=>{
   return  dispatch({type:types.UPDATE_ADMIN_BLOGS_FORM_SUCCESS, payload:res.data})
 })
@@ -646,7 +646,7 @@ return  axios.patch(`http://localhost:2346/api/adminblogs/${id}`, payload)
 export const postAdminGalleryFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_ADMIN_GALLERY_FORM_REQUEST});
 
-return  axios.post("http://localhost:2346/api/adminGallery/addAdminGallery",payload,{
+return  axios.post("https://folk-server-fbkr.onrender.com/api/adminGallery/addAdminGallery",payload,{
   headers: {
     'Content-Type': 'multipart/form-data',
 },
@@ -662,7 +662,7 @@ return  axios.post("http://localhost:2346/api/adminGallery/addAdminGallery",payl
 export const getAdminGalleryFormData = ()=>(dispatch)=>{
 dispatch({type:types.GET_ADMIN_GALLERY_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/adminGallery")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/adminGallery")
 .then(res=>{
   return  dispatch({type:types.GET_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data.data})
 })
@@ -674,7 +674,7 @@ return  axios.get("http://localhost:2346/api/adminGallery")
 export const singleAdminGalleryFormData = (id)=>(dispatch)=>{
 dispatch({type:types.GET_SINGLE_ADMIN_GALLERY_FORM_REQUEST});
 // console.log("action id: " + id)
-return  axios.get(`http://localhost:2346/api/adminGallery/${id}`)
+return  axios.get(`https://folk-server-fbkr.onrender.com/api/adminGallery/${id}`)
 .then(res=>{
   return  dispatch({type:types.GET_SINGLE_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data.data})
 })
@@ -687,7 +687,7 @@ return  axios.get(`http://localhost:2346/api/adminGallery/${id}`)
 export const deleteAdminGalleryFormData = (id)=>(dispatch)=>{
 dispatch({type:types.DELETE_ADMIN_GALLERY_FORM_REQUEST});
 
-return  axios.delete(`http://localhost:2346/api/adminGallery/${id}`)
+return  axios.delete(`https://folk-server-fbkr.onrender.com/api/adminGallery/${id}`)
 .then(res=>{
   return  dispatch({type:types.DELETE_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data})
 })
@@ -700,7 +700,7 @@ return  axios.delete(`http://localhost:2346/api/adminGallery/${id}`)
 export const updateAdminGalleryFormData = (id,payload)=>(dispatch)=>{
 dispatch({type:types.UPDATE_ADMIN_GALLERY_FORM_REQUEST});
 
-return  axios.patch(`http://localhost:2346/api/adminGallery/${id}`, payload)
+return  axios.patch(`https://folk-server-fbkr.onrender.com/api/adminGallery/${id}`, payload)
 .then(res=>{
   return  dispatch({type:types.UPDATE_ADMIN_GALLERY_FORM_SUCCESS, payload:res.data})
 })
@@ -719,7 +719,7 @@ export const postYogaFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_YOGA_FORM_REQUEST});
   console.log(payload)
 
-return  axios.post("http://localhost:2346/api/yoga/addYogaData",payload)
+return  axios.post("https://folk-server-fbkr.onrender.com/api/yoga/addYogaData",payload)
   .then(res=>{
     return  dispatch({type:types.POST_YOGA_FORM_SUCCESS, payload:res.data})
   })
@@ -731,7 +731,7 @@ return  axios.post("http://localhost:2346/api/yoga/addYogaData",payload)
 export const getYogaFormData = ()=>(dispatch)=>{
   dispatch({type:types.GET_YOGA_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/yoga")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/yoga")
   .then(res=>{
 
     return  dispatch({type:types.GET_YOGA_FORM_SUCCESS, payload:res.data.data})
@@ -751,7 +751,7 @@ return  axios.get("http://localhost:2346/api/yoga")
 export const postSecretOFSuccessFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_SECRET_OF_SUCCESS_FORM_REQUEST});
 
-return  axios.post("http://localhost:2346/api/secrets/addsecretsdata",payload)
+return  axios.post("https://folk-server-fbkr.onrender.com/api/secrets/addsecretsdata",payload)
   .then(res=>{
     return  dispatch({type:types.POST_SECRET_OF_SUCCESS_FORM_SUCCESS, payload:res.data})
   })
@@ -763,7 +763,7 @@ return  axios.post("http://localhost:2346/api/secrets/addsecretsdata",payload)
 export const getSecretOfSuccessFormData = ()=>(dispatch)=>{
   dispatch({type:types.GET_SECRET_OF_SUCCESS_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/secrets")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/secrets")
   .then(res=>{
       
     return  dispatch({type:types.GET_SECRET_OF_SUCCESS_FORM_SUCCESS, payload:res.data.data})
@@ -782,7 +782,7 @@ return  axios.get("http://localhost:2346/api/secrets")
 export const postArtOfMindFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST__ART_OF_MIND_FORM_REQUEST});
 
-return  axios.post("http://localhost:2346/api/arts/addArtsData",payload)
+return  axios.post("https://folk-server-fbkr.onrender.com/api/arts/addArtsData",payload)
   .then(res=>{
     return  dispatch({type:types.POST__ART_OF_MIND_FORM_SUCCESS, payload:res.data})
   })
@@ -794,7 +794,7 @@ return  axios.post("http://localhost:2346/api/arts/addArtsData",payload)
 export const getArtOfMindFormData = ()=>(dispatch)=>{
   dispatch({type:types.GET_ART_OF_MIND_FORM_REQUEST});
 
-return  axios.get("http://localhost:2346/api/arts")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/arts")
   .then(res=>{
       
     return  dispatch({type:types.GET_ART_OF_MIND_FORM_SUCCESS, payload:res.data.data})
@@ -813,7 +813,7 @@ return  axios.get("http://localhost:2346/api/arts")
 export const postFestivalsFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_FESTIVALS_REQUEST});
 
-return  axios.post("http://localhost:2346/api/festival/addFestivalData",payload)
+return  axios.post("https://folk-server-fbkr.onrender.com/api/festival/addFestivalData",payload)
   .then(res=>{
     return  dispatch({type:types.POST_FESTIVALS_SUCCESS, payload:res.data})
   })
@@ -825,7 +825,7 @@ return  axios.post("http://localhost:2346/api/festival/addFestivalData",payload)
 export const getFestivalsFormData = ()=>(dispatch)=>{
   dispatch({type:types.GET_FESTIVALS_REQUEST});
 
-return  axios.get("http://localhost:2346/api/festival")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/festival")
   .then(res=>{
    
     return  dispatch({type:types.GET_FESTIVALS_SUCCESS, payload:res.data.data})
@@ -843,7 +843,7 @@ return  axios.get("http://localhost:2346/api/festival")
 export const postTripsFormData = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_TRIPS_REQUEST});
 
-return  axios.post("http://localhost:2346/api/trips/addTripsData",payload)
+return  axios.post("https://folk-server-fbkr.onrender.com/api/trips/addTripsData",payload)
   .then(res=>{
     return  dispatch({type:types.POST_TRIPS_SUCCESS, payload:res.data})
   })
@@ -855,7 +855,7 @@ return  axios.post("http://localhost:2346/api/trips/addTripsData",payload)
 export const getTripsFormData = ()=>(dispatch)=>{
   dispatch({type:types.GET_TRIPS_REQUEST});
 
-return  axios.get("http://localhost:2346/api/trips")
+return  axios.get("https://folk-server-fbkr.onrender.com/api/trips")
   .then(res=>{
       
     return  dispatch({type:types.GET_TRIPS_SUCCESS, payload:res.data.data})

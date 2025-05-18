@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const makePayment =async(amount)=>{
         
-        const data = await axios.post("http://localhost:2346/api/payments/order", {amount})
+        const data = await axios.post("https://folk-server-fbkr.onrender.com/api/payments/order", {amount})
 
 
     var options = {

@@ -3,7 +3,7 @@ import * as types from "./actionTypes";
 
  export const postLogin = (payload)=>(dispatch)=>{
   dispatch({type:types.POST_LOGIN_REQUEST});
- return axios.post(`http://localhost:2346/api/users/login`, payload)
+ return axios.post(`https://folk-server-fbkr.onrender.com/api/users/login`, payload)
   .then(res=>{
    return dispatch({type:types.POST_LOGIN_SUCCESS, payload:res.data})
   })
